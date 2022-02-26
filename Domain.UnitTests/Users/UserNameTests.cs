@@ -23,7 +23,7 @@ public sealed class UserNameTests
     [Fact(DisplayName = "User name cannot be whitespace.")]
     public void User_Name_Cannot_Be_Whitespace()
     {
-        Func<UserName> act = () => new("     \r\n");
+        Func<UserName> act = () => new("   \r\t");
 
         act.Should()
             .ThrowExactly<ArgumentException>()
@@ -33,7 +33,7 @@ public sealed class UserNameTests
     [Fact(DisplayName = "User name cannot be longer than 10 characters.")]
     public void User_Name_Cannot_Be_Longer_Than_10_Characters()
     {
-        Func<UserName> act = () => new(new('A', 51));
+        Func<UserName> act = () => new(new('A', 11));
 
         act.Should()
             .ThrowExactly<ArgumentException>()

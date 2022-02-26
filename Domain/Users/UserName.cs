@@ -10,7 +10,7 @@ public sealed record UserName
 {
     internal UserName(string value)
     {
-        if (string.IsNullOrEmpty(value.Trim()))
+        if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("User name cannot be an empty name.");
 
         if (value.Length > 10)
