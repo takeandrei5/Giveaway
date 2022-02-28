@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Listings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,17 @@ namespace Domain.Items;
 
 public sealed record Item
 {
-    internal Item(ItemId id, ItemTitle title, ItemDescription description)
+    internal Item(ItemId id, ItemTitle title, ListingId listingId, ItemDescription description)
     {
         Id = id;
         Title = title;
         Description = description;
+        ListingId = listingId;
     }
 
     public ItemId Id { get; init; }
+
+    public ListingId ListingId { get; init; }
 
     public ItemTitle Title { get; init; }
 

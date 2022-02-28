@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Items;
 using Domain.Listings;
 
 namespace Domain.Users;
@@ -19,9 +20,6 @@ public sealed record User
 
     public UserName UserName { get; init; }
 
-    public Listing CreateListing(ListingTitle title, ListingDescription description)
-    {
-        throw new NotImplementedException();
-        //return new Listing(new(Guid.NewGuid(), 
-    }
+    public Listing CreateListing(ListingTitle title, ListingDescription description, IEnumerable<Item> items)
+        => new(new(Guid.NewGuid()), title, description, items, this);
 }

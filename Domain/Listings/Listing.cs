@@ -10,7 +10,7 @@ namespace Domain.Listings;
 
 public sealed record Listing
 {
-    internal Listing(ListingId id, ListingTitle title, ListingDescription description, User owner, IEnumerable<Item> items)
+    internal Listing(ListingId id, ListingTitle title, ListingDescription description, IEnumerable<Item> items, User owner)
     {
         Id = id;
         Title = title;
@@ -32,4 +32,7 @@ public sealed record Listing
     public IEnumerable<Item> Items { get; init; }
 
     public User Owner { get; init; }
+
+    public Item CreateItem(ItemTitle title, ItemDescription description)
+        => new(new(Guid.NewGuid()), title, Id, description);
 }
