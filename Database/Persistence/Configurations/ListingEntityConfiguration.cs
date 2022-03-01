@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 
 namespace Database.Persistence.Configurations;
 
-public sealed class ListingConfiguration : IEntityTypeConfiguration<ListingEntity>
+public sealed class ListingEntityConfiguration : IEntityTypeConfiguration<ListingEntity>
 {
     public void Configure(EntityTypeBuilder<ListingEntity> builder)
     {
+        builder.ToTable("Listings", "dbo");
+
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Title)

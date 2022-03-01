@@ -17,7 +17,9 @@ public sealed class AppDbContext : DbContext
     }
 
     public DbSet<ItemEntity> Items { get; set; } = null!;
+
     public DbSet<ListingEntity> Listings { get; set; } = null!;
+
     public DbSet<UserEntity> Users { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -13,6 +13,8 @@ public sealed class ItemEntityConfiguration : IEntityTypeConfiguration<ItemEntit
 {
     public void Configure(EntityTypeBuilder<ItemEntity> builder)
     {
+        builder.ToTable("Items", "dbo");
+
         builder.HasKey(x => x.Id);
 
         builder.BelongsTo<ItemEntity, ListingEntity>(x => x.ListingId);
@@ -22,7 +24,7 @@ public sealed class ItemEntityConfiguration : IEntityTypeConfiguration<ItemEntit
             .IsRequired();
 
         builder.Property(x => x.Description)
-            .HasMaxLength(250)
+            .HasMaxLength(80)
             .IsRequired();
 
         builder.Property(x => x.CreatedAt)
