@@ -26,7 +26,7 @@ public sealed class Repository : IListingRepository
                 Id = listing.Id.Value,
                 Title = listing.Title.Value,
                 Description = listing.Description.Value,
-                OwnerId = listing.Owner.UserId.Value
+                OwnerId = listing.Owner.Id.Value
             }, cancellationToken);
 
             await _dbContext.SaveChangesAsync(cancellationToken);

@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Database;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database.UnitTests.Helpers;
+namespace Giveaway.Database.UnitTests.Helpers;
 
 public static class DatabaseExtensions
 {

@@ -13,8 +13,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
+using Database.UnitTests.ItemDbOperations;
+using Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 
-namespace Database.UnitTests.ItemDbOperations.ReaderTests;
+namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 
 public sealed class CreateAsync_1 : Base
 {

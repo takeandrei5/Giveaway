@@ -10,17 +10,12 @@ namespace Domain.Listings;
 
 public sealed record Listing
 {
-    internal Listing(ListingId id, ListingTitle title, ListingDescription description, IEnumerable<Item> items, User owner)
+    internal Listing(ListingId id, ListingTitle title, ListingDescription description, User owner)
     {
         Id = id;
         Title = title;
         Description = description;
         Owner = owner;
-
-        if (items is null || !items.Any())
-            throw new ArgumentException("Listing items cannot be an empty list.");
-
-        Items = items;
     }
 
     public ListingId Id { get; init; }
@@ -28,8 +23,6 @@ public sealed record Listing
     public ListingTitle Title { get; init; }
 
     public ListingDescription Description { get; init; }
-
-    public IEnumerable<Item> Items { get; init; }
 
     public User Owner { get; init; }
 

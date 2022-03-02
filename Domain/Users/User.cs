@@ -10,16 +10,16 @@ namespace Domain.Users;
 
 public sealed record User
 {
-    internal User(ListingId userId, UserName userName)
+    internal User(UserId id, UserName name)
     {
-        UserId = userId;
-        UserName = userName;
+        Id = id;
+        Name = name;
     }
 
-    public ListingId UserId { get; init; }
+    public UserId Id { get; init; }
 
-    public UserName UserName { get; init; }
+    public UserName Name { get; init; }
 
-    public Listing CreateListing(ListingTitle title, ListingDescription description, IEnumerable<Item> items)
-        => new(new(Guid.NewGuid()), title, description, items, this);
+    public Listing CreateListing(ListingTitle title, ListingDescription description)
+        => new(new(Guid.NewGuid()), title, description, this);
 }

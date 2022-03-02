@@ -1,14 +1,15 @@
 ﻿using AutoFixture;
 using Database.DataAccess.ItemDbOperations;
 using Database.Persistence.Entities;
-using Database.UnitTests.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.UnitTests.Helpers;
+using Database;
 
-namespace Database.UnitTests.ItemDbOperations.ReaderTests;
+namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 
 public class Base : IDisposable
 {
