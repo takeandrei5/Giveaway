@@ -26,11 +26,11 @@ public sealed class ListingEntityConfiguration : IEntityTypeConfiguration<Listin
             .IsRequired();
 
         builder.Property(x => x.CreatedAt)
-            .HasDefaultValue(DateTime.UtcNow)
+            .HasDefaultValueSql("GETUTCDATE()")
             .IsRequired();
 
         builder.Property(x => x.LastModifiedAt)
-            .HasDefaultValue(DateTime.UtcNow)
+            .HasDefaultValueSql("GETUTCDATE()")
             .IsRequired();
     }
 }

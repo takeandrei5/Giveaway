@@ -20,5 +20,8 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<UserEntit
         builder.Property(x => x.Name)
             .HasMaxLength(10)
             .IsRequired();
+
+        builder.Property(x => x.Email)
+            .IsRequired();
     }
 }
