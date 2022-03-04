@@ -1,11 +1,11 @@
-﻿using Domain.Users;
-using FluentAssertions;
+﻿using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Giveaway.Domain.Users;
 
 namespace Giveaway.Domain.UnitTests.Users;
 public sealed class UserEmailTests

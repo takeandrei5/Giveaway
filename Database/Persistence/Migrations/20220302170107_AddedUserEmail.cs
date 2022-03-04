@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Database.Persistence.Migrations
+namespace Giveaway.Database.Persistence.Migrations
 {
     public partial class AddedUserEmail : Migration
     {

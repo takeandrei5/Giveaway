@@ -1,13 +1,14 @@
-﻿using Domain.Interfaces;
-using Domain.Users;
+﻿using Microsoft.EntityFrameworkCore;
 using SoftwareCraft.Functional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Domain.Users;
+using Giveaway.Domain.Interfaces;
 
-namespace Database.DataAccess.UserDbOperations;
+namespace Giveaway.Database.DataAccess.UserDbOperations;
 
 public sealed class Repository : IUserRepository
 {
@@ -15,9 +16,15 @@ public sealed class Repository : IUserRepository
 
     public Repository(AppDbContext dbContext) => _dbContext = dbContext;
 
-    public Task<Result<Maybe<User>, string>> FindUserByEmailAsync(string email)
+    public async Task<User> FindUserByEmailAsync(string email, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
-        //_dbContext.Users.Where(x => x.Email)
+        var userEntity = await _dbContext.Users
+            .Where(x => x.Email == email)
+            .SingleOrDefaultAsync(cancellationToken);
+
+        if (userEntity == null)
+            throw new Exception($"User onboarding issue for email {email}");
+
+        return new User(new UserId(userEntity.Id), new UserName(userEntity.Name), new UserEmail(userEntity.Email));
     }
 }

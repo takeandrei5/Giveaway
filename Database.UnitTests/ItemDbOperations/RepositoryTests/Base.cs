@@ -1,13 +1,13 @@
 ﻿using AutoFixture;
-using Database.DataAccess.ItemDbOperations;
-using Database.Persistence.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Database.UnitTests.Helpers;
-using Database;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Database.DataAccess.ItemDbOperations;
+using Giveaway.Database;
 
 namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 

@@ -1,15 +1,15 @@
-﻿using Database.Persistence.Entities;
-using Domain.Interfaces;
-using Domain.Items;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SoftwareCraft.Functional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Domain.Interfaces;
+using Giveaway.Domain.Items;
 
-namespace Database.DataAccess.ItemDbOperations;
+namespace Giveaway.Database.DataAccess.ItemDbOperations;
 
 public sealed class Repository : IItemRepository
 {

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Users;
 
-namespace Domain.Listings;
+namespace Giveaway.Domain.Listings;
 
 public sealed record ListingTitle
 {
-    internal ListingTitle(string value)
+    public ListingTitle(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Listing title cannot be an empty title.");

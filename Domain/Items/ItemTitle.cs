@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Items;
+namespace Giveaway.Domain.Items;
 
 public sealed record ItemTitle
 {
-    internal ItemTitle(string value)
+    public ItemTitle(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Item title cannot be an empty title.");

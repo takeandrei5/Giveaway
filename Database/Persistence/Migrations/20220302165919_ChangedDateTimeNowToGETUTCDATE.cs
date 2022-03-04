@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Database.Persistence.Migrations
+namespace Giveaway.Database.Persistence.Migrations
 {
     public partial class ChangedDateTimeNowToGETUTCDATE : Migration
     {

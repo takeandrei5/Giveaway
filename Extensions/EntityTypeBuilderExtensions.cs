@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Extensions;
+namespace Giveaway.Extensions;
 
 public static class EntityTypeBuilderExtensions
 {

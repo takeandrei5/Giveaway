@@ -1,12 +1,13 @@
-﻿using Domain.Items;
-using Domain.Users;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Domain.Users;
+using Giveaway.Domain.Items;
+using Giveaway.Domain.Listings;
 
-namespace Domain.Listings;
+namespace Giveaway.Domain.Listings;
 
 public sealed record Listing
 {

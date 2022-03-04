@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database.Persistence.Entities;
+namespace Giveaway.Database.Persistence.Entities;
 
 public sealed class ItemEntity
 {

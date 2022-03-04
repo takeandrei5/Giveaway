@@ -6,4 +6,5 @@ using System.Text;
 using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("Giveaway.Domain.UnitTests")]
+[assembly: InternalsVisibleTo("Giveaway.Database")]
 [assembly: InternalsVisibleTo("Giveaway.Database.UnitTests")]

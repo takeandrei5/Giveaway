@@ -1,8 +1,4 @@
 ﻿using AutoFixture;
-using Database.Persistence.Entities;
-using Domain.Items;
-using Domain.Listings;
-using Extensions;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -15,6 +11,10 @@ using System.Threading.Tasks;
 using Xunit;
 using Database.UnitTests.ItemDbOperations;
 using Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Domain.Items;
+using Giveaway.Domain.Listings;
+using Giveaway.Extensions;
 
 namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 

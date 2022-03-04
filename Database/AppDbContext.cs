@@ -1,13 +1,14 @@
-﻿using Database.Persistence.Configurations;
-using Database.Persistence.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.Persistence.Configurations;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Database;
 
-namespace Database;
+namespace Giveaway.Database;
 
 public sealed class AppDbContext : DbContext
 {

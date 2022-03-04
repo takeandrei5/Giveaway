@@ -1,15 +1,15 @@
-﻿using Database.Persistence.Entities;
-using Domain.Interfaces;
-using Domain.Listings;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SoftwareCraft.Functional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Domain.Interfaces;
+using Giveaway.Domain.Listings;
 
-namespace Database.DataAccess.ListingDbOperations;
+namespace Giveaway.Database.DataAccess.ListingDbOperations;
 
 public sealed class Repository : IListingRepository
 {

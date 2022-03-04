@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Items;
+namespace Giveaway.Domain.Items;
 
 public sealed record ItemDescription
 {
-    internal ItemDescription(string value)
+    public ItemDescription(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Item description cannot be an empty description.");

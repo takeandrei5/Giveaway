@@ -1,8 +1,4 @@
 ﻿using AutoFixture;
-using Database.Persistence.Entities;
-using Domain.Items;
-using Domain.Listings;
-using Extensions;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -14,7 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Database.UnitTests.ItemDbOperations;
-using Domain.Users;
+using Giveaway.Domain.Users;
+using Giveaway.Domain.Listings;
+using Giveaway.Extensions;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
@@ -27,7 +25,7 @@ public sealed class CreateAsync_1 : Base
         var users = _fixture.CreateManyUserEntity(10)
             .ToList();
 
-        var user = new User(new(users[0].Id), new(users[0].Name));
+        var user = new User(new(users[0].Id), new(users[0].Name), new(users[0].Email));
 
         await SetupDatabase(users);
 

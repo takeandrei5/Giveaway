@@ -1,14 +1,14 @@
-﻿using Database.Persistence.Entities;
-using Extensions;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Extensions;
 
-namespace Database.Persistence.Configurations;
+namespace Giveaway.Database.Persistence.Configurations;
 public sealed class ItemEntityConfiguration : IEntityTypeConfiguration<ItemEntity>
 {
     public void Configure(EntityTypeBuilder<ItemEntity> builder)

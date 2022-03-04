@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Giveaway.WebApi.Controllers;
 
-namespace Giveaway.Controllers;
+namespace Giveaway.WebApi.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase

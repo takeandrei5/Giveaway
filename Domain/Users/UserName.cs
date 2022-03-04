@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Users;
+namespace Giveaway.Domain.Users;
 
 public sealed record UserName
 {
-    internal UserName(string value)
+    public UserName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("User name cannot be an empty name.");

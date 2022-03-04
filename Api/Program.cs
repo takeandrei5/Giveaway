@@ -1,5 +1,5 @@
-using Database;
 using Microsoft.EntityFrameworkCore;
+using Giveaway.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 

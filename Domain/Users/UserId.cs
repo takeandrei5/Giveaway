@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Users;
+namespace Giveaway.Domain.Users;
 
 public sealed record UserId
 {
-    internal UserId(Guid value)
+    public UserId(Guid value)
     {
         if (value == Guid.Empty)
             throw new ArgumentException("User id cannot be an empty Guid.");

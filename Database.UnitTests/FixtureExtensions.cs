@@ -1,11 +1,11 @@
 ﻿using AutoFixture;
-using Database.Persistence.Entities;
-using Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Giveaway.Database.Persistence.Entities;
+using Giveaway.Extensions;
 
 namespace Database.UnitTests.ItemDbOperations;
 
@@ -20,7 +20,8 @@ public static class FixtureExtensions
             users.Add(new UserEntity
             {
                 Id = fixture.Create<Guid>(),
-                Name = fixture.CreateTextWithMaxLength(10)
+                Name = fixture.CreateTextWithMaxLength(10),
+                Email = fixture.CreateEmail()
             });
         }
 

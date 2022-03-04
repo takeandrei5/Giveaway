@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Users;
 
-namespace Domain.Listings;
+namespace Giveaway.Domain.Listings;
 
 public sealed record ListingId
 {
-    internal ListingId(Guid value)
+    public ListingId(Guid value)
     {
         if (value == Guid.Empty)
             throw new ArgumentException("Listing id cannot be an empty Guid.");
