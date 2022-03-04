@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Giveaway.Database;
+using Giveaway.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// UseCases
+builder.Services.AddApplicationUseCases();
 
 app.UseHttpsRedirection();
 

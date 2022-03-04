@@ -9,5 +9,5 @@ using Giveaway.Domain.Items;
 namespace Giveaway.Domain.Interfaces;
 public interface IItemRepository
 {
-    Task<Result<string>> CreateAsync(Item item, CancellationToken cancellationToken);
+    Task<Result<string>> CreateManyAsync(IEnumerable<Item> items, CancellationToken cancellationToken);
 }

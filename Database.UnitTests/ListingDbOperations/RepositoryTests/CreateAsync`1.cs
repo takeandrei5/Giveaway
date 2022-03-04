@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Database.UnitTests.ItemDbOperations;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Listings;
 using Giveaway.Extensions;
+using Database.UnitTests.ItemDbOperations;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Giveaway.Domain.Listings;
 
 namespace Giveaway.Domain.Interfaces;
+
 public interface IListingRepository
 {
     Task<Result<string>> CreateAsync(Listing listing, CancellationToken cancellationToken);

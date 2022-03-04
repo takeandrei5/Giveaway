@@ -17,17 +17,17 @@ public sealed class Repository : IItemRepository
 
     public Repository(AppDbContext dbContext) => _dbContext = dbContext;
 
-    public async Task<Result<string>> CreateAsync(Item item, CancellationToken cancellationToken)
+    public async Task<Result<string>> CreateManyAsync(IEnumerable<Item> items, CancellationToken cancellationToken)
     {
         try
         {
-            await _dbContext.Items.AddAsync(new ItemEntity
+            await _dbContext.Items.AddRangeAsync(items.Select(item => new ItemEntity
             {
                 Id = item.Id.Value,
                 ListingId = item.ListingId.Value,
                 Title = item.Title.Value,
                 Description = item.Description.Value,
-            }, cancellationToken);
+            }), cancellationToken);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

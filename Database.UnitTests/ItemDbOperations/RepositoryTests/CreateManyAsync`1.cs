@@ -9,18 +9,18 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Database.UnitTests.ItemDbOperations;
 using Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Domain.Items;
 using Giveaway.Domain.Listings;
 using Giveaway.Extensions;
+using Database.UnitTests.ItemDbOperations;
 
 namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 
-public sealed class CreateAsync_1 : Base
+public sealed class CreateManyAsync_1 : Base
 {
-    [Fact(DisplayName = "CreateAsync inserts ItemEntity successfully.")]
+    [Fact(DisplayName = "CreateManyAsync inserts IEnumerable<ItemEntity> successfully.")]
     public async Task ExecuteAsync()
     {
         // Arrange
@@ -33,13 +33,16 @@ public sealed class CreateAsync_1 : Base
 
         await SetupDatabase(items, listings, users);
 
-        var item = new Item(new ItemId(_fixture.Create<Guid>()),
-            new ItemTitle(_fixture.CreateTextWithMaxLength(50)),
-            new ListingId(listing.Id),
-            new ItemDescription(_fixture.CreateTextWithMaxLength(80)));
+        var newItems = new Item[]
+        {
+           new Item(new ItemId(_fixture.Create<Guid>()), 
+                new ItemTitle(_fixture.CreateTextWithMaxLength(50)),
+                new ListingId(listing.Id),
+                new ItemDescription(_fixture.CreateTextWithMaxLength(80)))
+        };
 
         // Act
-        await _sut.CreateAsync(item, It.IsAny<CancellationToken>());
+        await _sut.CreateManyAsync(newItems, It.IsAny<CancellationToken>());
 
         // Assert
         _dbContext.Items
