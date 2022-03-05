@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Giveaway.Application.Interfaces;
 using Giveaway.Domain.Listings;
+using Giveaway.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,14 @@ public sealed class Reader : IListingReader
     {
         var listingEntity = await _dbContext.Listings
             .Where(listing => listing.Id == id.Value)
+            .GroupJoin(_dbContext.Items, l => l.Id, r => r.ListingId, (listing, items) =>
+            new
+            {
+                Listing = listing,
+                Items = items
+            })
             .SingleAsync(cancellationToken);
 
-        return _mapper.Map<ReadListingByIdModel>(listingEntity);
+        return _mapper.MergeInto<ReadListingByIdModel>(listingEntity.Listing, listingEntity.Items);
     }
 }

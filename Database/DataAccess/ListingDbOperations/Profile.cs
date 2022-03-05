@@ -14,8 +14,13 @@ public sealed class Profile : AutoMapper.Profile
 {
     public Profile()
     {
-        CreateMap<ReadAllListingsModel, ListingEntity>();
+        CreateMap<ListingEntity, ReadAllListingsModel>();
 
-        CreateMap<ReadListingByIdModel, ListingEntity>();
+        CreateMap<ListingEntity, ReadListingByIdModel>();
+
+        CreateMap<IEnumerable<ItemEntity>, ReadListingByIdModel>()
+            .ForMember(member => member.Items, opt => opt.MapFrom(src => src));
+
+        CreateMap<ItemEntity, ReadListingByIdModel.Item>();
     }
 }
