@@ -1,5 +1,7 @@
-﻿using Giveaway.Application.Interfaces;
+﻿using AutoMapper;
+using Giveaway.Application.Interfaces;
 using Giveaway.Domain.Listings;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,28 @@ namespace Giveaway.Database.DataAccess.ListingDbOperations;
 
 public sealed class Reader : IListingReader
 {
-    public Task<IEnumerable<ReadAllListingsModel>> ReadAllListings(CancellationToken cancellationToken) => throw new NotImplementedException();
-    public Task<ReadListingByIdModel> ReadListingById(ListingId id, CancellationToken cancellationToken) => throw new NotImplementedException();
+    private readonly AppDbContext _dbContext;
+    private readonly IMapper _mapper;
+
+    public Reader(AppDbContext dbContext, IMapper mapper)
+    {
+        _dbContext = dbContext;
+        _mapper = mapper;
+    }
+
+    public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListings(CancellationToken cancellationToken)
+    {
+        var listingEntities = await _dbContext.Listings.ToListAsync(cancellationToken);
+
+        return _mapper.Map<IEnumerable<ReadAllListingsModel>>(listingEntities);
+    }
+
+    public async Task<ReadListingByIdModel> ReadListingById(ListingId id, CancellationToken cancellationToken)
+    {
+        var listingEntity = await _dbContext.Listings
+            .Where(listing => listing.Id == id.Value)
+            .SingleAsync(cancellationToken);
+
+        return _mapper.Map<ReadListingByIdModel>(listingEntity);
+    }
 }
