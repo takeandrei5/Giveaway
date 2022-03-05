@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Giveaway.Application.UseCases.ReadListing.Models;
+using Giveaway.Application.UseCases.ReadListingById.Models;
 
-namespace Giveaway.Application.UseCases.ReadListing.Models;
+namespace Giveaway.Application.UseCases.ReadListingById.Models;
 
 public sealed record ListingReadModel
 {
