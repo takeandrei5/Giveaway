@@ -14,6 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// UseCases
+builder.Services.AddApplicationUseCases();
+builder.Services.AddAutoMapperProfiles();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,8 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// UseCases
-builder.Services.AddApplicationUseCases();
+
 
 app.UseHttpsRedirection();
 
