@@ -11,4 +11,6 @@ namespace Giveaway.Domain.Interfaces;
 public interface IListingRepository
 {
     Task<Result<string>> CreateAsync(Listing listing, CancellationToken cancellationToken);
+
+    Task<Result<Listing, string>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken);
 }

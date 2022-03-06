@@ -37,4 +37,12 @@ public class Base : IDisposable
 
         await _dbContext.SaveChangesAsync();
     }
+
+    protected async Task SetupDatabase(IEnumerable<ListingEntity> listings, IEnumerable<UserEntity> users)
+    {
+        await Task.WhenAll(_dbContext.Listings.AddRangeAsync(listings),
+            _dbContext.Users.AddRangeAsync(users));
+
+        await _dbContext.SaveChangesAsync();
+    }
 }
