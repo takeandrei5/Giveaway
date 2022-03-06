@@ -45,9 +45,8 @@ public sealed class ExecuteAsync_1 : Base
 
         // Assert
         _listingRepositoryMock.Verify(listingRepository =>
-            listingRepository.CreateAsync(It.Is<Listing>(listing => 
-                    listing.Title == commandFeed.Title && listing.Description == commandFeed.Description), 
-                CancellationToken.None), 
+            listingRepository.CreateAsync(It.Is<Listing>(listing => listing.Title == commandFeed.Title && listing.Description == commandFeed.Description),
+                CancellationToken.None),
         Times.Once);
     }
 }

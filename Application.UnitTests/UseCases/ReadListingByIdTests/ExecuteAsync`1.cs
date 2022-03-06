@@ -27,8 +27,9 @@ public sealed class ExecuteAsync_1 : Base
         await _sut.ExecuteAsync(listingId, CancellationToken.None);
 
         // Assert
-        _listingRepositoryMock.Verify(listingRepository => listingRepository.FindListingByIdAsync(
-                It.Is<ListingId>(listing => listing.Value == listingId.Value), CancellationToken.None),
+        _listingRepositoryMock.Verify(listingRepository =>
+            listingRepository.FindListingByIdAsync(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+                CancellationToken.None),
             Times.Once);
     }
 }

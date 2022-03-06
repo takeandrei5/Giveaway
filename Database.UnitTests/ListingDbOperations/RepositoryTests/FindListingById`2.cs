@@ -24,7 +24,7 @@ public sealed class FindListingById_2 : Base
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)
             .ToList();
-        
+
         var listingId = new ListingId(_fixture.Create<Guid>());
 
         var user = new User(new(users[0].Id), new(users[0].Name), new(users[0].Email));

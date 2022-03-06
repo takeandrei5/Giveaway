@@ -14,8 +14,8 @@ namespace Giveaway.Database.UnitTests.ItemDbOperations.RepositoryTests;
 public class Base : IDisposable
 {
     protected readonly AppDbContext _dbContext;
-    protected readonly Fixture _fixture;
-    protected readonly Repository _sut;
+    protected readonly Fixture      _fixture;
+    protected readonly Repository   _sut;
 
     public Base()
     {

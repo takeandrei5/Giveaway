@@ -21,7 +21,6 @@ public sealed class ExecuteAsync_1 : Base
         await _sut.ExecuteAsync(CancellationToken.None);
 
         // Assert
-        _listingReaderMock.Verify(listingReader => listingReader.ReadAllListings(CancellationToken.None),
-            Times.Once);
+        _listingReaderMock.Verify(listingReader => listingReader.ReadAllListings(CancellationToken.None), Times.Once);
     }
 }

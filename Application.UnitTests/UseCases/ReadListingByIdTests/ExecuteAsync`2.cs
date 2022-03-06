@@ -21,7 +21,10 @@ public sealed class ExecuteAsync_2 : Base
     {
         // Arrange
         var listingId = new ListingId(_fixture.Create<Guid>());
-        var listing = new Listing(listingId, new ListingTitle(_fixture.Create<string>()), new ListingDescription(_fixture.Create<string>()), new UserId(_fixture.Create<Guid>()));
+        var listing = new Listing(listingId, 
+            new ListingTitle(_fixture.Create<string>()), 
+            new ListingDescription(_fixture.Create<string>()), 
+            new UserId(_fixture.Create<Guid>()));
 
         _listingRepositoryMock.Setup(listingRepository => listingRepository.FindListingByIdAsync(It.IsAny<ListingId>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(listing.AsSuccess<Listing, string>());
@@ -33,11 +36,14 @@ public sealed class ExecuteAsync_2 : Base
         await _sut.ExecuteAsync(listingId, CancellationToken.None);
 
         // Assert
-        _listingRepositoryMock.Verify(listingRepository => listingRepository.FindListingByIdAsync(
-                It.Is<ListingId>(listing => listing.Value == listingId.Value), CancellationToken.None),
+        _listingRepositoryMock.Verify(listingRepository =>
+            listingRepository.FindListingByIdAsync(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+                CancellationToken.None),
             Times.Once);
 
-        _listingReaderMock.Verify(listingReader => listingReader.ReadListingById(It.Is<ListingId>(listing => listing.Value == listingId.Value), CancellationToken.None),
+        _listingReaderMock.Verify(listingReader =>
+            listingReader.ReadListingById(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+                CancellationToken.None),
             Times.Once);
     }
 }
