@@ -11,12 +11,12 @@ namespace Giveaway.Domain.Listings;
 
 public sealed record Listing
 {
-    internal Listing(ListingId id, ListingTitle title, ListingDescription description, User owner)
+    internal Listing(ListingId id, ListingTitle title, ListingDescription description, UserId ownerId)
     {
         Id = id;
         Title = title;
         Description = description;
-        Owner = owner;
+        OwnerId = ownerId;
     }
 
     public ListingId Id { get; init; }
@@ -25,7 +25,7 @@ public sealed record Listing
 
     public ListingDescription Description { get; init; }
 
-    public User Owner { get; init; }
+    public UserId OwnerId { get; init; }
 
     public Item CreateItem(ItemTitle title, ItemDescription description)
         => new(new(Guid.NewGuid()), title, Id, description);

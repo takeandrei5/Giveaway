@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Domain.Interfaces;
 using Giveaway.Domain.Listings;
+using Giveaway.Domain.Users;
 
 namespace Giveaway.Database.DataAccess.ListingDbOperations;
 
@@ -26,7 +27,7 @@ public sealed class Repository : IListingRepository
                 Id = listing.Id.Value,
                 Title = listing.Title.Value,
                 Description = listing.Description.Value,
-                OwnerId = listing.Owner.Id.Value
+                OwnerId = listing.OwnerId.Value
             }, cancellationToken);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
@@ -37,5 +38,20 @@ public sealed class Repository : IListingRepository
         {
             return ex.Message.AsError();
         }
+    }
+
+    public async Task<Result<Listing, string>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken)
+    {
+        var listingEntity = await _dbContext.Listings
+            .Where(listing => listing.Id == listingId.Value)
+            .SingleOrDefaultAsync(cancellationToken);
+
+        if (listingEntity == null)
+            return $"The listing with id {listingId.Value} could not be found.".AsError<Listing, string>();
+
+        return new Listing(listingId,
+            new ListingTitle(listingEntity.Title),
+            new ListingDescription(listingEntity.Description),
+            new UserId(listingEntity.OwnerId)).AsSuccess<Listing, string>();
     }
 }

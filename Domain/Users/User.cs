@@ -24,5 +24,5 @@ public sealed record User
     public UserEmail Email { get; init; }
 
     public Listing CreateListing(ListingTitle title, ListingDescription description)
-        => new(new(Guid.NewGuid()), title, description, this);
+        => new(new(Guid.NewGuid()), title, description, this.Id);
 }

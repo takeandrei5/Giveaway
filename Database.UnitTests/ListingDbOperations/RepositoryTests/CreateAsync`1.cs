@@ -31,7 +31,7 @@ public sealed class CreateAsync_1 : Base
 
         var newListing = new Listing(new ListingId(_fixture.Create<Guid>()),
             new ListingTitle(_fixture.CreateTextWithMaxLength(50)),
-            new ListingDescription(_fixture.CreateTextWithMaxLength(250)), user);
+            new ListingDescription(_fixture.CreateTextWithMaxLength(250)), user.Id);
 
         // Act
         await _sut.CreateAsync(newListing, It.IsAny<CancellationToken>());
