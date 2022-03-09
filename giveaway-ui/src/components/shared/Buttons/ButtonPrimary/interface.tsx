@@ -1,5 +1,5 @@
 export interface ButtonPrimaryI {
-	children: React.ReactNode
+	children: string
 	onClick: () => void
 	disabled?: boolean
 }

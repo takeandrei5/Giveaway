@@ -1,7 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { default as ButtonPrimary } from '../components/shared-components/Buttons/ButtonPrimary/styles';
-import { default as ButtonSecondary } from '../components/shared-components/Buttons/ButtonSecondary/styles';
+import { default as ButtonPrimary } from '../components/shared/Buttons/ButtonPrimary/styles';
+import { default as ButtonSecondary } from '../components/shared/Buttons/ButtonSecondary/styles';
 
 const mainTheme = extendTheme({
 	components: {

@@ -1,1 +1,2 @@
-export { ButtonPrimary, ButtonSecondary } from './shared-components';
+export { ButtonPrimary, ButtonSecondary, Logo, Typography } from './shared';
+export { Footer, Header } from './standalone';
