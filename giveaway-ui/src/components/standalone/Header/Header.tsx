@@ -24,7 +24,7 @@ const Header = () => {
 
 	return (
 		<Box bg={useColorModeValue('secondary.main', 'secondary.main')} px={4}>
-			<Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+			<Flex h={'20'} alignItems={'center'} justifyContent={'space-between'}>
 				<Logo />
 				<Flex alignItems={'center'}>
 					<Stack direction={'row'} spacing={7}>

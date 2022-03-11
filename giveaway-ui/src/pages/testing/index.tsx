@@ -1,4 +1,5 @@
-import { ButtonPrimary, ButtonSecondary, Typography } from '../../components';
+import { SearchIcon, SunIcon } from '@chakra-ui/icons';
+import { ButtonPrimary, ButtonSecondary, Input, Typography } from '../../components';
 
 const Testing = () => {
 	return (
@@ -29,6 +30,30 @@ const Testing = () => {
 				<Typography variant='paragraph'>The quick brown fox jumps over the lazy dog</Typography>
 				<Typography variant='caption'>The quick brown fox jumps over the lazy dog</Typography>
 				<Typography variant='small'>The quick brown fox jumps over the lazy dog</Typography>
+			</div>
+
+			<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+				<Input placeholder={'This is a normal input'} />
+				<Input disabled placeholder={'This is a disabled input'} />
+				<Input label={'Required'} placeholder={'This is an input with label'} />
+				<Input
+					leftIcon={<SearchIcon />}
+					label={'Required'}
+					placeholder={'This is an input with label and left icon'}
+				/>
+				<Input
+					leftIcon={<SearchIcon />}
+					rightIcon={<SunIcon />}
+					label={'Required'}
+					placeholder={'This is an input with label, left icon and right icon'}
+				/>
+				<Input
+					disabled
+					leftIcon={<SearchIcon />}
+					rightIcon={<SunIcon />}
+					label={'Required'}
+					placeholder={'This is a disabled input with label, left icon and right icon'}
+				/>
 			</div>
 		</div>
 	);

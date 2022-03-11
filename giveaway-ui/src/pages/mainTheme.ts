@@ -2,11 +2,13 @@ import { extendTheme } from '@chakra-ui/react';
 
 import { default as ButtonPrimary } from '../components/shared/Buttons/ButtonPrimary/styles';
 import { default as ButtonSecondary } from '../components/shared/Buttons/ButtonSecondary/styles';
+import { default as Input } from '../components/shared/Input/styles';
 
 const mainTheme = extendTheme({
 	components: {
 		ButtonPrimary,
 		ButtonSecondary,
+		Input
 	},
 	colors: {
 		primary: {
@@ -19,11 +21,10 @@ const mainTheme = extendTheme({
 			light: '#008CFF',
 			dark: '#000083',
 		},
-		black: '#000000',
-		white: '#FFFFFF',
-
 		dark: '#1D1927',
-		grey: '#AEA8BA',
+		grayish: '#DDE3EB',
+		darkish: '#1A202C',
+		//grayish: '#CBD5E0',
 		light: '#FCF7FF',
 	},
 });

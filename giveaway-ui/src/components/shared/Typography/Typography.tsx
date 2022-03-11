@@ -45,7 +45,7 @@ const Typography = ({ children, variant }: TypographI) => {
 			case 'paragraph':
 				textProps = {
 					fontSize: '0.875rem',
-					fontWeight: '400',
+					fontWeight: '700',
 					lineHeight: '1.05rem',
 				};
 				break;

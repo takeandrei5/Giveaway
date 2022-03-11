@@ -4,16 +4,16 @@ const styles = {
 		flexDirection: 'row',
 		alignItems: 'center',
 		borderRadius: '3.75rem',
-		background: 'primary.main',
+		backgroundColor: 'primary.main',
 		padding: '0.75rem 1.5rem',
 		_disabled: {
-			background: 'primary.light',
+			backgroundColor: 'primary.light',
 			cursor: 'default',
 		},
 		_hover: {
 			filter: 'brightness(90%)',
 			_disabled: {
-				background: 'primary.light',
+				backgroundColor: 'primary.light',
 				filter: 'brightness(100%)',
 			},
 		},
