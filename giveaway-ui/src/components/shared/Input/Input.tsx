@@ -16,7 +16,7 @@ const Input = ({
 	leftIcon = undefined,
 	rightIcon = undefined,
 	width = '100%',
-}: InputI) => {
+}: InputI): JSX.Element => {
 	const styles = useStyleConfig('Input');
 
 	return (

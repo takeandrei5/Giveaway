@@ -4,7 +4,7 @@ import { ButtonPrimaryI } from './interface';
 import { Button } from '@chakra-ui/react';
 import { Typography } from '../../Typography';
 
-const ButtonPrimary = (props: ButtonPrimaryI) => {
+const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 	const { children, onClick, disabled = false } = props;
 	const styles = useStyleConfig('ButtonPrimary');
 

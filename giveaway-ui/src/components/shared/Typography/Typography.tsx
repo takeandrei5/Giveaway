@@ -2,7 +2,7 @@ import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
 
 import { Text } from '@chakra-ui/react';
 
-const Typography = ({ children, variant }: TypographI) => {
+const Typography = ({ children, variant }: TypographI): JSX.Element => {
 	const renderTypographyProps = (variant: TypographyVariantI) => {
 		let textProps: TypographyTextI = {} as TypographyTextI;
 

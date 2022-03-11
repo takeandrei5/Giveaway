@@ -19,7 +19,7 @@ import {
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Logo from '../../shared/Logo/Logo';
 
-const Header = () => {
+const Header = (): JSX.Element => {
 	const { colorMode, toggleColorMode } = useColorMode();
 
 	return (

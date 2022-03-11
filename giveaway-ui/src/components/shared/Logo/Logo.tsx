@@ -1,6 +1,6 @@
 import { useColorModeValue } from '@chakra-ui/react';
 
-const Logo = () => {
+const Logo = (): JSX.Element => {
 	return (
 		<svg
 			color={useColorModeValue('white', 'white')}

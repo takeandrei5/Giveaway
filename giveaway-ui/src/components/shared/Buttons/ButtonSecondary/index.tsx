@@ -1,7 +1,7 @@
 import { Button, useStyleConfig } from '@chakra-ui/react';
 import { ButtonSecondaryI } from './interface';
 
-const ButtonSecondary = (props: ButtonSecondaryI) => {
+const ButtonSecondary = (props: ButtonSecondaryI): JSX.Element => {
 	const { children, onClick, disabled = false } = props;
 	const styles = useStyleConfig('ButtonSecondary');
 

@@ -5,7 +5,7 @@ import Typography from '../../shared/Typography/Typography';
 import { stackItems } from './constants';
 import { StackItemI } from './interfaces';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	const renderStackItems = (stackItems: StackItemI[]) =>
 		stackItems.map((stackItem: StackItemI) => (
 			<Stack align={'flex-start'}>
