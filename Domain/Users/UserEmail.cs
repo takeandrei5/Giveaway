@@ -9,7 +9,7 @@ namespace Giveaway.Domain.Users;
 
 public sealed record UserEmail
 {
-    private static readonly Regex emailRegex = new(@"^([\w\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+    private static readonly Regex _emailRegex = new(@"^([\w\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
         RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
 
     public UserEmail(string value)
@@ -17,7 +17,7 @@ public sealed record UserEmail
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("User email cannot be an empty email.");
 
-        if (!emailRegex.IsMatch(value))
+        if (!_emailRegex.IsMatch(value))
             throw new ArgumentException("User email cannot be an invalid email.");
 
         Value = value;
