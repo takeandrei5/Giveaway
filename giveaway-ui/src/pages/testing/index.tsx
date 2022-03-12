@@ -1,4 +1,5 @@
 import { SearchIcon, SunIcon } from '@chakra-ui/icons';
+import { Formik } from 'formik';
 import { ButtonPrimary, ButtonSecondary, Input, Typography } from '../../components';
 
 const Testing = () => {
@@ -33,26 +34,51 @@ const Testing = () => {
 			</div>
 
 			<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-				<Input placeholder={'This is a normal input'} />
-				<Input disabled placeholder={'This is a disabled input'} />
-				<Input label={'Required'} placeholder={'This is an input with label'} />
-				<Input
-					leftIcon={<SearchIcon />}
-					label={'Required'}
-					placeholder={'This is an input with label and left icon'}
-				/>
-				<Input
-					leftIcon={<SearchIcon />}
-					rightIcon={<SunIcon />}
-					label={'Required'}
-					placeholder={'This is an input with label, left icon and right icon'}
-				/>
-				<Input
-					disabled
-					leftIcon={<SearchIcon />}
-					rightIcon={<SunIcon />}
-					label={'Required'}
-					placeholder={'This is a disabled input with label, left icon and right icon'}
+				<Formik
+					initialValues={{
+						firstName: '',
+						lastName: '',
+						email: '',
+					}}
+					onSubmit={() => {}}
+					children={(props) => {
+						return (
+							<>
+								<Input id='test1' name='test1n' placeholder={'This is a normal input'} />
+								<Input id='test2' name='test2n' disabled placeholder={'This is a disabled input'} />
+								<Input
+									id='test3'
+									name='test3n'
+									label={'Required'}
+									placeholder={'This is an input with label'}
+								/>
+								<Input
+									id='test4'
+									name='test4n'
+									leftIcon={<SearchIcon />}
+									label={'Required'}
+									placeholder={'This is an input with label and left icon'}
+								/>
+								<Input
+									id='test5'
+									name='test5n'
+									leftIcon={<SearchIcon />}
+									rightIcon={<SunIcon />}
+									label={'Required'}
+									placeholder={'This is an input with label, left icon and right icon'}
+								/>
+								<Input
+									id='test6'
+									name='test6n'
+									disabled
+									leftIcon={<SearchIcon />}
+									rightIcon={<SunIcon />}
+									label={'Required'}
+									placeholder={'This is a disabled input with label, left icon and right icon'}
+								/>
+							</>
+						);
+					}}
 				/>
 			</div>
 		</div>

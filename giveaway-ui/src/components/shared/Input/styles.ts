@@ -10,9 +10,10 @@ const styles = {
 		outline: {
 			field: {
 				backgroundColor: 'white',
+				borderRadius: '3.75rem',
 				_focus: {
 					borderColor: 'primary.main',
-					boxShadow: '0 0 0 0.0625rem var(--chakra-colors-primary-main)',
+					boxShadow: 'inset 0 0 0 0.0125rem var(--chakra-colors-primary-main)',
 				},
 			},
 		},
