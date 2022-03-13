@@ -1,12 +1,12 @@
 import {
-	FormLabel,
-	Input as CuiInput,
-	InputGroup,
-	InputLeftElement,
-	InputRightElement,
-	useStyleConfig,
+  FormLabel,
+  Input as CuiInput,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  useStyleConfig,
 } from '@chakra-ui/react';
-import { FormikValues, useField } from 'formik';
+import { useField } from 'formik';
 
 import { Typography } from '../Typography';
 import { InputI } from './interfaces';
@@ -58,7 +58,9 @@ const Input = ({
 					value={value}
 					width={width}
 				/>
-				{rightIcon && <InputRightElement children={rightIcon} height='100%' />}
+				{rightIcon && (
+					<InputRightElement children={rightIcon} pointerEvents={'auto'} height='100%' />
+				)}
 			</InputGroup>
 		</>
 	);

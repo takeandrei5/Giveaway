@@ -6,7 +6,7 @@ export interface InputI {
 	name: string;
 	placeholder: string;
 	disabled?: boolean;
-	height?: string
+	height?: string;
 	label?: string;
 	leftIcon?: JSX.Element;
 	rightIcon?: JSX.Element;
