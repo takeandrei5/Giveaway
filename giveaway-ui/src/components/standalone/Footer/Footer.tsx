@@ -7,11 +7,13 @@ import { StackItemI } from './interfaces';
 
 const Footer = (): JSX.Element => {
 	const renderStackItems = (stackItems: StackItemI[]) =>
-		stackItems.map((stackItem: StackItemI) => (
-			<Stack align={'flex-start'}>
+		stackItems.map((stackItem: StackItemI, index: number) => (
+			<Stack key={`footer-stack-${index}`} align={'flex-start'}>
 				<Typography variant='h5'>{stackItem.stackColumnName}</Typography>
-				{stackItem.stackColumnItems.map((stackColumnItem: string) => (
-					<Link href={'#'}>{stackColumnItem}</Link>
+				{stackItem.stackColumnItems.map((stackColumnItem: string, index: number) => (
+					<Link key={`${stackItem}-child-${index}`} href={'#'}>
+						{stackColumnItem}
+					</Link>
 				))}
 			</Stack>
 		));
