@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+		"debug": "set \"NODE_OPTIONS='--inspect'\" && next dev",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^6",
     "next": "12.1.0",
+    "next-auth": "^4.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "yup": "^0.32.11"
