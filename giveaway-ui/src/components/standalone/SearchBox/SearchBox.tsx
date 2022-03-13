@@ -1,4 +1,4 @@
-import { Search2Icon } from '@chakra-ui/icons';
+import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons';
 import { Box, Grid, GridItem, useStyleConfig } from '@chakra-ui/react';
 import { Form, FormikProps, FormikProvider, useFormik } from 'formik';
 import { useState } from 'react';
@@ -7,19 +7,18 @@ import { ButtonPrimary, Input } from '../../shared';
 import { FormikInitialValuesI } from './interfaces';
 
 const SearchBox = (): JSX.Element => {
-	const [searchByField, setSearchByField] = useState<string>('');
-
 	const styles = useStyleConfig('SearchBox');
 
 	const submitSearch = () => {
-		console.log('To be implemented');
+		console.log(formik.values);
+		formik.resetForm();
 	};
 
 	const formik: FormikProps<FormikInitialValuesI> = useFormik<FormikInitialValuesI>({
 		initialValues: {
-			searchByField: searchByField,
+			searchByField: '',
 		},
-		onSubmit: () => submitSearch(),
+		onSubmit: submitSearch,
 		enableReinitialize: true,
 	});
 
@@ -40,11 +39,19 @@ const SearchBox = (): JSX.Element => {
 								name='searchByField'
 								placeholder='Type in to search'
 								leftIcon={<Search2Icon />}
+								rightIcon={
+									formik.values.searchByField ? (
+										<SmallCloseIcon
+											cursor={'pointer'}
+											onClick={() => formik.resetForm({ values: { searchByField: '' } })}
+										/>
+									) : undefined
+								}
 								value={formik.values.searchByField}
 							/>
 						</GridItem>
 						<GridItem colSpan={1}>
-							<ButtonPrimary type='submit' rightIcon={<Search2Icon />}>Search!</ButtonPrimary>
+							<ButtonPrimary type='submit'>Search!</ButtonPrimary>
 						</GridItem>
 					</Grid>
 				</Box>
