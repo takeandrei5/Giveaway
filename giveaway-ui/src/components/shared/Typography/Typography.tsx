@@ -30,7 +30,7 @@ const Typography = ({ children, variant }: TypographI): JSX.Element => {
 				break;
 			case 'button':
 				textProps = {
-					fontSize: '1rem',
+					fontSize: '1.0625rem',
 					fontWeight: '700',
 					lineHeight: '1.2rem',
 				};
