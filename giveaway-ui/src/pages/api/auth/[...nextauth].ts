@@ -18,7 +18,6 @@ export default NextAuth({
 	secret: process.env.SECRET,
 	callbacks: {
 		async signIn(params) {
-			console.log(params);
 			if (params.account.provider === 'google') {
 				return Boolean(
 					params.profile &&
@@ -28,6 +27,13 @@ export default NextAuth({
 				);
 			}
 			return true; // Do different verification for other providers that don't have `email_verified`
+		},
+		async jwt(params) {
+			if (params.account?.accessToken) {
+				params.token.accessToken = params.account.accessToken;
+			}
+
+			return params.token;
 		},
 	},
 });

@@ -26,7 +26,6 @@ const mainTheme = extendTheme({
 		dark: '#1D1927',
 		grayish: '#DDE3EB',
 		darkish: '#1A202C',
-		//grayish: '#CBD5E0',
 		light: '#FCF7FF',
 	},
 });
