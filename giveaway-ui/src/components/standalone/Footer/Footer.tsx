@@ -1,4 +1,5 @@
 import { Box, Container, Link, SimpleGrid, Stack, useColorModeValue } from '@chakra-ui/react';
+import React from 'react';
 
 import { Logo } from '../../shared';
 import Typography from '../../shared/Typography/Typography';
@@ -7,11 +8,11 @@ import { StackItemI } from './interfaces';
 
 const Footer = (): JSX.Element => {
 	const renderStackItems = (stackItems: StackItemI[]) =>
-		stackItems.map((stackItem: StackItemI, index: number) => (
-			<Stack key={`footer-stack-${index}`} align={'flex-start'}>
+		stackItems.map((stackItem: StackItemI) => (
+			<Stack key={`footer-stack-${stackItem.stackColumnName}`} align={'flex-start'}>
 				<Typography variant='h5'>{stackItem.stackColumnName}</Typography>
-				{stackItem.stackColumnItems.map((stackColumnItem: string, index: number) => (
-					<Link key={`${stackItem}-child-${index}`} href={'#'}>
+				{stackItem.stackColumnItems.map((stackColumnItem: string) => (
+					<Link key={`${stackColumnItem}-child`} href={'#'}>
 						{stackColumnItem}
 					</Link>
 				))}
@@ -37,4 +38,4 @@ const Footer = (): JSX.Element => {
 	);
 };
 
-export default Footer;
+export default React.memo(Footer);
