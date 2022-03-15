@@ -1,6 +1,7 @@
 import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons';
 import { Box, Grid, GridItem, useStyleConfig } from '@chakra-ui/react';
 import { Form, FormikProps, FormikProvider, useFormik } from 'formik';
+import React from 'react';
 import { useState } from 'react';
 
 import { ButtonPrimary, Input } from '../../shared';
@@ -10,7 +11,6 @@ const SearchBox = (): JSX.Element => {
 	const styles = useStyleConfig('SearchBox');
 
 	const submitSearch = () => {
-		console.log(formik.values);
 		formik.resetForm();
 	};
 
@@ -36,6 +36,7 @@ const SearchBox = (): JSX.Element => {
 						<GridItem colSpan={4}>
 							<Input
 								id='searchByField-input'
+								height='100%'
 								name='searchByField'
 								placeholder='Type in to search'
 								leftIcon={<Search2Icon />}
@@ -60,4 +61,4 @@ const SearchBox = (): JSX.Element => {
 	);
 };
 
-export default SearchBox;
+export default React.memo(SearchBox);

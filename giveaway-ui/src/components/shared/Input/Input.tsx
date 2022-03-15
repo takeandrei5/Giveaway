@@ -16,7 +16,7 @@ const Input = ({
 	placeholder,
 	name,
 	disabled = false,
-	height = '100%',
+	height = '10',
 	label,
 	leftIcon,
 	rightIcon,
@@ -26,7 +26,7 @@ const Input = ({
 }: InputI): JSX.Element => {
 	const styles = useStyleConfig('Input');
 
-	const [field, meta] = useField(name);
+	const [field] = useField(name);
 
 	return (
 		<>
@@ -38,7 +38,7 @@ const Input = ({
 			<InputGroup height='100%' width='auto'>
 				{leftIcon && (
 					<InputLeftElement
-						color='gray.300'
+						color='grayish'
 						fontSize='1.5rem'
 						height='100%'
 						paddingStart='4'
@@ -49,8 +49,8 @@ const Input = ({
 				<CuiInput
 					__css={styles}
 					id={id}
-					disabled={disabled}
 					height={height}
+					disabled={disabled}
 					name={name}
 					paddingStart='14'
 					placeholder={placeholder}
