@@ -9,14 +9,14 @@ const Layout = ({ children }: LayoutI) => (
 		<Header />
 		<Box
 			as='main'
-			height='100%'
+			minHeight='100%'
 			width='100%'
 			display='flex'
 			flexDirection='column'
 			marginLeft='auto'
 			marginRight='auto'
 			paddingTop='5rem'
-			paddingX={'2.5rem'}
+			paddingX='2.5rem'
 			backgroundColor={useColorModeValue('grayish', 'darkish')}>
 			<SearchBox />
 			{children}

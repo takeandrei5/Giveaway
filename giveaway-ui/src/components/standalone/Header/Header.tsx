@@ -17,7 +17,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { FcGoogle } from 'react-icons/fc';
+import { IoLogInOutline } from 'react-icons/io5';
 import { MdAccountCircle } from 'react-icons/md';
 
 import { Typography } from '../../shared';
@@ -121,9 +121,9 @@ const Header = (): JSX.Element => {
 							w={'full'}
 							maxW={'md'}
 							variant={'outline'}
-							leftIcon={<FcGoogle />}
-							onClick={() => signIn('google')}>
-							<Typography variant='button'>Sign in with Google</Typography>
+							leftIcon={<IoLogInOutline />}
+							onClick={() => signIn('auth0')}>
+							<Typography variant='button'>Sign in here</Typography>
 						</Button>
 					</Center>
 				</MenuList>

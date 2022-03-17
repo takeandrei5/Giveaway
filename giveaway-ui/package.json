@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "set \"NODE_OPTIONS='--inspect'\" && next dev",
     "build": "next build",
-    "debug": "set \"NODE_OPTIONS='--inspect'\" && next dev",
     "start": "next start",
     "lint": "next lint"
   },
