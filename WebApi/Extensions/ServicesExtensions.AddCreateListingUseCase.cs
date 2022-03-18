@@ -2,10 +2,8 @@
 
 namespace Giveaway.WebApi.Extensions;
 
-public partial class ApplicationExtensions
+public partial class ServicesExtensions
 {
-    public static void AddCreateListingUseCase(this IServiceCollection services)
-    {
+    public static void AddCreateListingUseCase(this IServiceCollection services) =>
         services.AddScoped<Command>();
-    }
 }

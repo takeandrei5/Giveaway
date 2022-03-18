@@ -28,6 +28,8 @@ const Header = (): JSX.Element => {
 
 	const { data: session, status } = useSession();
 
+	console.log(session)
+
 	const renderMenu = () => {
 		if (status === 'authenticated' && session) {
 			return (
@@ -105,7 +107,7 @@ const Header = (): JSX.Element => {
 				<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
 					<Stack align='center'>
 						<Typography variant='h3'>Sign in to your account</Typography>
-						<Typography variant='input'>to enjoy all of our cool ✌️</Typography>
+						<Typography variant='input'>to enjoy all of our cool features ✌️</Typography>
 					</Stack>
 					<Center pt={4}>
 						<Button

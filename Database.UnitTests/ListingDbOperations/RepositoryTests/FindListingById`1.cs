@@ -26,7 +26,7 @@ public sealed class FindListingById_1 : Base
             .ToList();
         var listingId = new ListingId(_fixture.Create<Guid>());
 
-        var user = new User(new(users[0].Id), new(users[0].Name), new(users[0].Email));
+        var user = new User(new(users[0].Id), new(users[0].Email));
 
         await SetupDatabase(users);
 

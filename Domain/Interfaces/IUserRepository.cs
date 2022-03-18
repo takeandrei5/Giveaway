@@ -11,4 +11,6 @@ namespace Giveaway.Domain.Interfaces;
 public interface IUserRepository
 {
     Task<User> FindUserByEmailAsync(string email, CancellationToken cancellationToken);
+
+    Task CreateAsync(User user, CancellationToken cancellationToken);
 }

@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Database;
+using Giveaway.Application.Interfaces;
 
 namespace Giveaway.Database.UnitTests.Helpers;
 
 public static class DatabaseExtensions
 {
-    public static AppDbContext SetupDatabase()
+    public static AppDbContext SetupDatabase(ILoggedUser loggedUser)
     {
         var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
         {
@@ -27,7 +28,7 @@ public static class DatabaseExtensions
                 .UseSqlServer(sqlConnectionStringBuilder.ConnectionString,
                     options => options.EnableRetryOnFailure(10, TimeSpan.FromSeconds(30), null));
 
-        var context = new AppDbContext(dbContextOptionsBuilder.Options);
+        var context = new AppDbContext(dbContextOptionsBuilder.Options, loggedUser);
 
         context!.Database.Migrate();
 

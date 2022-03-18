@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 using Giveaway.Database.Persistence.Configurations;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Database;
+using Giveaway.Application.Interfaces;
 
 namespace Giveaway.Database;
 
 public sealed class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
-    {
+    private readonly ILoggedUser _loggedUser;
 
-    }
+    public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedUser loggedUser) : base(options)
+        => _loggedUser = loggedUser;
 
     public DbSet<ItemEntity> Items { get; set; } = null!;
 
@@ -30,5 +31,10 @@ public sealed class AppDbContext : DbContext
         new ItemEntityConfiguration().Configure(modelBuilder.Entity<ItemEntity>());
         new ListingEntityConfiguration().Configure(modelBuilder.Entity<ListingEntity>());
         new UserEntityConfiguration().Configure(modelBuilder.Entity<UserEntity>());
+
+        modelBuilder.Entity<ListingEntity>()
+            .HasQueryFilter(query => query.OwnerId == Users.Where(user => user.Email == _loggedUser.GetEmailFromToken())
+                .Select(user => user.Id)
+                .Single());
     }
 }

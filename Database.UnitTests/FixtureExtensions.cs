@@ -20,7 +20,6 @@ public static class FixtureExtensions
             users.Add(new UserEntity
             {
                 Id = fixture.Create<Guid>(),
-                Name = fixture.CreateTextWithMaxLength(10),
                 Email = fixture.CreateEmail()
             });
         }

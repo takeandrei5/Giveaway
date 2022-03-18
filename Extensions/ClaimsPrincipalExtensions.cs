@@ -13,7 +13,7 @@ public static class ClaimsPrincipalExtension
     public static Maybe<string> GetEmail(this ClaimsPrincipal claimPrincipal)
     {
         var claim = claimPrincipal.Claims
-            .FirstOrDefault(x => x.Type == "preferred_username");
+            .FirstOrDefault(x => x.Type == ClaimTypes.Email);
 
         if (claim == null || string.IsNullOrWhiteSpace(claim.Value)) return Maybe.None<string>();
 

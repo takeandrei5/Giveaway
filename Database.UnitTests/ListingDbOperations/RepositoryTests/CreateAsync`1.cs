@@ -25,7 +25,7 @@ public sealed class CreateAsync_1 : Base
         var users = _fixture.CreateManyUserEntity(10)
             .ToList();
 
-        var user = new User(new(users[0].Id), new(users[0].Name), new(users[0].Email));
+        var user = new User(new(users[0].Id), new(users[0].Email));
 
         await SetupDatabase(users);
 

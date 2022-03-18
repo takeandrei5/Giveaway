@@ -12,6 +12,7 @@ export default NextAuth({
 	secret: process.env.SECRET,
 	callbacks: {
 		async signIn(params) {
+			console.log(params);
 			if (params.account.provider === 'google') {
 				return Boolean(params.profile && params.profile.email && params.profile.email_verified);
 			}
@@ -21,18 +22,13 @@ export default NextAuth({
 			if (params.account?.accessToken) {
 				params.token.accessToken = params.account.accessToken;
 			}
-
-			// params
-			// const secret = process.env.SECRET;
-			// console.log(await getToken({ params., secret }));
-
-			// try {
-			// 	await axiosInstance.post('users');
-			// } catch (err) {
-			// 	console.log(err);
-			// }
-
 			return params.token;
+		},
+		async session({ session, token, user }) {
+			// Send properties to the client, like an access_token from a provider.
+			session.accessToken = token.accessToken;
+			console.log(session)
+			return session;
 		},
 	},
 });

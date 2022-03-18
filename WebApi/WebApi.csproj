@@ -6,13 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>Giveaway.WebApi</AssemblyName>
     <RootNamespace>Giveaway.WebApi</RootNamespace>
-    <UserSecretsId>650007b0-e326-48df-bc9b-418a8c190aac</UserSecretsId>
+    <UserSecretsId>37f2598a-9ba6-4021-9f54-bbbe4ee9e5c2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Ardalis.ApiEndpoints" Version="4.0.1" />
+    <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.0.1" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

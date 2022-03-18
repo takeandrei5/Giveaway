@@ -8,20 +8,24 @@ using Giveaway.Database.UnitTests.Helpers;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Database.DataAccess.ListingDbOperations;
 using Giveaway.Database;
+using Giveaway.Application.Interfaces;
+using Moq;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
 public class Base : IDisposable
 {
-    protected readonly AppDbContext _dbContext;
-    protected readonly Fixture      _fixture;
-    protected readonly Repository   _sut;
+    protected readonly AppDbContext         _dbContext;
+    protected readonly Fixture              _fixture;
+    protected readonly Mock<ILoggedUser>    _loggedUserMock;
+    protected readonly Repository           _sut;
 
     public Base()
     {
-        _dbContext = DatabaseExtensions.SetupDatabase();
-
         _fixture = new Fixture();
+        _loggedUserMock = new();
+        _dbContext = DatabaseExtensions.SetupDatabase(_loggedUserMock.Object);
+
         _sut = new Repository(_dbContext);
     }
 

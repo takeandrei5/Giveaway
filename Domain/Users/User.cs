@@ -5,21 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Listings;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Giveaway.Application")]
 
 namespace Giveaway.Domain.Users;
 
 public sealed record User
 {
-    internal User(UserId id, UserName name, UserEmail email)
+    internal User(UserId id, UserEmail email)
     {
         Id = id;
-        Name = name;
         Email = email;
     }
 
     public UserId Id { get; init; }
-
-    public UserName Name { get; init; }
 
     public UserEmail Email { get; init; }
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Interfaces;
+using Giveaway.Database.Persistence.Entities;
 
 namespace Giveaway.Database.DataAccess.UserDbOperations;
 
@@ -25,6 +26,18 @@ public sealed class Repository : IUserRepository
         if (userEntity == null)
             throw new Exception($"User onboarding issue for email {email}");
 
-        return new User(new UserId(userEntity.Id), new UserName(userEntity.Name), new UserEmail(userEntity.Email));
+        return new User(new UserId(userEntity.Id), new UserEmail(userEntity.Email));
     }
+
+    public async Task CreateAsync(User user, CancellationToken cancellationToken)
+    {
+        await _dbContext.Users.AddAsync(new UserEntity
+        {
+            Id = user.Id.Value,
+            Email = user.Email.Value
+        }, cancellationToken);
+
+        await _dbContext.SaveChangesAsync(cancellationToken);
+    }
+
 }

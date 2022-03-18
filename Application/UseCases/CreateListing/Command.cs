@@ -9,6 +9,7 @@ using Giveaway.Application.UseCases.CreateListing;
 using Giveaway.Domain.Interfaces;
 
 namespace Giveaway.Application.UseCases.CreateListing;
+
 public sealed class Command
 {
     private readonly ILoggedUser        _currentUserEmailProvider;
