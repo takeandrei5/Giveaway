@@ -1,19 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Giveaway.Database;
 using Giveaway.WebApi.Extensions;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using Giveaway.WebApi.Services;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.OAuth;
-using Auth0.AspNetCore.Authentication;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
-using Giveaway.WebApi.Middleware;
+using Giveaway.WebApi.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -32,6 +25,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddHttpClient("Auth0", httpClient =>
+{
+    httpClient.BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]);
+
+    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -39,16 +39,46 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             options.Audience = configuration["Authentication:Auth0:Audience"];
 
             options.SaveToken = true;
+
+            options.Events = new JwtBearerEvents()
+            {
+                OnTokenValidated = async context =>
+                {
+                    var currentIdentity = context.Principal!.Identities.First();
+
+                    if (!currentIdentity.IsAuthenticated)
+                    {
+                        throw new InvalidOperationException("Current user is not authenticated.");
+                    }
+
+                    var accessToken = (JwtSecurityToken)context.SecurityToken;
+
+                    var httpClient = new HttpClient
+                    {
+                        BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]),
+                    };
+
+                    httpClient.DefaultRequestHeaders.Add(HeaderNames.Authorization, $"Bearer {accessToken.RawData}");
+                    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+
+                    var response = await httpClient.GetFromJsonAsync<UserInfoModel>("userinfo", CancellationToken.None);
+
+                    if (response == null)
+                    {
+                        throw new InvalidOperationException("Failed fetching user information.");
+                    }
+
+                    currentIdentity.AddClaims(new Claim[]
+                    {
+                        new(ClaimTypes.Email, response.Email),
+                        new(ClaimTypes.Name, response.Name),
+                        new(ClaimTypes.Uri, response.Picture)
+                    });
+                }
+            };
         });
 
 builder.Services.AddHttpContextAccessor();
-
-builder.Services.AddHttpClient("Auth0", httpClient =>
-{
-    httpClient.BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]);
-
-    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -78,9 +108,6 @@ app.MigrateDatabase();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Middlewares
-app.UseMiddleware<AddUserInfoToClaimsMiddleware>();
 
 app.UseEndpoints(endpoints => endpoints.MapControllers().RequireAuthorization());
 
