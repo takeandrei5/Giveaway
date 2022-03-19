@@ -21,7 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AEE84FDF-D32
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{3FE8B1CD-72E7-4F86-966A-76D85959EE18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Application.UnitTests\Application.UnitTests.csproj", "{693AA2DB-5420-46CA-9743-CBCC44FDE9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.UnitTests", "Application.UnitTests\Application.UnitTests.csproj", "{693AA2DB-5420-46CA-9743-CBCC44FDE9F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.UnitTests", "WebApi.UnitTests\WebApi.UnitTests.csproj", "{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{693AA2DB-5420-46CA-9743-CBCC44FDE9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{693AA2DB-5420-46CA-9743-CBCC44FDE9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{693AA2DB-5420-46CA-9743-CBCC44FDE9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{DA11AC7B-A175-41FE-9421-EE570151C2EB} = {3B50AAE3-3425-4DFA-8CA0-0B113B94716E}
 		{3FE8B1CD-72E7-4F86-966A-76D85959EE18} = {AEE84FDF-D32B-4F7F-BE63-BF4123869DA7}
 		{693AA2DB-5420-46CA-9743-CBCC44FDE9F8} = {3B50AAE3-3425-4DFA-8CA0-0B113B94716E}
+		{AB523EFD-5D55-47BD-B6EC-6EBBDD8A194A} = {3B50AAE3-3425-4DFA-8CA0-0B113B94716E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8B1CE10B-50EE-4D8E-ADE3-CB57D1E74D47}

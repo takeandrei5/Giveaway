@@ -10,7 +10,7 @@ public interface ILoggedUser
 {
     string GetEmailFromClaims();
 
-    string GetFullNameFromClaims();
+    string GetNameFromClaims();
 
     string GetImageFromClaims();
 }

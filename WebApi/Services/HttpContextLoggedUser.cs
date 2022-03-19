@@ -17,12 +17,12 @@ public sealed class HttpContextLoggedUser : ILoggedUser
                 () => throw new ArgumentException(
                     "Could not fetch email from claims."));
 
-    public string GetFullNameFromClaims() =>
+    public string GetNameFromClaims() =>
         _httpContextAccessor.HttpContext!.User
-            .GetFullName()
+            .GetName()
             .Match(email => email,
                 () => throw new ArgumentException(
-                    "Could not fetch fullName from claims."));
+                    "Could not fetch name from claims."));
 
     public string GetImageFromClaims() =>
         _httpContextAccessor.HttpContext!.User

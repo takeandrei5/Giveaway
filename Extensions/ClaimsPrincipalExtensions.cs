@@ -20,7 +20,7 @@ public static class ClaimsPrincipalExtension
         return Maybe.Some(claim.Value);
     }
 
-    public static Maybe<string> GetFullName(this ClaimsPrincipal claimPrincipal)
+    public static Maybe<string> GetName(this ClaimsPrincipal claimPrincipal)
     {
         var claim = claimPrincipal.Claims
             .FirstOrDefault(claim => claim.Type == ClaimTypes.Name);

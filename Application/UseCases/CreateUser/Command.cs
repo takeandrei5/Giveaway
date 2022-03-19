@@ -24,7 +24,7 @@ public sealed class Command
     public async Task<Maybe<UserId>> ExecuteAsync(CancellationToken cancellationToken)
     {
         var email = _loggedUser.GetEmailFromClaims();
-        var fullName = _loggedUser.GetFullNameFromClaims();
+        var fullName = _loggedUser.GetNameFromClaims();
         var image = _loggedUser.GetImageFromClaims();
 
         var user = await _userRepository.FindUserByEmailAsync(email, cancellationToken);
