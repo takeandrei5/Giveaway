@@ -27,16 +27,18 @@ public sealed class Command
         var fullName = _loggedUser.GetNameFromClaims();
         var image = _loggedUser.GetImageFromClaims();
 
-        var user = await _userRepository.FindUserByEmailAsync(email, cancellationToken);
+        try
+        {
+            var user = await _userRepository.FindUserByEmailAsync(email, cancellationToken);
 
-        if (user is null)
+            return Maybe.None<UserId>();
+        }
+        catch (Exception)
         {
             var newUser = new User(new(Guid.NewGuid()), new(new UserEmail(email), new UserName(fullName), new UserImage(image)));
             await _userRepository.CreateAsync(newUser, cancellationToken);
 
             return Maybe.Some(newUser.Id);
         }
-
-        return Maybe.None<UserId>();
     }
 }

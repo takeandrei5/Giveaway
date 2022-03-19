@@ -33,7 +33,7 @@ public sealed class UserImageTests
     [Fact(DisplayName = "User image cannot be an invalid url.")]
     public void User_Image_Cannot_Be_An_Invalid_Url()
     {
-        Func<UserImage> act = () => new("google.com");
+        Func<UserImage> act = () => new("www.google.");
 
         act.Should()
             .ThrowExactly<ArgumentException>()
