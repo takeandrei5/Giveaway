@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Giveaway.Domain.Users;
 
-public sealed record UserFullName
+public sealed record UserName
 {
-    public UserFullName(string value)
+    public UserName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("User full name cannot be an empty name.");
+            throw new ArgumentException("User name cannot be an empty name.");
 
         Value = value;
     }

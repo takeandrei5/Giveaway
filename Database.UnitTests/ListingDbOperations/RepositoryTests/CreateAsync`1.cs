@@ -24,8 +24,11 @@ public sealed class CreateAsync_1 : Base
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)
             .ToList();
+        
+        var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].Name), new(users[0].Image)));
 
-        var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].FullName), new(users[0].Image)));
+        _loggedUserMock.Setup(mock => mock.GetEmailFromClaims())
+            .Returns(user.Information.Email.Value);
 
         await SetupDatabase(users);
 
@@ -38,7 +41,7 @@ public sealed class CreateAsync_1 : Base
 
         // Assert
         _dbContext.Listings
-            .Where(x => x.Id == newListing.Id.Value && x.OwnerId == user.Id.Value)
+            .Where(listing => listing.Id == newListing.Id.Value && listing.OwnerId == user.Id.Value)
             .Count()
             .Should()
             .Be(1);

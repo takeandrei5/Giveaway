@@ -8,16 +8,16 @@ namespace Giveaway.Domain.Users;
 
 public sealed record UserInformation
 {
-    public UserInformation(UserEmail email, UserFullName fullName, UserImage image)
+    public UserInformation(UserEmail email, UserName name, UserImage image)
     {
         Email = email;
-        FullName = fullName;
+        Name = name;
         Image = image;
     }
 
     public UserEmail Email { get; init; }
 
-    public UserFullName FullName { get; init; }
+    public UserName Name { get; init; }
 
     public UserImage Image { get; init; }
 }

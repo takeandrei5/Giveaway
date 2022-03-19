@@ -31,7 +31,7 @@ public sealed class Command
 
         if (user is null)
         {
-            var newUser = new User(new(Guid.NewGuid()), new(new UserEmail(email), new UserFullName(fullName), new UserImage(image)));
+            var newUser = new User(new(Guid.NewGuid()), new(new UserEmail(email), new UserName(fullName), new UserImage(image)));
             await _userRepository.CreateAsync(newUser, cancellationToken);
 
             return Maybe.Some(newUser.Id);

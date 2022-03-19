@@ -20,7 +20,7 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<UserEntit
         builder.Property(b => b.Email)
             .IsRequired();
 
-        builder.Property(b => b.FullName)
+        builder.Property(b => b.Name)
             .IsRequired();
 
         builder.Property(b => b.Image)

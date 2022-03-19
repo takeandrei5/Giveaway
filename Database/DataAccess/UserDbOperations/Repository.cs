@@ -28,7 +28,7 @@ public sealed class Repository : IUserRepository
 
         return new User(new UserId(userEntity.Id),
             new UserInformation(new UserEmail(userEntity.Email),
-            new UserFullName(userEntity.FullName),
+            new UserName(userEntity.Name),
             new UserImage(userEntity.Image)));
     }
 
@@ -38,7 +38,7 @@ public sealed class Repository : IUserRepository
         {
             Id = user.Id.Value,
             Email = user.Information.Email.Value,
-            FullName = user.Information.FullName.Value,
+            Name = user.Information.Name.Value,
             Image = user.Information.Image.Value,
         }, cancellationToken);
 

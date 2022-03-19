@@ -27,7 +27,7 @@ public sealed class FindListingById_2 : Base
 
         var listingId = new ListingId(_fixture.Create<Guid>());
 
-        var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].FullName), new(users[0].Image)));
+        var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].Name), new(users[0].Image)));
         var listings = _fixture.CreateManyListingEntity(user.Id.Value, 1);
 
         await SetupDatabase(listings, users);

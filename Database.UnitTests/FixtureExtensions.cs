@@ -21,7 +21,7 @@ public static class FixtureExtensions
             {
                 Id = fixture.Create<Guid>(),
                 Email = fixture.CreateEmail(),
-                FullName = fixture.Create<string>(),
+                Name = fixture.Create<string>(),
                 // todo
                 Image = "https://www.google.com"
             });
