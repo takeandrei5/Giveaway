@@ -8,5 +8,9 @@ namespace Giveaway.Application.Interfaces;
 
 public interface ILoggedUser
 {
-    string GetEmailFromToken();
+    string GetEmailFromClaims();
+
+    string GetFullNameFromClaims();
+
+    string GetImageFromClaims();
 }

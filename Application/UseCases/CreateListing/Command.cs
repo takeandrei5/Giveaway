@@ -28,7 +28,7 @@ public sealed class Command
 
     public async Task<Result<string>> ExecuteAsync(CommandFeed feed, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.FindUserByEmailAsync(_currentUserEmailProvider.GetEmailFromToken(), cancellationToken);
+        var user = await _userRepository.FindUserByEmailAsync(_currentUserEmailProvider.GetEmailFromClaims(), cancellationToken);
 
         var newListing = user.CreateListing(feed.Title, feed.Description);
         var newItems = feed.Items.Select(item => newListing.CreateItem(item.Title, item.Description));

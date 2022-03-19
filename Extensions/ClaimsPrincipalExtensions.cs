@@ -13,7 +13,27 @@ public static class ClaimsPrincipalExtension
     public static Maybe<string> GetEmail(this ClaimsPrincipal claimPrincipal)
     {
         var claim = claimPrincipal.Claims
-            .FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            .FirstOrDefault(claim => claim.Type == ClaimTypes.Email);
+
+        if (claim == null || string.IsNullOrWhiteSpace(claim.Value)) return Maybe.None<string>();
+
+        return Maybe.Some(claim.Value);
+    }
+
+    public static Maybe<string> GetFullName(this ClaimsPrincipal claimPrincipal)
+    {
+        var claim = claimPrincipal.Claims
+            .FirstOrDefault(claim => claim.Type == ClaimTypes.Name);
+
+        if (claim == null || string.IsNullOrWhiteSpace(claim.Value)) return Maybe.None<string>();
+
+        return Maybe.Some(claim.Value);
+    }
+
+    public static Maybe<string> GetImage(this ClaimsPrincipal claimPrincipal)
+    {
+        var claim = claimPrincipal.Claims
+            .FirstOrDefault(claim => claim.Type == ClaimTypes.Uri);
 
         if (claim == null || string.IsNullOrWhiteSpace(claim.Value)) return Maybe.None<string>();
 

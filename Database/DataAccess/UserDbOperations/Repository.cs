@@ -26,7 +26,10 @@ public sealed class Repository : IUserRepository
         if (userEntity == null)
             throw new Exception($"User onboarding issue for email {email}");
 
-        return new User(new UserId(userEntity.Id), new UserEmail(userEntity.Email));
+        return new User(new UserId(userEntity.Id),
+            new UserInformation(new UserEmail(userEntity.Email),
+            new UserFullName(userEntity.FullName),
+            new UserImage(userEntity.Image)));
     }
 
     public async Task CreateAsync(User user, CancellationToken cancellationToken)
@@ -34,7 +37,9 @@ public sealed class Repository : IUserRepository
         await _dbContext.Users.AddAsync(new UserEntity
         {
             Id = user.Id.Value,
-            Email = user.Email.Value
+            Email = user.Information.Email.Value,
+            FullName = user.Information.FullName.Value,
+            Image = user.Information.Image.Value,
         }, cancellationToken);
 
         await _dbContext.SaveChangesAsync(cancellationToken);

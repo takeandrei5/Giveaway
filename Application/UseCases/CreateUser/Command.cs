@@ -12,24 +12,26 @@ namespace Giveaway.Application.UseCases.CreateUser;
 
 public sealed class Command
 {
-    private readonly ILoggedUser _currentUserEmailProvider;
+    private readonly ILoggedUser _loggedUser;
     private readonly IUserRepository _userRepository;
 
-    public Command(ILoggedUser currentUserEmailProvider, IUserRepository userRepository)
+    public Command(ILoggedUser loggedUser, IUserRepository userRepository)
     {
-        _currentUserEmailProvider = currentUserEmailProvider;
+        _loggedUser = loggedUser;
         _userRepository = userRepository;
     }
 
     public async Task<Maybe<UserId>> ExecuteAsync(CancellationToken cancellationToken)
     {
-        var email = _currentUserEmailProvider.GetEmailFromToken();
+        var email = _loggedUser.GetEmailFromClaims();
+        var fullName = _loggedUser.GetFullNameFromClaims();
+        var image = _loggedUser.GetImageFromClaims();
 
         var user = await _userRepository.FindUserByEmailAsync(email, cancellationToken);
 
         if (user is null)
         {
-            var newUser = new User(new(Guid.NewGuid()), new UserEmail(email));
+            var newUser = new User(new(Guid.NewGuid()), new(new UserEmail(email), new UserFullName(fullName), new UserImage(image)));
             await _userRepository.CreateAsync(newUser, cancellationToken);
 
             return Maybe.Some(newUser.Id);

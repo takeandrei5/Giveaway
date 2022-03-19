@@ -20,7 +20,10 @@ public static class FixtureExtensions
             users.Add(new UserEntity
             {
                 Id = fixture.Create<Guid>(),
-                Email = fixture.CreateEmail()
+                Email = fixture.CreateEmail(),
+                FullName = fixture.Create<string>(),
+                // todo
+                Image = "https://www.google.com"
             });
         }
 

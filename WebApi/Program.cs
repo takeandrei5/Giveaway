@@ -12,6 +12,8 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Auth0.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
+using Giveaway.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -35,9 +37,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             options.Authority = configuration["Authentication:Auth0:Domain"];
             options.Audience = configuration["Authentication:Auth0:Audience"];
+
+            options.SaveToken = true;
         });
 
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddHttpClient("Auth0", httpClient =>
+{
+    httpClient.BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]);
+
+    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -66,6 +78,10 @@ app.MigrateDatabase();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Middlewares
+app.UseMiddleware<AddUserInfoToClaimsMiddleware>();
+
 app.UseEndpoints(endpoints => endpoints.MapControllers().RequireAuthorization());
 
 app.Run();

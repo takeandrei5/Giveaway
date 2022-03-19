@@ -13,5 +13,8 @@ namespace Giveaway.Application.UnitTests;
 public static class FixtureExtensions
 {
     public static User CreateUser(this Fixture fixture) =>
-        new(new UserId(fixture.Create<Guid>()), new UserEmail(fixture.CreateEmail()));
+        new(new UserId(fixture.Create<Guid>()),
+            new UserInformation(new UserEmail(fixture.CreateEmail()),
+            new UserFullName(fixture.Create<string>()),
+            new UserImage("https://www.google.com")));
 }

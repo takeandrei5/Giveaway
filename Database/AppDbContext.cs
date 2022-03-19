@@ -33,7 +33,7 @@ public sealed class AppDbContext : DbContext
         new UserEntityConfiguration().Configure(modelBuilder.Entity<UserEntity>());
 
         modelBuilder.Entity<ListingEntity>()
-            .HasQueryFilter(query => query.OwnerId == Users.Where(user => user.Email == _loggedUser.GetEmailFromToken())
+            .HasQueryFilter(query => query.OwnerId == Users.Where(user => user.Email == _loggedUser.GetEmailFromClaims())
                 .Select(user => user.Id)
                 .Single());
     }

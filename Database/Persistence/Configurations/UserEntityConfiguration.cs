@@ -15,9 +15,15 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<UserEntit
     {
         builder.ToTable("Users");
 
-        builder.HasKey(x => x.Id);
+        builder.HasKey(b => b.Id);
 
-        builder.Property(x => x.Email)
+        builder.Property(b => b.Email)
+            .IsRequired();
+
+        builder.Property(b => b.FullName)
+            .IsRequired();
+
+        builder.Property(b => b.Image)
             .IsRequired();
     }
 }

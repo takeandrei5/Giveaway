@@ -10,16 +10,24 @@ public sealed class HttpContextLoggedUser : ILoggedUser
     public HttpContextLoggedUser(IHttpContextAccessor httpContextAccessor) =>
         _httpContextAccessor = httpContextAccessor;
 
-    public string GetEmailFromToken()
-    {
-        var httpContext = _httpContextAccessor.HttpContext;
-
-        if (httpContext is null) throw new InvalidOperationException("HttpContextAccessor cannot be null.");
-
-        return httpContext.User
+    public string GetEmailFromClaims() =>
+        _httpContextAccessor.HttpContext!.User
             .GetEmail()
             .Match(email => email,
                 () => throw new ArgumentException(
-                    "The logged user's email does not match with the email from claims principal."));
-    }
+                    "Could not fetch email from claims."));
+
+    public string GetFullNameFromClaims() =>
+        _httpContextAccessor.HttpContext!.User
+            .GetFullName()
+            .Match(email => email,
+                () => throw new ArgumentException(
+                    "Could not fetch fullName from claims."));
+
+    public string GetImageFromClaims() =>
+        _httpContextAccessor.HttpContext!.User
+            .GetImage()
+            .Match(email => email,
+                () => throw new ArgumentException(
+                    "Could not fetch image from claims."));
 }
