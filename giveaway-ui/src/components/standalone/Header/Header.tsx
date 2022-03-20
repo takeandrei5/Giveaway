@@ -1,22 +1,25 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-  Avatar,
-  Box,
-  Button,
-  Center,
-  Flex,
-  Icon,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Stack,
-  useColorMode,
-  useColorModeValue,
+	Avatar,
+	Box,
+	Button,
+	Center,
+	Flex,
+	Icon,
+	IconButton,
+	Menu,
+	MenuButton,
+	MenuDivider,
+	MenuItem,
+	MenuList,
+	Skeleton,
+	Stack,
+	useColorMode,
+	useColorModeValue,
 } from '@chakra-ui/react';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo } from 'react';
 import { IoLogInOutline } from 'react-icons/io5';
 import { MdAccountCircle } from 'react-icons/md';
 
@@ -25,13 +28,15 @@ import Logo from '../../shared/Logo/Logo';
 
 const Header = (): JSX.Element => {
 	const { colorMode, toggleColorMode } = useColorMode();
+	const router = useRouter();
+	const { user, error, isLoading } = useUser();
 
-	const { data: session, status } = useSession();
+	const handleSignIn = useCallback(async () => await router.replace('/api/auth/login'), []);
 
-	console.log(session)
+	const handleSignOut = useCallback(() => router.replace('/api/auth/logout'), []);
 
-	const renderMenu = () => {
-		if (status === 'authenticated' && session) {
+	const renderMenu = useCallback((): JSX.Element => {
+		if (user) {
 			return (
 				<>
 					<MenuButton
@@ -45,8 +50,8 @@ const Header = (): JSX.Element => {
 							h='2.5rem'
 							w='2.5rem'
 							src={
-								session.user?.image
-									? session.user.image
+								user && user.picture
+									? user.picture
 									: 'https://avatars.dicebear.com/api/male/username.svg'
 							}
 						/>
@@ -56,15 +61,15 @@ const Header = (): JSX.Element => {
 							<Avatar
 								size={'2xl'}
 								src={
-									session.user?.image
-										? session.user.image
+									user && user.picture
+										? user.picture
 										: 'https://avatars.dicebear.com/api/male/username.svg'
 								}
 							/>
 						</Center>
 						<br />
 						<Center>
-							<Typography variant='paragraph'>{session.user?.name!}</Typography>
+							<Typography variant='paragraph'>{user?.name || ''}</Typography>
 						</Center>
 						<MenuDivider />
 						<MenuItem
@@ -76,13 +81,14 @@ const Header = (): JSX.Element => {
 								filter: 'brightness(90%)',
 							}}
 							borderRadius='lg'
-							onClick={() => signOut()}>
+							onClick={() => handleSignOut()}>
 							<Typography variant='paragraph'>Logout</Typography>
 						</MenuItem>
 					</MenuList>
 				</>
 			);
 		}
+
 		return (
 			<>
 				<MenuButton
@@ -124,41 +130,43 @@ const Header = (): JSX.Element => {
 							maxW={'md'}
 							variant={'outline'}
 							leftIcon={<IoLogInOutline />}
-							onClick={() => signIn('auth0')}>
+							onClick={() => handleSignIn()}>
 							<Typography variant='button'>Sign in here</Typography>
 						</Button>
 					</Center>
 				</MenuList>
 			</>
 		);
-	};
+	}, [isLoading]);
 
 	return (
-		<Box bg={useColorModeValue('secondary.main', 'secondary.main')} px={4}>
-			<Flex h={'20'} alignItems={'center'} justifyContent={'space-between'}>
-				<Logo />
-				<Flex alignItems={'center'}>
-					<Stack direction={'row'} spacing={7}>
-						<Button
-							bg='secondary.main'
-							padding='0'
-							_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
-							_focus={{ border: 'none' }}
-							_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
-							rounded={'full'}
-							onClick={toggleColorMode}>
-							<Icon
-								as={colorMode === 'light' ? MoonIcon : SunIcon}
-								color={useColorModeValue('darkish', 'white')}
-								height='1.5rem'
-								width='1.5rem'
-							/>
-						</Button>
-						<Menu autoSelect={false}>{renderMenu()}</Menu>
-					</Stack>
+		<Skeleton isLoaded={!isLoading}>
+			<Box bg={useColorModeValue('secondary.main', 'secondary.main')} px={4}>
+				<Flex h={'20'} alignItems={'center'} justifyContent={'space-between'}>
+					<Logo />
+					<Flex alignItems={'center'}>
+						<Stack direction={'row'} spacing={7}>
+							<Button
+								bg='secondary.main'
+								padding='0'
+								_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
+								_focus={{ border: 'none' }}
+								_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
+								rounded={'full'}
+								onClick={toggleColorMode}>
+								<Icon
+									as={colorMode === 'light' ? MoonIcon : SunIcon}
+									color={useColorModeValue('darkish', 'white')}
+									height='1.5rem'
+									width='1.5rem'
+								/>
+							</Button>
+							<Menu autoSelect={false}>{renderMenu()}</Menu>
+						</Stack>
+					</Flex>
 				</Flex>
-			</Flex>
-		</Box>
+			</Box>
+		</Skeleton>
 	);
 };
 export default Header;

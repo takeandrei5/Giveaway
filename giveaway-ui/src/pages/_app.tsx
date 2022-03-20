@@ -1,21 +1,22 @@
 import '../../styles/globals.css';
-import { SessionProvider } from 'next-auth/react';
+
+import { UserProvider } from '@auth0/nextjs-auth0';
 import { ChakraProvider } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
 import Layout from '../layouts';
 import mainTheme from './mainTheme';
 
 import type { AppProps } from 'next/app';
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-	return (
-		<SessionProvider session={session} refetchInterval={30 * 60} refetchOnWindowFocus>
-			<ChakraProvider theme={mainTheme}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
-			</ChakraProvider>
-		</SessionProvider>
-	);
-}
+
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps): JSX.Element => (
+	<UserProvider>
+		<ChakraProvider theme={mainTheme}>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</ChakraProvider>
+	</UserProvider>
+);
 
 export default MyApp;
