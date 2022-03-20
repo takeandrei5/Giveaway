@@ -2,7 +2,7 @@ import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
 
 import { Text } from '@chakra-ui/react';
 
-const Typography = ({ children, variant }: TypographI): JSX.Element => {
+const Typography = ({ children, variant, center = false }: TypographI): JSX.Element => {
 	const renderTypographyProps = (variant: TypographyVariantI) => {
 		let textProps: TypographyTextI = {} as TypographyTextI;
 
@@ -76,7 +76,11 @@ const Typography = ({ children, variant }: TypographI): JSX.Element => {
 		return textProps;
 	};
 
-	return <Text {...renderTypographyProps(variant)}>{children}</Text>;
+	return (
+		<Text textAlign={center ? 'center' : 'initial'} {...renderTypographyProps(variant)}>
+			{children}
+		</Text>
+	);
 };
 
 export default Typography;

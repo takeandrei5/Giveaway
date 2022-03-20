@@ -16,9 +16,8 @@ const Layout = ({ children }: LayoutI) => (
 			marginLeft='auto'
 			marginRight='auto'
 			paddingTop='5rem'
-			paddingX='2.5rem'
+			paddingX='8rem'
 			backgroundColor={useColorModeValue('grayish', 'darkish')}>
-			<SearchBox />
 			{children}
 		</Box>
 		<Footer />

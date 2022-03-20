@@ -1,6 +1,6 @@
 import { SearchIcon, SunIcon } from '@chakra-ui/icons';
 import { Formik } from 'formik';
-import { ButtonPrimary, ButtonSecondary, Input, Typography } from '../../components';
+import { ButtonPrimary, ButtonSecondary, CategoryItem, Input, Typography } from '../../components';
 
 const Testing = () => {
 	return (
@@ -80,6 +80,9 @@ const Testing = () => {
 						);
 					}}
 				/>
+			</div>
+			<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+				<CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' />
 			</div>
 		</div>
 	);

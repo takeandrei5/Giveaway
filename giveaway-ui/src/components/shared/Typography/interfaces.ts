@@ -1,6 +1,7 @@
 export interface TypographI {
 	children: string;
 	variant: TypographyVariantI;
+	center?: boolean
 }
 
 export type TypographyVariantI =
