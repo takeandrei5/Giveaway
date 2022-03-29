@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,9 @@ public sealed class ListingEntity
 
     public string Description { get; set; } = null!;
 
-    public IEnumerable<Image> Images { get; set; } = Enumerable.Empty<Image>();
-
     public DateTime CreatedAt { get; set; }
 
     public DateTime LastModifiedAt { get; set; }
 
-    public sealed record Image
-    {
-        public string ImageAddress { get; init; } = null!;
-    }
+    public ICollection<ImageEntity> Images { get; set; } = null!;
 }

@@ -27,25 +27,20 @@ public sealed class Reader : IListingReader
 
     public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListings(CancellationToken cancellationToken)
     {
-        var listingEntities = await _dbContext.Listings.ToListAsync(cancellationToken);
+        var listingEntities = await _dbContext.Listings
+            .ToListAsync(cancellationToken);
 
         return _mapper.Map<IEnumerable<ReadAllListingsModel>>(listingEntities);
     }
 
     public async Task<ReadListingByIdModel> ReadListingById(ListingId id, CancellationToken cancellationToken)
     {
-        //var listingEntity = await _dbContext.Listings
-        //    .Where(listing => listing.Id == id.Value)
-        //    .GroupJoin(_dbContext.Items, l => l.Id, r => r.ListingId, (listing, items) =>
-        //    new
-        //    {
-        //        Listing = listing,
-        //        Items = items
-        //    })
-        //    .SingleAsync(cancellationToken);
+        var listingEntity = await _dbContext.Listings
+            .Where(listing => listing.Id == id.Value)
+            .Include(listing => listing.Category)
+            .Include(listing => listing.Images)
+            .SingleAsync(cancellationToken);
 
-        //return _mapper.MergeInto<ReadListingByIdModel>(listingEntity.Listing, listingEntity.Items);
-
-        throw new NotImplementedException();
+        return _mapper.Map<ReadListingByIdModel>(listingEntity);
     }
 }

@@ -15,14 +15,12 @@ public sealed record ListingReadModel
 
     public string Description { get; init; } = null!;
 
-    public IEnumerable<Item> Items { get; init; } = Enumerable.Empty<Item>();
+    public string Category { get; init; } = null!;
 
-    public sealed record Item
+    public IEnumerable<Image> Images { get; init; } = Enumerable.Empty<Image>();
+
+    public sealed record Image
     {
-        public Guid Id { get; init; }
-
-        public string Title { get; init; } = null!;
-
-        public string Description { get; init; } = null!;
+        public string Url { get; init; } = null!;
     }
 }

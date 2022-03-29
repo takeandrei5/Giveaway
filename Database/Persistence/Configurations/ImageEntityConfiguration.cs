@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Database.Persistence.Entities;
+using Giveaway.Extensions;
 
 namespace Giveaway.Database.Persistence.Configurations;
 
-public sealed class CategoryEntityConfiguration : IEntityTypeConfiguration<CategoryEntity>
+public sealed class ImageEntityConfiguration : IEntityTypeConfiguration<ImageEntity>
 {
-    public void Configure(EntityTypeBuilder<CategoryEntity> builder)
+    public void Configure(EntityTypeBuilder<ImageEntity> builder)
     {
-        builder.ToTable("Categories", "dbo");
+        builder.ToTable("Images", "dbo");
 
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Name)
-            .IsRequired();
+        builder.BelongsTo<ImageEntity, ListingEntity>(b => b.ListingId);
 
-        builder.HasIndex(b => b.Name);
+        builder.Property(b => b.Url)
+            .IsRequired();
     }
 }

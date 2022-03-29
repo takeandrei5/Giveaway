@@ -19,20 +19,6 @@ public sealed class ListingEntityConfiguration : IEntityTypeConfiguration<Listin
 
         builder.HasKey(b => b.Id);
 
-        builder.BelongsTo<ListingEntity, CategoryEntity>(b => b.CategoryId);
-
-        builder.Property(b => b.Images)
-            .HasConversion(
-                v => JsonConvert.SerializeObject(v,
-                    new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                v => JsonConvert.DeserializeObject<IEnumerable<ListingEntity.Image>>(v,
-                    new JsonSerializerSettings
-                    {
-                        NullValueHandling = NullValueHandling.Ignore,
-                        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
-                    })!)
-            .IsRequired();
-
         builder.Property(b => b.CategoryId)
             .IsRequired();
 

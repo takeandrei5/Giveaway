@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Enums.NET" Version="4.0.0" />
     <PackageReference Include="SoftwareCraft.Maybe" Version="2.0.2.1" />
     <PackageReference Include="SoftwareCraft.Result" Version="6.0.0" />
   </ItemGroup>

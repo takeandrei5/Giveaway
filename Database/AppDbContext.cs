@@ -20,6 +20,8 @@ public sealed class AppDbContext : DbContext
 
     public DbSet<CategoryEntity> Categories { get; set; } = null!;
 
+    public DbSet<ImageEntity> Images { get; set; } = null!;
+
     public DbSet<ListingEntity> Listings { get; set; } = null!;
 
     public DbSet<UserEntity> Users { get; set; } = null!;
@@ -29,6 +31,7 @@ public sealed class AppDbContext : DbContext
         modelBuilder.UseCollation("SQL_Latin1_General_CP1_CS_AS");
 
         new CategoryEntityConfiguration().Configure(modelBuilder.Entity<CategoryEntity>());
+        new ImageEntityConfiguration().Configure(modelBuilder.Entity<ImageEntity>());
         new ListingEntityConfiguration().Configure(modelBuilder.Entity<ListingEntity>());
         new UserEntityConfiguration().Configure(modelBuilder.Entity<UserEntity>());
 

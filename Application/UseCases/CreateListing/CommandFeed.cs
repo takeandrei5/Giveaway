@@ -17,5 +17,5 @@ public sealed record CommandFeed
 
     public IEnumerable<ListingImage> Images { get; init; } = Enumerable.Empty<ListingImage>();
 
-    public CategoryEnum Category { get; init; }
+    public Category Category { get; init; } = null!;
 }

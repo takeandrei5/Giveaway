@@ -10,16 +10,5 @@ public class CategoryEntity
 {
     public int Id { get; set; }
 
-    public CategoryEnum Category { get; set; }
-
-    public enum CategoryEnum
-    {
-        MenClothes,
-        WomenClothes,
-        KidsClothes,
-        Toys,
-        MenFootwear,
-        WomenFootwear,
-        KidsFootwear,
-    }
+    public string Name { get; set; } = null!;
 }

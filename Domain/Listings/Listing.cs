@@ -12,7 +12,7 @@ namespace Giveaway.Domain.Listings;
 public sealed record Listing
 {
     internal Listing(ListingId id, ListingTitle title, ListingDescription description,
-        UserId ownerId, IEnumerable<ListingImage> images, CategoryEnum category)
+        UserId ownerId, IEnumerable<ListingImage> images, Category category)
     {
         Id = id;
         Title = title;
@@ -20,9 +20,7 @@ public sealed record Listing
         OwnerId = ownerId;
 
         if (!images.Any())
-        {
             throw new ArgumentException("Images list cannot be an empty list.");
-        }
 
         Images = images;
         Category = category;
@@ -38,5 +36,5 @@ public sealed record Listing
 
     public IEnumerable<ListingImage> Images { get; init; }
 
-    public CategoryEnum Category { get; init; }
+    public Category Category { get; init; }
 }

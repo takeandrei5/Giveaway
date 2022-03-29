@@ -24,6 +24,6 @@ public sealed record User
 
     public UserInformation Information { get; init; }
 
-    public Listing CreateListing(ListingTitle title, ListingDescription description, IEnumerable<ListingImage> images, CategoryEnum category)
+    public Listing CreateListing(ListingTitle title, ListingDescription description, IEnumerable<ListingImage> images, Category category)
         => new(new(Guid.NewGuid()), title, description, Id, images, category);
 }

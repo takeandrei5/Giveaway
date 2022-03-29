@@ -12,9 +12,9 @@ namespace Giveaway.Application.UseCases.CreateListing;
 
 public sealed class Command
 {
-    private readonly ILoggedUser        _currentUserEmailProvider;
+    private readonly ILoggedUser _currentUserEmailProvider;
     private readonly IListingRepository _listingRepository;
-    private readonly IUserRepository    _userRepository;
+    private readonly IUserRepository _userRepository;
 
     public Command(ILoggedUser currentUserEmailProvider, IListingRepository listingRepository, IUserRepository userRepository)
     {

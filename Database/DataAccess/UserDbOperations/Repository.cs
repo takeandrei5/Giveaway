@@ -23,7 +23,7 @@ public sealed class Repository : IUserRepository
             .Where(x => x.Email == email)
             .SingleOrDefaultAsync(cancellationToken);
 
-        if (userEntity == null)
+        if (userEntity is null)
             throw new Exception($"User onboarding issue for email {email}");
 
         return new User(new UserId(userEntity.Id),

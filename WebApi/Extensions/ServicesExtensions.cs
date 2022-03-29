@@ -1,13 +1,7 @@
 ﻿using Giveaway.Application.Interfaces;
 using Giveaway.Domain.Interfaces;
 using Giveaway.WebApi.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace Giveaway.WebApi.Extensions;
 

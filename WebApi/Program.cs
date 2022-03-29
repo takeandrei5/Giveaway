@@ -47,9 +47,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     var currentIdentity = context.Principal!.Identities.First();
 
                     if (!currentIdentity.IsAuthenticated)
-                    {
                         throw new InvalidOperationException("Current user is not authenticated.");
-                    }
 
                     var accessToken = (JwtSecurityToken)context.SecurityToken;
 
@@ -63,10 +61,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
                     var response = await httpClient.GetFromJsonAsync<UserInfoModel>("userinfo", CancellationToken.None);
 
-                    if (response == null)
-                    {
+                    if (response is null)
                         throw new InvalidOperationException("Failed fetching user information.");
-                    }
 
                     currentIdentity.AddClaims(new Claim[]
                     {
@@ -84,9 +80,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 
 if (builder.Environment.IsDevelopment())
-{
     builder.Services.AddSwagger(configuration["Authentication:Auth0:Domain"], configuration["Authentication:Auth0:Audience"]);
-}
 
 var app = builder.Build();
 
