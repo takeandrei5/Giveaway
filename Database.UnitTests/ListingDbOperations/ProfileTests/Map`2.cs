@@ -26,12 +26,6 @@ public sealed class Map_2 : Base
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
 
-        var itemId = _fixture.Create<Guid>();
-        var itemTitle = _fixture.Create<string>();
-        var itemDescription = _fixture.Create<string>();
-        var itemCreationDate = _fixture.Create<DateTime>();
-        var itemLastModificationDate = _fixture.Create<DateTime>();
-
         var listingSource = new ListingEntity()
         {
             Id = listingId,
@@ -42,32 +36,11 @@ public sealed class Map_2 : Base
             LastModifiedAt = listingLastModificationDate
         };
 
-        var itemsSource = new ItemEntity[]
-        {
-            new ItemEntity() {
-                Id = itemId,
-                ListingId = listingId,
-                Title = itemTitle,
-                Description = itemDescription,
-                CreatedAt = itemCreationDate,
-                LastModifiedAt = itemLastModificationDate
-            }
-        };
-
         var destination = new ReadListingById()
         {
             Id = listingId,
             Title = listingTitle,
             Description = listingDescription,
-            Items = new ReadListingById.Item[]
-            {
-                new()
-                {
-                    Id = itemId,
-                    Title = itemTitle,
-                    Description = itemDescription
-                }
-            }
         };
 
         // Act

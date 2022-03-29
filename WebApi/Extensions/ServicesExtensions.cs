@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace Giveaway.WebApi.Extensions;
 
-using ItemRepository = Database.DataAccess.ItemDbOperations.Repository;
 using ListingRepository = Database.DataAccess.ListingDbOperations.Repository;
 using UserRepository = Database.DataAccess.UserDbOperations.Repository;
 
@@ -30,7 +29,6 @@ public static partial class ServicesExtensions
 
     public static void AddRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IItemRepository, ItemRepository>();
         services.AddScoped<IListingRepository, ListingRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
     }

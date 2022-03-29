@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using Giveaway.Application.Interfaces;
-using Giveaway.Application.UseCases.CreateListing;
 using Giveaway.Database;
 using Giveaway.Domain.Interfaces;
 using Moq;

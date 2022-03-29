@@ -15,10 +15,10 @@ public sealed class AppDbContext : DbContext
 {
     private readonly ILoggedUser _loggedUser;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedUser loggedUser) : base(options)
-        => _loggedUser = loggedUser;
+    public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedUser loggedUser) : base(options) => 
+        _loggedUser = loggedUser;
 
-    public DbSet<ItemEntity> Items { get; set; } = null!;
+    public DbSet<CategoryEntity> Categories { get; set; } = null!;
 
     public DbSet<ListingEntity> Listings { get; set; } = null!;
 
@@ -28,7 +28,7 @@ public sealed class AppDbContext : DbContext
     {
         modelBuilder.UseCollation("SQL_Latin1_General_CP1_CS_AS");
 
-        new ItemEntityConfiguration().Configure(modelBuilder.Entity<ItemEntity>());
+        new CategoryEntityConfiguration().Configure(modelBuilder.Entity<CategoryEntity>());
         new ListingEntityConfiguration().Configure(modelBuilder.Entity<ListingEntity>());
         new UserEntityConfiguration().Configure(modelBuilder.Entity<UserEntity>());
 

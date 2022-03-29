@@ -34,16 +34,18 @@ public sealed class Reader : IListingReader
 
     public async Task<ReadListingByIdModel> ReadListingById(ListingId id, CancellationToken cancellationToken)
     {
-        var listingEntity = await _dbContext.Listings
-            .Where(listing => listing.Id == id.Value)
-            .GroupJoin(_dbContext.Items, l => l.Id, r => r.ListingId, (listing, items) =>
-            new
-            {
-                Listing = listing,
-                Items = items
-            })
-            .SingleAsync(cancellationToken);
+        //var listingEntity = await _dbContext.Listings
+        //    .Where(listing => listing.Id == id.Value)
+        //    .GroupJoin(_dbContext.Items, l => l.Id, r => r.ListingId, (listing, items) =>
+        //    new
+        //    {
+        //        Listing = listing,
+        //        Items = items
+        //    })
+        //    .SingleAsync(cancellationToken);
 
-        return _mapper.MergeInto<ReadListingByIdModel>(listingEntity.Listing, listingEntity.Items);
+        //return _mapper.MergeInto<ReadListingByIdModel>(listingEntity.Listing, listingEntity.Items);
+
+        throw new NotImplementedException();
     }
 }

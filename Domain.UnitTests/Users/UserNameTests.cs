@@ -8,7 +8,7 @@ using Xunit;
 using Giveaway.Domain.Users;
 
 namespace Giveaway.Domain.UnitTests.Users;
-public sealed class UserNameTests
+public sealed class CategoryUrlTests
 {
     [Fact(DisplayName = "User name cannot be an empty name.")]
     public void User_Full_Name_Cannot_Be_An_Empty_Name()

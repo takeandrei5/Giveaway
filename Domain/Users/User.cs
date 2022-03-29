@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Listings;
 using System.Runtime.CompilerServices;
+using Giveaway.Domain.Categories;
 
 [assembly: InternalsVisibleTo("Giveaway.Application")]
 
@@ -23,6 +24,6 @@ public sealed record User
 
     public UserInformation Information { get; init; }
 
-    public Listing CreateListing(ListingTitle title, ListingDescription description)
-        => new(new(Guid.NewGuid()), title, description, Id);
+    public Listing CreateListing(ListingTitle title, ListingDescription description, IEnumerable<ListingImage> images, CategoryEnum category)
+        => new(new(Guid.NewGuid()), title, description, Id, images, category);
 }

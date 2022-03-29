@@ -12,8 +12,8 @@ namespace Giveaway.Application.UseCases.CreateUser;
 
 public sealed class Command
 {
-    private readonly ILoggedUser _loggedUser;
-    private readonly IUserRepository _userRepository;
+    private readonly ILoggedUser        _loggedUser;
+    private readonly IUserRepository    _userRepository;
 
     public Command(ILoggedUser loggedUser, IUserRepository userRepository)
     {

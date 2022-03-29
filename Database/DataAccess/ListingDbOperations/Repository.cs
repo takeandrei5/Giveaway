@@ -27,8 +27,10 @@ public sealed class Repository : IListingRepository
                 Id = listing.Id.Value,
                 Title = listing.Title.Value,
                 Description = listing.Description.Value,
-                OwnerId = listing.OwnerId.Value
-            }, cancellationToken);
+                OwnerId = listing.OwnerId.Value,
+                Images = listing.Images.Select(i => new ListingEntity.Image { ImageAddress = i.Value }),
+                CategoryId = (int)listing.Category
+            }, cancellationToken); ;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
@@ -44,6 +46,7 @@ public sealed class Repository : IListingRepository
     {
         var listingEntity = await _dbContext.Listings
             .Where(listing => listing.Id == listingId.Value)
+            .Include(listing => listing.Category)
             .SingleOrDefaultAsync(cancellationToken);
 
         if (listingEntity == null)
@@ -52,6 +55,7 @@ public sealed class Repository : IListingRepository
         return new Listing(listingId,
             new ListingTitle(listingEntity.Title),
             new ListingDescription(listingEntity.Description),
-            new UserId(listingEntity.OwnerId)).AsSuccess<Listing, string>();
+            new UserId(listingEntity.OwnerId), listingEntity.Images.Select(i => new ListingImage(i.ImageAddress)), (Domain.Categories.CategoryEnum)listingEntity.Category.Category)
+            .AsSuccess<Listing, string>();
     }
 }

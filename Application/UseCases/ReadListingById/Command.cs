@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Giveaway.Application.UseCases.ReadListingById;
 public sealed class Command
 {
-    private readonly IListingReader _listingReader;
+    private readonly IListingReader     _listingReader;
     private readonly IListingRepository _listingRepository;
 
     public Command(IListingReader listingReader, IListingRepository listingRepository)

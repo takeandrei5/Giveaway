@@ -17,10 +17,5 @@ public sealed class Profile : AutoMapper.Profile
         CreateMap<ListingEntity, ReadAllListingsModel>();
 
         CreateMap<ListingEntity, ReadListingByIdModel>();
-
-        CreateMap<IEnumerable<ItemEntity>, ReadListingByIdModel>()
-            .ForMember(member => member.Items, opt => opt.MapFrom(src => src));
-
-        CreateMap<ItemEntity, ReadListingByIdModel.Item>();
     }
 }
