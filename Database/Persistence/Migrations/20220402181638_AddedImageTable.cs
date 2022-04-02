@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Giveaway.Database.Persistence.Migrations
 {
-    public partial class AddedCategoryAndListingEntitiesAndOtherChanges : Migration
+    public partial class AddedImageTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

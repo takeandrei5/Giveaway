@@ -15,8 +15,8 @@ namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 
 public sealed class Map_2 : Base
 {
-    [Fact(DisplayName = "AutoMapper maps ListingEntity and IEnumerable<ItemEntity> to ReadListingById successfully.")]
-    public void AutoMapper_Maps_ListingEntity_And_IEnumerable_ItemEntity_To_ReadListingById_Successfully()
+    [Fact(DisplayName = "AutoMapper maps ListingEntity to ReadListingById successfully.")]
+    public void AutoMapper_Maps_ListingEntity_To_ReadListingById_Successfully()
     {
         // Arrange
         var listingId = _fixture.Create<Guid>();
@@ -26,7 +26,7 @@ public sealed class Map_2 : Base
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
 
-        var listingSource = new ListingEntity()
+        var source = new ListingEntity()
         {
             Id = listingId,
             OwnerId = listingOwnerId,
@@ -44,10 +44,10 @@ public sealed class Map_2 : Base
         };
 
         // Act
-        var mapperResult = Mapper.MergeInto<ReadListingById>(listingSource, itemsSource.AsEnumerable());
+        var result = Mapper.MergeInto<ReadListingById>(source, destination);
 
         // Assert
-        mapperResult.Should()
+        result.Should()
             .BeEquivalentTo(destination);
     }
 }

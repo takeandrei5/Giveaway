@@ -36,7 +36,10 @@ public sealed class FindListingById_2 : Base
         var result = await _sut.FindListingByIdAsync(listingId, CancellationToken.None);
 
         // Assert
-        result.OnSuccess(res => res.Id.Value.Should()
-            .Be(listings.First().Id));
+        result.Match(res =>
+            res.Id.Value
+                .Should()
+                .Be(listings.First().Id),
+            _ => { });
     }
 }

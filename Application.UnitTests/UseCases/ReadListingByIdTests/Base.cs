@@ -17,10 +17,10 @@ namespace Giveaway.Application.UnitTests.UseCases.ReadListingByIdTests;
 
 public class Base
 {
-    protected readonly Fixture                  _fixture;
-    protected readonly Mock<IListingReader>     _listingReaderMock;
+    protected readonly Fixture _fixture;
+    protected readonly Mock<IListingReader> _listingReaderMock;
     protected readonly Mock<IListingRepository> _listingRepositoryMock;
-    protected readonly Command                  _sut;
+    protected readonly Command _sut;
 
     public Base()
     {

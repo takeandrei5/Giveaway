@@ -4,6 +4,7 @@ using Giveaway.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Giveaway.Database.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220402181638_AddedImageTable")]
+    partial class AddedImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,18 +42,6 @@ namespace Giveaway.Database.Persistence.Migrations
                     b.HasIndex("Name");
 
                     b.ToTable("Categories", "dbo");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Men Clothes"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Women Clothes"
-                        });
                 });
 
             modelBuilder.Entity("Giveaway.Database.Persistence.Entities.ImageEntity", b =>

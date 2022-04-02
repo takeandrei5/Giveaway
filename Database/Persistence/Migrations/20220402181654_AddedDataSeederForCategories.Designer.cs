@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Giveaway.Database.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220329192719_AddedCategoryAndListingEntitiesAndOtherChanges")]
-    partial class AddedCategoryAndListingEntitiesAndOtherChanges
+    [Migration("20220402181654_AddedDataSeederForCategories")]
+    partial class AddedDataSeederForCategories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,18 @@ namespace Giveaway.Database.Persistence.Migrations
                     b.HasIndex("Name");
 
                     b.ToTable("Categories", "dbo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Men Clothes"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Women Clothes"
+                        });
                 });
 
             modelBuilder.Entity("Giveaway.Database.Persistence.Entities.ImageEntity", b =>

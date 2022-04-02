@@ -11,8 +11,8 @@ using Giveaway.Domain.Listings;
 using SoftwareCraft.Functional;
 using Giveaway.Application.UseCases.CreateListing;
 using AutoFixture;
-using Giveaway.Domain.Items;
 using Giveaway.Extensions;
+using Giveaway.Domain.Categories;
 
 namespace Giveaway.Application.UnitTests.UseCases.CreateListingTests;
 
@@ -27,41 +27,29 @@ public sealed class ExecuteAsync_3 : Base
         _listingRepositoryMock.Setup(listingRepository => listingRepository.CreateAsync(It.IsAny<Listing>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new Success<string>());
 
-        _itemRepositoryMock.Setup(itemRepository => itemRepository.CreateManyAsync(It.IsAny<IEnumerable<Item>>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new Success<string>());
-
         var commandFeed = new CommandFeed
         {
-            Title = new ListingTitle(_fixture.CreateTextWithMaxLength(30)),
-            Description = new ListingDescription(_fixture.CreateTextWithMaxLength(30)),
-            Items = new CommandFeed.Item[]
+            Title = new(_fixture.CreateTextWithMaxLength(30)),
+            Description = new(_fixture.CreateTextWithMaxLength(30)),
+            Images = new List<ListingImage>()
             {
-                new()
-                {
-                    Title = new ItemTitle(_fixture.CreateTextWithMaxLength(30)),
-                    Description = new ItemDescription(_fixture.CreateTextWithMaxLength(30)),
-                }
-            }
+                new(_fixture.CreateUrl())
+            },
+            Category = Category.From(1)
         };
 
         // Act
         await _sut.ExecuteAsync(commandFeed, CancellationToken.None);
 
         // Assert
+        _loggedUserMock.Verify(loggedUser => loggedUser.GetEmailFromClaims(), Times.Once);
+
+        _userRepositoryMock.Verify(userRepository => userRepository.FindUserByEmailAsync(It.IsAny<string>(),
+                CancellationToken.None),
+            Times.Once);
+
         _listingRepositoryMock.Verify(listingRepository =>
             listingRepository.CreateAsync(It.Is<Listing>(listing => listing.Title == commandFeed.Title && listing.Description == commandFeed.Description),
-                CancellationToken.None),
-        Times.Once);
-
-        _itemRepositoryMock.Verify(listingRepository =>
-            listingRepository.CreateManyAsync(It.Is<IEnumerable<Item>>(items =>
-                    items.All(item =>
-                        commandFeed.Items
-                            .Select(i => i.Title)
-                            .Contains(item.Title)
-                     && commandFeed.Items
-                            .Select(i => i.Description)
-                            .Contains(item.Description))),
                 CancellationToken.None),
         Times.Once);
     }

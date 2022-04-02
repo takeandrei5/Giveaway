@@ -29,8 +29,8 @@ public static class FixtureExtensions
 
         return users;
     }
-
-    public static IEnumerable<ListingEntity> CreateManyListingEntity(this Fixture fixture, Guid ownerId, int count = 10)
+    
+    public static IEnumerable<ListingEntity> CreateManyListingEntity(this Fixture fixture, Guid ownerId, int categoryId = 1, int count = 10)
     {
         var listings = new List<ListingEntity>();
 
@@ -42,6 +42,7 @@ public static class FixtureExtensions
                 OwnerId = ownerId,
                 Title = fixture.CreateTextWithMaxLength(50),
                 Description = fixture.CreateTextWithMaxLength(250),
+                CategoryId = categoryId,
             });
         }
 

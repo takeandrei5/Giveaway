@@ -13,10 +13,10 @@ public class AutoMapperFixture
     {
         var assemblies = AppDomain.CurrentDomain
             .GetAssemblies()
-            .Where(x => !string.IsNullOrEmpty(x.FullName) && x.FullName.Contains("Giveaway") && !x.FullName.Contains("UnitTests"))
+            .Where(assembly => !string.IsNullOrEmpty(assembly.FullName) && assembly.FullName.Contains("Giveaway") && !assembly.FullName.Contains("UnitTests"))
             .ToList();
         Mapper = new MapperConfiguration(cfg => cfg.AddMaps(assemblies)).CreateMapper();
     }
 
-    protected IMapper Mapper { get; private set; }
+    protected IMapper Mapper { get; }
 }

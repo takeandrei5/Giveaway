@@ -16,9 +16,9 @@ namespace Giveaway.Application.UnitTests.UseCases.ReadAllListingsTests;
 
 public class Base
 {
-    protected readonly Fixture              _fixture;
+    protected readonly Fixture _fixture;
     protected readonly Mock<IListingReader> _listingReaderMock;
-    protected readonly Command              _sut;
+    protected readonly Command _sut;
 
     public Base()
     {

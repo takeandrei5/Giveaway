@@ -65,7 +65,7 @@ public sealed class Repository : IListingRepository
                 new ListingDescription(listingEntity.Description),
                 new UserId(listingEntity.OwnerId),
                 listingEntity.Images.Select(image => new ListingImage(image.Url)),
-                Category.GetCategory(listingEntity.Category.Id)
+                Category.From(listingEntity.Category.Id)
             ).AsSuccess<Listing, string>();
     }
 }

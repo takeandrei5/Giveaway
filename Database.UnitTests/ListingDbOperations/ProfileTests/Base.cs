@@ -16,7 +16,7 @@ public class Base : AutoMapperFixture
 
     public Base()
     {
-        _fixture = new Fixture();
-        _sut = new Profile();
+        _fixture = new();
+        _sut = new();
     }
 }

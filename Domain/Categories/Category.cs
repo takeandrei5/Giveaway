@@ -19,10 +19,12 @@ public sealed class Category
 
     private Category() { }
 
-    public static Category GetCategory(int categoryId)
+    public static Category From(int categoryId)
     {
-        if (Enum.TryParse(categoryId.ToString(), out CategoryEnum category))
+        if (!Enum.IsDefined(typeof(CategoryEnum), categoryId))
             throw new ArgumentException("Could not parse the given categoryId.");
+
+        var category = (CategoryEnum)categoryId;
 
         return category switch
         {
@@ -38,7 +40,7 @@ public sealed class Category
                 Name = nameof(CategoryEnum.WomenClothes),
                 CategoryUrl = new(CategoryEnum.WomenClothes.AsString(EnumFormat.Description)!)
             },
-            _ => throw new NotImplementedException()
+            _ => throw new ArgumentException("Could not parse the given category.")
         };
     }
 

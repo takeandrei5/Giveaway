@@ -1,7 +1,9 @@
 ﻿using AutoFixture;
 using Giveaway.Application.Interfaces;
+using Giveaway.Application.UseCases.CreateListing;
 using Giveaway.Database;
 using Giveaway.Domain.Interfaces;
+using Giveaway.Extensions;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -14,25 +16,32 @@ namespace Giveaway.Application.UnitTests.UseCases.CreateListingTests;
 
 public class Base
 {
-    protected readonly Fixture                  _fixture;
-    protected readonly Mock<IItemRepository>    _itemRepositoryMock;
+    protected readonly Fixture _fixture;
     protected readonly Mock<IListingRepository> _listingRepositoryMock;
-    protected readonly Mock<ILoggedUser>        _loggedUserMock;
-    protected readonly Command                  _sut;
-    protected readonly Mock<IUserRepository>    _userRepositoryMock;
+    protected readonly Mock<ILoggedUser> _loggedUserMock;
+    protected readonly Command _sut;
+    protected readonly Mock<IUserRepository> _userRepositoryMock;
+
+    protected string Email { get; init; }
 
     public Base()
     {
-        _fixture = new Fixture();
-        _itemRepositoryMock = new Mock<IItemRepository>();
-        _listingRepositoryMock = new Mock<IListingRepository>();
-        _loggedUserMock = new Mock<ILoggedUser>();
-        _userRepositoryMock = new Mock<IUserRepository>();
+        _fixture = new();
+        _listingRepositoryMock = new();
+        _loggedUserMock = new();
+        _userRepositoryMock = new();
 
-        _sut = new Command(_loggedUserMock.Object, _itemRepositoryMock.Object, _listingRepositoryMock.Object, _userRepositoryMock.Object);
+        _sut = new(_loggedUserMock.Object, _listingRepositoryMock.Object, _userRepositoryMock.Object);
+
+        Email = _fixture.CreateEmail();
     }
 
-    protected void Initialize() =>
+    protected void Initialize()
+    {
+        _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
+            .Returns(Email);
+
         _userRepositoryMock.Setup(userRepository => userRepository.FindUserByEmailAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(_fixture.CreateUser());
+    }
 }

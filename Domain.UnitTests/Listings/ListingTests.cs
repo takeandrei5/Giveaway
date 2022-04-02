@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Giveaway.Domain.Categories;
 using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
 using Moq;
@@ -20,7 +21,8 @@ public sealed class ListingTests
             It.IsAny<ListingTitle>(),
             It.IsAny<ListingDescription>(),
             It.IsAny<UserId>(),
-            Enumerable.Empty<ListingImage>());
+            Enumerable.Empty<ListingImage>(),
+            It.IsAny<Category>());
 
         act.Should()
             .ThrowExactly<ArgumentException>()

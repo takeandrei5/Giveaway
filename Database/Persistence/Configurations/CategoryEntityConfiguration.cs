@@ -21,5 +21,19 @@ public sealed class CategoryEntityConfiguration : IEntityTypeConfiguration<Categ
             .IsRequired();
 
         builder.HasIndex(b => b.Name);
+
+        builder.HasData(new List<CategoryEntity>
+        {
+            new()
+            {
+                Id = 1,
+                Name = "Men Clothes",
+            },
+            new()
+            {
+                Id = 2,
+                Name = "Women Clothes"
+            }
+        });
     }
 }

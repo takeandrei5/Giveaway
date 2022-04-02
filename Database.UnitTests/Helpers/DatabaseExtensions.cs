@@ -30,7 +30,7 @@ public static class DatabaseExtensions
 
         var context = new AppDbContext(dbContextOptionsBuilder.Options, loggedUser);
 
-        context!.Database.Migrate();
+        context.Database.Migrate();
 
         return context;
     }

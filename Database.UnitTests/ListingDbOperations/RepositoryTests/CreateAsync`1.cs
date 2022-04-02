@@ -24,7 +24,7 @@ public sealed class CreateAsync_1 : Base
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)
             .ToList();
-        
+
         var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].Name), new(users[0].Image)));
 
         _loggedUserMock.Setup(mock => mock.GetEmailFromClaims())
@@ -32,9 +32,15 @@ public sealed class CreateAsync_1 : Base
 
         await SetupDatabase(users);
 
-        var newListing = new Listing(new ListingId(_fixture.Create<Guid>()),
-            new ListingTitle(_fixture.CreateTextWithMaxLength(50)),
-            new ListingDescription(_fixture.CreateTextWithMaxLength(250)), user.Id);
+        var newListing = new Listing(new(_fixture.Create<Guid>()),
+            new(_fixture.CreateTextWithMaxLength(50)),
+            new(_fixture.CreateTextWithMaxLength(250)),
+            user.Id,
+            new List<ListingImage>
+            {
+                new (_fixture.CreateUrl())
+            },
+            Domain.Categories.Category.From(1));
 
         // Act
         await _sut.CreateAsync(newListing, It.IsAny<CancellationToken>());
