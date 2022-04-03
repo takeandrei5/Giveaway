@@ -1,4 +1,4 @@
-﻿using Giveaway.Application.UseCases.CreateUser;
+﻿using Giveaway.Application.UseCases.Users.CreateUser;
 
 namespace Giveaway.WebApi.Extensions;
 

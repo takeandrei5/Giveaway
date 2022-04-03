@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-using ReadAllListingsModel = Giveaway.Application.UseCases.ReadAllListings.Models.ListingReadModel;
+using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingReadModel;
+using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 

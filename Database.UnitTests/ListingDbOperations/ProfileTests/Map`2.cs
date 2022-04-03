@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-using ReadListingById = Giveaway.Application.UseCases.ReadListingById.Models.ListingReadModel;
+using ReadListingById = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingReadModel;
+using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 

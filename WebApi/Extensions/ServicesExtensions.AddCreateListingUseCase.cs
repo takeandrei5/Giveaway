@@ -1,4 +1,4 @@
-﻿using Giveaway.Application.UseCases.CreateListing;
+﻿using Giveaway.Application.UseCases.Listings.CreateListing;
 
 namespace Giveaway.WebApi.Extensions;
 

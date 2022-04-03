@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="Enums.NET" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+    <PackageReference Include="SoftwareCraft.Either" Version="2.1.1.1" />
     <PackageReference Include="SoftwareCraft.Maybe" Version="2.0.2.1" />
     <PackageReference Include="SoftwareCraft.Result" Version="6.0.0" />
   </ItemGroup>

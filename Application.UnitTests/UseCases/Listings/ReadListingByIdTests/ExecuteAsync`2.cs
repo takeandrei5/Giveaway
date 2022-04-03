@@ -1,0 +1,59 @@
+﻿using Moq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Xunit;
+using Giveaway.Domain.Listings;
+using SoftwareCraft.Functional;
+using AutoFixture;
+using Giveaway.Domain.Users;
+using Giveaway.Extensions;
+using Giveaway.Domain.Categories;
+using Giveaway.Domain.Errors;
+using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Application.UnitTests.UseCases.Listings.ReadListingByIdTests;
+
+namespace Giveaway.Application.UnitTests.UseCases.Listings.ReadListingByIdTests;
+
+public sealed class ExecuteAsync_2 : Base
+{
+    [Fact(DisplayName = "Check ExecuteAsync execution flow.")]
+    public async Task Check_ExecuteAsync_Execution_Flow()
+    {
+        // Arrange
+        var listingId = new ListingId(_fixture.Create<Guid>());
+        var listing = new Listing(listingId,
+            new(_fixture.Create<string>()),
+            new(_fixture.Create<string>()),
+            new(_fixture.Create<Guid>()),
+            new List<ListingImage>()
+            {
+                new(_fixture.CreateUrl())
+            },
+            Category.From(1));
+
+        _listingRepositoryMock.Setup(listingRepository => listingRepository.FindListingByIdAsync(It.IsAny<ListingId>(),
+                It.IsAny<CancellationToken>()))
+            .ReturnsAsync(listing.AsSuccess<Listing, NotFoundError>());
+
+        _listingReaderMock.Setup(listingReader => listingReader.ReadListingById(It.IsAny<ListingId>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(_fixture.Create<ListingReadModel>());
+
+        // Act
+        await _sut.ExecuteAsync(listingId, CancellationToken.None);
+
+        // Assert
+        _listingRepositoryMock.Verify(listingRepository =>
+            listingRepository.FindListingByIdAsync(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+                CancellationToken.None),
+            Times.Once);
+
+        _listingReaderMock.Verify(listingReader =>
+            listingReader.ReadListingById(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+                CancellationToken.None),
+            Times.Once);
+    }
+}

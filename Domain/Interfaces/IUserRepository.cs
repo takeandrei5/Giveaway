@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Giveaway.Domain.Users;
+using Giveaway.Domain.Errors;
 
 namespace Giveaway.Domain.Interfaces;
 
 public interface IUserRepository
 {
-    Task<User> FindUserByEmailAsync(string email, CancellationToken cancellationToken);
+    Task<Result<User, ForbiddenError>> FindUserByEmailAsync(string email, CancellationToken cancellationToken);
 
     Task CreateAsync(User user, CancellationToken cancellationToken);
 }

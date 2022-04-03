@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Interfaces;
 using Giveaway.Database.Persistence.Entities;
+using Giveaway.Domain.Errors;
+using Microsoft.Data.SqlClient;
 
 namespace Giveaway.Database.DataAccess.UserDbOperations;
 
@@ -17,19 +19,20 @@ public sealed class Repository : IUserRepository
 
     public Repository(AppDbContext dbContext) => _dbContext = dbContext;
 
-    public async Task<User> FindUserByEmailAsync(string email, CancellationToken cancellationToken)
+    public async Task<Result<User, ForbiddenError>> FindUserByEmailAsync(string email, CancellationToken cancellationToken)
     {
         var userEntity = await _dbContext.Users
-            .Where(x => x.Email == email)
+            .Where(user => user.Email == email)
             .SingleOrDefaultAsync(cancellationToken);
 
         if (userEntity is null)
-            throw new Exception($"User onboarding issue for email {email}");
+            return new ForbiddenError($"User onboarding issue for email {email}")
+                .AsError<User, ForbiddenError>();
 
         return new User(new UserId(userEntity.Id),
             new UserInformation(new UserEmail(userEntity.Email),
             new UserName(userEntity.Name),
-            new UserImage(userEntity.Image)));
+            new UserImage(userEntity.Image))).AsSuccess<User, ForbiddenError>();
     }
 
     public async Task CreateAsync(User user, CancellationToken cancellationToken)
@@ -44,5 +47,4 @@ public sealed class Repository : IUserRepository
 
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
-
 }

@@ -1,7 +1,7 @@
 ﻿using Ardalis.ApiEndpoints;
-using Giveaway.Application.UseCases.CreateUser;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Giveaway.Application.UseCases.Users.CreateUser;
 
 namespace Giveaway.WebApi.Endpoints.Users;
 

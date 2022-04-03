@@ -1,18 +1,14 @@
 ﻿using AutoFixture;
+using Database.UnitTests.ItemDbOperations;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using Moq;
+using Giveaway.Domain.Errors;
+using Giveaway.Domain.Listings;
+using Giveaway.Domain.Users;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Domain.Users;
-using Giveaway.Domain.Listings;
-using Giveaway.Extensions;
-using Database.UnitTests.ItemDbOperations;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
@@ -34,7 +30,9 @@ public sealed class FindListingById_1 : Base
         var result = await _sut.FindListingByIdAsync(listingId, CancellationToken.None);
 
         // Assert
-        result.OnError(err => err.Should()
-            .BeEquivalentTo($"The listing with id {listingId.Value} could not be found."));
+        result.Match(
+            _ => { },
+            err => err.Should()
+                .BeEquivalentTo(new NotFoundError($"The listing with id {listingId.Value} could not be found.")));
     }
 }
