@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 using Giveaway.Application.Interfaces;
-using Giveaway.Database.DataAccess.ListingDbOperations;
+using Giveaway.Database.DataAccess.UserDbOperations;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Database.UnitTests.Helpers;
 using Moq;
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
+namespace Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
 
 public class Base : IDisposable
 {
@@ -35,14 +35,6 @@ public class Base : IDisposable
     protected async Task SetupDatabase(IEnumerable<UserEntity> users)
     {
         await _dbContext.Users.AddRangeAsync(users);
-
-        await _dbContext.SaveChangesAsync();
-    }
-
-    protected async Task SetupDatabase(IEnumerable<ListingEntity> listings, IEnumerable<UserEntity> users)
-    {
-        await Task.WhenAll(_dbContext.Listings.AddRangeAsync(listings),
-            _dbContext.Users.AddRangeAsync(users));
 
         await _dbContext.SaveChangesAsync();
     }

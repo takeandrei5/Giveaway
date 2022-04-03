@@ -39,8 +39,8 @@ public sealed class ExecuteAsync_2 : Base
                 It.IsAny<CancellationToken>()))
             .ReturnsAsync(listing.AsSuccess<Listing, NotFoundError>());
 
-        _listingReaderMock.Setup(listingReader => listingReader.ReadListingById(It.IsAny<ListingId>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(_fixture.Create<ListingReadModel>());
+        _listingReaderMock.Setup(listingReader => listingReader.ReadListingByIdAsync(It.IsAny<ListingId>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(_fixture.Create<ListingDtoModel>());
 
         // Act
         await _sut.ExecuteAsync(listingId, CancellationToken.None);
@@ -52,7 +52,7 @@ public sealed class ExecuteAsync_2 : Base
             Times.Once);
 
         _listingReaderMock.Verify(listingReader =>
-            listingReader.ReadListingById(It.Is<ListingId>(listing => listing.Value == listingId.Value),
+            listingReader.ReadListingByIdAsync(It.Is<ListingId>(listing => listing.Value == listingId.Value),
                 CancellationToken.None),
             Times.Once);
     }

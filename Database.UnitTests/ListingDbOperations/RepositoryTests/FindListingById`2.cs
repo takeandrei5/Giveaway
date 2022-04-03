@@ -12,7 +12,8 @@ using Xunit;
 using Giveaway.Domain.Users;
 using Giveaway.Domain.Listings;
 using Giveaway.Extensions;
-using Database.UnitTests.ItemDbOperations;
+using Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+using Giveaway.Database.UnitTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 

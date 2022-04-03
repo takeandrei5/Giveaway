@@ -13,6 +13,6 @@ public sealed class Command
 
     public Command(IListingReader reader) => _reader = reader;
 
-    public async Task<IEnumerable<ListingReadModel>> ExecuteAsync(CancellationToken cancellationToken) =>
-        await _reader.ReadAllListings(cancellationToken);
+    public async Task<IEnumerable<ListingDtoModel>> ExecuteAsync(CancellationToken cancellationToken) =>
+        await _reader.ReadAllListingsAsync(cancellationToken);
 }

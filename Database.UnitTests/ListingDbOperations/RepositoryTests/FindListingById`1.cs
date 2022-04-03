@@ -1,5 +1,4 @@
 ﻿using AutoFixture;
-using Database.UnitTests.ItemDbOperations;
 using FluentAssertions;
 using Giveaway.Domain.Errors;
 using Giveaway.Domain.Listings;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
+using Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+using Giveaway.Database.UnitTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
@@ -27,12 +28,12 @@ public sealed class FindListingById_1 : Base
         await SetupDatabase(users);
 
         // Act
-        var result = await _sut.FindListingByIdAsync(listingId, CancellationToken.None);
+        var userResult = await _sut.FindListingByIdAsync(listingId, CancellationToken.None);
 
         // Assert
-        result.Match(
+        userResult.Match(
             _ => { },
-            err => err.Should()
+            error => error.Should()
                 .BeEquivalentTo(new NotFoundError($"The listing with id {listingId.Value} could not be found.")));
     }
 }

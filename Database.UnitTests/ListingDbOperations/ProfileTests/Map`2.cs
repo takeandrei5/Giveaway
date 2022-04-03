@@ -9,8 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-using ReadListingById = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingReadModel;
+using ReadListingById = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingDtoModel;
 using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Database.UnitTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 
@@ -24,6 +25,8 @@ public sealed class Map_2 : Base
         var listingOwnerId = _fixture.Create<Guid>();
         var listingTitle = _fixture.Create<string>();
         var listingDescription = _fixture.Create<string>();
+        var listingCategoryId = 1;
+        var listingImages = _fixture.CreateManyImageEntity(listingId, 5);
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
 
@@ -33,6 +36,8 @@ public sealed class Map_2 : Base
             OwnerId = listingOwnerId,
             Title = listingTitle,
             Description = listingDescription,
+            CategoryId = listingCategoryId,
+            Images = listingImages.ToList(),
             CreatedAt = listingCreationDate,
             LastModifiedAt = listingLastModificationDate
         };
@@ -42,10 +47,15 @@ public sealed class Map_2 : Base
             Id = listingId,
             Title = listingTitle,
             Description = listingDescription,
+            Category = listingCategoryId,
+            Images = listingImages.Select(image => new ReadListingById.Image
+            {
+                Url = image.Url,
+            })
         };
 
         // Act
-        var result = Mapper.MergeInto<ReadListingById>(source, destination);
+        var result = Mapper.Map<ReadListingById>(source);
 
         // Assert
         result.Should()

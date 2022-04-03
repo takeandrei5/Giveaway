@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingReadModel;
+using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
 using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
+using Giveaway.Extensions;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 
@@ -22,9 +23,11 @@ public sealed class Map_1 : Base
         var listingId = _fixture.Create<Guid>();
         var listingOwnerId = _fixture.Create<Guid>();
         var listingTitle = _fixture.Create<string>();
+        var listingCategoryId = 1;
         var listingDescription = _fixture.Create<string>();
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
+        var listingImageUrl = _fixture.CreateUrl();
 
         var source = new ListingEntity()
         {
@@ -32,15 +35,24 @@ public sealed class Map_1 : Base
             OwnerId = listingOwnerId,
             Title = listingTitle,
             Description = listingDescription,
+            CategoryId = listingCategoryId,
+            Images = new List<ImageEntity>()
+            {
+                new()
+                {
+                    Url = listingImageUrl
+                }
+            },
             CreatedAt = listingCreationDate,
-            LastModifiedAt = listingLastModificationDate
+            LastModifiedAt = listingLastModificationDate,
         };
 
         var destination = new ReadAllListingsModel()
         {
             Id = listingId,
             Title = listingTitle,
-            Description = listingDescription
+            Description = listingDescription,
+            MainImageUrl = listingImageUrl
         };
 
         // Act

@@ -1,18 +1,10 @@
 ﻿using AutoMapper;
 using Giveaway.Application.Interfaces;
 using Giveaway.Domain.Listings;
-using Giveaway.Extensions;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingReadModel;
-using ReadListingByIdModel = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingReadModel;
-using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
-using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
+using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
+using ReadListingByIdModel = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingDtoModel;
 
 namespace Giveaway.Database.DataAccess.ListingDbOperations;
 
@@ -27,15 +19,16 @@ public sealed class Reader : IListingReader
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListings(CancellationToken cancellationToken)
+    public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListingsAsync(CancellationToken cancellationToken)
     {
         var listingEntities = await _dbContext.Listings
+            .Include(listing => listing.Images)
             .ToListAsync(cancellationToken);
 
         return _mapper.Map<IEnumerable<ReadAllListingsModel>>(listingEntities);
     }
 
-    public async Task<ReadListingByIdModel> ReadListingById(ListingId id, CancellationToken cancellationToken)
+    public async Task<ReadListingByIdModel> ReadListingByIdAsync(ListingId id, CancellationToken cancellationToken)
     {
         var listingEntity = await _dbContext.Listings
             .Where(listing => listing.Id == id.Value)

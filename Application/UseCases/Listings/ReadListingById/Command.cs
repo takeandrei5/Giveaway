@@ -22,15 +22,15 @@ public sealed class Command
         _listingRepository = listingRepository;
     }
 
-    public async Task<Result<ListingReadModel, NotFoundError>> ExecuteAsync(ListingId id, CancellationToken cancellationToken)
+    public async Task<Result<ListingDtoModel, NotFoundError>> ExecuteAsync(ListingId id, CancellationToken cancellationToken)
     {
         var listingResult = await _listingRepository.FindListingByIdAsync(id, cancellationToken);
 
         return await listingResult.SelectManyAsync(
             async listing =>
             {
-                var listingReadModel = await _listingReader.ReadListingById(listing.Id, cancellationToken);
-                return listingReadModel.AsSuccess<ListingReadModel, NotFoundError>();
+                var listingReadModel = await _listingReader.ReadListingByIdAsync(listing.Id, cancellationToken);
+                return listingReadModel.AsSuccess<ListingDtoModel, NotFoundError>();
             });
     }
 }

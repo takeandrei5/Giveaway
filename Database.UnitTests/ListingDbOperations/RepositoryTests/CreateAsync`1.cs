@@ -1,18 +1,15 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
+using Giveaway.Domain.Listings;
+using Giveaway.Domain.Users;
+using Giveaway.Extensions;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Domain.Users;
-using Giveaway.Domain.Listings;
-using Giveaway.Extensions;
-using Database.UnitTests.ItemDbOperations;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 

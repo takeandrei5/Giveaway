@@ -12,5 +12,7 @@ public sealed record ImageEntity
 
     public Guid ListingId { get; set; }
 
+    public ListingEntity Listing { get; set; } = null!;
+
     public string Url { get; set; } = null!;
 }

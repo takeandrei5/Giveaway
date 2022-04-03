@@ -1,13 +1,10 @@
 ﻿using AutoFixture;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Extensions;
+using System;
+using System.Collections.Generic;
 
-namespace Database.UnitTests.ItemDbOperations;
+namespace Giveaway.Database.UnitTests;
 
 public static class FixtureExtensions
 {
@@ -15,7 +12,7 @@ public static class FixtureExtensions
     {
         var users = new List<UserEntity>();
 
-        foreach (var _ in ..count)
+        foreach (var _ in ..(count - 1))
         {
             users.Add(new UserEntity
             {
@@ -29,12 +26,13 @@ public static class FixtureExtensions
 
         return users;
     }
-    
-    public static IEnumerable<ListingEntity> CreateManyListingEntity(this Fixture fixture, Guid ownerId, int categoryId = 1, int count = 10)
+
+    public static IEnumerable<ListingEntity> CreateManyListingEntity(this Fixture fixture, Guid ownerId,
+        int categoryId = 1, int count = 10)
     {
         var listings = new List<ListingEntity>();
 
-        foreach (var _ in ..count)
+        foreach (var _ in ..(count - 1))
         {
             listings.Add(new ListingEntity
             {
@@ -47,5 +45,23 @@ public static class FixtureExtensions
         }
 
         return listings;
+    }
+
+    public static IEnumerable<ImageEntity> CreateManyImageEntity(this Fixture fixture, Guid listingId,
+        int count = 10)
+    {
+        var images = new List<ImageEntity>();
+
+        foreach (var _ in ..(count-1))
+        {
+            images.Add(new ImageEntity
+            {
+                Id = fixture.Create<Guid>(),
+                ListingId = listingId,
+                Url = fixture.CreateUrl(),
+            });
+        }
+
+        return images;
     }
 }

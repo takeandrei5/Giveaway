@@ -18,8 +18,6 @@ public sealed class ImageEntityConfiguration : IEntityTypeConfiguration<ImageEnt
 
         builder.HasKey(b => b.Id);
 
-        builder.BelongsTo<ImageEntity, ListingEntity>(b => b.ListingId);
-
         builder.Property(b => b.Url)
             .IsRequired();
     }
