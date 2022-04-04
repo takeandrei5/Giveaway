@@ -8,14 +8,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
 public sealed class FindListingById_1 : Base
 {
     [Fact(DisplayName = "FindListingById returns error result if no listing could be found for the given listing id.")]
-    public async Task ExecuteAsync()
+    public async Task FindListingById_Returns_Error_Result_If_No_Listing_Could_Be_Found_For_The_Given_Listing_Id()
     {
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)

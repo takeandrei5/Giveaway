@@ -1,25 +1,19 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using Moq;
+using Giveaway.Domain.Listings;
+using Giveaway.Domain.Users;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Domain.Users;
-using Giveaway.Domain.Listings;
-using Giveaway.Extensions;
-using Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 
 public sealed class FindListingById_2 : Base
 {
     [Fact(DisplayName = "FindListingById returns success result.")]
-    public async Task ExecuteAsync()
+    public async Task FindListingById_Returns_Success_Result()
     {
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)

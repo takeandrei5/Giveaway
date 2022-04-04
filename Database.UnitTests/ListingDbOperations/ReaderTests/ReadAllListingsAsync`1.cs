@@ -1,11 +1,7 @@
 ﻿using FluentAssertions;
 using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
-using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -15,7 +11,7 @@ namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;
 public sealed class ReadAllListingsAsync_1 : Base
 {
     [Fact(DisplayName = "ReadAllListingsAsync returns IEnumerable<ListingDtoModel>.")]
-    public async Task ExecuteAsync()
+    public async Task ReadAllListingsAsync_Returns_IEnumreable_ListingDtoModel()
     {
         // Arrange
         var userEntities = _fixture.CreateManyUserEntity(10)

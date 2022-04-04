@@ -11,7 +11,7 @@ namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;
 public sealed class ReadListingByIdAsync_1 : Base
 {
     [Fact(DisplayName = "ReadListingByIdAsync returns ListingDtoModel.")]
-    public async Task ExecuteAsync()
+    public async Task ReadListingByIdAsync_Returns_ListingDtoModel()
     {
         // Arrange
         var userEntities = _fixture.CreateManyUserEntity(10)

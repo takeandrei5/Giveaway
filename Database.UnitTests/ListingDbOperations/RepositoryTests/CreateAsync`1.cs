@@ -16,7 +16,7 @@ namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 public sealed class CreateAsync_1 : Base
 {
     [Fact(DisplayName = "CreateAsync inserts ItemEntity successfully.")]
-    public async Task ExecuteAsync()
+    public async Task CreateAsync_Inserts_ItemEntity_Successfully()
     {
         // Arrange
         var users = _fixture.CreateManyUserEntity(10)
