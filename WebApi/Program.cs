@@ -1,12 +1,12 @@
-using Microsoft.EntityFrameworkCore;
 using Giveaway.Database;
 using Giveaway.WebApi.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
-using Microsoft.Net.Http.Headers;
+using Giveaway.WebApi.Filters;
 using Giveaway.WebApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -82,6 +82,9 @@ builder.Services.AddEndpointsApiExplorer();
 if (builder.Environment.IsDevelopment())
     builder.Services.AddSwagger(configuration["Authentication:Auth0:Domain"], configuration["Authentication:Auth0:Audience"]);
 
+builder.Services.AddControllers(options =>
+            options.Filters.Add<GenericExceptionFilter>());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -103,6 +106,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints => endpoints.MapControllers().RequireAuthorization());
+app.UseEndpoints(endpoints =>
+    endpoints.MapControllers()
+        .RequireAuthorization());
 
 app.Run();
