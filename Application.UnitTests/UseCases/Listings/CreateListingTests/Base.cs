@@ -2,7 +2,7 @@
 using Giveaway.Application.Interfaces;
 using Giveaway.Application.UseCases.Listings.CreateListing;
 using Giveaway.Domain.Interfaces;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
 
 namespace Giveaway.Application.UnitTests.UseCases.Listings.CreateListingTests;

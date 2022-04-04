@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Giveaway.Database.UnitTests.Helpers;
+namespace Helpers;
 
 public class AutoMapperFixture
 {

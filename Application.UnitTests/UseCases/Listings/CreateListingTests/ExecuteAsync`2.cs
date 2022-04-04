@@ -3,7 +3,7 @@ using Giveaway.Domain.Categories;
 using Giveaway.Domain.Errors;
 using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
 using SoftwareCraft.Functional;
 using System.Collections.Generic;

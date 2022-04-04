@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
 using System;
 using System.Collections.Generic;

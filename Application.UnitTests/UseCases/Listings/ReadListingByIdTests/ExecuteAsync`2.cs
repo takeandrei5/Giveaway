@@ -1,20 +1,16 @@
-﻿using Moq;
+﻿using AutoFixture;
+using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Domain.Categories;
+using Giveaway.Domain.Errors;
+using Giveaway.Domain.Listings;
+using Helpers;
+using Moq;
+using SoftwareCraft.Functional;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Domain.Listings;
-using SoftwareCraft.Functional;
-using AutoFixture;
-using Giveaway.Domain.Users;
-using Giveaway.Extensions;
-using Giveaway.Domain.Categories;
-using Giveaway.Domain.Errors;
-using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
-using Giveaway.Application.UnitTests.UseCases.Listings.ReadListingByIdTests;
 
 namespace Giveaway.Application.UnitTests.UseCases.Listings.ReadListingByIdTests;
 
@@ -39,7 +35,8 @@ public sealed class ExecuteAsync_2 : Base
                 It.IsAny<CancellationToken>()))
             .ReturnsAsync(listing.AsSuccess<Listing, NotFoundError>());
 
-        _listingReaderMock.Setup(listingReader => listingReader.ReadListingByIdAsync(It.IsAny<ListingId>(), It.IsAny<CancellationToken>()))
+        _listingReaderMock.Setup(listingReader => listingReader.ReadListingByIdAsync(It.IsAny<ListingId>(),
+                It.IsAny<CancellationToken>()))
             .ReturnsAsync(_fixture.Create<ListingDtoModel>());
 
         // Act

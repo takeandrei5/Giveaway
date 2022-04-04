@@ -2,7 +2,7 @@
 using Giveaway.Database.DataAccess.ListingDbOperations;
 using Helpers;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
+namespace WebApi.UnitTests.Endpoints.Listings.ReadAll;
 
 public class Base : AutoMapperFixture
 {

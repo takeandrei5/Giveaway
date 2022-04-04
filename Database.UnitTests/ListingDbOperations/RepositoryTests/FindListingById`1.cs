@@ -9,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
-using Giveaway.Database.UnitTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
 

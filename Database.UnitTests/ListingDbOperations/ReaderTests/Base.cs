@@ -1,14 +1,12 @@
 ﻿using AutoFixture;
-using AutoMapper;
 using Giveaway.Application.Interfaces;
 using Giveaway.Database.DataAccess.ListingDbOperations;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Database.UnitTests.Helpers;
+using Helpers;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;

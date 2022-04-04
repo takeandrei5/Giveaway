@@ -3,6 +3,7 @@ using Giveaway.Database.Persistence.Entities;
 using Giveaway.Extensions;
 using System;
 using System.Collections.Generic;
+using Helpers;
 
 namespace Giveaway.Database.UnitTests;
 

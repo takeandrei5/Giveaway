@@ -1,12 +1,7 @@
 ﻿using AutoFixture;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Database.Persistence.Entities;
-using Giveaway.Extensions;
 using Giveaway.Domain.Users;
+using Helpers;
+using System;
 
 namespace Giveaway.Application.UnitTests;
 

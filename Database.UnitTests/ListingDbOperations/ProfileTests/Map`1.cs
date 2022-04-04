@@ -1,16 +1,11 @@
 ﻿using AutoFixture;
 using FluentAssertions;
 using Giveaway.Database.Persistence.Entities;
+using Helpers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-
 using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
-using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
-using Giveaway.Extensions;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ProfileTests;
 

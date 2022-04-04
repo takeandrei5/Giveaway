@@ -1,13 +1,8 @@
-﻿using AutoFixture;
-using FluentAssertions;
-using Giveaway.Extensions;
+﻿using FluentAssertions;
+using Helpers;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace WebApi.UnitTests.Services;

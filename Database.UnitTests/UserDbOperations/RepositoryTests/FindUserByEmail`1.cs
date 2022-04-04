@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Giveaway.Domain.Errors;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
 using System.Threading;
 using System.Threading.Tasks;

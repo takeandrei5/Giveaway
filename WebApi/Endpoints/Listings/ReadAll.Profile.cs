@@ -7,7 +7,8 @@ public class ReadAllProfile : Profile
 {
     public ReadAllProfile()
     {
-        CreateMap<IEnumerable<ListingDtoModel>, ReadAllResponse>();
         CreateMap<ListingDtoModel, ReadAllResponse.Listing>();
+        CreateMap<IEnumerable<ListingDtoModel>, ReadAllResponse>()
+            .ForMember(dest => dest.Listings, opt => opt.MapFrom(src => src));
     }
 }

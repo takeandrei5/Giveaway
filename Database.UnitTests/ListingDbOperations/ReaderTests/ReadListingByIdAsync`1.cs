@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Giveaway.Database.UnitTests;
 
 namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;
 
