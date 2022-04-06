@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using FluentAssertions;
 using Giveaway.Database.Persistence.Entities;
+using Helpers;
 using System;
 using System.Linq;
 using Xunit;

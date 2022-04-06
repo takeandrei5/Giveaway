@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Giveaway.Database;
 using Giveaway.Application.Interfaces;
 
-namespace Giveaway.Database.UnitTests.Helpers;
+namespace Giveaway.Database.IntegrationTests.Helpers;
 
 public static class DatabaseExtensions
 {

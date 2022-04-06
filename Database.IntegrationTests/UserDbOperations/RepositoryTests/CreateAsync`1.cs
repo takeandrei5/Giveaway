@@ -1,17 +1,13 @@
-﻿using AutoFixture;
-using FluentAssertions;
-using Giveaway.Domain.Listings;
+﻿using FluentAssertions;
 using Giveaway.Domain.Users;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
 public sealed class CreateAsync_1 : Base
 {

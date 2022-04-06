@@ -1,22 +1,21 @@
 ﻿using AutoFixture;
 using Giveaway.Application.Interfaces;
 using Giveaway.Database.DataAccess.ListingDbOperations;
+using Giveaway.Database.IntegrationTests.Helpers;
 using Giveaway.Database.Persistence.Entities;
-using Giveaway.Database.UnitTests.Helpers;
-using Helpers;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;
+namespace Giveaway.Database.IntegrationTests.ListingDbOperations.RepositoryTests;
 
-public class Base : AutoMapperFixture, IDisposable
+public class Base : IDisposable
 {
     protected readonly AppDbContext _dbContext;
     protected readonly Fixture _fixture;
     protected readonly Mock<ILoggedUser> _loggedUserMock;
-    protected readonly Reader _sut;
+    protected readonly Repository _sut;
 
     public Base()
     {
@@ -24,7 +23,7 @@ public class Base : AutoMapperFixture, IDisposable
         _loggedUserMock = new();
         _dbContext = DatabaseExtensions.SetupDatabase(_loggedUserMock.Object);
 
-        _sut = new Reader(_dbContext, Mapper);
+        _sut = new Repository(_dbContext);
     }
 
     public void Dispose()
@@ -33,12 +32,16 @@ public class Base : AutoMapperFixture, IDisposable
         _dbContext.Dispose();
     }
 
-    protected async Task SetupDatabase(IEnumerable<ImageEntity> images, IEnumerable<ListingEntity> listings,
-        IEnumerable<UserEntity> users)
+    protected async Task SetupDatabase(IEnumerable<UserEntity> users)
     {
-        await Task.WhenAll(
-            _dbContext.Images.AddRangeAsync(images),
-            _dbContext.Listings.AddRangeAsync(listings),
+        await _dbContext.Users.AddRangeAsync(users);
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    protected async Task SetupDatabase(IEnumerable<ListingEntity> listings, IEnumerable<UserEntity> users)
+    {
+        await Task.WhenAll(_dbContext.Listings.AddRangeAsync(listings),
             _dbContext.Users.AddRangeAsync(users));
 
         await _dbContext.SaveChangesAsync();

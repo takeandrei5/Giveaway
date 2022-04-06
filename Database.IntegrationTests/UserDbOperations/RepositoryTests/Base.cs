@@ -1,14 +1,14 @@
 ﻿using AutoFixture;
 using Giveaway.Application.Interfaces;
 using Giveaway.Database.DataAccess.UserDbOperations;
+using Giveaway.Database.IntegrationTests.Helpers;
 using Giveaway.Database.Persistence.Entities;
-using Giveaway.Database.UnitTests.Helpers;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
 public class Base : IDisposable
 {

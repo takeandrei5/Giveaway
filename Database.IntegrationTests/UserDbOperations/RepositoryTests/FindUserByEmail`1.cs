@@ -5,8 +5,9 @@ using Moq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
+using Giveaway.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
-namespace Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
 public sealed class FindListingById_1 : Base
 {

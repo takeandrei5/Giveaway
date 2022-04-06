@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.ListingDbOperations.RepositoryTests;
 
 public sealed class CreateAsync_1 : Base
 {

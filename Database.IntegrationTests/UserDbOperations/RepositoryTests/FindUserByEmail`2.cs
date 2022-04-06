@@ -1,14 +1,13 @@
 ﻿using FluentAssertions;
-using Giveaway.Domain.Errors;
 using Giveaway.Domain.Users;
-using Giveaway.Extensions;
+using Helpers;
 using Moq;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Database.UnitTests.UserDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
 public sealed class FindListingById_2 : Base
 {

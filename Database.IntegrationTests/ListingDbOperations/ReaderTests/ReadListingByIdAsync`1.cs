@@ -1,12 +1,13 @@
 ﻿using FluentAssertions;
 using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
 using Giveaway.Domain.Users;
+using Helpers;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.ReaderTests;
+namespace Giveaway.Database.IntegrationTests.ListingDbOperations.ReaderTests;
 
 public sealed class ReadListingByIdAsync_1 : Base
 {

@@ -2,13 +2,14 @@
 using FluentAssertions;
 using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
+using Helpers;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Database.UnitTests.ListingDbOperations.RepositoryTests;
+namespace Giveaway.Database.IntegrationTests.ListingDbOperations.RepositoryTests;
 
 public sealed class FindListingById_2 : Base
 {
