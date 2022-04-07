@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using Xunit;
 
 namespace WebApi.UnitTests.Attributes;
-public sealed class NotEmptyListTests
+
+public sealed class NotEmptyListAttributeTests
 {
     [Fact(DisplayName = "NotEmptyList attribute works correctly if list is null.")]
     public void NotEmptyList_Attribute_Works_Correctly_If_List_Is_Null()
