@@ -7,6 +7,7 @@
     <AssemblyName>Giveaway.WebApi</AssemblyName>
     <RootNamespace>Giveaway.WebApi</RootNamespace>
     <UserSecretsId>37f2598a-9ba6-4021-9f54-bbbe4ee9e5c2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
