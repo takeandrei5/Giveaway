@@ -11,5 +11,5 @@ public static class FixtureExtensions
         new(new UserId(fixture.Create<Guid>()),
             new UserInformation(new UserEmail(fixture.CreateEmail()),
             new UserName(fixture.Create<string>()),
-            new UserImage("https://www.google.com")));
+            new UserImage(fixture.CreateUrl())));
 }
