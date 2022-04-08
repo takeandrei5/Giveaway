@@ -1,4 +1,4 @@
-import { Box, Image, Stack } from '@chakra-ui/react';
+import { Box, Image, Stack, useColorModeValue } from '@chakra-ui/react';
 
 import { Typography } from '../../shared';
 import { CategoryItemI } from './interfaces';
@@ -13,10 +13,10 @@ const CategoryItem = ({
 		<Box
 			_hover={{
 				cursor: 'pointer',
-				filter: 'brightness(90%)',
-				'& p': { filter: 'opacity(0.9)' },
+				filter: 'brightness(95%)',
+				'& p': { filter: 'opacity(0.95)' },
 			}}
-			_active={{ filter: 'brightness(80%)', '& p': { filter: 'opacity(0.8)' } }}
+			_active={{ filter: 'brightness(90%)', '& p': { filter: 'opacity(0.9)' } }}
 			bgColor={containerBgColor}
 			onClick={onClick}
 			padding='0.5rem'
@@ -30,7 +30,7 @@ const CategoryItem = ({
 					src={image}
 					alt={title}
 				/>
-				<Typography center variant='h5'>
+				<Typography center color={useColorModeValue('darkish', 'darkish')} variant='h5'>
 					{title}
 				</Typography>
 			</Stack>

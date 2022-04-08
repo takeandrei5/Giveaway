@@ -15,9 +15,9 @@ const Layout = ({ children }: LayoutI) => (
 			flexDirection='column'
 			marginLeft='auto'
 			marginRight='auto'
-			paddingTop='5rem'
-			paddingX='8rem'
-			backgroundColor={useColorModeValue('grayish', 'darkish')}>
+			paddingY='5rem'
+			paddingX='25rem'
+			backgroundColor={useColorModeValue('gray', 'darkish')}>
 			{children}
 		</Box>
 		<Footer />

@@ -25,7 +25,7 @@ const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 			rightIcon={rightIcon}
 			onClick={onClick}
 			type={type}>
-			<Typography variant='button'>{children}</Typography>
+			<Typography variant='button' color='darkish'>{children}</Typography>
 		</Button>
 	);
 };

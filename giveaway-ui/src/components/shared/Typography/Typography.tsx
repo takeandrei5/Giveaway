@@ -2,15 +2,29 @@ import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
 
 import { Text } from '@chakra-ui/react';
 
-const Typography = ({ children, variant, center = false }: TypographI): JSX.Element => {
+const Typography = ({
+	children,
+	variant,
+	center = false,
+	color = 'inherit',
+	prefix = '',
+	sufix = '',
+}: TypographI): JSX.Element => {
 	const renderTypographyProps = (variant: TypographyVariantI) => {
 		let textProps: TypographyTextI = {} as TypographyTextI;
 
 		switch (variant) {
 			case 'h1':
 				textProps = {
-					fontSize: '2.25rem',
+					fontSize: '36px',
 					fontWeight: '900',
+					lineHeight: '2.7rem',
+				};
+				break;
+			case 'h2':
+				textProps = {
+					fontSize: '28px',
+					fontWeight: '700',
 					lineHeight: '2.7rem',
 				};
 				break;
@@ -51,9 +65,9 @@ const Typography = ({ children, variant, center = false }: TypographI): JSX.Elem
 				break;
 			case 'caption':
 				textProps = {
-					fontSize: '0.75rem',
-					fontWeight: '300',
-					lineHeight: '0.9rem',
+					fontSize: '0.875rem',
+					fontWeight: '500',
+					lineHeight: '1.05rem',
 				};
 				break;
 			case 'small':
@@ -77,8 +91,13 @@ const Typography = ({ children, variant, center = false }: TypographI): JSX.Elem
 	};
 
 	return (
-		<Text textAlign={center ? 'center' : 'initial'} {...renderTypographyProps(variant)}>
+		<Text
+			color={color}
+			textAlign={center ? 'center' : 'initial'}
+			{...renderTypographyProps(variant)}>
+			{prefix}
 			{children}
+			{sufix}
 		</Text>
 	);
 };

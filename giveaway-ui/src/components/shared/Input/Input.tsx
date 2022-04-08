@@ -38,7 +38,7 @@ const Input = ({
 			<InputGroup height='100%' width='auto'>
 				{leftIcon && (
 					<InputLeftElement
-						color='grayish'
+						color='gray'
 						fontSize='1.5rem'
 						height='100%'
 						paddingStart='4'

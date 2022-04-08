@@ -1,4 +1,4 @@
-import { Box, Center, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { Box, Center, Grid, GridItem, Stack, useColorModeValue } from '@chakra-ui/react';
 
 import { SearchBox, Typography } from '../components';
 import CategoryItem from '../components/standalone/CategoryItem/CategoryItem';
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 			<SearchBox />
 			<Center>
 				<Box
-					bgColor='white'
+					bgColor='#FFFFFF'
 					borderRadius='2xl'
 					display='flex'
 					justifyContent='center'
@@ -19,10 +19,10 @@ const Home: NextPage = () => {
 					padding='3rem'
 					width='87.5rem'>
 					<Stack direction='column'>
-						<Typography center variant='h1'>
-							Main categories
+						<Typography center variant='h2' color={useColorModeValue('grayish', 'grayish')}>
+							Select from these main categories
 						</Typography>
-						<Grid marginTop='1rem !important' templateColumns='repeat(8, 1fr)' gap={10}>
+						<Grid marginTop='1rem !important' templateColumns='repeat(6, 1fr)' gap={10}>
 							<GridItem w='100%'>
 								<CategoryItem
 									image='https://i.ibb.co/tL11nRC/Capture.png'

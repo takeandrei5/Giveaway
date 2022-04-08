@@ -1,6 +1,7 @@
 const styles = {
 	baseStyle: {
 		'& input': {
+			borderColor: 'white',
 			borderTopRightRadius: 0,
 			borderBottomRightRadius: 0,
 		},

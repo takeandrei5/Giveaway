@@ -77,7 +77,7 @@ const Header = (): JSX.Element => {
 								filter: 'brightness(80%) !important',
 							}}
 							_hover={{
-								backgroundColor: useColorModeValue('grayish', 'darkish'),
+								backgroundColor: useColorModeValue('gray', 'darkish'),
 								filter: 'brightness(90%)',
 							}}
 							borderRadius='lg'
@@ -124,7 +124,7 @@ const Header = (): JSX.Element => {
 							_hover={{
 								filter: 'brightness(90%)',
 							}}
-							backgroundColor={useColorModeValue('grayish', 'darkish')}
+							backgroundColor={useColorModeValue('gray', 'darkish')}
 							border={0}
 							w={'full'}
 							maxW={'md'}

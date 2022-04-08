@@ -1,11 +1,15 @@
 export interface TypographI {
 	children: string;
 	variant: TypographyVariantI;
-	center?: boolean
+	color?: string;
+	center?: boolean;
+	prefix?: string;
+	sufix?: string;
 }
 
 export type TypographyVariantI =
 	| 'h1'
+	| 'h2'
 	| 'h3'
 	| 'h5'
 	| 'default'
@@ -15,8 +19,8 @@ export type TypographyVariantI =
 	| 'caption'
 	| 'small';
 
-	export interface TypographyTextI {
-		fontSize: string
-		fontWeight: string
-		lineHeight: string
-	}
+export interface TypographyTextI {
+	fontSize: string;
+	fontWeight: string;
+	lineHeight: string;
+}
