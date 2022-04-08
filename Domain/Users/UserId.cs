@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Giveaway.Domain.Users;
+﻿namespace Giveaway.Domain.Users;
 
 public sealed record UserId
 {

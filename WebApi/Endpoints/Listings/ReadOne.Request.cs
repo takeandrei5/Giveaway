@@ -6,7 +6,7 @@ namespace Giveaway.WebApi.Endpoints.Listings;
 
 public sealed record ReadOneRequest
 {
-    [FromRoute]
+    [FromRoute(Name = "id")]
     [Required]
     [NotEmptyGuid]
     public Guid Id { get; init; }

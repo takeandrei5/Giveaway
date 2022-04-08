@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Giveaway.Domain.Errors;
+﻿namespace Giveaway.Domain.Errors;
 
 public sealed class ForbiddenError : BaseError
 {

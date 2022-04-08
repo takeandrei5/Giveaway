@@ -1,14 +1,9 @@
 ﻿using Giveaway.Application.Interfaces;
+using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
 using Giveaway.Domain.Errors;
 using Giveaway.Domain.Interfaces;
 using Giveaway.Domain.Listings;
 using SoftwareCraft.Functional;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Application.UseCases.Listings.ReadListingById.Models;
 
 namespace Giveaway.Application.UseCases.Listings.ReadListingById;
 public sealed class Command

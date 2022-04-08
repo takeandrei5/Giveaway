@@ -1,15 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SoftwareCraft.Functional;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Domain.Users;
-using Giveaway.Domain.Interfaces;
-using Giveaway.Database.Persistence.Entities;
+﻿using Giveaway.Database.Persistence.Entities;
 using Giveaway.Domain.Errors;
-using Microsoft.Data.SqlClient;
+using Giveaway.Domain.Interfaces;
+using Giveaway.Domain.Users;
+using Microsoft.EntityFrameworkCore;
+using SoftwareCraft.Functional;
 
 namespace Giveaway.Database.DataAccess.UserDbOperations;
 

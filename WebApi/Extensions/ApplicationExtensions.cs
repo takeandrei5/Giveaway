@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using Giveaway.Database;
+﻿using Giveaway.Database;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace Giveaway.WebApi.Extensions;
 

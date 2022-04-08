@@ -1,13 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Giveaway.Application.Interfaces;
 using Giveaway.Database.Persistence.Configurations;
 using Giveaway.Database.Persistence.Entities;
-using Giveaway.Database;
-using Giveaway.Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Giveaway.Database;
 
@@ -15,7 +9,7 @@ public sealed class AppDbContext : DbContext
 {
     private readonly ILoggedUser _loggedUser;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedUser loggedUser) : base(options) => 
+    public AppDbContext(DbContextOptions<AppDbContext> options, ILoggedUser loggedUser) : base(options) =>
         _loggedUser = loggedUser;
 
     public DbSet<CategoryEntity> Categories { get; set; } = null!;

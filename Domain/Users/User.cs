@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Domain.Users;
+﻿using Giveaway.Domain.Categories;
 using Giveaway.Domain.Listings;
 using System.Runtime.CompilerServices;
-using Giveaway.Domain.Categories;
 
 [assembly: InternalsVisibleTo("Giveaway.Application")]
 
