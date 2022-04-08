@@ -1,14 +1,8 @@
-﻿using SoftwareCraft.Functional;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Application.Interfaces;
+﻿using Giveaway.Application.Interfaces;
+using Giveaway.Domain.Errors;
 using Giveaway.Domain.Interfaces;
 using Giveaway.Domain.Listings;
-using Giveaway.Domain.Errors;
-using Giveaway.Application.UseCases.Listings.CreateListing;
+using SoftwareCraft.Functional;
 
 namespace Giveaway.Application.UseCases.Listings.CreateListing;
 

@@ -1,17 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SoftwareCraft.Functional;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Database.Persistence.Entities;
+﻿using Giveaway.Database.Persistence.Entities;
+using Giveaway.Domain.Categories;
+using Giveaway.Domain.Errors;
 using Giveaway.Domain.Interfaces;
 using Giveaway.Domain.Listings;
 using Giveaway.Domain.Users;
-using Giveaway.Domain.Categories;
-using Giveaway.Domain.Errors;
-using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using SoftwareCraft.Functional;
 
 namespace Giveaway.Database.DataAccess.ListingDbOperations;
 
@@ -41,6 +35,8 @@ public sealed class Repository : IListingRepository
 
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
+
+    public Task DeleteAsync(Listing listing, CancellationToken cancellationToken) => throw new NotImplementedException();
 
     public async Task<Result<Listing, NotFoundError>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken)
     {
