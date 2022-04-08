@@ -10,10 +10,5 @@ public sealed record ReadOneResponse
 
     public int Category { get; init; }
 
-    public IEnumerable<Image> Images { get; init; } = null!;
-
-    public sealed record Image
-    {
-        public string Url { get; init; } = null!;
-    }
+    public IEnumerable<string> Images { get; init; } = null!;
 }

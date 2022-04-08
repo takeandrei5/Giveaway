@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 
 namespace Giveaway.WebApi.Extensions;
 
+using ListingReader = Database.DataAccess.ListingDbOperations.Reader;
 using ListingRepository = Database.DataAccess.ListingDbOperations.Repository;
 using UserRepository = Database.DataAccess.UserDbOperations.Repository;
 
@@ -18,11 +19,16 @@ public static partial class ServicesExtensions
         // Listings
         services.AddCreateListingUseCase();
         services.AddDeleteListingUseCase();
+        services.AddReadAllListingsUseCase();
+        services.AddReadListingByIdUseCase();
         services.AddUpdateListingUseCase();
 
         // Users
         services.AddCreateUserUseCase();
     }
+
+    public static void AddReaders(this IServiceCollection services) =>
+        services.AddScoped<IListingReader, ListingReader>();
 
     public static void AddRepositories(this IServiceCollection services)
     {

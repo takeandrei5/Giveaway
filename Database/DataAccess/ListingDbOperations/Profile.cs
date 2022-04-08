@@ -13,10 +13,7 @@ public sealed class Profile : AutoMapper.Profile
             .ForMember(dest => dest.MainImageUrl, opt => opt.MapFrom(src => src.Images.First().Url));
 
         CreateMap<ListingEntity, ReadListingByIdModel>()
-            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images))
+            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(image => image.Url)))
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryId));
-
-        CreateMap<ImageEntity, ReadListingByIdModel.Image>()
-            .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url));
     }
 }

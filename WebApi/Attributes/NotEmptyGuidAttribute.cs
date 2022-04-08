@@ -5,9 +5,9 @@ namespace Giveaway.WebApi.Attributes;
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter)]
 public sealed class NotEmptyGuidAttribute : ValidationAttribute
 {
-    private const string DefaultErrorMessage = "Guid must not be not empty.";
+    private const string _defaultErrorMessage = "Guid must not be not empty.";
 
-    public NotEmptyGuidAttribute() : base(DefaultErrorMessage)
+    public NotEmptyGuidAttribute() : base(_defaultErrorMessage)
     {
     }
 

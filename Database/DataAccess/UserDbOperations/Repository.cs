@@ -20,8 +20,10 @@ public sealed class Repository : IUserRepository
             .SingleOrDefaultAsync(cancellationToken);
 
         if (userEntity is null)
+        {
             return new ForbiddenError($"User onboarding issue for email {email}")
                 .AsError<User, ForbiddenError>();
+        }
 
         return new User(new UserId(userEntity.Id),
             new UserInformation(new UserEmail(userEntity.Email),

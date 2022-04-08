@@ -5,11 +5,5 @@ namespace Giveaway.WebApi.Endpoints.Listings;
 
 public class ReadOneProfile : Profile
 {
-    public ReadOneProfile()
-    {
-        CreateMap<ListingDtoModel.Image, ReadOneResponse.Image>();
-
-        CreateMap<ListingDtoModel, ReadOneResponse>()
-            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images));
-    }
+    public ReadOneProfile() => CreateMap<ListingDtoModel, ReadOneResponse>();
 }

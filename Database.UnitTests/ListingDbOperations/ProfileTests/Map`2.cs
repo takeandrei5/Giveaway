@@ -20,7 +20,7 @@ public sealed class Map_2 : Base
         var listingOwnerId = _fixture.Create<Guid>();
         var listingTitle = _fixture.Create<string>();
         var listingDescription = _fixture.Create<string>();
-        var listingCategoryId = 1;
+        const int listingCategoryId = 1;
         var listingImages = _fixture.CreateManyImageEntity(listingId, 5);
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
@@ -43,10 +43,7 @@ public sealed class Map_2 : Base
             Title = listingTitle,
             Description = listingDescription,
             Category = listingCategoryId,
-            Images = listingImages.Select(image => new ReadListingById.Image
-            {
-                Url = image.Url,
-            })
+            Images = listingImages.Select(image => image.Url)
         };
 
         // Act

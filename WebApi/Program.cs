@@ -16,6 +16,7 @@ builder.Services.AddApplicationServices();
 
 // UseCases
 builder.Services.AddApplicationUseCases();
+builder.Services.AddReaders();
 builder.Services.AddRepositories();
 builder.Services.AddAutoMapperProfiles();
 

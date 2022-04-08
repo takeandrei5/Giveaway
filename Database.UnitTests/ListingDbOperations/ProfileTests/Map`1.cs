@@ -18,7 +18,7 @@ public sealed class Map_1 : Base
         var listingId = _fixture.Create<Guid>();
         var listingOwnerId = _fixture.Create<Guid>();
         var listingTitle = _fixture.Create<string>();
-        var listingCategoryId = 1;
+        const int listingCategoryId = 1;
         var listingDescription = _fixture.Create<string>();
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();

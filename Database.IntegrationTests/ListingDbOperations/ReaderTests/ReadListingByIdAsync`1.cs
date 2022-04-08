@@ -37,10 +37,7 @@ public sealed class ReadListingByIdAsync_1 : Base
             Title = listingEntity.Title,
             Description = listingEntity.Description,
             Category = listingEntity.CategoryId,
-            Images = imageEntities.Select(image => new ListingDtoModel.Image
-            {
-                Url = image.Url,
-            })
+            Images = imageEntities.Select(image => image.Url)
         };
 
         await SetupDatabase(imageEntities, listingEntities, userEntities);

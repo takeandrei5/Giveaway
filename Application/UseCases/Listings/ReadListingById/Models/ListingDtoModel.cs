@@ -10,10 +10,5 @@ public sealed record ListingDtoModel
 
     public int Category { get; init; }
 
-    public IEnumerable<Image> Images { get; init; } = Enumerable.Empty<Image>();
-
-    public sealed record Image
-    {
-        public string Url { get; init; } = null!;
-    }
+    public IEnumerable<string> Images { get; init; } = null!;
 }

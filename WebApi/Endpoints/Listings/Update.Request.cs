@@ -6,11 +6,13 @@ namespace Giveaway.WebApi.Endpoints.Listings;
 
 public sealed class UpdateRequest
 {
-    [FromQuery(Name = "id")]
+    [FromRoute(Name = "id")]
     [Required]
     [NotEmptyGuid]
     public Guid Id { get; init; }
 
+    [FromBody]
+    [Required]
     public UpdateRequestDetails Details { get; init; } = null!;
 
     public sealed class UpdateRequestDetails

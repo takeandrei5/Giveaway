@@ -4,4 +4,4 @@
 [assembly: InternalsVisibleTo("Giveaway.Domain.UnitTests")]
 [assembly: InternalsVisibleTo("Giveaway.Database")]
 [assembly: InternalsVisibleTo("Giveaway.Database.IntegrationTests")]
-[assembly: InternalsVisibleTo("Giveaway.Database.UnitTests")] 
+[assembly: InternalsVisibleTo("Giveaway.Database.UnitTests")]

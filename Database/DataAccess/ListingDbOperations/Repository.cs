@@ -56,8 +56,10 @@ public sealed class Repository : IListingRepository
             .SingleOrDefaultAsync(cancellationToken);
 
         if (listingEntity is null)
+        {
             return new NotFoundError($"The listing with id {listingId.Value} could not be found.")
                 .AsError<Listing, NotFoundError>();
+        }
 
         return new Listing(listingId,
                 new ListingTitle(listingEntity.Title),

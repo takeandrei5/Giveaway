@@ -1,11 +1,7 @@
 ﻿using FluentAssertions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 using Giveaway.Domain.Listings;
+using System;
+using Xunit;
 
 namespace Giveaway.Domain.UnitTests.Listings;
 public sealed class ListingDescriptionTests
@@ -30,14 +26,14 @@ public sealed class ListingDescriptionTests
             .WithMessage("Listing description cannot be an empty description.");
     }
 
-    [Fact(DisplayName = "Listing description cannot be shorter than 25 characters.")]
-    public void Listing_Description_Cannot_Be_Shorter_Than_25_Characters()
+    [Fact(DisplayName = "Listing description cannot be shorter than 5 characters.")]
+    public void Listing_Description_Cannot_Be_Shorter_Than_5_Characters()
     {
-        Func<ListingDescription> act = () => new(new('A', 24));
+        Func<ListingDescription> act = () => new(new('A', 4));
 
         act.Should()
             .ThrowExactly<ArgumentException>()
-            .WithMessage("Listing description cannot be shorter than 25 characters.");
+            .WithMessage("Listing description cannot be shorter than 5 characters.");
     }
 
     [Fact(DisplayName = "Listing description cannot be longer than 250 characters.")]
