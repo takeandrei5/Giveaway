@@ -58,4 +58,6 @@ public sealed class Repository : IListingRepository
                 Category.From(listingEntity.Category.Id))
             .AsSuccess<Listing, NotFoundError>();
     }
+
+    public Task UpdateAsync(Listing listing, CancellationToken cancellationToken) => throw new NotImplementedException();
 }

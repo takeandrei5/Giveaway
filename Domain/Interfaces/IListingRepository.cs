@@ -11,4 +11,6 @@ public interface IListingRepository
     Task DeleteAsync(Listing listing, CancellationToken cancellationToken);
 
     Task<Result<Listing, NotFoundError>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken);
+
+    Task UpdateAsync(Listing listing, CancellationToken cancellationToken);
 }

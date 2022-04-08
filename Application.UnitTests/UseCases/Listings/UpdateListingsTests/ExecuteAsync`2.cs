@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Giveaway.Application.UnitTests.UseCases.Listings.DeleteListingsTests;
+namespace Giveaway.Application.UnitTests.UseCases.Listings.UpdateListingsTests;
 
 public sealed class ExecuteAsync_2 : Base
 {
