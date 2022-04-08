@@ -1,5 +1,5 @@
 ﻿using AutoFixture;
-using Giveaway.Application.UseCases.Listings.UpdateListing;
+using Giveaway.Application.UseCases.Listings.DeleteListing;
 using Giveaway.Domain.Interfaces;
 using Helpers;
 using Moq;

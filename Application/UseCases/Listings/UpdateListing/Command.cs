@@ -11,14 +11,17 @@ public sealed class Command
 
     public Command(IListingRepository listingRepository) => _listingRepository = listingRepository;
 
-    public async Task<Result<NotFoundError>> ExecuteAsync(ListingId listingId, CancellationToken cancellationToken)
+    public async Task<Result<NotFoundError>> ExecuteAsync(CommandFeed feed, CancellationToken cancellationToken)
     {
-        var listingResult = await _listingRepository.FindListingByIdAsync(listingId, cancellationToken);
+        var listingResult = await _listingRepository.FindListingByIdAsync(feed.Id, cancellationToken);
 
         return await listingResult.SelectSwitchManyAsync(
             async listing =>
             {
-                await _listingRepository.UpdateAsync(listing, cancellationToken);
+                var newListing = new Listing(listing.Id, feed.Title, feed.Description,
+                    listing.OwnerId, feed.Images, feed.Category);
+
+                await _listingRepository.UpdateAsync(newListing, cancellationToken);
 
                 return new Success<NotFoundError>();
             });

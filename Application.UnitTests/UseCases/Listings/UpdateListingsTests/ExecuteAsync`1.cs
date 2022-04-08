@@ -1,9 +1,13 @@
 ﻿using AutoFixture;
+using Giveaway.Application.UseCases.Listings.UpdateListing;
+using Giveaway.Domain.Categories;
 using Giveaway.Domain.Errors;
 using Giveaway.Domain.Listings;
+using Helpers;
 using Moq;
 using SoftwareCraft.Functional;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -18,6 +22,18 @@ public sealed class ExecuteAsync_1 : Base
         // Arrange
         var listingId = new ListingId(_fixture.Create<Guid>());
 
+        var commandFeed = new CommandFeed
+        {
+            Id = listingId,
+            Title = new(_fixture.Create<string>()),
+            Description = new(_fixture.Create<string>()),
+            Images = new List<ListingImage>
+            {
+                new(_fixture.CreateUrl())
+            },
+            Category = Category.From(1)
+        };
+
         _listingRepositoryMock.Setup(listingRepository =>
                 listingRepository.FindListingByIdAsync(listingId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(
@@ -25,7 +41,7 @@ public sealed class ExecuteAsync_1 : Base
                     .AsError<Listing, NotFoundError>());
 
         // Act
-        await _sut.ExecuteAsync(listingId, CancellationToken.None);
+        await _sut.ExecuteAsync(commandFeed, CancellationToken.None);
 
         // Assert
         _listingRepositoryMock.Verify(listingRepository =>

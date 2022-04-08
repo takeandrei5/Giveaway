@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Giveaway.Domain.Categories;
 using Giveaway.Domain.Users;
-using Giveaway.Domain.Listings;
-using Giveaway.Domain.Categories;
 
 namespace Giveaway.Domain.Listings;
 

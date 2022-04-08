@@ -1,8 +1,9 @@
 ﻿using AutoFixture;
+using Giveaway.Application.UseCases.Listings.UpdateListing;
 using Giveaway.Domain.Categories;
 using Giveaway.Domain.Errors;
 using Giveaway.Domain.Listings;
-using Giveaway.Domain.Users;
+using Helpers;
 using Moq;
 using SoftwareCraft.Functional;
 using System;
@@ -20,19 +21,32 @@ public sealed class ExecuteAsync_2 : Base
     {
         // Arrange
         var listingId = new ListingId(_fixture.Create<Guid>());
+
+        var commandFeed = new CommandFeed
+        {
+            Id = listingId,
+            Title = new(_fixture.Create<string>()),
+            Description = new(_fixture.Create<string>()),
+            Images = new List<ListingImage>
+            {
+                new(_fixture.CreateUrl())
+            },
+            Category = Category.From(1)
+        };
+
         var listing = new Listing(listingId,
-            It.IsAny<ListingTitle>(),
-            It.IsAny<ListingDescription>(),
-            It.IsAny<UserId>(),
-            new List<ListingImage> { It.IsAny<ListingImage>() },
-            It.IsAny<Category>());
+           commandFeed.Title,
+           commandFeed.Description,
+           new(_fixture.Create<Guid>()),
+           commandFeed.Images,
+           commandFeed.Category);
 
         _listingRepositoryMock.Setup(listingRepository =>
                 listingRepository.FindListingByIdAsync(listingId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(listing.AsSuccess<Listing, NotFoundError>());
 
         // Act
-        await _sut.ExecuteAsync(listingId, CancellationToken.None);
+        await _sut.ExecuteAsync(commandFeed, CancellationToken.None);
 
         // Assert
         _listingRepositoryMock.Verify(listingRepository =>

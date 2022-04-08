@@ -40,7 +40,7 @@ public sealed class ExecuteAsync_2 : Base
             Times.Once);
 
         _listingRepositoryMock.Verify(listingRepository =>
-            listingRepository.UpdateAsync(It.Is<Listing>(l => l == listing), CancellationToken.None),
+            listingRepository.DeleteAsync(It.Is<Listing>(l => l == listing), CancellationToken.None),
         Times.Once);
     }
 }
