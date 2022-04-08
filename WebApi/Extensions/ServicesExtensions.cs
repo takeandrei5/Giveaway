@@ -10,14 +10,17 @@ using UserRepository = Database.DataAccess.UserDbOperations.Repository;
 
 public static partial class ServicesExtensions
 {
-    public static void AddApplicationServices(this IServiceCollection services)
-    {
+    public static void AddApplicationServices(this IServiceCollection services) =>
         services.AddScoped<ILoggedUser, HttpContextLoggedUser>();
-    }
 
     public static void AddApplicationUseCases(this IServiceCollection services)
     {
+        // Listings
         services.AddCreateListingUseCase();
+        services.AddDeleteListingUseCase();
+        services.AddUpdateListingUseCase();
+
+        // Users
         services.AddCreateUserUseCase();
     }
 

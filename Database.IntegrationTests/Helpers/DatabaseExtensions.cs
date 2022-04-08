@@ -1,12 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Giveaway.Application.Interfaces;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Giveaway.Database;
-using Giveaway.Application.Interfaces;
 
 namespace Giveaway.Database.IntegrationTests.Helpers;
 
@@ -16,11 +11,11 @@ public static class DatabaseExtensions
     {
         var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
         {
-            DataSource = $"localhost",
+            DataSource = "localhost",
             UserID = "sa",
             Password = "admin",
             InitialCatalog = "GiveawayDbApp" + Guid.NewGuid().ToString("N"),
-            MultipleActiveResultSets = true
+            MultipleActiveResultSets = false
         };
 
         var dbContextOptionsBuilder =

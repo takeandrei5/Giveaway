@@ -36,7 +36,16 @@ public sealed class Repository : IListingRepository
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public Task DeleteAsync(Listing listing, CancellationToken cancellationToken) => throw new NotImplementedException();
+    public async Task DeleteAsync(Listing listing, CancellationToken cancellationToken)
+    {
+        var listingEntity = await _dbContext.Listings
+            .Where(listingEntity => listingEntity.Id == listing.Id.Value)
+            .SingleAsync(cancellationToken);
+
+        _dbContext.Listings.Remove(listingEntity);
+
+        await _dbContext.SaveChangesAsync(cancellationToken);
+    }
 
     public async Task<Result<Listing, NotFoundError>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken)
     {
@@ -59,5 +68,26 @@ public sealed class Repository : IListingRepository
             .AsSuccess<Listing, NotFoundError>();
     }
 
-    public Task UpdateAsync(Listing listing, CancellationToken cancellationToken) => throw new NotImplementedException();
+    public async Task UpdateAsync(Listing listing, CancellationToken cancellationToken)
+    {
+        var listingEntity = await _dbContext.Listings
+            .Where(listingEntity => listingEntity.Id == listing.Id.Value)
+            .Include(listingEntity => listingEntity.Images)
+            .SingleAsync(cancellationToken);
+
+        listingEntity.Title = listing.Title.Value;
+        listingEntity.Description = listing.Description.Value;
+        listingEntity.CategoryId = listing.Category.Id;
+        listingEntity.LastModifiedAt = DateTime.Now;
+
+        _dbContext.Images.RemoveRange(listingEntity.Images);
+        _dbContext.Images.AddRange(listing.Images.Select(image => new ImageEntity
+        {
+            Id = Guid.NewGuid(),
+            ListingId = listing.Id.Value,
+            Url = image.Value
+        }));
+
+        await _dbContext.SaveChangesAsync(cancellationToken);
+    }
 }

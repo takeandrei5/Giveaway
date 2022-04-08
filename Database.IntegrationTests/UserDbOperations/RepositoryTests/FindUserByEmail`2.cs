@@ -26,12 +26,11 @@ public sealed class FindListingById_2 : Base
         await SetupDatabase(users);
 
         // Act
-        var userResult = await _sut.FindUserByEmailAsync(user.Information.Email.Value, It.IsAny<CancellationToken>());
+        var result = await _sut.FindUserByEmailAsync(user.Information.Email.Value, It.IsAny<CancellationToken>());
 
         // Assert
-        userResult.Match(
-            result => result.Should()
-                .BeEquivalentTo(user),
-            _ => { });
+        result.IsSuccess.Should().BeTrue();
+        result.OnSuccess(result => result.Should()
+                .BeEquivalentTo(user));
     }
 }

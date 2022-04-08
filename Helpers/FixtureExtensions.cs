@@ -69,4 +69,20 @@ public static class FixtureExtensions
 
         return images;
     }
+
+    public static IEnumerable<CategoryEntity> CreateManyCategoryEntity(this Fixture fixture,
+        int count = 10)
+    {
+        var categories = new List<CategoryEntity>();
+
+        foreach (var _ in ..(count - 1))
+        {
+            categories.Add(new CategoryEntity
+            {
+                Name = fixture.Create<string>()
+            });
+        }
+
+        return categories;
+    }
 }

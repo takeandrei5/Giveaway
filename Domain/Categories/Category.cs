@@ -42,8 +42,8 @@ public sealed class Category
     private enum CategoryEnum
     {
         [EnumMember(Value = "Men Clothes"), Description("men-clothes")]
-        MenClothes,
+        MenClothes = 1,
         [EnumMember(Value = "Women Clothes"), Description("women-clothes")]
-        WomenClothes,
+        WomenClothes = 2,
     }
 }

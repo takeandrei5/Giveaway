@@ -34,4 +34,39 @@ public sealed class AppDbContext : DbContext
                 .Select(user => user.Id)
                 .Single());
     }
+
+    public override int SaveChanges()
+    {
+        AddTimestamps();
+        return base.SaveChanges();
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        AddTimestamps();
+        return await base.SaveChangesAsync(cancellationToken);
+    }
+
+    private void AddTimestamps()
+    {
+        var entities = ChangeTracker.Entries()
+            .Where(entity => entity.Entity is ListingEntity
+                && (entity.State == EntityState.Added || entity.State == EntityState.Modified))
+            .ToList();
+
+        if (!entities.Any())
+        {
+            return;
+        }
+
+        foreach (var entity in entities)
+        {
+            if (entity.State == EntityState.Added)
+            {
+                ((ListingEntity)entity.Entity).CreatedAt = DateTime.UtcNow;
+            }
+
+            ((ListingEntity)entity.Entity).LastModifiedAt = DateTime.UtcNow;
+        }
+    }
 }

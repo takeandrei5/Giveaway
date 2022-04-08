@@ -15,11 +15,11 @@ namespace Giveaway.Database.IntegrationTests.ListingDbOperations.RepositoryTests
 
 public sealed class CreateAsync_1 : Base
 {
-    [Fact(DisplayName = "CreateAsync inserts ItemEntity successfully.")]
-    public async Task CreateAsync_Inserts_ItemEntity_Successfully()
+    [Fact(DisplayName = "CreateAsync inserts ListingEntity successfully.")]
+    public async Task CreateAsync_Inserts_ListingEntity_Successfully()
     {
         // Arrange
-        var users = _fixture.CreateManyUserEntity(10)
+        var users = _fixture.CreateManyUserEntity(2)
             .ToList();
 
         var user = new User(new(users[0].Id), new(new(users[0].Email), new(users[0].Name), new(users[0].Image)));
