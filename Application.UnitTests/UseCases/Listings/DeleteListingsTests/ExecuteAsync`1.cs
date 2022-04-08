@@ -18,9 +18,6 @@ public sealed class ExecuteAsync_1 : Base
         // Arrange
         var listingId = new ListingId(_fixture.Create<Guid>());
 
-        _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
-            .Returns(Email);
-
         _listingRepositoryMock.Setup(listingRepository =>
                 listingRepository.FindListingByIdAsync(listingId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(

@@ -27,9 +27,6 @@ public sealed class ExecuteAsync_2 : Base
             new List<ListingImage> { It.IsAny<ListingImage>() },
             It.IsAny<Category>());
 
-        _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
-            .Returns(Email);
-
         _listingRepositoryMock.Setup(listingRepository =>
                 listingRepository.FindListingByIdAsync(listingId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(listing.AsSuccess<Listing, NotFoundError>());
