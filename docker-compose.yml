@@ -11,6 +11,7 @@ services:
     container_name: giveaway-nginx
     depends_on:
       - webapi
+      - webui
 
   webapi:
     image: giveaway-webapi
@@ -22,21 +23,38 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:81
-      - "ConnectionStrings__DefaultConnection=Server=mssql;Database=GiveawayDbApp;User=sa;Password=sa_password_123;"
+      - ConnectionStrings__DefaultConnection=Server=mssql;Database=GiveawayDbApp;User=sa;Password=sa_password_123;
     ports:
-      - "81:81"
+      - 81:81
     depends_on:
-     - mssql
+      - mssql
+
+  webui:
+    image: giveaway-webui
+    build:
+      context: ./Ui
+      dockerfile: ./Dockerfile
+    container_name: giveaway_webui
+    restart: on-failure
+    ports:
+      - 3000:3000
+    depends_on:
+      - webapi
+    volumes:
+      - ./Ui:/app
+      - /app/node_modules
+      - /app/.next
 
   mssql:
-    image: "mcr.microsoft.com/mssql/server:latest"
+    # image: 'mcr.microsoft.com/mssql/server:latest' # if working on Windows
+    image: mcr.microsoft.com/azure-sql-edge:latest # if working on MAC arm64
     user: root
     environment:
-      - "SA_PASSWORD=sa_password_123"
-      - "ACCEPT_EULA=Y"
+      - 'SA_PASSWORD=sa_password_123'
+      - 'ACCEPT_EULA=Y'
     container_name: giveaway-mssql
     ports:
-      - "1435:1433"
+      - 1435:1433
     volumes:
       - dbdata:/var/opt/mssql/data
 

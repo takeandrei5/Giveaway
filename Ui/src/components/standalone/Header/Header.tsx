@@ -35,6 +35,9 @@ const Header = (): JSX.Element => {
 
 	const handleSignOut = useCallback(() => router.replace('/api/auth/logout'), []);
 
+	const grayOrDarkishColor: 'gray' | 'darkish' = useColorModeValue('gray', 'darkish');
+	const darkishOrWhiteColor: 'darkish' | 'white' = useColorModeValue('darkish', 'white');
+
 	const renderMenu = useCallback((): JSX.Element => {
 		if (user) {
 			return (
@@ -45,26 +48,19 @@ const Header = (): JSX.Element => {
 						rounded={'full'}
 						variant={'link'}
 						cursor={'pointer'}
+						display={!user ? 'none' : 'inherit'}
 						minW={0}>
 						<Avatar
 							h='2.5rem'
 							w='2.5rem'
-							src={
-								user && user.picture
-									? user.picture
-									: 'https://avatars.dicebear.com/api/male/username.svg'
-							}
+							src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
 						/>
 					</MenuButton>
 					<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
 						<Center>
 							<Avatar
 								size={'2xl'}
-								src={
-									user && user.picture
-										? user.picture
-										: 'https://avatars.dicebear.com/api/male/username.svg'
-								}
+								src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
 							/>
 						</Center>
 						<br />
@@ -77,7 +73,7 @@ const Header = (): JSX.Element => {
 								filter: 'brightness(80%) !important',
 							}}
 							_hover={{
-								backgroundColor: useColorModeValue('gray', 'darkish'),
+								backgroundColor: grayOrDarkishColor,
 								filter: 'brightness(90%)',
 							}}
 							borderRadius='lg'
@@ -101,14 +97,7 @@ const Header = (): JSX.Element => {
 					variant='outline'
 					cursor='pointer'
 					border='0'
-					icon={
-						<Icon
-							as={MdAccountCircle}
-							color={useColorModeValue('darkish', 'white')}
-							h='1.8rem'
-							width='1.8rem'
-						/>
-					}
+					icon={<Icon as={MdAccountCircle} color={darkishOrWhiteColor} h='1.8rem' width='1.8rem' />}
 				/>
 				<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
 					<Stack align='center'>
@@ -124,7 +113,7 @@ const Header = (): JSX.Element => {
 							_hover={{
 								filter: 'brightness(90%)',
 							}}
-							backgroundColor={useColorModeValue('gray', 'darkish')}
+							backgroundColor={grayOrDarkishColor}
 							border={0}
 							w={'full'}
 							maxW={'md'}

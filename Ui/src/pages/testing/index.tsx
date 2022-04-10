@@ -41,7 +41,7 @@ const Testing = () => {
 				</div>
 
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-					<Formik
+					{/* <Formik
 						initialValues={{
 							firstName: '',
 							lastName: '',
@@ -91,14 +91,10 @@ const Testing = () => {
 								</>
 							);
 						}}
-					/>
+					/> */}
 				</div>
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-					<CategoryItem
-						image='https://i.ibb.co/tL11nRC/Capture.png'
-						title='Children clothes'
-						onClick={() => {}}
-					/>
+					<CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' onClick={() => {}} />
 				</div>
 			</div>
 			<ListingItem

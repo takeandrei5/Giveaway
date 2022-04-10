@@ -5,9 +5,9 @@ EXPOSE 81
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-RUN dotnet restore "WebApi/WebApi.csproj"
-
 COPY . .
+
+RUN dotnet restore "WebApi/WebApi.csproj"
 
 FROM build AS publish
 RUN dotnet publish "WebApi/WebApi.csproj" -c Release -o /app/publish -v d

@@ -1,10 +1,10 @@
 import {
-  FormLabel,
-  Input as CuiInput,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  useStyleConfig,
+	FormLabel,
+	Input as CuiInput,
+	InputGroup,
+	InputLeftElement,
+	InputRightElement,
+	useStyleConfig,
 } from '@chakra-ui/react';
 import { useField } from 'formik';
 
@@ -37,14 +37,9 @@ const Input = ({
 			)}
 			<InputGroup height='100%' width='auto'>
 				{leftIcon && (
-					<InputLeftElement
-						color='gray'
-						fontSize='1.5rem'
-						height='100%'
-						paddingStart='4'
-						pointerEvents='none'
-						children={leftIcon}
-					/>
+					<InputLeftElement color='gray' fontSize='1.5rem' height='100%' paddingStart='4' pointerEvents='none'>
+						{leftIcon}
+					</InputLeftElement>
 				)}
 				<CuiInput
 					__css={styles}
@@ -59,7 +54,9 @@ const Input = ({
 					width={width}
 				/>
 				{rightIcon && (
-					<InputRightElement children={rightIcon} pointerEvents={'auto'} height='100%' />
+					<InputRightElement pointerEvents={'auto'} height='100%'>
+						{rightIcon}
+					</InputRightElement>
 				)}
 			</InputGroup>
 		</>
