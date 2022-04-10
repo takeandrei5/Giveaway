@@ -8,7 +8,7 @@ const afterCallback = async (
 	state: { [key: string]: any }
 ) => {
 	try {
-		await fetch('users', {
+		await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/users', {
 			method: 'POST',
 			headers: {
 				Authorization: 'Bearer ' + session.accessToken,
