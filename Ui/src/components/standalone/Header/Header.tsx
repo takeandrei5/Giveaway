@@ -32,7 +32,6 @@ const Header = (): JSX.Element => {
 	const { user, error, isLoading } = useUser();
 
 	const handleSignIn = useCallback(async () => await router.replace('/api/auth/login'), []);
-
 	const handleSignOut = useCallback(() => router.replace('/api/auth/logout'), []);
 
 	const grayOrDarkishColor: 'gray' | 'darkish' = useColorModeValue('gray', 'darkish');

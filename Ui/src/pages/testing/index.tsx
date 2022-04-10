@@ -1,9 +1,10 @@
-import { SearchIcon, SunIcon } from '@chakra-ui/icons';
-import { Formik } from 'formik';
-import { ButtonPrimary, ButtonSecondary, CategoryItem, Input, Typography } from '../../components';
-import ListingItem from '../../components/standalone/ListingItem/ListingItem';
+import { NextPageContext } from 'next';
 
-const Testing = () => {
+import { ButtonPrimary, ButtonSecondary, CategoryItem, ListingItem, Typography } from '../../components';
+
+const Testing = ({ listings }: any) => {
+	console.log(listings);
+
 	return (
 		<>
 			<div
@@ -94,10 +95,14 @@ const Testing = () => {
 					/> */}
 				</div>
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-					<CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' onClick={() => {}} />
+					<CategoryItem
+						image='https://i.ibb.co/tL11nRC/Capture.png'
+						title='Children clothes'
+						onClick={() => {}}
+					/>
 				</div>
 			</div>
-			<ListingItem
+			{/* <ListingItem
 				image='https://frankfurt.apollo.olxcdn.com/v1/files/tj6e37yggawb2-RO/image;s=1000x700'
 				title="Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi"
 				createdOn={new Date()}
@@ -108,9 +113,19 @@ const Testing = () => {
 				title="Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi"
 				createdOn={new Date()}
 				onClick={() => {}}
-			/>
+				/> */}
 		</>
 	);
 };
+
+// export async function getServerSideProps(context: NextPageContext) {
+// 	const listings: any = await (await fetch('http://nginx/api/listings')).json();
+// 	console.log(listings)
+// 	return {
+// 		props: {
+// 			listings,
+// 		}, // will be passed to the page component as props
+// 	};
+// }
 
 export default Testing;
