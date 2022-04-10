@@ -1,11 +1,13 @@
 ﻿using Ardalis.ApiEndpoints;
 using AutoMapper;
 using Giveaway.Application.UseCases.Listings.ReadListingById;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.WebApi.Endpoints.Listings;
 
 [Route("/api/listings/{id}")]
+[AllowAnonymous]
 public sealed class ReadOne : EndpointBaseAsync.WithRequest<ReadOneRequest>.WithActionResult<ReadOneResponse>
 {
     private readonly Command _command;

@@ -22,6 +22,7 @@ public sealed class Reader : IListingReader
     public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListingsAsync(CancellationToken cancellationToken)
     {
         var listingEntities = await _dbContext.Listings
+            .IgnoreQueryFilters()
             .Include(listing => listing.Images)
             .ToListAsync(cancellationToken);
 
@@ -31,6 +32,7 @@ public sealed class Reader : IListingReader
     public async Task<ReadListingByIdModel> ReadListingByIdAsync(ListingId id, CancellationToken cancellationToken)
     {
         var listingEntity = await _dbContext.Listings
+            .IgnoreQueryFilters()
             .Where(listing => listing.Id == id.Value)
             .Include(listing => listing.Category)
             .Include(listing => listing.Images)
