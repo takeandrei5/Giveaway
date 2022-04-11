@@ -39,6 +39,7 @@ services:
     ports:
       - 3000:3000
     environment:
+      - BASE_URL=${BASE_URL}
       - AUTH0_SECRET=${AUTH0_SECRET}
       - AUTH0_BASE_URL=${AUTH0_BASE_URL}
       - AUTH0_AUDIENCE=${AUTH0_AUDIENCE}

@@ -17,71 +17,7 @@ const Home: NextPage = () => {
 					justifyContent='center'
 					marginTop='3rem'
 					padding='3rem'
-					width='87.5rem'>
-					<Stack direction='column'>
-						<Typography center variant='h2' color={useColorModeValue('grayish', 'grayish')}>
-							Select from these main categories
-						</Typography>
-						<Grid marginTop='1rem !important' templateColumns='repeat(6, 1fr)' gap={10}>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Men Clothes'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Women Clothes'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Kids Clothes'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Toys'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Furniture'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Men Footwear'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Women Footwear'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-							<GridItem w='100%'>
-								<CategoryItem
-									image='https://i.ibb.co/tL11nRC/Capture.png'
-									title='Kids Footwear'
-									onClick={() => alert('clicked')}
-								/>
-							</GridItem>
-						</Grid>
-					</Stack>
-				</Box>
+					width='87.5rem'></Box>
 			</Center>
 		</>
 	);

@@ -1,6 +1,7 @@
 export interface CategoryItemI {
 	image: string;
-	title: string;
+	name: string;
 	onClick: () => void;
 	containerBgColor?: string;
+	active?: boolean;
 }
