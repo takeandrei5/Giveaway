@@ -12,14 +12,14 @@ const CategoryBox = ({ categories }: CategoryBoxI) => {
 	const categoryState = useAppSelector((state: RootState) => state.changeCategory);
 
 	const renderCategories = useMemo((): JSX.Element[] => {
-		return categories.map((category) => {
+		return categories.map((categoryItem) => {
 			return (
-				<GridItem key={category.name} w='100%'>
+				<GridItem key={categoryItem.name} w='100%'>
 					<CategoryItem
-						active={categoryState.category == category.category}
-						image={category.image}
-						name={category.name}
-						onClick={() => dispatch(changeCategory(category.category))}
+						active={categoryState.category == categoryItem.category}
+						image={categoryItem.image}
+						name={categoryItem.name}
+						onClick={() => dispatch(changeCategory(categoryItem.category))}
 					/>
 				</GridItem>
 			);
