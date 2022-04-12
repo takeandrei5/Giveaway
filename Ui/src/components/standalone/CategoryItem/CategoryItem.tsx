@@ -1,4 +1,4 @@
-import { Box, Image, Stack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Image, Stack } from '@chakra-ui/react';
 
 import { Typography } from '../../shared';
 import { CategoryItemI } from './interfaces';

@@ -13,13 +13,15 @@ const changeCategorySlice = createSlice({
 	name: 'changeCategory',
 	initialState,
 	reducers: {
-		changeCategory: (state: CategoryStateI, action: PayloadAction<Category | undefined>): CategoryStateI => ({
+		changeCategory: (
+			state: CategoryStateI,
+			action: PayloadAction<Category | undefined>
+		): CategoryStateI => ({
 			category: action.payload,
 			status: SUCCESS,
 		}),
 	},
 });
-const { changeCategory } = changeCategorySlice.actions;
 
-export { changeCategory };
+export const { changeCategory } = changeCategorySlice.actions;
 export default changeCategorySlice.reducer;
