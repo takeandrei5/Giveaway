@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage';
 
 import { default as changeCategoryReducer } from './slices/changeCategorySlice';
 
-console.log(changeCategoryReducer);
 const persistConfig = {
 	key: 'root',
 	storage,

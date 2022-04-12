@@ -1,8 +1,7 @@
-import { useStyleConfig } from '@chakra-ui/react';
-import { ButtonPrimaryI } from './interface';
+import { Button, CSSObject, useStyleConfig } from '@chakra-ui/react';
 
-import { Button } from '@chakra-ui/react';
 import { Typography } from '../../Typography';
+import { ButtonPrimaryI } from './interface';
 
 const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 	const {
@@ -14,7 +13,7 @@ const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 		onClick = () => {},
 		type = 'button',
 	} = props;
-	const styles = useStyleConfig('ButtonPrimary');
+	const styles: CSSObject = useStyleConfig('ButtonPrimary');
 
 	return (
 		<Button

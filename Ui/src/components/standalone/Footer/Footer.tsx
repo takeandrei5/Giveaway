@@ -8,16 +8,20 @@ import { StackItemI } from './interfaces';
 
 const Footer = (): JSX.Element => {
 	const renderStackItems = (stackItems: StackItemI[]) =>
-		stackItems.map((stackItem: StackItemI) => (
-			<Stack key={`footer-stack-${stackItem.stackColumnName}`} align={'flex-start'}>
-				<Typography variant='h5'>{stackItem.stackColumnName}</Typography>
-				{stackItem.stackColumnItems.map((stackColumnItem: string) => (
-					<Link key={`${stackColumnItem}-child`} href={'#'}>
-						{stackColumnItem}
-					</Link>
-				))}
-			</Stack>
-		));
+		stackItems.map(
+			(stackItem: StackItemI): JSX.Element => (
+				<Stack key={`footer-stack-${stackItem.stackColumnName}`} align={'flex-start'}>
+					<Typography variant='h5'>{stackItem.stackColumnName}</Typography>
+					{stackItem.stackColumnItems.map(
+						(stackColumnItem: string): JSX.Element => (
+							<Link key={`${stackColumnItem}-child`} href={'#'}>
+								{stackColumnItem}
+							</Link>
+						)
+					)}
+				</Stack>
+			)
+		);
 
 	return (
 		<Box

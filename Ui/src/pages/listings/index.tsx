@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from 'next/types';
+import { NextPage } from 'next/types';
 
 import { ListingCategoryBox, ListingItems } from '../../modules';
 import { CategoryBoxI, ItemsI } from '../../modules/listings/interfaces';

@@ -1,10 +1,11 @@
 import {
-	FormLabel,
-	Input as CuiInput,
-	InputGroup,
-	InputLeftElement,
-	InputRightElement,
-	useStyleConfig,
+  CSSObject,
+  FormLabel,
+  Input as CuiInput,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  useStyleConfig,
 } from '@chakra-ui/react';
 import { useField } from 'formik';
 
@@ -24,7 +25,7 @@ const Input = ({
 	value,
 	width = '100%',
 }: InputI): JSX.Element => {
-	const styles = useStyleConfig('Input');
+	const styles: CSSObject = useStyleConfig('Input');
 
 	const [field] = useField(name);
 

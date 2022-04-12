@@ -10,9 +10,7 @@ import { FormikInitialValuesI } from './interfaces';
 const SearchBox = (): JSX.Element => {
 	const styles = useStyleConfig('SearchBox');
 
-	const submitSearch = () => {
-		formik.resetForm();
-	};
+	const submitSearch = (): void => formik.resetForm();
 
 	const formik: FormikProps<FormikInitialValuesI> = useFormik<FormikInitialValuesI>({
 		initialValues: {

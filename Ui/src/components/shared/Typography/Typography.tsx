@@ -1,6 +1,6 @@
-import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
-
 import { Text } from '@chakra-ui/react';
+
+import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
 
 const Typography = ({
 	children,
@@ -10,7 +10,7 @@ const Typography = ({
 	prefix = '',
 	sufix = '',
 }: TypographI): JSX.Element => {
-	const renderTypographyProps = (variant: TypographyVariantI) => {
+	const renderTypographyProps = (variant: TypographyVariantI): TypographyTextI => {
 		let textProps: TypographyTextI = {} as TypographyTextI;
 
 		switch (variant) {

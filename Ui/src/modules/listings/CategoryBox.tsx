@@ -4,27 +4,28 @@ import { useMemo } from 'react';
 import { CategoryItem, Typography } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { changeCategory } from '../../redux/slices/changeCategorySlice';
-import { RootState } from '../../redux/store';
-import { CategoryBoxI } from './interfaces';
+import { CategoryBoxI, CategoryItemI } from './interfaces';
 
-const CategoryBox = ({ categories }: CategoryBoxI) => {
+const CategoryBox = ({ categories }: CategoryBoxI): JSX.Element => {
 	const dispatch = useAppDispatch();
-	const categoryState = useAppSelector((state: RootState) => state.changeCategory);
+	const categoryState = useAppSelector((state) => state.changeCategory);
 
-	const renderCategories = useMemo((): JSX.Element[] => {
-		return categories.map((categoryItem) => {
-			return (
-				<GridItem key={categoryItem.name} w='100%'>
-					<CategoryItem
-						active={categoryState.category == categoryItem.category}
-						image={categoryItem.image}
-						name={categoryItem.name}
-						onClick={() => dispatch(changeCategory(categoryItem.category))}
-					/>
-				</GridItem>
-			);
-		});
-	}, [categories, categoryState]);
+	const renderCategories = useMemo(
+		(): JSX.Element[] =>
+			categories.map(
+				(categoryItem: CategoryItemI): JSX.Element => (
+					<GridItem key={categoryItem.name} w='100%'>
+						<CategoryItem
+							active={categoryState.category == categoryItem.category}
+							image={categoryItem.image}
+							name={categoryItem.name}
+							onClick={() => dispatch(changeCategory(categoryItem.category))}
+						/>
+					</GridItem>
+				)
+			),
+		[categories, categoryState]
+	);
 
 	return (
 		<Center>

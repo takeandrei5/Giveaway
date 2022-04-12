@@ -28,7 +28,14 @@ const CategoryItem = ({
 			},
 		}}>
 		<Stack direction='column' alignItems='center' justifyContent='center'>
-			<Image draggable={false} borderRadius='full' boxSize='6.25rem' objectFit='cover' src={image} alt={name} />
+			<Image
+				draggable={false}
+				borderRadius='full'
+				boxSize='6.25rem'
+				objectFit='cover'
+				src={image}
+				alt={name}
+			/>
 			<Typography center color={'darkish'} variant='h5'>
 				{name}
 			</Typography>

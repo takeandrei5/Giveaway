@@ -1,10 +1,10 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
-import { Footer, Header, SearchBox } from '../components';
+import { Footer, Header } from '../components';
 import { LayoutI } from './interfaces';
 
-const Layout = ({ children }: LayoutI) => (
+const Layout = ({ children }: LayoutI): JSX.Element => (
 	<>
 		<Header />
 		<Box
