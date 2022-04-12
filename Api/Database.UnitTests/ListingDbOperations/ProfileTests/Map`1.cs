@@ -47,7 +47,8 @@ public sealed class Map_1 : Base
             Id = listingId,
             Title = listingTitle,
             Description = listingDescription,
-            MainImageUrl = listingImageUrl
+            MainImageUrl = listingImageUrl,
+            CreatedAt = listingCreationDate,
         };
 
         // Act

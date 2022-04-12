@@ -63,8 +63,6 @@ public static partial class ServicesExtensions
                 },
             });
 
-            //swaggerGenOptions.OperationFilter<SecurityRequirementsOperationFilter>();
-
             swaggerGenOptions.AddSecurityRequirement(new OpenApiSecurityRequirement()
             {
                 {

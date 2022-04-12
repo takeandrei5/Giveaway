@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "Api\WebApi\WebApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Api\Database\Database.csproj", "{D621A172-E88B-4977-88D2-00A4150148C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "Api\Extensions\Extensions.csproj", "{9BC3D94A-E9D6-4391-8289-21E2F41CA5C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Api\Extensions\Commons.csproj", "{9BC3D94A-E9D6-4391-8289-21E2F41CA5C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.IntegrationTests", "Api\Database.IntegrationTests\Database.IntegrationTests.csproj", "{DA11AC7B-A175-41FE-9421-EE570151C2EB}"
 EndProject
@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.UnitTests", "Api\Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Api\Helpers\Helpers.csproj", "{6FFD930A-2C03-474E-9A47-EBA95A1CBF9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.UnitTests", "Api\Database.UnitTests\Database.UnitTests.csproj", "{F05A1B72-5159-4EA9-B950-0D36969E060D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.UnitTests", "Api\Database.UnitTests\Database.UnitTests.csproj", "{F05A1B72-5159-4EA9-B950-0D36969E060D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA751C21-BFD7-4A65-8C31-A2B90E38FC1D}"
 	ProjectSection(SolutionItems) = preProject

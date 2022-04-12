@@ -1,6 +1,7 @@
 ﻿using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
+using Giveaway.Application.UseCases.Listings.ReadAllListings.Pagination;
+using Giveaway.Commons.Extra.Pagination;
 using Moq;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
@@ -13,13 +14,24 @@ public sealed class ExecuteAsync_1 : Base
     public async Task Check_ExecuteAsync_Execution_Flow()
     {
         // Arrange
-        _listingReaderMock.Setup(listingReader => listingReader.ReadAllListingsAsync(It.IsAny<CancellationToken>()))
-            .ReturnsAsync(Enumerable.Empty<ListingDtoModel>);
+        var listPagedQuery = new ListPagedQuery
+        {
+            PageNumber = 1,
+            PageSize = 10,
+            OrderBy = "Tittle",
+            FilterByCategory = null,
+        };
+
+        _listingReaderMock.Setup(listingReader => listingReader.ReadAllListingsAsync(
+                It.IsAny<ListPagedQuery>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(PaginatedResult<ListingDtoModel>.Empty());
 
         // Act
-        await _sut.ExecuteAsync(CancellationToken.None);
+        await _sut.ExecuteAsync(listPagedQuery, CancellationToken.None);
 
         // Assert
-        _listingReaderMock.Verify(listingReader => listingReader.ReadAllListingsAsync(CancellationToken.None), Times.Once);
+        _listingReaderMock.Verify(listingReader => listingReader.ReadAllListingsAsync(listPagedQuery,
+                CancellationToken.None),
+            Times.Once);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Ardalis.ApiEndpoints;
 using AutoMapper;
 using Giveaway.Application.UseCases.Listings.ReadAllListings;
+using Giveaway.Application.UseCases.Listings.ReadAllListings.Pagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,7 @@ namespace Giveaway.WebApi.Endpoints.Listings;
 
 [Route("/api/listings")]
 [AllowAnonymous]
-public sealed class ReadAll : EndpointBaseAsync.WithoutRequest.WithActionResult<ReadAllResponse>
+public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.WithActionResult<ReadAllResponse>
 {
     private readonly Command _command;
     private readonly IMapper _mapper;
@@ -22,6 +23,7 @@ public sealed class ReadAll : EndpointBaseAsync.WithoutRequest.WithActionResult<
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public override async Task<ActionResult<ReadAllResponse>> HandleAsync(CancellationToken cancellationToken = default) =>
-        Ok(_mapper.Map<ReadAllResponse>(await _command.ExecuteAsync(cancellationToken)));
+    public override async Task<ActionResult<ReadAllResponse>> HandleAsync([FromRoute] ReadAllRequest request, CancellationToken cancellationToken = default) =>
+        Ok(_mapper.Map<ReadAllResponse>(
+            await _command.ExecuteAsync(_mapper.Map<ListPagedQuery>(request), cancellationToken)));
 }

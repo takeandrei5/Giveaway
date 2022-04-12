@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using Giveaway.Extensions;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

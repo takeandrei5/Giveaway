@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
+using Giveaway.Commons.Extensions;
 using Giveaway.Database.Persistence.Entities;
-using Giveaway.Extensions;
 
 namespace Helpers;
 

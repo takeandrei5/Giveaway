@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Giveaway.Application.UseCases.Listings.ReadAllListings.Models;
+using Giveaway.Application.UseCases.Listings.ReadAllListings.Pagination;
 using Giveaway.Domain.Users;
 using Helpers;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Giveaway.Database.IntegrationTests.ListingDbOperations.ReaderTests;
 
 public sealed class ReadAllListingsAsync_1 : Base
 {
-    [Fact(DisplayName = "ReadAllListingsAsync returns IEnumerable<ListingDtoModel>.")]
+    [Fact(DisplayName = "ReadAllListingsAsync returns PaginatedResult<ListingDtoModel>.")]
     public async Task ReadAllListingsAsync_Returns_IEnumreable_ListingDtoModel()
     {
         // Arrange
@@ -35,16 +36,25 @@ public sealed class ReadAllListingsAsync_1 : Base
             Id = listing.Id,
             Title = listing.Title,
             Description = listing.Description,
-            MainImageUrl = imageEntities.Where(imageEntity => imageEntity.ListingId == listing.Id).First().Url
+            MainImageUrl = imageEntities.Where(imageEntity => imageEntity.ListingId == listing.Id).First().Url,
+            CreatedAt = listing.CreatedAt
         });
+
+        var listPagedQuery = new ListPagedQuery
+        {
+            PageNumber = 1,
+            PageSize = 10,
+            OrderBy = "Title",
+            FilterByCategory = null
+        };
 
         await SetupDatabase(imageEntities, listingEntities, userEntities);
 
         // Act
-        var result = await _sut.ReadAllListingsAsync(CancellationToken.None);
+        var result = await _sut.ReadAllListingsAsync(listPagedQuery, CancellationToken.None);
 
         // Assert
-        result.Should()
+        result.Result.Should()
             .BeEquivalentTo(listings);
     }
 }

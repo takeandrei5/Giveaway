@@ -29,7 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Database\Database.csproj" />
-    <ProjectReference Include="..\Extensions\Extensions.csproj" />
+    <ProjectReference Include="..\Extensions\Commons.csproj" />
   </ItemGroup>
 
   <ItemGroup>

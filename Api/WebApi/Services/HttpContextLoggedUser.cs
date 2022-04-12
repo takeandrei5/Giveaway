@@ -1,5 +1,5 @@
 ﻿using Giveaway.Application.Interfaces;
-using Giveaway.Extensions;
+using Giveaway.Commons.Extensions;
 
 namespace Giveaway.WebApi.Services;
 

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Giveaway.Application.Interfaces;
+using Giveaway.Application.UseCases.Listings.ReadAllListings.Pagination;
+using Giveaway.Commons.Extra.Pagination;
+using Giveaway.Database.Persistence.Entities;
 using Giveaway.Domain.Listings;
 using Microsoft.EntityFrameworkCore;
-
+using System.Linq.Expressions;
 using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
 using ReadListingByIdModel = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingDtoModel;
 
@@ -19,14 +22,36 @@ public sealed class Reader : IListingReader
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<ReadAllListingsModel>> ReadAllListingsAsync(CancellationToken cancellationToken)
+    public async Task<PaginatedResult<ReadAllListingsModel>> ReadAllListingsAsync(ListPagedQuery listPagedQuery,
+        CancellationToken cancellationToken)
     {
+        IQueryable<ListingEntity> ApplyOrdering(IQueryable<ListingEntity> source)
+        {
+            if (source is null) throw new ArgumentNullException(nameof(source));
+
+            source = listPagedQuery.FilterByCategory != null
+                ? source.Where(s => s.CategoryId == listPagedQuery.FilterByCategory)
+                : source;
+
+            var parameter = Expression.Parameter(typeof(ListingEntity));
+
+            var memberExpression = Expression.PropertyOrField(parameter, listPagedQuery.OrderBy);
+
+            var orderByExpression = Expression.Lambda(memberExpression, parameter);
+
+            var resultExpression = Expression.Call(typeof(Queryable), nameof(Queryable.OrderBy),
+                new[] { parameter.Type, orderByExpression.ReturnType },
+                source.Expression, Expression.Quote(orderByExpression));
+
+            return source.Provider.CreateQuery<ListingEntity>(resultExpression);
+        }
+
         var listingEntities = await _dbContext.Listings
             .IgnoreQueryFilters()
             .Include(listing => listing.Images)
-            .ToListAsync(cancellationToken);
+            .ToPaginatedListAsync(listPagedQuery, ApplyOrdering, cancellationToken);
 
-        return _mapper.Map<IEnumerable<ReadAllListingsModel>>(listingEntities);
+        return _mapper.Map<PaginatedResult<ReadAllListingsModel>>(listingEntities);
     }
 
     public async Task<ReadListingByIdModel> ReadListingByIdAsync(ListingId id, CancellationToken cancellationToken)
