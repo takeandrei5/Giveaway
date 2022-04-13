@@ -16,16 +16,14 @@ public sealed class Map_3 : Base
         // Arrange
         var listingId = _fixture.Create<Guid>();
         var listingTitle = _fixture.Create<string>();
-        var listingDescription = _fixture.Create<string>();
-        var listingMainImageUrl = _fixture.CreateUrl();
+        var listingMainImage = _fixture.CreateUrl();
         var listingCreatedAt = DateTime.UtcNow;
 
         var source = new ListingDtoModel()
         {
             Id = listingId,
             Title = listingTitle,
-            Description = listingDescription,
-            MainImageUrl = listingMainImageUrl,
+            Image = listingMainImage,
             CreatedAt = listingCreatedAt,
         };
 
@@ -33,8 +31,7 @@ public sealed class Map_3 : Base
         {
             Id = listingId,
             Title = listingTitle,
-            Description = listingDescription,
-            MainImageUrl = listingMainImageUrl,
+            Image = listingMainImage,
             CreatedAt = listingCreatedAt
         };
 

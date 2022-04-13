@@ -22,12 +22,22 @@ public sealed class CategoryEntityConfiguration : IEntityTypeConfiguration<Categ
             new()
             {
                 Id = 1,
-                Name = "Men Clothes",
+                Name = "Clothes",
             },
             new()
             {
                 Id = 2,
-                Name = "Women Clothes"
+                Name = "Toys"
+            },
+            new()
+            {
+                Id = 3,
+                Name = "Books"
+            },
+            new()
+            {
+                Id = 4,
+                Name = "Electronics"
             }
         });
     }

@@ -2,7 +2,7 @@ import { Action, combineReducers, configureStore, ThunkAction } from '@reduxjs/t
 import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { default as changeCategoryReducer } from './slices/changeCategorySlice';
+import { default as changeCategorySlice } from './slices/changeCategorySlice';
 
 const persistConfig = {
 	key: 'root',
@@ -10,7 +10,7 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-	changeCategory: changeCategoryReducer,
+	changeCategory: changeCategorySlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

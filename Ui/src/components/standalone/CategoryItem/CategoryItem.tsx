@@ -14,16 +14,16 @@ const CategoryItem = ({
 		_hover={{
 			cursor: 'pointer',
 			filter: active ? 'brightness(60%)' : 'brightness(90%)',
-			'& p': { filter: active ? 'opacity(0.6)' : 'opacity(0.9)' },
+			'& span': { filter: active ? 'opacity(0.6)' : 'opacity(0.9)' },
 		}}
-		_active={{ filter: 'brightness(80%)', '& p': { filter: 'opacity(0.8)' } }}
+		_active={{ filter: 'brightness(80%)', '& span': { filter: 'opacity(0.8)' } }}
 		bgColor={containerBgColor}
 		onClick={onClick}
 		padding='0.5rem'
 		maxWidth='7.5rem'
 		filter={active ? 'brightness(70%)' : 'auto'}
 		__css={{
-			'& p': {
+			'& span': {
 				filter: active ? 'opacity(0.7)' : 'auto',
 			},
 		}}>

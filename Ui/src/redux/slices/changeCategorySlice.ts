@@ -17,11 +17,11 @@ const changeCategorySlice = createSlice({
 			state: CategoryStateI,
 			action: PayloadAction<Category | undefined>
 		): CategoryStateI => ({
-			category: action.payload,
+			category: state.category === action.payload ? undefined : action.payload,
 			status: SUCCESS,
 		}),
 	},
 });
 
 export const { changeCategory } = changeCategorySlice.actions;
-export default changeCategorySlice.reducer;
+export default changeCategorySlice;

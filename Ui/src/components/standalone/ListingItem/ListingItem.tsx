@@ -11,7 +11,7 @@ const ListingItem = ({ id, image, title, createdOn, onClick }: ListingItemI): JS
 			filter: 'brightness(95%)',
 		}}
 		_active={{ filter: 'brightness(90%)' }}
-		maxH='12rem'
+		h='100%'
 		w='100%'
 		bgColor='white'
 		borderRadius='2xl'

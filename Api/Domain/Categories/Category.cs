@@ -21,29 +21,23 @@ public sealed class Category
 
         var category = (CategoryEnum)categoryId;
 
-        return category switch
+        return new Category
         {
-            CategoryEnum.MenClothes => new Category()
-            {
-                Id = categoryId,
-                Name = nameof(CategoryEnum.MenClothes),
-                CategoryUrl = new(CategoryEnum.MenClothes.AsString(EnumFormat.Description)!)
-            },
-            CategoryEnum.WomenClothes => new Category()
-            {
-                Id = categoryId,
-                Name = nameof(CategoryEnum.WomenClothes),
-                CategoryUrl = new(CategoryEnum.WomenClothes.AsString(EnumFormat.Description)!)
-            },
-            _ => throw new ArgumentException("Could not parse the given category.")
+            Id = categoryId,
+            Name = Enum.GetName(category)!,
+            CategoryUrl = new(category.AsString(EnumFormat.Description)!)
         };
     }
 
     private enum CategoryEnum
     {
-        [EnumMember(Value = "Men Clothes"), Description("men-clothes")]
-        MenClothes = 1,
-        [EnumMember(Value = "Women Clothes"), Description("women-clothes")]
-        WomenClothes = 2,
+        [EnumMember(Value = "Clothes"), Description("clothes")]
+        Clothes = 1,
+        [EnumMember(Value = "Toys"), Description("toys")]
+        Toys = 2,
+        [EnumMember(Value = "Books"), Description("books")]
+        Books = 3,
+        [EnumMember(Value = "Electronics"), Description("electronics")]
+        Electronics = 4,
     }
 }

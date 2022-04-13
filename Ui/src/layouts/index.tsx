@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutI): JSX.Element => (
 			marginRight='auto'
 			paddingY='5rem'
 			paddingX='25rem'
-			backgroundColor={useColorModeValue('gray', 'darkish')}>
+			backgroundColor={useColorModeValue('lightish', 'darkish')}>
 			{children}
 		</Box>
 		<Footer />

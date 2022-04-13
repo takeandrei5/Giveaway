@@ -46,8 +46,7 @@ public sealed class Map_1 : Base
         {
             Id = listingId,
             Title = listingTitle,
-            Description = listingDescription,
-            MainImageUrl = listingImageUrl,
+            Image = listingImageUrl,
             CreatedAt = listingCreationDate,
         };
 

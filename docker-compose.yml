@@ -1,5 +1,9 @@
 version: '3.4'
 
+networks:
+  giveway-network:
+    driver: bridge
+
 services:
   nginx:
     image: giveaway-nginx
@@ -9,6 +13,8 @@ services:
     ports:
       - 80:80
     container_name: giveaway-nginx
+    networks: 
+      - giveway-network
     depends_on:
       - webapi
       - webui
@@ -26,6 +32,8 @@ services:
       - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
     ports:
       - 81:81
+    networks: 
+      - giveway-network
     depends_on:
       - mssql
 
@@ -34,7 +42,7 @@ services:
     build:
       context: ./Ui
       dockerfile: ./Dockerfile
-    container_name: giveaway_webui
+    container_name: giveaway-webui
     restart: on-failure
     ports:
       - 3000:3000
@@ -47,7 +55,10 @@ services:
       - AUTH0_SCOPE=${AUTH0_SCOPE}
       - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID}
       - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET}
-      - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
+      - NEXT_BACKEND_URL_SERVER=${NEXT_BACKEND_URL_SERVER}
+      - NEXT_PUBLIC_BACKEND_URL_CLIENT=${NEXT_PUBLIC_BACKEND_URL_CLIENT}
+    networks: 
+      - giveway-network
     depends_on:
       - webapi
     volumes:
@@ -65,6 +76,8 @@ services:
     container_name: giveaway-mssql
     ports:
       - 1435:1433
+    networks: 
+      - giveway-network
     volumes:
       - dbdata:/var/opt/mssql/data
 

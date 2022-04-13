@@ -1,7 +1,11 @@
 export { ButtonPrimary, ButtonSecondary } from './Buttons';
 
-export { Logo } from './Logo';
-
-export { Typography } from './Typography';
+export { Dropdown } from './Dropdown';
 
 export { Input } from './Input';
+
+export { Logo } from './Logo';
+
+export { Skeleton } from './Skeleton';
+
+export { Typography } from './Typography';

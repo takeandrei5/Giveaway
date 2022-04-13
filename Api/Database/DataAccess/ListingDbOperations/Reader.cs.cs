@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Giveaway.Application.Interfaces;
 using Giveaway.Application.UseCases.Listings.ReadAllListings.Pagination;
+using Giveaway.Commons.Extensions;
 using Giveaway.Commons.Extra.Pagination;
 using Giveaway.Database.Persistence.Entities;
 using Giveaway.Domain.Listings;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 using ReadAllListingsModel = Giveaway.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
 using ReadListingByIdModel = Giveaway.Application.UseCases.Listings.ReadListingById.Models.ListingDtoModel;
 
@@ -27,23 +27,11 @@ public sealed class Reader : IListingReader
     {
         IQueryable<ListingEntity> ApplyOrdering(IQueryable<ListingEntity> source)
         {
-            if (source is null) throw new ArgumentNullException(nameof(source));
-
             source = listPagedQuery.FilterByCategory != null
                 ? source.Where(s => s.CategoryId == listPagedQuery.FilterByCategory)
                 : source;
 
-            var parameter = Expression.Parameter(typeof(ListingEntity));
-
-            var memberExpression = Expression.PropertyOrField(parameter, listPagedQuery.OrderBy);
-
-            var orderByExpression = Expression.Lambda(memberExpression, parameter);
-
-            var resultExpression = Expression.Call(typeof(Queryable), nameof(Queryable.OrderBy),
-                new[] { parameter.Type, orderByExpression.ReturnType },
-                source.Expression, Expression.Quote(orderByExpression));
-
-            return source.Provider.CreateQuery<ListingEntity>(resultExpression);
+            return source.OrderBy(listPagedQuery.OrderBy);
         }
 
         var listingEntities = await _dbContext.Listings

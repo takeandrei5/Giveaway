@@ -1,38 +1,59 @@
 import { NextPage } from 'next/types';
+import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
-import { ListingCategoryBox, ListingItems } from '../../modules';
-import { CategoryBoxI, ItemsI } from '../../modules/listings/interfaces';
+import { Skeleton } from '../../components';
+import { ListingCategoryBox, ListingItems, ListingSortDropdown } from '../../modules';
+import { ItemsDataI } from '../../modules/listings/interfaces';
+import { useAppSelector } from '../../redux/hooks';
 import categories from '../../utils/constants/categoriesConstant';
+import { PaginatedResult } from '../../utils/types';
+import { fetchListings } from './apis';
+import { categoryDictionary, dropdownOptions } from './constants';
+import { ListingPageI } from './interfaces';
 
-type ListingPageI = CategoryBoxI & Omit<ItemsI, 'onClick'>;
+const ListingsPage: NextPage<ListingPageI> = ({ categories, listings, options }: ListingPageI) => {
+	const [sort, setSort] = useState<string>('Title');
+	const [listingItems, setListingItems] = useState<ItemsDataI[]>(listings.result);
 
-const ListingsPage: NextPage<ListingPageI> = ({ categories, items }: ListingPageI) => {
+	const categoryState = useAppSelector((state) => state.changeCategory);
+
+	const { isLoading, refetch } = useQuery(
+		['fetchSortedListings', sort],
+		() => fetchListings(sort, categoryDictionary[categoryState.category!]),
+		{
+			initialData: listings,
+			onSuccess: (data: PaginatedResult<ItemsDataI> | undefined) => {
+				if (data) {
+					setListingItems(data.result);
+				}
+			},
+		}
+	);
+
+	useEffect(() => {
+		refetch();
+	}, [sort, categoryState]);
+
 	return (
 		<>
-			<ListingCategoryBox categories={categories} />
-			<ListingItems items={items} />
+			<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
+				<ListingCategoryBox categories={categories} />
+				<ListingSortDropdown options={options} onChangeHandler={setSort} />
+				<ListingItems items={listingItems} />
+			</Skeleton>
 		</>
 	);
 };
 
 export async function getServerSideProps(): Promise<{ props: ListingPageI }> {
+	const listings = await fetchListings('Title');
+
 	return {
 		props: {
 			categories,
-			items: [
-				{
-					id: '123',
-					title: "Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi",
-					image: 'https://frankfurt.apollo.olxcdn.com/v1/files/tj6e37yggawb2-RO/image;s=1000x700',
-					createdOn: new Date(),
-				},
-				{
-					id: '124',
-					title: "Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi",
-					image: 'https://frankfurt.apollo.olxcdn.com/v1/files/tj6e37yggawb2-RO/image;s=1000x700',
-					createdOn: new Date(),
-				},
-			],
+			listings: listings!,
+			options: dropdownOptions,
 		},
 	};
 }

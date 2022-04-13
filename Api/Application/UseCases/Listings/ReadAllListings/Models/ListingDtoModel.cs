@@ -6,9 +6,7 @@ public sealed record ListingDtoModel
 
     public string Title { get; init; } = null!;
 
-    public string Description { get; init; } = null!;
-
-    public string MainImageUrl { get; init; } = null!;
+    public string Image { get; init; } = null!;
 
     public DateTime CreatedAt { get; init; }
 }

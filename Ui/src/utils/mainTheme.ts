@@ -24,9 +24,9 @@ const mainTheme = extendTheme({
 			dark: '#000083',
 		},
 		dark: '#1D1927',
-		gray: '#DDE3EB',
-		grayish: '#2D3748',
 		darkish: '#262d3b',
+		grayish: '#2D3748',
+		lightish: '#DDE3EB',
 		light: '#FCF7FF',
 	},
 });

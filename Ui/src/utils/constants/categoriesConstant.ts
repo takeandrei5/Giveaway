@@ -25,12 +25,6 @@ const categories: CategoryItemI[] = [
 		category: 'electronics',
 		name: 'Electronics',
 	},
-	{
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/1024px-Closed_Book_Icon.svg.png?20170605011735',
-		category: 'other',
-		name: 'Other',
-	},
 ];
 
 export default categories;

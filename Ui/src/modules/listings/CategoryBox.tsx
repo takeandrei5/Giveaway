@@ -34,7 +34,7 @@ const CategoryBox = ({ categories }: CategoryBoxI): JSX.Element => {
 				borderRadius='2xl'
 				display='flex'
 				justifyContent='center'
-				padding='3rem'
+				padding='1.5rem'
 				width='87.5rem'>
 				<Stack direction='column'>
 					<Typography center variant='h2' color={'grayish'}>
@@ -43,7 +43,7 @@ const CategoryBox = ({ categories }: CategoryBoxI): JSX.Element => {
 					<Grid
 						justifyItems='center'
 						marginTop='1rem !important'
-						templateColumns='repeat(5, 1fr)'
+						templateColumns='repeat(4, 1fr)'
 						gap={10}>
 						{renderCategories}
 					</Grid>

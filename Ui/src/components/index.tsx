@@ -1,2 +1,2 @@
-export { ButtonPrimary, ButtonSecondary, Input, Logo, Typography } from './shared';
+export { ButtonPrimary, ButtonSecondary, Input, Logo, Skeleton, Typography } from './shared';
 export { CategoryItem, Footer, Header, ListingItem, SearchBox } from './standalone';

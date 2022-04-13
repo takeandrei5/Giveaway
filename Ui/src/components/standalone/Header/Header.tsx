@@ -1,22 +1,22 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-	Avatar,
-	Box,
-	Button,
-	Center,
-	Flex,
-	Icon,
-	IconButton,
-	Menu,
-	MenuButton,
-	MenuDivider,
-	MenuItem,
-	MenuList,
-	Skeleton,
-	Stack,
-	useColorMode,
-	useColorModeValue,
+  Avatar,
+  Box,
+  Button,
+  Center,
+  Flex,
+  Icon,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  Skeleton,
+  Stack,
+  useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
@@ -34,7 +34,7 @@ const Header = (): JSX.Element => {
 	const handleSignIn = useCallback(async () => await router.replace('/api/auth/login'), []);
 	const handleSignOut = useCallback(() => router.replace('/api/auth/logout'), []);
 
-	const grayOrDarkishColor: 'gray' | 'darkish' = useColorModeValue('gray', 'darkish');
+	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
 	const darkishOrWhiteColor: 'darkish' | 'white' = useColorModeValue('darkish', 'white');
 
 	const renderMenu = useCallback((): JSX.Element => {
@@ -72,7 +72,7 @@ const Header = (): JSX.Element => {
 								filter: 'brightness(80%) !important',
 							}}
 							_hover={{
-								backgroundColor: grayOrDarkishColor,
+								backgroundColor: lightishOrDarkishColor,
 								filter: 'brightness(90%)',
 							}}
 							borderRadius='lg'
@@ -112,7 +112,7 @@ const Header = (): JSX.Element => {
 							_hover={{
 								filter: 'brightness(90%)',
 							}}
-							backgroundColor={grayOrDarkishColor}
+							backgroundColor={lightishOrDarkishColor}
 							border={0}
 							w={'full'}
 							maxW={'md'}

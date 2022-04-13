@@ -12,7 +12,7 @@ const Items = ({ items }: ItemsI): JSX.Element => {
 	const renderItems = useMemo(
 		(): JSX.Element[] =>
 			items.map((item: Omit<ListingItemI, 'onClick'>): JSX.Element => (
-				<GridItem key={item.id} w='100%'>
+				<GridItem key={item.id} w='100%' height='11.375rem'>
 					<ListingItem {...item} onClick={() => router.push(`/listings/${item.id}`)} />
 				</GridItem>
 			)),
@@ -20,7 +20,7 @@ const Items = ({ items }: ItemsI): JSX.Element => {
 	);
 
 	return (
-		<Grid marginTop='3rem' justifyItems='center' rowGap='12'>
+		<Grid marginTop='1rem' justifyItems='center' rowGap='4'>
 			{renderItems}
 		</Grid>
 	);

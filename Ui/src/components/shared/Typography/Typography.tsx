@@ -91,9 +91,11 @@ const Typography = ({
 	};
 
 	return (
-		<Text
+		<Text 
+			as='span'
 			color={color}
 			textAlign={center ? 'center' : 'initial'}
+			whiteSpace='pre'
 			{...renderTypographyProps(variant)}>
 			{prefix}
 			{children}

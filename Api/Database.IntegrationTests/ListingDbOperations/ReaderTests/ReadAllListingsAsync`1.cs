@@ -35,8 +35,7 @@ public sealed class ReadAllListingsAsync_1 : Base
         {
             Id = listing.Id,
             Title = listing.Title,
-            Description = listing.Description,
-            MainImageUrl = imageEntities.Where(imageEntity => imageEntity.ListingId == listing.Id).First().Url,
+            Image = imageEntities.Where(imageEntity => imageEntity.ListingId == listing.Id).First().Url,
             CreatedAt = listing.CreatedAt
         });
 
