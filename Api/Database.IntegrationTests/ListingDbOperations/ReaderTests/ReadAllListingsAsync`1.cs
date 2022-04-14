@@ -28,6 +28,8 @@ public sealed class ReadAllListingsAsync_1 : Base
         var imageEntities = listingEntities.SelectMany(listingEntity => _fixture.CreateManyImageEntity(listingEntity.Id, 1))
             .ToList();
 
+        imageEntities.ForEach(image => image.IsMainImage = true);
+
         _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
             .Returns(user.Information.Email.Value);
 
