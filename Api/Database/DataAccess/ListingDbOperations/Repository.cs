@@ -26,11 +26,12 @@ public sealed class Repository : IListingRepository
             CategoryId = listing.Category.Id
         }, cancellationToken);
 
-        await _dbContext.Images.AddRangeAsync(listing.Images.Select(image => new ImageEntity
+        await _dbContext.Images.AddRangeAsync(listing.Images.Select((image, index) => new ImageEntity
         {
             Id = Guid.NewGuid(),
             ListingId = listing.Id.Value,
-            Url = image.Value
+            Url = image.Value,
+            IsMainImage = index == 0
         }), cancellationToken);
 
         await _dbContext.SaveChangesAsync(cancellationToken);

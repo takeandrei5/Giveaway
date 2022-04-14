@@ -23,6 +23,7 @@ public sealed class Map_1 : Base
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
         var listingImageUrl = _fixture.CreateUrl();
+        var listingImageUrl2 = _fixture.CreateUrl();
 
         var source = new ListingEntity()
         {
@@ -35,7 +36,13 @@ public sealed class Map_1 : Base
             {
                 new()
                 {
+                    IsMainImage = true,
                     Url = listingImageUrl
+                },
+                new()
+                {
+                    IsMainImage = false,
+                    Url = listingImageUrl2
                 }
             },
             CreatedAt = listingCreationDate,
