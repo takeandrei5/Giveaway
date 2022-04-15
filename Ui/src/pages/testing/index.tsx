@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next';
 
-import { ButtonPrimary, ButtonSecondary, CategoryItem, ListingItem, Typography } from '../../components';
+import { ButtonPrimary, CategoryItem, ListingItem, Typography } from '../../components';
 
 const Testing = ({ listings }: any) => {
 	console.log(listings);
@@ -21,24 +21,36 @@ const Testing = ({ listings }: any) => {
 					<ButtonPrimary onClick={() => {}} disabled={false}>
 						Button1
 					</ButtonPrimary>
-					<ButtonSecondary onClick={() => {}} disabled={false}>
-						Click me!
-					</ButtonSecondary>
-					<ButtonSecondary onClick={() => {}} disabled={true}>
-						Click me!
-					</ButtonSecondary>
 				</div>
 
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-					<Typography variant='h1'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='h3'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='h5'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='default'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='input'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='button'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='paragraph'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='caption'>The quick brown fox jumps over the lazy dog</Typography>
-					<Typography variant='small'>The quick brown fox jumps over the lazy dog</Typography>
+					<Typography variant='h1' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='h3' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='h5' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='default' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='input' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='button' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='paragraph' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='caption' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
+					<Typography variant='small' multiline>
+						The quick brown fox jumps over the lazy dog
+					</Typography>
 				</div>
 
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>

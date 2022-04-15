@@ -1,6 +1,5 @@
 import { Button, CSSObject, useStyleConfig } from '@chakra-ui/react';
 
-import { Typography } from '../../Typography';
 import { ButtonPrimaryI } from './interface';
 
 const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
@@ -8,10 +7,11 @@ const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 		children,
 		disabled = false,
 		height = '100%',
-		leftIcon, 
+		leftIcon,
 		rightIcon,
 		onClick = () => {},
 		type = 'button',
+		...rest
 	} = props;
 	const styles: CSSObject = useStyleConfig('ButtonPrimary');
 
@@ -23,8 +23,9 @@ const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
 			leftIcon={leftIcon}
 			rightIcon={rightIcon}
 			onClick={onClick}
-			type={type}>
-			<Typography variant='button' color='darkish'>{children}</Typography>
+			type={type}
+			{...rest}>
+			{children}
 		</Button>
 	);
 };
