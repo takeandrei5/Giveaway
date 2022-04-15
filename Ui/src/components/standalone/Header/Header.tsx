@@ -1,22 +1,22 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-  Avatar,
-  Box,
-  Button,
-  Center,
-  Flex,
-  Icon,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Skeleton,
-  Stack,
-  useColorMode,
-  useColorModeValue,
+	Avatar,
+	Box,
+	Button,
+	Center,
+	Flex,
+	Icon,
+	IconButton,
+	Menu,
+	MenuButton,
+	MenuDivider,
+	MenuItem,
+	MenuList,
+	Skeleton,
+	Stack,
+	useColorMode,
+	useColorModeValue,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
@@ -25,6 +25,7 @@ import { MdAccountCircle } from 'react-icons/md';
 
 import { Typography } from '../../shared';
 import Logo from '../../shared/Logo/Logo';
+import ButtonPrimary from '../../shared/Buttons/ButtonPrimary/index';
 
 const Header = (): JSX.Element => {
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -99,33 +100,22 @@ const Header = (): JSX.Element => {
 					icon={<Icon as={MdAccountCircle} color={darkishOrWhiteColor} h='1.8rem' width='1.8rem' />}
 				/>
 				<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
-					<Stack align='center'>
+					<Stack align='center' margin={0}>
 						<Typography variant='h3'>Sign in to your account</Typography>
-						<Typography variant='input'>to enjoy all of our cool features ✌️</Typography>
+						<Typography variant='input'>to enjoy all of our cool features 🧙‍♂️</Typography>
 					</Stack>
 					<Center pt={4}>
-						<Button
-							_active={{
-								filter: 'brightness(80%) !important',
-							}}
-							_focus={{ boxShadow: 'none' }}
-							_hover={{
-								filter: 'brightness(90%)',
-							}}
-							backgroundColor={lightishOrDarkishColor}
-							border={0}
-							w={'full'}
-							maxW={'md'}
-							variant={'outline'}
-							leftIcon={<IoLogInOutline />}
+						<ButtonPrimary
+							color={lightishOrDarkishColor}
+							leftIcon={<IoLogInOutline fontSize='larger' />}
 							onClick={() => handleSignIn()}>
 							<Typography variant='button'>Sign in here</Typography>
-						</Button>
+						</ButtonPrimary>
 					</Center>
 				</MenuList>
 			</>
 		);
-	}, [isLoading]);
+	}, [isLoading, lightishOrDarkishColor, darkishOrWhiteColor]);
 
 	return (
 		<Skeleton isLoaded={!isLoading}>
