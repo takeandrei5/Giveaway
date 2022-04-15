@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 
-import { TypographI, TypographyTextI, TypographyVariantI } from './interfaces';
+import { TypographyI, TypographyTextI, TypographyVariantI } from './interfaces';
 
 const Typography = ({
 	children,
@@ -9,21 +9,22 @@ const Typography = ({
 	color = 'inherit',
 	prefix = '',
 	sufix = '',
-}: TypographI): JSX.Element => {
+	multiline = false,
+}: TypographyI): JSX.Element => {
 	const renderTypographyProps = (variant: TypographyVariantI): TypographyTextI => {
 		let textProps: TypographyTextI = {} as TypographyTextI;
 
 		switch (variant) {
 			case 'h1':
 				textProps = {
-					fontSize: '36px',
+					fontSize: '2.25rem',
 					fontWeight: '900',
 					lineHeight: '2.7rem',
 				};
 				break;
 			case 'h2':
 				textProps = {
-					fontSize: '28px',
+					fontSize: '1.75rem',
 					fontWeight: '700',
 					lineHeight: '2.7rem',
 				};
@@ -44,8 +45,8 @@ const Typography = ({
 				break;
 			case 'button':
 				textProps = {
-					fontSize: '1.0625rem',
-					fontWeight: '700',
+					fontSize: '1.125rem',
+					fontWeight: '500',
 					lineHeight: '1.2rem',
 				};
 				break;
@@ -58,8 +59,8 @@ const Typography = ({
 				break;
 			case 'paragraph':
 				textProps = {
-					fontSize: '0.875rem',
-					fontWeight: '700',
+					fontSize: '1rem',
+					fontWeight: '500',
 					lineHeight: '1.05rem',
 				};
 				break;
@@ -77,7 +78,6 @@ const Typography = ({
 					lineHeight: '0.75rem',
 				};
 				break;
-
 			default:
 				textProps = {
 					fontSize: '1rem',
@@ -91,11 +91,11 @@ const Typography = ({
 	};
 
 	return (
-		<Text 
+		<Text
 			as='span'
 			color={color}
 			textAlign={center ? 'center' : 'initial'}
-			whiteSpace='pre'
+			whiteSpace={multiline ? 'pre-line' : 'pre'}
 			{...renderTypographyProps(variant)}>
 			{prefix}
 			{children}

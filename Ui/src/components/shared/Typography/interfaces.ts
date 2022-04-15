@@ -1,10 +1,11 @@
-export interface TypographI {
+export interface TypographyI {
 	children: string;
 	variant: TypographyVariantI;
 	color?: string;
 	center?: boolean;
 	prefix?: string;
 	sufix?: string;
+	multiline?: boolean;
 }
 
 export type TypographyVariantI =
