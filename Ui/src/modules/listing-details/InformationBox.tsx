@@ -13,7 +13,7 @@ const InformationBox = ({ title, description, createdAt }: InformationBoxProps):
 		height='100%'
 		maxWidth='100%'
 		rowGap='0.625rem'>
-		<Typography variant='caption' prefix='Listing added on: '>
+		<Typography variant='caption' prefix='Added on: '>
 			{dateFormat(createdAt, 'mmmm dS, yyyy "at" h:MM TT')}
 		</Typography>
 		<Typography variant='h3'>{title}</Typography>

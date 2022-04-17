@@ -23,7 +23,7 @@ const ListingItem = ({ id, image, title, createdAt, onClick }: ListingItemProps)
 		<Box display='flex' flexDir='column' marginLeft='0.625rem'>
 			<Typography variant='h5'>{title}</Typography>
 			<Box marginTop='auto'>
-				<Typography variant='caption' prefix='Listing added on: '>
+				<Typography variant='caption' prefix='Added on: '>
 					{dateFormat(createdAt, 'mmmm dS, yyyy "at" h:MM TT')}
 				</Typography>
 			</Box>
