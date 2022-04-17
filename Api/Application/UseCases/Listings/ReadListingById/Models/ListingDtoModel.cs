@@ -10,5 +10,13 @@ public sealed record ListingDtoModel
 
     public int Category { get; init; }
 
+    public DateTime CreatedAt { get; init; }
+
+    public string OwnerImage { get; init; } = null!;
+
+    public string OwnerName { get; init; } = null!;
+
+    public string OwnerEmail { get; init; } = null!;
+
     public IEnumerable<string> Images { get; init; } = null!;
 }

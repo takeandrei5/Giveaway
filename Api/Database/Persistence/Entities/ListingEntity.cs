@@ -6,6 +6,8 @@ public sealed class ListingEntity
 
     public Guid OwnerId { get; init; }
 
+    public UserEntity Owner { get; init; }
+
     public int CategoryId { get; set; }
 
     public CategoryEntity Category { get; init; } = null!;

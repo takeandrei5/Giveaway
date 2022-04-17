@@ -49,6 +49,7 @@ public sealed class Reader : IListingReader
             .Where(listing => listing.Id == id.Value)
             .Include(listing => listing.Category)
             .Include(listing => listing.Images)
+            .Include(listing => listing.Owner)
             .SingleAsync(cancellationToken);
 
         return _mapper.Map<ReadListingByIdModel>(listingEntity);

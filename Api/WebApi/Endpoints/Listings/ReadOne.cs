@@ -23,7 +23,8 @@ public sealed class ReadOne : EndpointBaseAsync.WithRequest<ReadOneRequest>.With
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public override async Task<ActionResult<ReadOneResponse>> HandleAsync([FromRoute] ReadOneRequest request, CancellationToken cancellationToken = default)
+    public override async Task<ActionResult<ReadOneResponse>> HandleAsync([FromRoute] ReadOneRequest request,
+        CancellationToken cancellationToken = default)
     {
         var commandResult = await _command.ExecuteAsync(new(request.Id), cancellationToken);
 

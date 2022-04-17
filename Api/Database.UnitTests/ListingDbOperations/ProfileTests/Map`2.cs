@@ -25,6 +25,10 @@ public sealed class Map_2 : Base
         var listingCreationDate = _fixture.Create<DateTime>();
         var listingLastModificationDate = _fixture.Create<DateTime>();
 
+        var ownerEmail = _fixture.CreateEmail();
+        var ownerImage = _fixture.CreateUrl();
+        var ownerName = _fixture.Create<string>();
+
         var source = new ListingEntity()
         {
             Id = listingId,
@@ -34,7 +38,13 @@ public sealed class Map_2 : Base
             CategoryId = listingCategoryId,
             Images = listingImages.ToList(),
             CreatedAt = listingCreationDate,
-            LastModifiedAt = listingLastModificationDate
+            LastModifiedAt = listingLastModificationDate,
+            Owner = new UserEntity
+            {
+                Email = ownerEmail,
+                Name = ownerName,
+                Image = ownerImage
+            }
         };
 
         var destination = new ReadListingById()
@@ -43,7 +53,11 @@ public sealed class Map_2 : Base
             Title = listingTitle,
             Description = listingDescription,
             Category = listingCategoryId,
-            Images = listingImages.Select(image => image.Url)
+            Images = listingImages.Select(image => image.Url),
+            CreatedAt = listingCreationDate,
+            OwnerEmail = ownerEmail,
+            OwnerName = ownerName,
+            OwnerImage = ownerImage
         };
 
         // Act

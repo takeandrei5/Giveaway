@@ -51,6 +51,7 @@ public sealed class Repository : IListingRepository
     public async Task<Result<Listing, NotFoundError>> FindListingByIdAsync(ListingId listingId, CancellationToken cancellationToken)
     {
         var listingEntity = await _dbContext.Listings
+            .IgnoreQueryFilters()
             .Where(listing => listing.Id == listingId.Value)
             .Include(listing => listing.Category)
             .Include(listing => listing.Images)

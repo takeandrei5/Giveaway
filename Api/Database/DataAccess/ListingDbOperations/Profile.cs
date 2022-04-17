@@ -18,6 +18,9 @@ public sealed class Profile : AutoMapper.Profile
 
         CreateMap<ListingEntity, ReadListingByIdModel>()
             .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(image => image.Url)))
-            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryId));
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryId))
+            .ForMember(dest => dest.OwnerEmail, opt => opt.MapFrom(src => src.Owner.Email))
+            .ForMember(dest => dest.OwnerName, opt => opt.MapFrom(src => src.Owner.Name))
+            .ForMember(dest => dest.OwnerImage, opt => opt.MapFrom(src => src.Owner.Image));
     }
 }
