@@ -1,4 +1,4 @@
-export interface StackItemI {
+export type StackItem = {
 	stackColumnName: string;
 	stackColumnItems: string[];
-}
+};

@@ -4,17 +4,17 @@ import { useQuery } from 'react-query';
 
 import { Skeleton } from '../../components';
 import { ListingCategoryBox, ListingItems, ListingSortDropdown } from '../../modules';
-import { ItemsDataI } from '../../modules/listings/interfaces';
+import { ItemData } from '../../modules/listings/types';
 import { useAppSelector } from '../../redux/hooks';
 import categories from '../../utils/constants/categoriesConstant';
 import { PaginatedResult } from '../../utils/types';
 import { fetchListings } from './apis';
 import { categoryDictionary, dropdownOptions } from './constants';
-import { ListingsPageI } from './interfaces';
+import { ListingsPageProps } from './interfaces';
 
-const ListingsPage: NextPage<ListingsPageI> = ({ categories, listings, options }: ListingsPageI) => {
+const ListingsPage: NextPage<ListingsPageProps> = ({ categories, listings, options }: ListingsPageProps) => {
 	const [sort, setSort] = useState<string>('Title');
-	const [listingItems, setListingItems] = useState<ItemsDataI[]>(listings.result);
+	const [listingItems, setListingItems] = useState<ItemData[]>(listings.result);
 
 	const categoryState = useAppSelector((state) => state.changeCategory);
 
@@ -23,7 +23,7 @@ const ListingsPage: NextPage<ListingsPageI> = ({ categories, listings, options }
 		() => fetchListings(sort, categoryDictionary[categoryState.category!]),
 		{
 			initialData: listings,
-			onSuccess: (data: PaginatedResult<ItemsDataI> | undefined) => {
+			onSuccess: (data: PaginatedResult<ItemData> | undefined) => {
 				if (data) {
 					setListingItems(data.result);
 				}
@@ -46,7 +46,7 @@ const ListingsPage: NextPage<ListingsPageI> = ({ categories, listings, options }
 	);
 };
 
-export async function getServerSideProps(): Promise<{ props: ListingsPageI }> {
+export async function getServerSideProps(): Promise<{ props: ListingsPageProps }> {
 	const listings = await fetchListings('Title');
 
 	return {

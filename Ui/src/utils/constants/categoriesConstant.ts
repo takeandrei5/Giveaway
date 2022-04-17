@@ -1,6 +1,6 @@
-import { CategoryItemI } from '../../modules/listings/interfaces';
+import { Category } from '../../modules/listings/types';
 
-const categories: CategoryItemI[] = [
+const categories: Category[] = [
 	{
 		image:
 			'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/1024px-Closed_Book_Icon.svg.png?20170605011735',

@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 
-import { TypographyI, TypographyTextI, TypographyVariantI } from './interfaces';
+import { TypographyProps, TypographyText, TypographyVariant } from './types';
 
 const Typography = ({
 	children,
@@ -10,9 +10,9 @@ const Typography = ({
 	prefix = '',
 	suffix = '',
 	multiline = false,
-}: TypographyI): JSX.Element => {
-	const renderTypographyProps = (variant: TypographyVariantI): TypographyTextI => {
-		let textProps: TypographyTextI = {} as TypographyTextI;
+}: TypographyProps): JSX.Element => {
+	const renderTypographyProps = (variant: TypographyVariant): TypographyText => {
+		let textProps: TypographyText = {} as TypographyText;
 
 		switch (variant) {
 			case 'h1':

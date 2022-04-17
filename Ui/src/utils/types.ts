@@ -1,4 +1,4 @@
-export type Category = 'clothes' | 'toys' | 'books' | 'electronics';
+export type CategoryType = 'clothes' | 'toys' | 'books' | 'electronics';
 export type PaginatedResult<T> = {
 	result: T[];
 	currentPage: number;

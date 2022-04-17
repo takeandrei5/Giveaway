@@ -9,6 +9,10 @@ const fetchListing = async (id: string): Promise<FetchListingDetailsResponse | u
 			method: 'GET',
 		});
 
+		if (!response.ok && (response.status === 400 || response.status === 404)) {
+			return undefined;
+		}
+
 		const result: FetchListingDetailsResponse = await response.json();
 		return result;
 	} catch (err) {

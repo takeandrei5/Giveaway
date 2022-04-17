@@ -1,16 +1,16 @@
 import {
-  CSSObject,
-  FormLabel,
-  Input as CuiInput,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  useStyleConfig,
+	CSSObject,
+	FormLabel,
+	Input as CuiInput,
+	InputGroup,
+	InputLeftElement,
+	InputRightElement,
+	useStyleConfig,
 } from '@chakra-ui/react';
 import { useField } from 'formik';
 
 import { Typography } from '../Typography';
-import { InputI } from './interfaces';
+import { InputProps } from './types';
 
 const Input = ({
 	id,
@@ -24,7 +24,7 @@ const Input = ({
 	onChange = () => {},
 	value,
 	width = '100%',
-}: InputI): JSX.Element => {
+}: InputProps): JSX.Element => {
 	const styles: CSSObject = useStyleConfig('Input');
 
 	const [field] = useField(name);

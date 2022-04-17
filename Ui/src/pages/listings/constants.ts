@@ -1,4 +1,4 @@
-import { DropdownOptionI } from '../../components/shared/Dropdown/interfaces';
+import { DropdownOption } from '../../components/shared/Dropdown/types';
 import { CategoryDictionary } from './interfaces';
 
 const categoryDictionary: CategoryDictionary = {
@@ -8,7 +8,7 @@ const categoryDictionary: CategoryDictionary = {
 	electronics: 4,
 };
 
-const dropdownOptions: DropdownOptionI[] = [
+const dropdownOptions: DropdownOption[] = [
 	{
 		value: 'Title',
 		displayValue: 'Title ascending',

@@ -1,8 +1,8 @@
 import { Button, CSSObject, useStyleConfig } from '@chakra-ui/react';
 
-import { ButtonPrimaryI } from './interface';
+import { ButtonPrimaryProps } from './types';
 
-const ButtonPrimary = (props: ButtonPrimaryI): JSX.Element => {
+const ButtonPrimary = (props: ButtonPrimaryProps): JSX.Element => {
 	const {
 		children,
 		disabled = false,

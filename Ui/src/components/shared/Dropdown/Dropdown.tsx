@@ -1,13 +1,13 @@
 import { Select } from '@chakra-ui/react';
-
-import { DropdownI } from './interfaces';
 import { useMemo } from 'react';
 
-const Dropdown = ({ options, onChangeHandler }: DropdownI) => {
+import { DropdownOption, DropdownProps } from './types';
+
+const Dropdown = ({ options, onChangeHandler }: DropdownProps) => {
 	const renderOptions = useMemo(
 		(): JSX.Element[] =>
 			options.map(
-				(opt): JSX.Element => (
+				(opt: DropdownOption): JSX.Element => (
 					<option key={opt.value} value={opt.value}>
 						{opt.displayValue}
 					</option>

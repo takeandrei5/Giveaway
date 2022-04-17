@@ -1,11 +1,11 @@
-import { DropdownI } from '../../components/shared/Dropdown/interfaces';
-import { CategoryBoxI, ItemsDataI } from '../../modules/listings/interfaces';
-import { Category, PaginatedResult } from '../../utils/types';
+import { DropdownProps } from '../../components/shared/Dropdown/types';
+import { CategoryBoxProps, ItemData } from '../../modules/listings/types';
+import { CategoryType, PaginatedResult } from '../../utils/types';
 
 export interface FetchListingsResponse {
-	listings: PaginatedResult<ItemsDataI>;
+	listings: PaginatedResult<ItemData>;
 }
-export type ListingsPageI = CategoryBoxI & FetchListingsResponse & Omit<DropdownI, 'onChangeHandler'>;
+export type ListingsPageProps = CategoryBoxProps & FetchListingsResponse & Omit<DropdownProps, 'onChangeHandler'>;
 export type FilterByCategory = 'Title' | 'Title DESC' | 'CreatedAt' | 'CreatedAt DESC';
 
-export type CategoryDictionary = { [name in Category]: number };
+export type CategoryDictionary = { [name in CategoryType]: number };

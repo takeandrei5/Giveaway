@@ -2,17 +2,16 @@ import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons';
 import { Box, Grid, GridItem, useStyleConfig } from '@chakra-ui/react';
 import { Form, FormikProps, FormikProvider, useFormik } from 'formik';
 import React from 'react';
-import { useState } from 'react';
 
 import { ButtonPrimary, Input } from '../../shared';
-import { FormikInitialValuesI } from './interfaces';
+import { FormikInitialValues } from './types';
 
 const SearchBox = (): JSX.Element => {
 	const styles = useStyleConfig('SearchBox');
 
 	const submitSearch = (): void => formik.resetForm();
 
-	const formik: FormikProps<FormikInitialValuesI> = useFormik<FormikInitialValuesI>({
+	const formik: FormikProps<FormikInitialValues> = useFormik<FormikInitialValues>({
 		initialValues: {
 			searchByField: '',
 		},

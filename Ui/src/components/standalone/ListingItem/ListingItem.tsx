@@ -1,10 +1,10 @@
 import { Box, Image } from '@chakra-ui/react';
-
 import dateFormat from 'dateformat';
-import { Typography } from '../../shared';
-import { ListingItemI } from './interfaces';
 
-const ListingItem = ({ id, image, title, createdAt, onClick }: ListingItemI): JSX.Element => (
+import { Typography } from '../../shared';
+import { ListingItemProps } from './types';
+
+const ListingItem = ({ id, image, title, createdAt, onClick }: ListingItemProps): JSX.Element => (
 	<Box
 		_hover={{
 			cursor: 'pointer',

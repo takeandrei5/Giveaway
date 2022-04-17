@@ -1,20 +1,19 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 import { NextPageContext } from 'next';
-import { NextPage } from 'next/types';
+import { NextPage, Redirect } from 'next/types';
 
-import { Typography } from '../../../components';
 import {
 	ListingDetailsImageSlider,
 	ListingDetailsInformationBox,
 	ListingDetailsOwnerInformation,
 } from '../../../modules';
 import { fetchListing } from './apis';
-import { ListingPageProps } from './types';
+import { ListingDetailsPageProps } from './types';
 
-const Listing: NextPage<ListingPageProps> = ({ listingInfo, ownerInfo }: ListingPageProps) => {
+const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ listingInfo, ownerInfo }: ListingDetailsPageProps) => {
 	return (
 		<>
 			<ListingDetailsImageSlider images={listingInfo.images} />
@@ -30,12 +29,19 @@ const Listing: NextPage<ListingPageProps> = ({ listingInfo, ownerInfo }: Listing
 	);
 };
 
-export async function getServerSideProps(context: NextPageContext) {
+export async function getServerSideProps(
+	context: NextPageContext
+): Promise<{ props: ListingDetailsPageProps } | { redirect: Redirect }> {
 	const id = context.query.id as string;
 	const listingDetails = await fetchListing(id as string);
 
 	if (!listingDetails) {
-		throw new Error('help me');
+		return {
+			redirect: {
+				permanent: true,
+				destination: '/404',
+			},
+		};
 	}
 
 	return {
@@ -45,4 +51,4 @@ export async function getServerSideProps(context: NextPageContext) {
 	};
 }
 
-export default Listing;
+export default ListingDetailsPage;

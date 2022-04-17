@@ -1,17 +1,16 @@
-import { ItemsDataI } from '../../modules/listings/interfaces';
+import { ItemData } from '../../modules/listings/types';
 import { PaginatedResult } from '../../utils/types';
 import { FetchListingsResponse } from './interfaces';
 
 const fetchListings = async (
 	orderBy: string,
 	filterByCategory: number | undefined = undefined
-): Promise<PaginatedResult<ItemsDataI> | undefined> => {
+): Promise<PaginatedResult<ItemData> | undefined> => {
 	try {
 		const orderByQuery = `?orderBy=${orderBy}`;
 		const filterByCategoryQuery = filterByCategory ? `&filterByCategory=${filterByCategory}` : '';
 
-		const baseUrl: string =
-			process.env.NEXT_BACKEND_URL_SERVER || process.env.NEXT_PUBLIC_BACKEND_URL_CLIENT!;
+		const baseUrl: string = process.env.NEXT_BACKEND_URL_SERVER || process.env.NEXT_PUBLIC_BACKEND_URL_CLIENT!;
 		const apiUrl = baseUrl + `/listings${orderByQuery}${filterByCategoryQuery}`;
 
 		const response = await fetch(apiUrl, {

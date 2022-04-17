@@ -1,14 +1,14 @@
-export interface TypographyI {
+export type TypographyProps = {
 	children: string;
-	variant: TypographyVariantI;
+	variant: TypographyVariant;
 	color?: string;
 	center?: boolean;
 	prefix?: string;
 	suffix?: string;
 	multiline?: boolean;
-}
+};
 
-export type TypographyVariantI =
+export type TypographyVariant =
 	| 'h1'
 	| 'h2'
 	| 'h3'
@@ -20,8 +20,8 @@ export type TypographyVariantI =
 	| 'caption'
 	| 'small';
 
-export interface TypographyTextI {
+export type TypographyText = {
 	fontSize: string;
 	fontWeight: string;
 	lineHeight: string;
-}
+};

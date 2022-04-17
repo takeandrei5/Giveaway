@@ -3,19 +3,20 @@ import { NextRouter, useRouter } from 'next/router';
 import { useMemo } from 'react';
 
 import { ListingItem } from '../../components';
-import { ListingItemI } from '../../components/standalone/ListingItem/interfaces';
-import { ItemsI } from './interfaces';
+import { ItemData, ItemsProps } from './types';
 
-const Items = ({ items }: ItemsI): JSX.Element => {
+const Items = ({ items }: ItemsProps): JSX.Element => {
 	const router: NextRouter = useRouter();
 
 	const renderItems = useMemo(
 		(): JSX.Element[] =>
-			items.map((item: Omit<ListingItemI, 'onClick'>): JSX.Element => (
-				<GridItem key={item.id} w='100%' height='11.375rem'>
-					<ListingItem {...item} onClick={() => router.push(`/listings/${item.id}`)} />
-				</GridItem>
-			)),
+			items.map(
+				(item: ItemData): JSX.Element => (
+					<GridItem key={item.id} w='100%' height='11.375rem'>
+						<ListingItem {...item} onClick={() => router.push(`/listings/${item.id}`)} />
+					</GridItem>
+				)
+			),
 		[items]
 	);
 

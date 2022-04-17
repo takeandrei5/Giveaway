@@ -1,6 +1,6 @@
-import { StackItemI } from './interfaces';
+import { StackItem } from './types';
 
-const stackItems: StackItemI[] = [
+const stackItems: StackItem[] = [
 	{
 		stackColumnName: 'Product',
 		stackColumnItems: ['Overview', 'Features', 'Tutorials', 'Pricing', 'Releases'],

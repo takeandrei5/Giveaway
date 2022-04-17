@@ -1,9 +1,9 @@
-export type ListingPageProps = {
+export type ListingDetailsPageProps = {
 	listingInfo: ListingInformation;
 	ownerInfo: OwnerInformation;
 };
 
-type ListingInformation = {
+export type ListingInformation = {
 	id: string;
 	title: string;
 	description: string;
@@ -12,10 +12,10 @@ type ListingInformation = {
 	images: string[];
 };
 
-type OwnerInformation = {
+export type OwnerInformation = {
 	email: string;
 	name: string;
 	image: string;
 };
 
-export type FetchListingDetailsResponse = ListingPageProps;
+export type FetchListingDetailsResponse = ListingDetailsPageProps;

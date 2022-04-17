@@ -1,6 +1,6 @@
 import { ButtonProps } from '@chakra-ui/react';
 
-export interface ButtonPrimaryI extends ButtonProps {
+export type ButtonPrimaryProps = ButtonProps & {
 	children: string | JSX.Element[] | JSX.Element;
 	disabled?: boolean;
 	height?: string;
@@ -8,4 +8,4 @@ export interface ButtonPrimaryI extends ButtonProps {
 	rightIcon?: JSX.Element;
 	onClick?: () => void;
 	type?: 'submit' | 'reset' | 'button';
-}
+};

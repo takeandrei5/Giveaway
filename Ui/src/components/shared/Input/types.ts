@@ -1,7 +1,4 @@
-import { FormikProps } from 'formik';
-import { string } from 'yup';
-
-export interface InputI {
+export type InputProps = {
 	id: string;
 	name: string;
 	placeholder: string;
@@ -13,4 +10,4 @@ export interface InputI {
 	onChange?: () => void;
 	value?: string;
 	width?: string;
-}
+};

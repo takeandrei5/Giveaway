@@ -1,7 +1,7 @@
 import { Box, Image, Stack } from '@chakra-ui/react';
 
 import { Typography } from '../../shared';
-import { CategoryItemI } from './interfaces';
+import { CategoryItemProps } from './types';
 
 const CategoryItem = ({
 	image,
@@ -9,7 +9,7 @@ const CategoryItem = ({
 	onClick,
 	active = false,
 	containerBgColor = 'transparent',
-}: CategoryItemI): JSX.Element => (
+}: CategoryItemProps): JSX.Element => (
 	<Box
 		_hover={{
 			cursor: 'pointer',
@@ -28,14 +28,7 @@ const CategoryItem = ({
 			},
 		}}>
 		<Stack direction='column' alignItems='center' justifyContent='center'>
-			<Image
-				draggable={false}
-				borderRadius='full'
-				boxSize='6.25rem'
-				objectFit='cover'
-				src={image}
-				alt={name}
-			/>
+			<Image draggable={false} borderRadius='full' boxSize='6.25rem' objectFit='cover' src={image} alt={name} />
 			<Typography center color={'darkish'} variant='h5'>
 				{name}
 			</Typography>
