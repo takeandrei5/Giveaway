@@ -36,13 +36,13 @@ public sealed class ListingDescriptionTests
             .WithMessage("Listing description cannot be shorter than 5 characters.");
     }
 
-    [Fact(DisplayName = "Listing description cannot be longer than 250 characters.")]
-    public void Listing_Description_Cannot_Be_Longer_Than_250_Characters()
+    [Fact(DisplayName = "Listing description cannot be longer than 1000 characters.")]
+    public void Listing_Description_Cannot_Be_Longer_Than_1000_Characters()
     {
-        Func<ListingDescription> act = () => new(new('A', 251));
+        Func<ListingDescription> act = () => new(new('A', 1001));
 
         act.Should()
             .ThrowExactly<ArgumentException>()
-            .WithMessage("Listing description cannot be longer than 250 characters.");
+            .WithMessage("Listing description cannot be longer than 1000 characters.");
     }
 }

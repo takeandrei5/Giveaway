@@ -2,11 +2,11 @@
 
 public sealed record ReadOneResponse
 {
-    public ListingDetails Listing { get; init; } = null!;
+    public ListingInformation ListingInfo { get; init; } = null!;
 
     public OwnerInformation OwnerInfo { get; init; } = null!;
 
-    public sealed record ListingDetails
+    public sealed record ListingInformation
     {
         public Guid Id { get; init; }
 

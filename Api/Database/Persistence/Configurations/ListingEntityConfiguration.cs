@@ -20,7 +20,7 @@ public sealed class ListingEntityConfiguration : IEntityTypeConfiguration<Listin
             .IsRequired();
 
         builder.Property(b => b.Description)
-            .HasMaxLength(250)
+            .HasMaxLength(1000)
             .IsRequired();
 
         builder.Property(b => b.CreatedAt)

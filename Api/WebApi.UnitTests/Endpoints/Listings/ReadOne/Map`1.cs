@@ -41,7 +41,7 @@ public sealed class Map_1 : Base
 
         var destination = new ReadOneResponse()
         {
-            Listing = new ReadOneResponse.ListingDetails
+            ListingInfo = new ReadOneResponse.ListingInformation
             {
                 Id = listingId,
                 Title = listingTitle,

@@ -11,7 +11,7 @@ public sealed class CreateRequest
     public string Title { get; init; } = null!;
 
     [Required]
-    [MaxLength(250)]
+    [MaxLength(1000)]
     [MinLength(5)]
     public string Description { get; init; } = null!;
 

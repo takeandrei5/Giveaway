@@ -10,8 +10,8 @@ public sealed record ListingDescription
         if (value is { Length: < 5 })
             throw new ArgumentException("Listing description cannot be shorter than 5 characters.");
 
-        if (value is { Length: > 250 })
-            throw new ArgumentException("Listing description cannot be longer than 250 characters.");
+        if (value is { Length: > 1000 })
+            throw new ArgumentException("Listing description cannot be longer than 1000 characters.");
 
         Value = value;
     }

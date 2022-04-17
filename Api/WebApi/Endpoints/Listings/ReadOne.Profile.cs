@@ -6,7 +6,7 @@ namespace Giveaway.WebApi.Endpoints.Listings;
 public class ReadOneProfile : Profile
 {
     public ReadOneProfile() => CreateMap<ListingDtoModel, ReadOneResponse>()
-        .ForMember(dest => dest.Listing, opt => opt.MapFrom(src => new ReadOneResponse.ListingDetails
+        .ForMember(dest => dest.ListingInfo, opt => opt.MapFrom(src => new ReadOneResponse.ListingInformation
         {
             Id = src.Id,
             Title = src.Title,
