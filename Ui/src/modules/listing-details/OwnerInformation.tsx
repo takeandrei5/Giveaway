@@ -4,7 +4,8 @@ import { Typography } from '../../components';
 import { OwnerInformationProps } from './types';
 
 const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.Element => (
-	<Center
+	<Flex
+		alignItems='center'
 		height='100%'
 		flexDirection='column'
 		borderRadius='2xl'
@@ -25,7 +26,7 @@ const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.El
 			<Typography variant='h5'>Email:</Typography>
 			<Typography variant='paragraph'>{email}</Typography>
 		</Flex>
-	</Center>
+	</Flex>
 );
 
 export default OwnerInformation;
