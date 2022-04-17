@@ -110,18 +110,6 @@ const Testing = ({ listings }: any) => {
 					<CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' onClick={() => {}} />
 				</div>
 			</div>
-			{/* <ListingItem
-				image='https://frankfurt.apollo.olxcdn.com/v1/files/tj6e37yggawb2-RO/image;s=1000x700'
-				title="Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi"
-				createdOn={new Date()}
-				onClick={() => {}}
-			/>
-			<ListingItem
-				image='https://frankfurt.apollo.olxcdn.com/v1/files/tj6e37yggawb2-RO/image;s=1000x700'
-				title="Masina lu' Vericu full-opzion full fara trapa pentru pretentiosi"
-				createdOn={new Date()}
-				onClick={() => {}}
-				/> */}
 		</>
 	);
 };

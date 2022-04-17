@@ -4,7 +4,7 @@ import dateFormat from 'dateformat';
 import { Typography } from '../../shared';
 import { ListingItemI } from './interfaces';
 
-const ListingItem = ({ id, image, title, createdOn, onClick }: ListingItemI): JSX.Element => (
+const ListingItem = ({ id, image, title, createdAt, onClick }: ListingItemI): JSX.Element => (
 	<Box
 		_hover={{
 			cursor: 'pointer',
@@ -19,19 +19,12 @@ const ListingItem = ({ id, image, title, createdOn, onClick }: ListingItemI): JS
 		flexDir='row'
 		padding='0.625rem'
 		onClick={onClick}>
-		<Image
-			draggable={false}
-			height='auto'
-			objectFit='cover'
-			width='13.5rem'
-			src={image}
-			alt={title}
-		/>
+		<Image draggable={false} height='auto' objectFit='cover' width='13.5rem' src={image} alt={title} />
 		<Box display='flex' flexDir='column' marginLeft='0.625rem'>
 			<Typography variant='h5'>{title}</Typography>
 			<Box marginTop='auto'>
 				<Typography variant='caption' prefix='Listing added on: '>
-					{dateFormat(createdOn, 'mmmm dS, yyyy "at" h:MM TT')}
+					{dateFormat(createdAt, 'mmmm dS, yyyy "at" h:MM TT')}
 				</Typography>
 			</Box>
 		</Box>

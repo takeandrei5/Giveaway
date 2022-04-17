@@ -8,7 +8,7 @@ const Typography = ({
 	center = false,
 	color = 'inherit',
 	prefix = '',
-	sufix = '',
+	suffix = '',
 	multiline = false,
 }: TypographyI): JSX.Element => {
 	const renderTypographyProps = (variant: TypographyVariantI): TypographyTextI => {
@@ -99,7 +99,7 @@ const Typography = ({
 			{...renderTypographyProps(variant)}>
 			{prefix}
 			{children}
-			{sufix}
+			{suffix}
 		</Text>
 	);
 };

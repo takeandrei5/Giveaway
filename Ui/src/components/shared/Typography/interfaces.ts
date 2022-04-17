@@ -4,7 +4,7 @@ export interface TypographyI {
 	color?: string;
 	center?: boolean;
 	prefix?: string;
-	sufix?: string;
+	suffix?: string;
 	multiline?: boolean;
 }
 

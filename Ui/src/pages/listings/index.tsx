@@ -10,9 +10,9 @@ import categories from '../../utils/constants/categoriesConstant';
 import { PaginatedResult } from '../../utils/types';
 import { fetchListings } from './apis';
 import { categoryDictionary, dropdownOptions } from './constants';
-import { ListingPageI } from './interfaces';
+import { ListingsPageI } from './interfaces';
 
-const ListingsPage: NextPage<ListingPageI> = ({ categories, listings, options }: ListingPageI) => {
+const ListingsPage: NextPage<ListingsPageI> = ({ categories, listings, options }: ListingsPageI) => {
 	const [sort, setSort] = useState<string>('Title');
 	const [listingItems, setListingItems] = useState<ItemsDataI[]>(listings.result);
 
@@ -46,7 +46,7 @@ const ListingsPage: NextPage<ListingPageI> = ({ categories, listings, options }:
 	);
 };
 
-export async function getServerSideProps(): Promise<{ props: ListingPageI }> {
+export async function getServerSideProps(): Promise<{ props: ListingsPageI }> {
 	const listings = await fetchListings('Title');
 
 	return {
