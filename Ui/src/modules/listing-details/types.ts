@@ -13,3 +13,8 @@ export type OwnerInformationProps = {
 	name: string;
 	image: string;
 };
+
+export type DeleteListingProps = {
+	ownerEmail: string;
+	onClick: () => void;
+};

@@ -26,6 +26,7 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 			bgColor='white'
 			padding='1.5rem 8rem'
 			height='31.25rem'
+1			marginTop='1rem'
 			__css={{ '& > div.slick-slider.slick-initialized': { width: '100%', height: '90%' } }}>
 			<Slider adaptiveHeight infinite dots lazyLoad='progressive' prevArrow={<GrPrevious />} nextArrow={<GrNext />}>
 				{renderImages}

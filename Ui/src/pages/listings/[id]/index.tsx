@@ -3,6 +3,7 @@ import 'slick-carousel/slick/slick.css';
 
 import { Grid, GridItem } from '@chakra-ui/react';
 import { NextPageContext } from 'next';
+import { useRouter, NextRouter } from 'next/router';
 import { NextPage, Redirect } from 'next/types';
 
 import {
@@ -10,12 +11,29 @@ import {
 	ListingDetailsInformationBox,
 	ListingDetailsOwnerInformation,
 } from '../../../modules';
-import { fetchListing } from './apis';
+import DeleteListing from '../../../modules/listing-details/DeleteListing';
+import { deleteListing, fetchListing } from './apis';
 import { ListingDetailsPageProps } from './types';
+import { getAccessToken } from '@auth0/nextjs-auth0';
 
-const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ listingInfo, ownerInfo }: ListingDetailsPageProps) => {
+const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({
+	accessTokenResult,
+	listingInfo,
+	ownerInfo,
+}: ListingDetailsPageProps) => {
+	const router: NextRouter = useRouter();
+	console.log(listingInfo);
+	const handleDelete = async (): Promise<void> => {
+		try {
+			await deleteListing(listingInfo.id, accessTokenResult.accessToken!);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	return (
 		<>
+			<DeleteListing ownerEmail={ownerInfo.email} onClick={handleDelete} />
 			<ListingDetailsImageSlider images={listingInfo.images} />
 			<Grid templateColumns='repeat(12, 1fr)' gap={5} marginTop='1rem'>
 				<GridItem colSpan={8}>
@@ -34,6 +52,7 @@ export async function getServerSideProps(
 ): Promise<{ props: ListingDetailsPageProps } | { redirect: Redirect }> {
 	const id = context.query.id as string;
 	const listingDetails = await fetchListing(id as string);
+	const accessTokenResult = await getAccessToken(context.req!, context.res!);
 
 	if (!listingDetails) {
 		return {
@@ -47,6 +66,7 @@ export async function getServerSideProps(
 	return {
 		props: {
 			...listingDetails,
+			accessTokenResult,
 		},
 	};
 }

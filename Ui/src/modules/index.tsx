@@ -1,4 +1,5 @@
 export {
+	DeleteListing as ListingDetailsDeleteListing,
 	ImageSlider as ListingDetailsImageSlider,
 	InformationBox as ListingDetailsInformationBox,
 	OwnerInformation as ListingDetailsOwnerInformation,

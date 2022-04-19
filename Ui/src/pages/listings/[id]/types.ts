@@ -1,4 +1,7 @@
+import { GetAccessTokenResult } from '@auth0/nextjs-auth0';
+
 export type ListingDetailsPageProps = {
+	accessTokenResult: GetAccessTokenResult;
 	listingInfo: ListingInformation;
 	ownerInfo: OwnerInformation;
 };
