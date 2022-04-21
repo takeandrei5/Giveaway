@@ -21,6 +21,7 @@ public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.With
     }
 
     [HttpGet]
+    [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public override async Task<ActionResult<ReadAllResponse>> HandleAsync([FromRoute] ReadAllRequest request, CancellationToken cancellationToken = default) =>

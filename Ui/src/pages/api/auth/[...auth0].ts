@@ -1,6 +1,8 @@
 import { handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import axiosInstance from '../../../utils/axios';
+
 const afterCallback = async (
 	req: NextApiRequest,
 	res: NextApiResponse,
@@ -8,8 +10,7 @@ const afterCallback = async (
 	state: { [key: string]: any }
 ) => {
 	try {
-		await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/users', {
-			method: 'POST',
+		await axiosInstance.post('/users', {
 			headers: {
 				Authorization: 'Bearer ' + session.accessToken,
 			},

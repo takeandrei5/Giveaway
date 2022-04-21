@@ -1,10 +1,11 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import { getAccessToken } from '@auth0/nextjs-auth0';
 import { Grid, GridItem } from '@chakra-ui/react';
-import { NextPageContext } from 'next';
-import { useRouter, NextRouter } from 'next/router';
-import { NextPage, Redirect } from 'next/types';
+import { NextRouter, useRouter } from 'next/router';
+import { GetServerSidePropsContext, NextPage, Redirect } from 'next/types';
+import { dehydrate, useMutation, useQuery } from 'react-query';
 
 import {
 	ListingDetailsImageSlider,
@@ -12,28 +13,28 @@ import {
 	ListingDetailsOwnerInformation,
 } from '../../../modules';
 import DeleteListing from '../../../modules/listing-details/DeleteListing';
+import { NotFoundError } from '../../../utils/errors';
+import { queryClient } from '../../../utils/queryClient';
 import { deleteListing, fetchListing } from './apis';
-import { ListingDetailsPageProps } from './types';
-import { getAccessToken } from '@auth0/nextjs-auth0';
+import { ListingDetailsPageProps, ListingInformation, OwnerInformation } from './types';
 
-const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({
-	accessTokenResult,
-	listingInfo,
-	ownerInfo,
-}: ListingDetailsPageProps) => {
+const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessTokenResult, id }: ListingDetailsPageProps) => {
 	const router: NextRouter = useRouter();
-	console.log(listingInfo);
-	const handleDelete = async (): Promise<void> => {
-		try {
-			await deleteListing(listingInfo.id, accessTokenResult.accessToken!);
-		} catch (err) {
-			console.log(err);
-		}
-	};
+
+	const { data } = useQuery(['fetchListing', id], () => fetchListing(id));
+
+	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id, accessTokenResult.accessToken!), {
+		onSuccess: () => router.replace('/listings'),
+		onError: (err) => {
+			console.error('Delete listing failed ', err);
+		},
+	});
+
+	const { listingInfo, ownerInfo }: { listingInfo: ListingInformation; ownerInfo: OwnerInformation } = data!;
 
 	return (
 		<>
-			<DeleteListing ownerEmail={ownerInfo.email} onClick={handleDelete} />
+			<DeleteListing ownerEmail={ownerInfo.email} onClick={deleteListingMutate} />
 			<ListingDetailsImageSlider images={listingInfo.images} />
 			<Grid templateColumns='repeat(12, 1fr)' gap={5} marginTop='1rem'>
 				<GridItem colSpan={8}>
@@ -48,24 +49,35 @@ const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({
 };
 
 export async function getServerSideProps(
-	context: NextPageContext
+	context: GetServerSidePropsContext
 ): Promise<{ props: ListingDetailsPageProps } | { redirect: Redirect }> {
-	const id = context.query.id as string;
-	const listingDetails = await fetchListing(id as string);
-	const accessTokenResult = await getAccessToken(context.req!, context.res!);
+	const id: string = context.params?.id as string;
+	try {
+		await queryClient.fetchQuery(['fetchListing', id], () => fetchListing(id));
+	} catch (err) {
+		if (err instanceof NotFoundError) {
+			return {
+				redirect: {
+					permanent: true,
+					destination: '/404',
+				},
+			};
+		}
 
-	if (!listingDetails) {
 		return {
 			redirect: {
 				permanent: true,
-				destination: '/404',
+				destination: '500',
 			},
 		};
 	}
 
+	const accessTokenResult = await getAccessToken(context.req, context.res);
+
 	return {
 		props: {
-			...listingDetails,
+			id,
+			dehydratedState: dehydrate(queryClient),
 			accessTokenResult,
 		},
 	};

@@ -13,7 +13,7 @@ services:
     ports:
       - 80:80
     container_name: giveaway-nginx
-    networks: 
+    networks:
       - giveway-network
     depends_on:
       - webapi
@@ -32,7 +32,7 @@ services:
       - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
     ports:
       - 81:81
-    networks: 
+    networks:
       - giveway-network
     depends_on:
       - mssql
@@ -57,13 +57,13 @@ services:
       - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET}
       - NEXT_BACKEND_URL_SERVER=${NEXT_BACKEND_URL_SERVER}
       - NEXT_PUBLIC_BACKEND_URL_CLIENT=${NEXT_PUBLIC_BACKEND_URL_CLIENT}
-    networks: 
+    networks:
       - giveway-network
     depends_on:
       - webapi
     volumes:
       - ./Ui:/app
-      - /app/node_modules
+      - node_modules:/app/node_modules
       - /app/.next
 
   mssql:
@@ -76,7 +76,7 @@ services:
     container_name: giveaway-mssql
     ports:
       - 1435:1433
-    networks: 
+    networks:
       - giveway-network
     volumes:
       - dbdata:/var/opt/mssql/data
@@ -84,3 +84,10 @@ services:
 volumes:
   dbdata:
     name: giveaway-mssql
+  node_modules:
+    name: nginx-node-modules
+    # driver: local
+    # driver_opts:
+    #     type: none
+    #     o: bind
+    #     device: ./Ui/node_modules

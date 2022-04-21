@@ -1,4 +1,7 @@
+import { DehydratedState as ReactQueryDehydratedState } from 'react-query';
+
 export type CategoryType = 'clothes' | 'toys' | 'books' | 'electronics';
+export type SortingType = 'Title ASC' | 'Title DESC' | 'CreatedAt ASC' | 'CreatedAt DESC';
 export type PaginatedResult<T> = {
 	result: T[];
 	currentPage: number;
@@ -8,3 +11,5 @@ export type PaginatedResult<T> = {
 	hasPreviousPage: boolean;
 	hasNextPage: boolean;
 };
+
+export type DehydratedState = { dehydratedState: ReactQueryDehydratedState };

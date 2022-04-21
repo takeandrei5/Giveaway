@@ -1,23 +1,22 @@
+import { AxiosResponse } from 'axios';
 import { ItemData } from '../../modules/listings/types';
-import { PaginatedResult } from '../../utils/types';
-import { FetchListingsResponse } from './interfaces';
+import axiosInstance from '../../utils/axios';
+import { PaginatedResult, SortingType } from '../../utils/types';
+import { FetchListingsResponse } from './types';
 
 const fetchListings = async (
-	orderBy: string,
+	orderBy: SortingType,
 	filterByCategory: number | undefined = undefined
 ): Promise<PaginatedResult<ItemData> | undefined> => {
 	try {
-		const orderByQuery = `?orderBy=${orderBy}`;
-		const filterByCategoryQuery = filterByCategory ? `&filterByCategory=${filterByCategory}` : '';
-
-		const baseUrl: string = process.env.NEXT_BACKEND_URL_SERVER || process.env.NEXT_PUBLIC_BACKEND_URL_CLIENT!;
-		const apiUrl = baseUrl + `/listings${orderByQuery}${filterByCategoryQuery}`;
-
-		const response = await fetch(apiUrl, {
-			method: 'GET',
+		const response: AxiosResponse = await axiosInstance.get('/listings', {
+			params: {
+				orderBy,
+				...(filterByCategory ? { filterByCategory } : {}),
+			},
 		});
 
-		const result: FetchListingsResponse = await response.json();
+		const result: FetchListingsResponse = await response.data;
 		return result.listings;
 	} catch (err) {
 		console.error('Fetch listings failed', err);

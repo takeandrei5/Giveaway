@@ -1,23 +1,16 @@
 import { FetchListingDetailsResponse } from './types';
+import axiosInstance from '../../../utils/axios';
+import { NotFoundError } from '../../../utils/errors';
 
 const fetchListing = async (id: string): Promise<FetchListingDetailsResponse | undefined> => {
-	try {
-		const baseUrl: string = process.env.NEXT_BACKEND_URL_SERVER!;
-		const apiUrl = baseUrl + `/listings/${id}`;
+	const response = await axiosInstance.get(`listings/${id}`);
 
-		const response = await fetch(apiUrl, {
-			method: 'GET',
-		});
-
-		if (!response.ok && (response.status === 400 || response.status === 404)) {
-			return undefined;
-		}
-
-		const result: FetchListingDetailsResponse = await response.json();
-		return result;
-	} catch (err) {
-		console.error('Fetch listing failed', err);
+	if (response.status === 400 || response.status === 404) {
+		throw new NotFoundError('Listing not found');
 	}
+
+	const result: FetchListingDetailsResponse = await response.data;
+	return result;
 };
 
 const deleteListing = async (id: string, accessToken: string): Promise<void> => {

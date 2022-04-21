@@ -12,6 +12,7 @@ public sealed class Delete : EndpointBaseAsync.WithRequest<DeleteRequest>.WithAc
     public Delete(Command command) => _command = command;
 
     [HttpDelete]
+    [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

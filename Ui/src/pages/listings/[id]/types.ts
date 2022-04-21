@@ -1,10 +1,9 @@
 import { GetAccessTokenResult } from '@auth0/nextjs-auth0';
+import { DehydratedState } from '../../../utils/types';
 
-export type ListingDetailsPageProps = {
-	accessTokenResult: GetAccessTokenResult;
-	listingInfo: ListingInformation;
-	ownerInfo: OwnerInformation;
-};
+export type ListingDetailsPageProps = { id: string } & DehydratedState & {
+		accessTokenResult: GetAccessTokenResult;
+	};
 
 export type ListingInformation = {
 	id: string;
@@ -21,4 +20,4 @@ export type OwnerInformation = {
 	image: string;
 };
 
-export type FetchListingDetailsResponse = ListingDetailsPageProps;
+export type FetchListingDetailsResponse = { listingInfo: ListingInformation } & { ownerInfo: OwnerInformation };

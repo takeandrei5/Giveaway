@@ -19,7 +19,7 @@ const DeleteListing = ({ ownerEmail, onClick }: DeleteListingProps) => {
 						color={lightishOrDarkishColor}
 						backgroundColor='#F31A2A'
 						marginLeft='auto'
-						leftIcon={<FaTrashAlt fontSize='larger' />}
+						leftIcon={<FaTrashAlt fontSize='medium' />}
 						onClick={onClick}>
 						<Typography variant='button'>Delete listing</Typography>
 					</ButtonPrimary>

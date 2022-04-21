@@ -14,6 +14,7 @@ public sealed class Update : EndpointBaseAsync.WithRequest<UpdateRequest>.WithAc
     public Update(Command command) => _command = command;
 
     [HttpPut]
+    [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

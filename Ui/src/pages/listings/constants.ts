@@ -1,5 +1,5 @@
 import { DropdownOption } from '../../components/shared/Dropdown/types';
-import { CategoryDictionary } from './interfaces';
+import { CategoryDictionary } from './types';
 
 const categoryDictionary: CategoryDictionary = {
 	clothes: 1,

@@ -2,7 +2,8 @@ import '../../styles/globals.css';
 
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { ChakraProvider } from '@chakra-ui/react';
-import { QueryClientProvider } from 'react-query';
+import { Hydrate, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -19,9 +20,14 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps): J
 			<UserProvider>
 				<ChakraProvider theme={mainTheme}>
 					<QueryClientProvider client={queryClient}>
-						<Layout>
-							<Component {...pageProps} />
-						</Layout>
+						<Hydrate state={pageProps.dehydratedState}>
+							<Layout>
+								<Component {...pageProps} />
+								{process.env.NODE_ENV === 'development' && (
+									<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+								)}
+							</Layout>
+						</Hydrate>
 					</QueryClientProvider>
 				</ChakraProvider>
 			</UserProvider>

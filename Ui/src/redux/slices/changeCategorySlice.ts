@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CategoryType } from '../../utils/types';
 import { IDLE, SUCCESS } from './constants';
 
-interface CategoryState {
+export type CategoryState = {
 	category: CategoryType | undefined;
 	status: string;
-}
+};
 
 const initialState: CategoryState = { category: undefined, status: IDLE };
 

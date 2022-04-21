@@ -20,6 +20,7 @@ public sealed class ReadOne : EndpointBaseAsync.WithRequest<ReadOneRequest>.With
     }
 
     [HttpGet]
+    [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]

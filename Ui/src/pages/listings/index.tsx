@@ -1,58 +1,44 @@
-import { NextPage } from 'next/types';
-import { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
+import { NextPage, Redirect } from 'next/types';
+import { dehydrate } from 'react-query';
 
 import { Skeleton } from '../../components';
 import { ListingCategoryBox, ListingItems, ListingSortDropdown } from '../../modules';
-import { ItemData } from '../../modules/listings/types';
-import { useAppSelector } from '../../redux/hooks';
 import categories from '../../utils/constants/categoriesConstant';
-import { PaginatedResult } from '../../utils/types';
+import { queryClient } from '../../utils/queryClient';
+import { SortingType } from '../../utils/types';
 import { fetchListings } from './apis';
-import { categoryDictionary, dropdownOptions } from './constants';
-import { ListingsPageProps } from './interfaces';
+import { dropdownOptions } from './constants';
+import useFetchListings from './hooks';
+import { ListingsPageProps } from './types';
 
-const ListingsPage: NextPage<ListingsPageProps> = ({ categories, listings, options }: ListingsPageProps) => {
-	const [sort, setSort] = useState<string>('Title');
-	const [listingItems, setListingItems] = useState<ItemData[]>(listings.result);
-
-	const categoryState = useAppSelector((state) => state.changeCategory);
-
-	const { isLoading, refetch } = useQuery(
-		['fetchSortedListings', sort],
-		() => fetchListings(sort, categoryDictionary[categoryState.category!]),
-		{
-			initialData: listings,
-			onSuccess: (data: PaginatedResult<ItemData> | undefined) => {
-				if (data) {
-					setListingItems(data.result);
-				}
-			},
-		}
-	);
-
-	useEffect(() => {
-		refetch();
-	}, [sort, categoryState]);
+const ListingsPage: NextPage<ListingsPageProps> = ({ categories, options }: ListingsPageProps) => {
+	const { isLoading, listings, setSort } = useFetchListings();
 
 	return (
-		<>
-			<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
-				<ListingCategoryBox categories={categories} />
-				<ListingSortDropdown options={options} onChangeHandler={setSort} />
-				<ListingItems items={listingItems} />
-			</Skeleton>
-		</>
+		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
+			<ListingCategoryBox categories={categories} />
+			<ListingSortDropdown options={options} onChangeHandler={(value: string) => setSort(value as SortingType)} />
+			<ListingItems items={listings?.result || []} />
+		</Skeleton>
 	);
 };
 
-export async function getServerSideProps(): Promise<{ props: ListingsPageProps }> {
-	const listings = await fetchListings('Title');
+export async function getServerSideProps(): Promise<{ props: ListingsPageProps } | { redirect: Redirect }> {
+	try {
+		await queryClient.fetchQuery('fetchListings', () => fetchListings('Title ASC'));
+	} catch (err) {
+		return {
+			redirect: {
+				permanent: false,
+				destination: '500',
+			},
+		};
+	}
 
 	return {
 		props: {
+			dehydratedState: dehydrate(queryClient),
 			categories,
-			listings: listings!,
 			options: dropdownOptions,
 		},
 	};

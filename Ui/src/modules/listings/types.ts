@@ -1,6 +1,6 @@
 import { DropdownOption } from '../../components/shared/Dropdown/types';
 import { ListingItemProps } from '../../components/standalone/ListingItem/types';
-import { CategoryType } from '../../utils/types';
+import { CategoryType, SortingType } from '../../utils/types';
 
 export type ItemsProps = {
 	items: ItemData[];

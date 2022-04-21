@@ -45,7 +45,7 @@ const Typography = ({
 				break;
 			case 'button':
 				textProps = {
-					fontSize: '1.125rem',
+					fontSize: '1rem',
 					fontWeight: '500',
 					lineHeight: '1.2rem',
 				};
