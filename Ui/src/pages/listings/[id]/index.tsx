@@ -12,7 +12,7 @@ import {
 	ListingDetailsOwnerInformation,
 } from '../../../modules';
 import DeleteListing from '../../../modules/listing-details/DeleteListing';
-import { fetchAccessToken, tryFetchQuery } from '../../../utils/functions';
+import { fetchAccessToken, tryFetchQuery } from '../../../utils/helpers';
 import { queryClient } from '../../../utils/queryClient';
 import { deleteListing, fetchListing } from './apis';
 import { ListingDetailsPageProps, ListingInformation, OwnerInformation } from './types';
