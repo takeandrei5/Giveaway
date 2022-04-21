@@ -21,7 +21,7 @@ const useFetchListings = () => {
 		refetchListings();
 	}, [sort, categoryState]);
 
-	return { isLoading, listings, setSort };
+	return { isLoading, listings, sort, setSort };
 };
 
 export default useFetchListings;
