@@ -1,5 +1,5 @@
 import { Search2Icon, SmallCloseIcon } from '@chakra-ui/icons';
-import { Box, Grid, GridItem, useStyleConfig } from '@chakra-ui/react';
+import { Center, Grid, GridItem, useStyleConfig } from '@chakra-ui/react';
 import { Form, FormikProps, FormikProvider, useFormik } from 'formik';
 import React from 'react';
 
@@ -22,13 +22,7 @@ const SearchBox = (): JSX.Element => {
 	return (
 		<FormikProvider value={formik}>
 			<Form onSubmit={formik.handleSubmit}>
-				<Box
-					__css={styles}
-					display='flex'
-					alignItems='center'
-					justifyContent='center'
-					flexDirection='row'
-					id='search-container'>
+				<Center __css={styles} flexDirection='row' id='search-container'>
 					<Grid height='3.5rem' templateColumns='repeat(5, 1fr)' gap={0}>
 						<GridItem colSpan={4}>
 							<Input
@@ -52,7 +46,7 @@ const SearchBox = (): JSX.Element => {
 							<ButtonPrimary type='submit'>Search!</ButtonPrimary>
 						</GridItem>
 					</Grid>
-				</Box>
+				</Center>
 			</Form>
 		</FormikProvider>
 	);
