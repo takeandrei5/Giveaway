@@ -1,6 +1,6 @@
-import { FetchListingDetailsResponse } from './types';
 import axiosInstance from '../../../utils/axios';
 import { NotFoundError } from '../../../utils/errors';
+import { FetchListingDetailsResponse } from './types';
 
 const fetchListing = async (id: string): Promise<FetchListingDetailsResponse | undefined> => {
 	const response = await axiosInstance.get(`listings/${id}`);

@@ -1,7 +1,6 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import { getAccessToken } from '@auth0/nextjs-auth0';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { NextRouter, useRouter } from 'next/router';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next/types';
@@ -13,17 +12,17 @@ import {
 	ListingDetailsOwnerInformation,
 } from '../../../modules';
 import DeleteListing from '../../../modules/listing-details/DeleteListing';
-import { NotFoundError } from '../../../utils/errors';
+import { fetchAccessToken, tryFetchQuery } from '../../../utils/functions';
 import { queryClient } from '../../../utils/queryClient';
 import { deleteListing, fetchListing } from './apis';
 import { ListingDetailsPageProps, ListingInformation, OwnerInformation } from './types';
 
-const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessTokenResult, id }: ListingDetailsPageProps) => {
+const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessToken, id }: ListingDetailsPageProps) => {
 	const router: NextRouter = useRouter();
 
 	const { data } = useQuery(['fetchListing', id], () => fetchListing(id));
 
-	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id, accessTokenResult.accessToken!), {
+	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id, accessToken!), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
 			console.error('Delete listing failed ', err);
@@ -52,35 +51,16 @@ export async function getServerSideProps(
 	context: GetServerSidePropsContext
 ): Promise<{ props: ListingDetailsPageProps } | { redirect: Redirect }> {
 	const id: string = context.params?.id as string;
-	try {
-		await queryClient.fetchQuery(['fetchListing', id], () => fetchListing(id));
-	} catch (err) {
-		if (err instanceof NotFoundError) {
-			return {
-				redirect: {
-					permanent: true,
-					destination: '/404',
-				},
-			};
-		}
 
-		return {
-			redirect: {
-				permanent: true,
-				destination: '500',
+	return (
+		(await tryFetchQuery(['fetchListing', id], () => fetchListing(id))) || {
+			props: {
+				id,
+				dehydratedState: dehydrate(queryClient),
+				accessToken: await fetchAccessToken(context),
 			},
-		};
-	}
-
-	const accessTokenResult = await getAccessToken(context.req, context.res);
-
-	return {
-		props: {
-			id,
-			dehydratedState: dehydrate(queryClient),
-			accessTokenResult,
-		},
-	};
+		}
+	);
 }
 
 export default ListingDetailsPage;
