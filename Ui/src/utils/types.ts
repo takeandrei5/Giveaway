@@ -1,6 +1,8 @@
 import { DehydratedState as ReactQueryDehydratedState } from 'react-query';
 
-export type CategoryType = 'clothes' | 'toys' | 'books' | 'electronics';
+import { CategoryTypeEnum } from './enums';
+
+export type CategoryType = `${CategoryTypeEnum}`;
 export type SortingType = 'Title ASC' | 'Title DESC' | 'CreatedAt ASC' | 'CreatedAt DESC';
 export type PaginatedResult<T> = {
 	result: T[];
