@@ -48,7 +48,6 @@ const Input = ({
 					height={height}
 					disabled={disabled}
 					name={name}
-					paddingStart='14'
 					placeholder={placeholder}
 					onChange={field ? field.onChange : onChange}
 					value={value}

@@ -10,7 +10,7 @@ const styles = {
 		outline: {
 			field: {
 				backgroundColor: 'white',
-				borderRadius: '3.75rem',
+				borderRadius: '2xl',
 				borderSize: '0',
 				_hover: {
 					borderSize: '0',
