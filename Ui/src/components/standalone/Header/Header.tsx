@@ -1,4 +1,4 @@
-import { useUser } from '@auth0/nextjs-auth0';
+import { UserContext, useUser } from '@auth0/nextjs-auth0';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
 	Avatar,
@@ -18,36 +18,57 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { useCallback, useMemo } from 'react';
+import { NextRouter, useRouter } from 'next/router';
+import { useMemo } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
 import { MdAccountCircle } from 'react-icons/md';
 
 import { Typography } from '../../shared';
+import ButtonPrimary from '../../shared/Buttons/ButtonPrimary';
 import Logo from '../../shared/Logo/Logo';
-import ButtonPrimary from '../../shared/Buttons/ButtonPrimary/index';
+import useLogin from './hooks';
 
 const Header = (): JSX.Element => {
 	const { colorMode, toggleColorMode } = useColorMode();
-	const router = useRouter();
-	const { user, error, isLoading } = useUser();
+	const { user, error, isLoading }: UserContext = useUser();
+	const router: NextRouter = useRouter();
 
-	const handleSignIn = useCallback(async () => await router.replace('/api/auth/login'), []);
-	const handleSignOut = useCallback(() => router.replace('/api/auth/logout'), []);
+	const { handleSignIn, handleSignOut } = useLogin();
 
 	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
 	const darkishOrWhiteColor: 'darkish' | 'white' = useColorModeValue('darkish', 'white');
 
-	const renderMenu = useCallback((): JSX.Element => {
+	const menuListMemo: JSX.Element = useMemo(
+		(): JSX.Element => (
+			<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
+				<Stack align='center' margin={0}>
+					<Typography variant='h3'>Sign in to your account</Typography>
+					<Typography variant='input'>to have access to all features 🧙‍♂️</Typography>
+				</Stack>
+				<Center pt={4}>
+					<ButtonPrimary
+						color={lightishOrDarkishColor}
+						leftIcon={<IoLogInOutline fontSize='larger' />}
+						onClick={handleSignIn}>
+						<Typography variant='button'>Sign in here</Typography>
+					</ButtonPrimary>
+				</Center>
+			</MenuList>
+		),
+		[]
+	);
+
+	const loginMenuMemo: JSX.Element = useMemo((): JSX.Element => {
 		if (user) {
 			return (
 				<>
 					<MenuButton
 						_focus={{ boxShadow: 'none' }}
 						as={Button}
-						rounded={'full'}
-						variant={'link'}
-						cursor={'pointer'}
+						rounded='full'
+						variant='link'
+						cursor='pointer'
 						display={!user ? 'none' : 'inherit'}
 						minW={0}>
 						<Avatar
@@ -56,15 +77,12 @@ const Header = (): JSX.Element => {
 							src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
 						/>
 					</MenuButton>
-					<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
-						<Center>
+					<MenuList alignItems='center' borderRadius='2xl' p={6}>
+						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
-								size={'2xl'}
+								size='2xl'
 								src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
 							/>
-						</Center>
-						<br />
-						<Center>
 							<Typography variant='paragraph'>{user?.name || ''}</Typography>
 						</Center>
 						<MenuDivider />
@@ -77,7 +95,7 @@ const Header = (): JSX.Element => {
 								filter: 'brightness(90%)',
 							}}
 							borderRadius='lg'
-							onClick={() => handleSignOut()}>
+							onClick={handleSignOut}>
 							<Typography variant='paragraph'>Logout</Typography>
 						</MenuItem>
 					</MenuList>
@@ -93,57 +111,56 @@ const Header = (): JSX.Element => {
 					_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
 					as={IconButton}
 					rounded='full'
-					aria-label='Options'
+					aria-label='login'
 					variant='outline'
 					cursor='pointer'
 					border='0'
 					icon={<Icon as={MdAccountCircle} color={darkishOrWhiteColor} h='1.8rem' width='1.8rem' />}
 				/>
-				<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
-					<Stack align='center' margin={0}>
-						<Typography variant='h3'>Sign in to your account</Typography>
-						<Typography variant='input'>to enjoy all of our cool features 🧙‍♂️</Typography>
-					</Stack>
-					<Center pt={4}>
-						<ButtonPrimary
-							color={lightishOrDarkishColor}
-							leftIcon={<IoLogInOutline fontSize='larger' />}
-							onClick={() => handleSignIn()}>
-							<Typography variant='button'>Sign in here</Typography>
-						</ButtonPrimary>
-					</Center>
-				</MenuList>
+				{menuListMemo}
 			</>
 		);
 	}, [isLoading, lightishOrDarkishColor, darkishOrWhiteColor]);
 
 	return (
 		<Skeleton isLoaded={!isLoading}>
-			<Box bg={useColorModeValue('secondary.main', 'secondary.main')} px={4}>
-				<Flex h={'20'} alignItems={'center'} justifyContent={'space-between'}>
-					<Logo />
-					<Flex alignItems={'center'}>
-						<Stack direction={'row'} spacing={7}>
-							<Button
-								bg='secondary.main'
-								padding='0'
-								_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
-								_focus={{ border: 'none' }}
-								_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
-								rounded={'full'}
-								onClick={toggleColorMode}>
-								<Icon
-									as={colorMode === 'light' ? MoonIcon : SunIcon}
-									color={useColorModeValue('darkish', 'white')}
-									height='1.5rem'
-									width='1.5rem'
-								/>
-							</Button>
-							<Menu autoSelect={false}>{renderMenu()}</Menu>
-						</Stack>
-					</Flex>
-				</Flex>
-			</Box>
+			<Flex bg='secondary.main' px={4} h='20' alignItems='center' justifyContent='space-between'>
+				<Logo />
+				<Stack alignItems='center' direction='row' spacing={7}>
+					<Menu autoSelect={false}>
+						<Box __css={{ '& > button > span': { display: 'flex' } }} marginRight='5rem'>
+							<ButtonPrimary
+								as={MenuButton}
+								color={lightishOrDarkishColor}
+								leftIcon={<FaPlusCircle fontSize='larger' />}
+								onClick={() => {
+									if (user) {
+										router.push('/create-listing');
+									}
+								}}>
+								<Typography variant='button'>Create listing</Typography>
+							</ButtonPrimary>
+						</Box>
+						{!user && menuListMemo}
+					</Menu>
+					<Button
+						bg='secondary.main'
+						padding='0'
+						_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
+						_focus={{ border: 'none' }}
+						_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
+						rounded={'full'}
+						onClick={toggleColorMode}>
+						<Icon
+							as={colorMode === 'light' ? MoonIcon : SunIcon}
+							color={darkishOrWhiteColor}
+							height='1.5rem'
+							width='1.5rem'
+						/>
+					</Button>
+					<Menu autoSelect={false}>{loginMenuMemo}</Menu>
+				</Stack>
+			</Flex>
 		</Skeleton>
 	);
 };
