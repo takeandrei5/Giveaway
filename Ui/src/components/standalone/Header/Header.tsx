@@ -19,6 +19,7 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import { NextRouter, useRouter } from 'next/router';
+import React from 'react';
 import { useMemo } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
@@ -34,7 +35,7 @@ const Header = (): JSX.Element => {
 	const { user, error, isLoading }: UserContext = useUser();
 	const router: NextRouter = useRouter();
 
-	const { handleSignIn, handleSignOut } = useLogin();
+	const { handleSignIn, handleSignInWithReturnTo, handleSignOut } = useLogin();
 
 	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
 	const darkishOrWhiteColor: 'darkish' | 'white' = useColorModeValue('darkish', 'white');
@@ -125,24 +126,14 @@ const Header = (): JSX.Element => {
 	return (
 		<Skeleton isLoaded={!isLoading}>
 			<Flex bg='secondary.main' px={4} h='20' alignItems='center' justifyContent='space-between'>
-				<Logo />
+				<Logo onClick={() => router.push('/listings')} />
 				<Stack alignItems='center' direction='row' spacing={7}>
-					<Menu autoSelect={false}>
-						<Box __css={{ '& > button > span': { display: 'flex' } }} marginRight='5rem'>
-							<ButtonPrimary
-								as={MenuButton}
-								color={lightishOrDarkishColor}
-								leftIcon={<FaPlusCircle fontSize='larger' />}
-								onClick={() => {
-									if (user) {
-										router.push('/create-listing');
-									}
-								}}>
-								<Typography variant='button'>Create listing</Typography>
-							</ButtonPrimary>
-						</Box>
-						{!user && menuListMemo}
-					</Menu>
+					<ButtonPrimary
+						color={lightishOrDarkishColor}
+						leftIcon={<FaPlusCircle fontSize='larger' />}
+						onClick={() => (user ? router.push('/create-listing') : handleSignInWithReturnTo('/create-listing'))}>
+						<Typography variant='button'>Create listing</Typography>
+					</ButtonPrimary>
 					<Button
 						bg='secondary.main'
 						padding='0'
@@ -164,4 +155,4 @@ const Header = (): JSX.Element => {
 		</Skeleton>
 	);
 };
-export default Header;
+export default React.memo(Header);
