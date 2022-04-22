@@ -1,4 +1,4 @@
-import { Category } from '../../modules/listings/types';
+import { Category } from '../modules/listings/types';
 
 const categories: Category[] = [
 	{
@@ -27,4 +27,7 @@ const categories: Category[] = [
 	},
 ];
 
-export default categories;
+const defaultImageUpload: string =
+	'https://imagedelivery.net/G1lMtwsUs9dEAB6xuB8WcA/318e4ec3-9120-4fd1-e9ce-05419eff8500/public';
+
+export { categories, defaultImageUpload };

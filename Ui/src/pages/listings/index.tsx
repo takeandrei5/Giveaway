@@ -3,7 +3,7 @@ import { dehydrate } from 'react-query';
 
 import { Skeleton } from '../../components';
 import { ListingCategoryBox, ListingItems, ListingSortDropdown } from '../../modules';
-import categories from '../../utils/constants/categoriesConstant';
+import { categories } from '../../utils/constants';
 import { queryClient } from '../../utils/queryClient';
 import { SortingType } from '../../utils/types';
 import { fetchListings } from './apis';
