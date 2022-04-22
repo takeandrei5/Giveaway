@@ -8,6 +8,7 @@ const mainTheme = extendTheme({
 	components: {
 		ButtonPrimary,
 		Input,
+		Textarea: Input,
 		SearchBox,
 	},
 	colors: {
