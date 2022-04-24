@@ -39,6 +39,7 @@ const SearchBox = (): JSX.Element => {
 										/>
 									) : undefined
 								}
+								onChange={(e) => formik.setFieldValue('searchByField', e?.target)}
 								value={formik.values.searchByField}
 							/>
 						</GridItem>

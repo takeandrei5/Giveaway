@@ -2,9 +2,9 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 import { Footer, Header } from '../components';
-import { LayoutI } from './interfaces';
+import { LayoutProps } from './types';
 
-const Layout = ({ children }: LayoutI): JSX.Element => (
+const Layout = ({ children }: LayoutProps): JSX.Element => (
 	<>
 		<Header />
 		<Box

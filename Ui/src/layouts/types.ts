@@ -1,5 +1,5 @@
 import React from 'react';
 
-export interface LayoutI {
+export type LayoutProps = {
 	children: React.ReactNode;
-}
+};
