@@ -2,12 +2,12 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { Form, FormikProps, FormikProvider, useFormik } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation } from 'react-query';
-import { v4 as uuidv4 } from 'uuid';
 
 import { Typography } from '../../components';
 import { createListing } from './apis';
 import { ButtonContainer } from './ButtonContainer';
 import { CategoryFormControl } from './CategoryFormControl';
+import { INITIAL_VALUES } from './constants';
 import { DescriptionFormControl } from './DescriptionFormControl';
 import { ImagesFormControl } from './ImagesFormControl';
 import { TitleFormControl } from './TitleFormControl';
@@ -29,17 +29,7 @@ const CreateListingModule = ({ accessToken }: CreateListingModuleProps) => {
 	);
 
 	const formik: FormikProps<CreateListingFormikValues> = useFormik<CreateListingFormikValues>({
-		initialValues: {
-			title: '',
-			description: '',
-			category: 1,
-			images: Array.from(Array(6)).map(
-				(): ImageFormikValue => ({
-					id: uuidv4(),
-					url: '',
-				})
-			),
-		},
+		initialValues: INITIAL_VALUES,
 		validationSchema,
 		validateOnBlur: true,
 		validateOnChange: false,
@@ -50,6 +40,10 @@ const CreateListingModule = ({ accessToken }: CreateListingModuleProps) => {
 				category: values.category,
 				images: values.images.filter(({ url }: ImageFormikValue) => !!url).map(({ url }: ImageFormikValue) => url),
 			}),
+
+		onReset: () => {
+			formik.setFieldValue('images', INITIAL_VALUES.images);
+		},
 	});
 
 	return (

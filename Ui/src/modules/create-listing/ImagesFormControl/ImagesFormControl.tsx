@@ -18,7 +18,7 @@ import { useDragAndDrop, useImageUpload } from './hooks';
 import { ImagesFormControlProps } from './types';
 
 const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
-	const [field] = useField<ImageFormikValue[]>({ name });
+	const [field, meta] = useField<ImageFormikValue[]>({ name });
 	const { onImageDeleted, onImageUploaded, isUploading } = useImageUpload(name);
 	const { onDragEnd } = useDragAndDrop(name);
 
@@ -76,10 +76,11 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								pointerEvents={isUploading ? 'none' : 'auto'}
 								onChange={(e) => {
 									onImageUploaded(value.id, e.target.files?.[0]);
+									e.target.value = '';
 								}}
 								style={{ textIndent: '-999px' }}
 							/>
-							{index === 0 && <Icon as={BsFillBookmarkStarFill} position='absolute' top='0.125rem' right='0.125rem' />}
+							{index === 0 && <Icon as={BsFillBookmarkStarFill} position='absolute' top='0.125rem' right='0.5rem' />}
 							<Image
 								draggable={false}
 								height='100%'

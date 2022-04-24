@@ -41,7 +41,7 @@ const useImageUpload = (name: string) => {
 		const newArray: ImageFormikValue[] = [...field.value];
 		newArray[newArray.findIndex((image: ImageFormikValue) => image.id === id)].url = url;
 
-		helpers.setValue(newArray, true);
+		helpers.setValue(newArray);
 		helpers.setTouched(true);
 	};
 
@@ -72,6 +72,7 @@ const useImageUpload = (name: string) => {
 	};
 
 	const onImageDeleted = (id: string): void => updateFormikImageValues(id, '');
+
 	return { isUploading, onImageUploaded, onImageDeleted };
 };
 
