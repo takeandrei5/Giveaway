@@ -1,8 +1,6 @@
 import { ButtonPrimary, Typography } from '../../components';
 
 const Testing = ({ listings }: any) => {
-	console.log(listings);
-
 	return (
 		<>
 			<div

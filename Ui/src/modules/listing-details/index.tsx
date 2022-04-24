@@ -2,12 +2,13 @@ import { Grid, GridItem } from '@chakra-ui/react';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation, useQuery } from 'react-query';
 
-import { deleteListing, fetchListing } from '../../pages/listings/[id]/apis';
+import { fetchListing } from '../../pages/listings/[id]/apis';
 import {
 	ListingInformation as ListingInformationProps,
 	OwnerInformation as OwnerInformationProps,
 } from '../../pages/listings/[id]/types';
 import { NotFoundError } from '../../utils/errors';
+import { deleteListing } from './apis';
 import { DeleteListingButton } from './DeleteListingButton';
 import { ImageSlider } from './ImageSlider';
 import { ListingInformation } from './ListingInformation';

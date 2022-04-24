@@ -1,6 +1,6 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react';
 import { GrPowerReset } from 'react-icons/gr';
-import { RiSendPlaneFill } from 'react-icons/ri';
+import { MdRefresh } from 'react-icons/md';
 
 import { ButtonPrimary, Typography } from '../../../components';
 
@@ -17,7 +17,7 @@ const ButtonContainer = (): JSX.Element => {
 				<Typography variant='button'>Reset</Typography>
 			</ButtonPrimary>
 
-			<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<RiSendPlaneFill fontSize='larger' />} type='submit'>
+			<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<MdRefresh fontSize='larger' />} type='submit'>
 				<Typography variant='button'>Create</Typography>
 			</ButtonPrimary>
 		</Flex>

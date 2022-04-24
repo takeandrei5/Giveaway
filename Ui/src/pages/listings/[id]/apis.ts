@@ -13,16 +13,4 @@ const fetchListing = async (id: string): Promise<FetchListingDetailsResponse | u
 	return result;
 };
 
-const deleteListing = async (id: string, accessToken: string): Promise<void> => {
-	const response = await axiosInstance.delete(`listings/${id}`, {
-		headers: {
-			Authorization: accessToken,
-		},
-	});
-
-	if (response.status === 400 || response.status === 404) {
-		throw new NotFoundError('Listing not found');
-	}
-};
-
-export { deleteListing, fetchListing };
+export { fetchListing };

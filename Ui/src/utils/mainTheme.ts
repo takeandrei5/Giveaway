@@ -1,15 +1,13 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { default as ButtonPrimary } from '../components/shared/Buttons/ButtonPrimary/styles';
-import { default as Input } from '../components/shared/Input/styles';
-import { default as SearchBox } from '../components/standalone/SearchBox/styles';
+import ButtonPrimary from '../components/shared/Buttons/ButtonPrimary/styles';
+import Input from '../components/shared/Input/styles';
 
 const mainTheme = extendTheme({
 	components: {
 		ButtonPrimary,
 		Input,
 		Textarea: Input,
-		SearchBox,
 	},
 	colors: {
 		primary: {

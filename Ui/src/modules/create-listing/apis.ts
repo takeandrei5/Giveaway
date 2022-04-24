@@ -7,8 +7,6 @@ const createListing = async (accessToken: string, data: CreateListingRequest): P
 			Authorization: 'Bearer ' + accessToken,
 		},
 	});
-
-	console.log(response);
 };
 
 export { createListing };

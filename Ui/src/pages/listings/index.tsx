@@ -13,7 +13,7 @@ const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProp
 
 export async function getServerSideProps(): Promise<{ props: ListingsPageProps } | { redirect: Redirect }> {
 	try {
-		await queryClient.fetchQuery('fetchListings', () => fetchListings('Title ASC'));
+		await queryClient.fetchQuery('fetchListings', () => fetchListings());
 	} catch (err) {
 		return {
 			redirect: {

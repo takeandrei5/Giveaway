@@ -10,8 +10,6 @@ const afterCallback = async (
 	state: { [key: string]: any }
 ) => {
 	try {
-		console.log('this is my session token', session.accessToken);
-		console.log(axiosInstance.defaults.baseURL);
 		await axiosInstance.post(
 			'/users',
 			{},

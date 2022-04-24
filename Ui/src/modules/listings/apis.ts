@@ -2,14 +2,18 @@ import { AxiosResponse } from 'axios';
 
 import { ItemData } from '../../modules/listings/ItemsList/types';
 import axiosInstance from '../../utils/axios';
-import { PaginatedResult } from '../../utils/types';
+import { PaginatedResult, SortingType } from '../../utils/types';
 import { FetchListingsResponse } from './types';
 
-const fetchListings = async (): Promise<PaginatedResult<ItemData> | undefined> => {
+const fetchListings = async (
+	orderBy: SortingType,
+	filterByCategory: number | undefined = undefined
+): Promise<PaginatedResult<ItemData> | undefined> => {
 	try {
 		const response: AxiosResponse = await axiosInstance.get('/listings', {
 			params: {
-				orderBy: 'Title ASC',
+				orderBy,
+				...(filterByCategory ? { filterByCategory } : {}),
 			},
 		});
 
