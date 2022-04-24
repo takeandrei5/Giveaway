@@ -4,7 +4,7 @@ import { NotFoundError } from '../../utils/errors';
 const deleteListing = async (id: string, accessToken: string): Promise<void> => {
 	const response = await axiosInstance.delete(`listings/${id}`, {
 		headers: {
-			Authorization: accessToken,
+			Authorization: 'Bearer ' + accessToken,
 		},
 	});
 
