@@ -47,7 +47,7 @@ const CreateListingPage: NextPage<CreateListingPageProps> = ({ accessToken }: Cr
 				title: values.title,
 				description: values.description,
 				category: values.category,
-				images: values.images.map(({ url }: ImageFormikValue) => url),
+				images: values.images.filter(({ url }: ImageFormikValue) => !!url).map(({ url }: ImageFormikValue) => url),
 			}),
 	});
 
