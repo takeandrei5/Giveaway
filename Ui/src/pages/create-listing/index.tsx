@@ -6,6 +6,7 @@ import { useMutation } from 'react-query';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Typography } from '../../components';
+import { CreateListingButtonContainer } from '../../modules';
 import { CategoryFormControl, DescriptionFormControl, ImagesFormControl } from '../../modules/create-listing';
 import TitleFormControl from '../../modules/create-listing/TitleFormControl';
 import { fetchAccessToken } from '../../utils/helpers';
@@ -22,7 +23,7 @@ const CreateListingPage: NextPage<CreateListingPageProps> = ({ accessToken }: Cr
 			onSuccess: () => router.replace('/listings'),
 			onError: (err) => {
 				console.error(err);
-				// router.replace('/500');
+				router.replace('/500');
 			},
 		}
 	);
@@ -55,7 +56,7 @@ const CreateListingPage: NextPage<CreateListingPageProps> = ({ accessToken }: Cr
 		<>
 			<Typography variant='h1'>Create a listing!</Typography>
 			<FormikProvider value={formik}>
-				<Form onSubmit={formik.handleSubmit}>
+				<Form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
 					<Flex
 						direction='column'
 						borderRadius='2xl'
@@ -72,8 +73,8 @@ const CreateListingPage: NextPage<CreateListingPageProps> = ({ accessToken }: Cr
 							<CategoryFormControl name='category' />
 							<ImagesFormControl name='images' />
 							<DescriptionFormControl name={'description'} />
+							<CreateListingButtonContainer />
 						</Flex>
-						<button type='submit'>Submit</button>
 					</Flex>
 				</Form>
 			</FormikProvider>
