@@ -10,11 +10,17 @@ const afterCallback = async (
 	state: { [key: string]: any }
 ) => {
 	try {
-		await axiosInstance.post('/users', {
-			headers: {
-				Authorization: 'Bearer ' + session.accessToken,
-			},
-		});
+		console.log('this is my session token', session.accessToken);
+		console.log(axiosInstance.defaults.baseURL);
+		await axiosInstance.post(
+			'/users',
+			{},
+			{
+				headers: {
+					Authorization: 'Bearer ' + session.accessToken,
+				},
+			}
+		);
 	} catch (err) {
 		console.error(err);
 	}
