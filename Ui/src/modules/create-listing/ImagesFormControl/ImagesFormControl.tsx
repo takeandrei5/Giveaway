@@ -11,9 +11,9 @@ import {
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { FaTrashAlt } from 'react-icons/fa';
 
-import { FormControl } from '../../components/shared/FormControl';
-import { ImageFormikValue } from '../../pages/create-listing/types';
-import { defaultImageUpload } from '../../utils/constants';
+import { FormControl } from '../../../components/shared/FormControl';
+import { defaultImageUpload } from '../../../utils/constants';
+import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
 import { ImagesFormControlProps } from './types';
 

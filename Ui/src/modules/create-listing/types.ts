@@ -1,22 +1,19 @@
-type FormGroup = { name: string };
+import { FormikValues } from 'formik';
 
-export type CategoryFormControlProps = FormGroup;
+export type FormControl = { name: string };
 
-export type DescriptionFormControlProps = FormGroup;
-
-export type ImagesFormControlProps = FormGroup;
-
-export type TitleFormControlProps = FormGroup;
-
-export type UploadImageResponse = {
-	filename: string;
-	id: string;
-	requireSignedURLs: boolean;
-	uploaded: Date;
-	variants: string[];
+export type CreateListingFormikValues = FormikValues & {
+	title: string;
+	description: string;
+	category: number;
+	images: ImageFormikValue[];
 };
 
-export type UploadImageRequest = {
+export type ImageFormikValue = {
 	id: string;
-	formData: FormData;
+	url: string;
 };
+
+export type CreateListingRequest = Omit<CreateListingFormikValues, 'images'> & { images: string[] };
+
+export type CreateListingModuleProps = { accessToken: string };

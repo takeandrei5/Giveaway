@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 
-import { Input } from '../../components';
-import { FormControl } from '../../components/shared/FormControl';
+import { Input } from '../../../components';
+import { FormControl } from '../../../components/shared/FormControl';
 import { TitleFormControlProps } from './types';
 
 const TitleFormControl = ({ name }: TitleFormControlProps): JSX.Element => {

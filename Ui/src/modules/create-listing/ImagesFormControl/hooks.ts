@@ -3,8 +3,8 @@ import { NextRouter, useRouter } from 'next/router';
 import { DropResult, ResponderProvided } from 'react-beautiful-dnd';
 import { useMutation } from 'react-query';
 
-import { ImageFormikValue } from '../../pages/create-listing/types';
-import { axiosCdnInstance } from '../../utils/axios';
+import { axiosCdnInstance } from '../../../utils/axios';
+import { ImageFormikValue } from '../types';
 import { UploadImageRequest, UploadImageResponse } from './types';
 
 const useImageUpload = (name: string) => {
