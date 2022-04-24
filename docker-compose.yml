@@ -57,6 +57,8 @@ services:
       - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET}
       - NEXT_BACKEND_URL_SERVER=${NEXT_BACKEND_URL_SERVER}
       - NEXT_PUBLIC_BACKEND_URL_CLIENT=${NEXT_PUBLIC_BACKEND_URL_CLIENT}
+      - NEXT_PUBLIC_CDN_IMAGES_BASE_URL=${NEXT_PUBLIC_CDN_IMAGES_BASE_URL}
+      - NEXT_PUBLIC_CDN_ACCESS_TOKEN=${NEXT_PUBLIC_CDN_ACCESS_TOKEN}
     networks:
       - giveway-network
     depends_on:
@@ -85,9 +87,9 @@ volumes:
   dbdata:
     name: giveaway-mssql
   node_modules:
-    name: nginx-node-modules
+    name: nextjs-node-modules
     # driver: local
     # driver_opts:
-    #     type: none
-    #     o: bind
-    #     device: ./Ui/node_modules
+    #   type: none
+    #   o: bind
+    #   device: /Users/andreitache/Projects/Giveaway/Ui/node_modules
