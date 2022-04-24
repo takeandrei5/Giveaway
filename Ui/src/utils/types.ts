@@ -14,4 +14,10 @@ export type PaginatedResult<T> = {
 	hasNextPage: boolean;
 };
 
+export type Category = {
+	category: CategoryType;
+	image: string;
+	name: string;
+};
+
 export type DehydratedState = { dehydratedState: ReactQueryDehydratedState };

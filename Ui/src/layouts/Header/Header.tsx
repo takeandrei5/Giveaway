@@ -25,9 +25,9 @@ import { FaPlusCircle } from 'react-icons/fa';
 import { IoLogInOutline } from 'react-icons/io5';
 import { MdAccountCircle } from 'react-icons/md';
 
-import { Typography } from '../../shared';
-import ButtonPrimary from '../../shared/Buttons/ButtonPrimary';
-import Logo from '../../shared/Logo/Logo';
+import { Typography } from '../../components/shared';
+import ButtonPrimary from '../../components/shared/Buttons/ButtonPrimary';
+import Logo from '../../components/shared/Logo/Logo';
 import useLogin from './hooks';
 
 const Header = (): JSX.Element => {

@@ -1,31 +1,15 @@
 import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
 
-import { Skeleton } from '../../components';
-import { ListingCategoryBox, ListingItems, ListingSortDropdown } from '../../modules';
-import { categories } from '../../utils/constants';
+import { ListingsModule } from '../../modules';
 import { queryClient } from '../../utils/queryClient';
-import { SortingType } from '../../utils/types';
 import { fetchListings } from './apis';
 import { dropdownOptions } from './constants';
-import useFetchListings from './hooks';
 import { ListingsPageProps } from './types';
 
-const ListingsPage: NextPage<ListingsPageProps> = ({ categories, options }: ListingsPageProps) => {
-	const { isLoading, listings, sort, setSort } = useFetchListings();
-
-	return (
-		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
-			<ListingCategoryBox categories={categories} />
-			<ListingSortDropdown
-				options={options}
-				onChangeHandler={(value: string) => setSort(value as SortingType)}
-				value={sort}
-			/>
-			<ListingItems items={listings?.result || []} />
-		</Skeleton>
-	);
-};
+const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProps) => (
+	<ListingsModule options={options} />
+);
 
 export async function getServerSideProps(): Promise<{ props: ListingsPageProps } | { redirect: Redirect }> {
 	try {
@@ -42,7 +26,6 @@ export async function getServerSideProps(): Promise<{ props: ListingsPageProps }
 	return {
 		props: {
 			dehydratedState: dehydrate(queryClient),
-			categories,
 			options: dropdownOptions,
 		},
 	};

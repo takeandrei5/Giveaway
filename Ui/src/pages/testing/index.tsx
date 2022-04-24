@@ -1,6 +1,4 @@
-import { NextPageContext } from 'next';
-
-import { ButtonPrimary, CategoryItem, ListingItem, Typography } from '../../components';
+import { ButtonPrimary, Typography } from '../../components';
 
 const Testing = ({ listings }: any) => {
 	console.log(listings);
@@ -107,7 +105,7 @@ const Testing = ({ listings }: any) => {
 					/> */}
 				</div>
 				<div style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-					<CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' onClick={() => {}} />
+					{/* <CategoryItem image='https://i.ibb.co/tL11nRC/Capture.png' title='Children clothes' onClick={() => {}} /> */}
 				</div>
 			</div>
 		</>

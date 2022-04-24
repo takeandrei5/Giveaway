@@ -13,8 +13,4 @@ export {
 	OwnerInformation as ListingDetailsOwnerInformation,
 } from './listing-details';
 
-export {
-	CategoryBox as ListingCategoryBox,
-	Items as ListingItems,
-	SortingDropdown as ListingSortDropdown,
-} from './listings';
+export { default as ListingsModule } from './listings';

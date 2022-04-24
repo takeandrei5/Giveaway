@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios';
-import { ItemData } from '../../modules/listings/types';
+
+import { ItemData } from '../../modules/listings/ItemsList/types';
 import axiosInstance from '../../utils/axios';
 import { PaginatedResult, SortingType } from '../../utils/types';
 import { FetchListingsResponse } from './types';
