@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { DropdownOption, DropdownProps } from './types';
 
-const Dropdown = ({ options, onChangeHandler, name, value }: DropdownProps) => {
+const Dropdown = ({ id, options, onChangeHandler, name, value, isInvalid = false }: DropdownProps) => {
 	const renderOptions = useMemo(
 		(): JSX.Element[] =>
 			options.map(
@@ -19,10 +19,14 @@ const Dropdown = ({ options, onChangeHandler, name, value }: DropdownProps) => {
 	return (
 		<Select
 			bgColor='white'
+			_focus={{ borderColor: 'primary.main' }}
 			borderRadius='2xl'
+			id={id}
+			isInvalid={isInvalid}
 			name={name}
 			onChange={(e) => onChangeHandler(e.target.value)}
-			value={value}>
+			value={value}
+			width='fit-content'>
 			{renderOptions}
 		</Select>
 	);
