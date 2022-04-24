@@ -8,7 +8,6 @@ import {
 	Textarea,
 	useStyleConfig,
 } from '@chakra-ui/react';
-import { useField } from 'formik';
 
 import { Typography } from '../Typography';
 import { InputProps } from './types';
@@ -18,18 +17,18 @@ const Input = ({
 	placeholder,
 	name,
 	value,
+	onChange,
+	onBlur,
 	disabled = false,
 	multiline = false,
+	isInvalid = false,
 	height = 'auto',
 	label,
 	leftIcon,
 	rightIcon,
-	onChange = () => {},
 	width = '100%',
 }: InputProps): JSX.Element => {
 	const styles: CSSObject = useStyleConfig('Input');
-
-	const [field] = useField(name);
 
 	return (
 		<>
@@ -49,10 +48,12 @@ const Input = ({
 						__css={styles}
 						id={id}
 						height={height}
+						isInvalid={isInvalid}
 						disabled={disabled}
 						name={name}
 						placeholder={placeholder}
-						onChange={field ? field.onChange : onChange}
+						onChange={onChange}
+						onBlur={onBlur}
 						value={value}
 						width={width}
 					/>
@@ -68,8 +69,10 @@ const Input = ({
 					id={id}
 					disabled={disabled}
 					name={name}
+					isInvalid={isInvalid}
 					placeholder={placeholder}
-					onChange={field ? field.onChange : onChange}
+					onChange={onChange}
+					onBlur={onBlur}
 					rows={10}
 					height={height}
 					value={value}
