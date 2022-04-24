@@ -16,6 +16,7 @@ import { fetchAccessToken, tryFetchQuery } from '../../../utils/helpers';
 import { queryClient } from '../../../utils/queryClient';
 import { deleteListing, fetchListing } from './apis';
 import { ListingDetailsPageProps, ListingInformation, OwnerInformation } from './types';
+import { NotFoundError } from '../../../utils/errors';
 
 const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessToken, id }: ListingDetailsPageProps) => {
 	const router: NextRouter = useRouter();
@@ -25,7 +26,12 @@ const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessToken, id
 	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id, accessToken!), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
-			console.error('Delete listing failed ', err);
+			if (err instanceof NotFoundError) {
+				console.error('Delete listing failed ', err);
+				return;
+			}
+
+			router.replace('/500');
 		},
 	});
 
