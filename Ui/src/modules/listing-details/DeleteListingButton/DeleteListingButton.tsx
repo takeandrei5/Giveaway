@@ -1,10 +1,9 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import { Flex, useColorModeValue } from '@chakra-ui/react';
-
-import { ButtonPrimary, Typography } from '../../components';
-import Skeleton from '../../components/shared/Skeleton/Skeleton';
-import { DeleteListingProps } from './types';
 import { FaTrashAlt } from 'react-icons/fa';
+
+import { ButtonPrimary, Skeleton, Typography } from '../../../components';
+import { DeleteListingProps } from './types';
 
 const DeleteListing = ({ ownerEmail, onClick }: DeleteListingProps) => {
 	const { user, error, isLoading } = useUser();

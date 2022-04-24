@@ -5,7 +5,7 @@ import { CategoryBox } from './CategoryBox';
 import useFetchListings from './hooks';
 import Items from './ItemsList/ItemsList';
 import SortingDropdown from './SortingDropdown/SortingDropdown';
-import { ListingsModuleProps } from './SortingDropdown/types';
+import { ListingsModuleProps } from './types';
 
 export { default as CategoryBox } from './CategoryBox/CategoryBox';
 export { default as Items } from './ItemsList/ItemsList';

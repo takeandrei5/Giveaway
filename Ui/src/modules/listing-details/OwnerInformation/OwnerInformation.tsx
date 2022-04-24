@@ -1,6 +1,6 @@
-import { Avatar, Center, Divider, Flex } from '@chakra-ui/react';
+import { Avatar, Divider, Flex } from '@chakra-ui/react';
 
-import { Typography } from '../../components';
+import { Typography } from '../../../components';
 import { OwnerInformationProps } from './types';
 
 const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.Element => (

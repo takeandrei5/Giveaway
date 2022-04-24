@@ -6,11 +6,5 @@ export {
 	TitleFormControl as CreateListingTitleFormControl,
 } from './create-listing';
 
-export {
-	DeleteListing as ListingDetailsDeleteListing,
-	ImageSlider as ListingDetailsImageSlider,
-	InformationBox as ListingDetailsInformationBox,
-	OwnerInformation as ListingDetailsOwnerInformation,
-} from './listing-details';
-
 export { default as ListingsModule } from './listings';
+export { default as ListingDetailsModule } from './listing-details';

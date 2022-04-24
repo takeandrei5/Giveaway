@@ -1,10 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import dateFormat from 'dateformat';
 
-import { Typography } from '../../components';
-import { InformationBoxProps } from './types';
+import { Typography } from '../../../components';
+import { ListingInformationProps } from './types';
 
-const InformationBox = ({ title, description, createdAt }: InformationBoxProps): JSX.Element => (
+const InformationBox = ({ title, description, createdAt }: ListingInformationProps): JSX.Element => (
 	<Flex
 		direction='column'
 		borderRadius='2xl'
