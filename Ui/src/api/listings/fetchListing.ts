@@ -9,7 +9,7 @@ const fetchListing = async (id: string): Promise<FetchListingDetailsResponse | u
 		throw new NotFoundError(`Listing ${id} not found.`);
 	}
 
-	const result: FetchListingDetailsResponse = await response.data;
+	const result: FetchListingDetailsResponse = response.data;
 	return result;
 };
 

@@ -23,8 +23,8 @@ public sealed class UpdateRequest
         public string Title { get; init; } = null!;
 
         [Required]
-        [MaxLength(250)]
-        [MinLength(25)]
+        [MaxLength(1000)]
+        [MinLength(5)]
         public string Description { get; init; } = null!;
 
         [Required]

@@ -85,11 +85,12 @@ public sealed class Repository : IListingRepository
         listingEntity.LastModifiedAt = DateTime.Now;
 
         _dbContext.Images.RemoveRange(listingEntity.Images);
-        _dbContext.Images.AddRange(listing.Images.Select(image => new ImageEntity
+        _dbContext.Images.AddRange(listing.Images.Select((image, index) => new ImageEntity
         {
             Id = Guid.NewGuid(),
             ListingId = listing.Id.Value,
-            Url = image.Value
+            Url = image.Value,
+            IsMainImage = index == 0
         }));
 
         await _dbContext.SaveChangesAsync(cancellationToken);

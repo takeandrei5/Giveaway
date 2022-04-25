@@ -3,8 +3,9 @@ import { MdRefresh } from 'react-icons/md';
 import { RiSendPlaneFill } from 'react-icons/ri';
 
 import { ButtonPrimary, Typography } from '../../../../components';
+import { ButtonContainerProps } from './types';
 
-const ButtonContainer = (): JSX.Element => {
+const ButtonContainer = ({ resetButtonText, submitButtonText }: ButtonContainerProps): JSX.Element => {
 	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
 
 	return (
@@ -14,11 +15,11 @@ const ButtonContainer = (): JSX.Element => {
 				backgroundColor='#F31A2A'
 				leftIcon={<MdRefresh fontSize='medium' />}
 				type='reset'>
-				<Typography variant='button'>Reset</Typography>
+				<Typography variant='button'>{resetButtonText}</Typography>
 			</ButtonPrimary>
 
 			<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<RiSendPlaneFill fontSize='larger' />} type='submit'>
-				<Typography variant='button'>Create</Typography>
+				<Typography variant='button'>{submitButtonText}</Typography>
 			</ButtonPrimary>
 		</Flex>
 	);

@@ -18,5 +18,3 @@ export type OwnerInformation = {
 	name: string;
 	image: string;
 };
-
-export type FetchListingDetailsResponse = { listingInfo: ListingInformation } & { ownerInfo: OwnerInformation };

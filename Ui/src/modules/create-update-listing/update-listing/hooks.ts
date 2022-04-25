@@ -6,29 +6,43 @@ import { v4 as uuidv4 } from 'uuid';
 import { UpdateListingRequest } from '../../../api/listings/types';
 import updateListing from '../../../api/listings/updateListing';
 import { UpdateListingInitialValues } from '../../../pages/update-listing/[id]/types';
+import { MAX_IMAGES } from '../../../utils/constants';
 import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
+import { NotFoundError } from '../../../utils/errors';
 
-const useUpdateListing = (accessToken: string, initialValues: UpdateListingInitialValues) => {
+const useUpdateListing = (accessToken: string, id: string, initialValues: UpdateListingInitialValues) => {
 	const router: NextRouter = useRouter();
 
 	const { mutate: updateListingMutate } = useMutation(
-		(data: UpdateListingRequest) => updateListing(accessToken, data),
+		(data: UpdateListingRequest) => updateListing(accessToken, id, data),
 		{
 			onSuccess: () => router.replace('/listings'),
 			onError: (err) => {
-				console.error(err);
+				if (err instanceof NotFoundError) {
+					router.replace('/404');
+					return;
+				}
 				router.replace('/500');
 			},
 		}
 	);
+
+	const fillArray = (): string[] => {
+		const newArray = [...initialValues.images];
+		while (newArray.length < MAX_IMAGES) {
+			newArray.push('');
+		}
+
+		return newArray;
+	};
 
 	const formik: FormikProps<FormikValues> = useFormik<FormikValues>({
 		initialValues: {
 			title: initialValues.title,
 			description: initialValues.description,
 			category: initialValues.category,
-			images: initialValues.images.map(
+			images: fillArray().map(
 				(image: string): ImageFormikValue => ({
 					id: uuidv4(),
 					url: image,

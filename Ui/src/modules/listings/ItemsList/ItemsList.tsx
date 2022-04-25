@@ -31,7 +31,7 @@ const ItemsList = ({ items }: ItemsProps): JSX.Element => {
 							<Image
 								draggable={false}
 								height='auto'
-								objectFit='contain'
+								objectFit='cover'
 								width='13.5rem'
 								src={item.image}
 								alt={item.title}

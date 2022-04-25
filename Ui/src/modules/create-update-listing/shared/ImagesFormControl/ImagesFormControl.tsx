@@ -10,15 +10,13 @@ import {
 	DroppableProvided,
 } from 'react-beautiful-dnd';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
-import { FaTrashAlt } from 'react-icons/fa';
-import { useMutation } from 'react-query';
+import { GrTrash } from 'react-icons/gr';
 
 import { FormControl } from '../../../../components/shared/FormControl';
-import { axiosCdnInstance } from '../../../../utils/axios';
 import { defaultImageUpload } from '../../../../utils/constants';
 import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
-import { ImagesFormControlProps, UploadImageRequest, UploadImageResponse } from './types';
+import { ImagesFormControlProps } from './types';
 
 const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 	const [field, meta, helpers] = useField<ImageFormikValue[]>({ name });
@@ -32,7 +30,6 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 		value.url ? (
 			<Center
 				backgroundColor='dark'
-				cursor='default'
 				opacity='0.98'
 				height='100%'
 				width='100%'
@@ -50,7 +47,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 					onClick={() => {
 						onImageDeleted(value.id);
 					}}>
-					<Icon as={FaTrashAlt} color={'darkish'} height='1rem' width='1rem' />
+					<Icon as={GrTrash} color={'darkish'} height='1rem' width='1rem' />
 				</Button>
 			</Center>
 		) : (
@@ -95,7 +92,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 							<Image
 								draggable={false}
 								height='100%'
-								objectFit='contain'
+								objectFit='cover'
 								width='100%'
 								src={value.url || defaultImageUpload}
 							/>

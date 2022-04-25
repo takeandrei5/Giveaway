@@ -9,7 +9,7 @@ import { ImagesFormControl } from './ImagesFormControl';
 import { TitleFormControl } from './TitleFormControl';
 import { FormContainerProps } from './types';
 
-const FormContainer = ({ formik, pageTitle }: FormContainerProps): JSX.Element => (
+const FormContainer = ({ formik, pageTitle, resetButtonText, submitButtonText }: FormContainerProps): JSX.Element => (
 	<FormikProvider value={formik}>
 		<Typography variant='h1'>{pageTitle}</Typography>
 		<Form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
@@ -29,7 +29,7 @@ const FormContainer = ({ formik, pageTitle }: FormContainerProps): JSX.Element =
 					<CategoryFormControl name='category' />
 					<ImagesFormControl name='images' />
 					<DescriptionFormControl name={'description'} />
-					<ButtonContainer />
+					<ButtonContainer resetButtonText={resetButtonText} submitButtonText={submitButtonText} />
 				</Flex>
 			</Flex>
 		</Form>

@@ -2,5 +2,6 @@ import { UpdateListingInitialValues } from '../../../pages/update-listing/[id]/t
 
 export type UpdateListingModuleProps = {
 	accessToken: string;
+	id: string;
 	initialValues: UpdateListingInitialValues;
 };

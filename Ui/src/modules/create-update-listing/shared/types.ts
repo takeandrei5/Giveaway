@@ -17,4 +17,6 @@ export type ImageFormikValue = {
 export type FormContainerProps = {
 	formik: FormikProps<FormikValues>;
 	pageTitle: string;
+	resetButtonText: string;
+	submitButtonText: string;
 };

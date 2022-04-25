@@ -38,29 +38,4 @@ const tryFetchQuery = async (
 	}
 };
 
-const tryFetchQueryT = async <T>(
-	queryKey: any[],
-	queryFn: QueryFunction<any, any[]>
-): Promise<{ redirect: Redirect } | T | undefined> => {
-	try {
-		return await queryClient.fetchQuery(queryKey, queryFn);
-	} catch (err) {
-		if (err instanceof NotFoundError) {
-			return {
-				redirect: {
-					permanent: true,
-					destination: '/404',
-				},
-			};
-		}
-
-		return {
-			redirect: {
-				permanent: true,
-				destination: '/500',
-			},
-		};
-	}
-};
-
-export { fetchAccessToken, tryFetchQuery, tryFetchQueryT };
+export { fetchAccessToken, tryFetchQuery };
