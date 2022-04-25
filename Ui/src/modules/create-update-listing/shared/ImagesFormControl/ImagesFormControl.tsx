@@ -1,5 +1,6 @@
 import { Box, Button, Center, Flex, Icon, Image, Input, Spinner } from '@chakra-ui/react';
 import { useField } from 'formik';
+import { NextRouter, useRouter } from 'next/router';
 import {
 	DragDropContext,
 	Draggable,
@@ -10,17 +11,51 @@ import {
 } from 'react-beautiful-dnd';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { FaTrashAlt } from 'react-icons/fa';
+import { useMutation } from 'react-query';
 
-import { FormControl } from '../../../components/shared/FormControl';
-import { defaultImageUpload } from '../../../utils/constants';
+import { FormControl } from '../../../../components/shared/FormControl';
+import { axiosCdnInstance } from '../../../../utils/axios';
+import { defaultImageUpload } from '../../../../utils/constants';
 import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
-import { ImagesFormControlProps } from './types';
+import { ImagesFormControlProps, UploadImageRequest, UploadImageResponse } from './types';
 
 const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
-	const [field, meta] = useField<ImageFormikValue[]>({ name });
-	const { onImageDeleted, onImageUploaded, isUploading } = useImageUpload(name);
+	const [field, meta, helpers] = useField<ImageFormikValue[]>({ name });
+
+	const { onImageUploaded, onImageDeleted, isUploading } = useImageUpload(name);
 	const { onDragEnd } = useDragAndDrop(name);
+
+	const router: NextRouter = useRouter();
+
+	const renderDeleteImageButton = (value: ImageFormikValue): JSX.Element =>
+		value.url ? (
+			<Center
+				backgroundColor='dark'
+				cursor='default'
+				opacity='0.98'
+				height='100%'
+				width='100%'
+				position='absolute'
+				zIndex='100'
+				visibility='hidden'
+				transition='visibility 0s linear 0s, opacity 300ms'>
+				<Button
+					bg='gray.200'
+					padding='0'
+					_active={{ bg: 'gray.200', filter: 'brightness(80%)' }}
+					_focus={{ border: 'none' }}
+					_hover={{ bg: 'gray.200', filter: 'brightness(90%)' }}
+					rounded='full'
+					onClick={() => {
+						onImageDeleted(value.id);
+					}}>
+					<Icon as={FaTrashAlt} color={'darkish'} height='1rem' width='1rem' />
+				</Button>
+			</Center>
+		) : (
+			<></>
+		);
 
 	const renderList = (): JSX.Element[] =>
 		field.value.map(
@@ -37,36 +72,12 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 							_hover={{ '& > div': { visibility: 'visible' } }}
 							{...provided.draggableProps}
 							{...provided.dragHandleProps}>
-							{value.url && (
-								<Center
-									backgroundColor='dark'
-									cursor='default'
-									opacity='0.98'
-									height='100%'
-									width='100%'
-									position='absolute'
-									zIndex='100'
-									visibility='hidden'
-									transition='visibility 0s linear 0s, opacity 300ms'>
-									<Button
-										bg='gray.200'
-										padding='0'
-										_active={{ bg: 'gray.200', filter: 'brightness(80%)' }}
-										_focus={{ border: 'none' }}
-										_hover={{ bg: 'gray.200', filter: 'brightness(90%)' }}
-										rounded={'full'}
-										onClick={() => {
-											onImageDeleted(value.id);
-										}}>
-										<Icon as={FaTrashAlt} color={'darkish'} height='1rem' width='1rem' />
-									</Button>
-								</Center>
-							)}
+							{renderDeleteImageButton(value)}
 							<Input
 								type='file'
 								accept='image/png, image/jpeg'
 								borderRadius='0'
-								title=''
+								title='image upload'
 								cursor='pointer'
 								position='absolute'
 								width='100%'

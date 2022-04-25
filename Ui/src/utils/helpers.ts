@@ -18,7 +18,7 @@ const tryFetchQuery = async (
 	queryFn: QueryFunction<any, any[]>
 ): Promise<{ redirect: Redirect } | undefined> => {
 	try {
-		await queryClient.fetchQuery(queryKey, queryFn);
+		return await queryClient.fetchQuery(queryKey, queryFn);
 	} catch (err) {
 		if (err instanceof NotFoundError) {
 			return {
@@ -32,10 +32,35 @@ const tryFetchQuery = async (
 		return {
 			redirect: {
 				permanent: true,
-				destination: '500',
+				destination: '/500',
 			},
 		};
 	}
 };
 
-export { fetchAccessToken, tryFetchQuery };
+const tryFetchQueryT = async <T>(
+	queryKey: any[],
+	queryFn: QueryFunction<any, any[]>
+): Promise<{ redirect: Redirect } | T | undefined> => {
+	try {
+		return await queryClient.fetchQuery(queryKey, queryFn);
+	} catch (err) {
+		if (err instanceof NotFoundError) {
+			return {
+				redirect: {
+					permanent: true,
+					destination: '/404',
+				},
+			};
+		}
+
+		return {
+			redirect: {
+				permanent: true,
+				destination: '/500',
+			},
+		};
+	}
+};
+
+export { fetchAccessToken, tryFetchQuery, tryFetchQueryT };

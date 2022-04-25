@@ -13,4 +13,4 @@ const deleteListing = async (id: string, accessToken: string): Promise<void> => 
 	}
 };
 
-export { deleteListing };
+export default deleteListing;

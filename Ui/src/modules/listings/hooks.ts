@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
+import fetchListings from '../../api/listings/fetchListings';
 import { categoryDictionary } from '../../pages/listings/constants';
 import { useAppSelector } from '../../redux/hooks';
 import { CategoryState } from '../../redux/slices/changeCategorySlice';
 import { SortingType } from '../../utils/types';
-import { fetchListings } from './apis';
 
 const useFetchListings = () => {
 	const [sort, setSort] = useState<SortingType>('Title ASC');

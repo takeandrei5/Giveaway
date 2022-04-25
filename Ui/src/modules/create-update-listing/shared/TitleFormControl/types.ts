@@ -1,3 +1,3 @@
-import { FormControl } from '../types';
+import { FormControl } from '../../shared/types';
 
 export type TitleFormControlProps = FormControl;

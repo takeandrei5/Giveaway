@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { CategoryTypeEnum } from '../../utils/enums';
+import { CategoryTypeEnum } from '../../../utils/enums';
 
 const validationSchema = yup.object({
 	title: yup

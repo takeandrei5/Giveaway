@@ -3,15 +3,15 @@ import { NextRouter, useRouter } from 'next/router';
 import { DropResult, ResponderProvided } from 'react-beautiful-dnd';
 import { useMutation } from 'react-query';
 
-import { axiosCdnInstance } from '../../../utils/axios';
+import { axiosCdnInstance } from '../../../../utils/axios';
 import { ImageFormikValue } from '../types';
 import { UploadImageRequest, UploadImageResponse } from './types';
 
 const useImageUpload = (name: string) => {
-	const [field, _, helpers] = useField(name);
+	const [field, _, helpers] = useField<ImageFormikValue[]>(name);
 	const router: NextRouter = useRouter();
 
-	const { mutate: uploadImageMutation, isLoading: isUploading } = useMutation(
+	const { mutate: uploadImageMutate, isLoading: isUploading } = useMutation(
 		'uploadImage',
 		({ id, formData }: UploadImageRequest) => uploadImage(id, formData),
 		{
@@ -38,10 +38,13 @@ const useImageUpload = (name: string) => {
 	};
 
 	const updateFormikImageValues = (id: string, url: string): void => {
-		const newArray: ImageFormikValue[] = [...field.value];
-		newArray[newArray.findIndex((image: ImageFormikValue) => image.id === id)].url = url;
+		// deep copy
+		const newArray: ImageFormikValue[] = field.value.map((value: ImageFormikValue) => ({ ...value }));
+		console.log(newArray === field.value);
+		const index = newArray.findIndex((image: ImageFormikValue) => image.id === id);
+		newArray[index].url = url;
 
-		helpers.setValue(newArray);
+		helpers.setValue(newArray, false);
 		helpers.setTouched(true);
 	};
 
@@ -54,21 +57,12 @@ const useImageUpload = (name: string) => {
 			return;
 		}
 
-		try {
-			uploadImageMutation({ id, formData: createFormData(file) });
-		} catch (err) {
-			console.error(err);
-			router.push('/500');
-		}
+		uploadImageMutate({ id, formData: createFormData(file) });
 	};
 
-	const uploadImage = async (id: string, formData: FormData): Promise<any> => {
-		try {
-			const result = await axiosCdnInstance.post<{ result: UploadImageResponse }>('', formData);
-			updateFormikImageValues(id, result.data.result.variants[0]);
-		} catch (err) {
-			console.error('Uploading image failed', err);
-		}
+	const uploadImage = async (id: string, formData: FormData): Promise<void> => {
+		const result = await axiosCdnInstance.post<{ result: UploadImageResponse }>('', formData);
+		updateFormikImageValues(id, result.data.result.variants[0]);
 	};
 
 	const onImageDeleted = (id: string): void => updateFormikImageValues(id, '');
@@ -80,7 +74,7 @@ const useDragAndDrop = (name: string) => {
 	const [field, _, helpers] = useField(name);
 
 	const reorder = (list: ImageFormikValue[], startIndex: number, endIndex: number): ImageFormikValue[] => {
-		const result = Array.from(list);
+		const result = [...list];
 		const [removed] = result.splice(startIndex, 1);
 		result.splice(endIndex, 0, removed);
 
@@ -98,7 +92,7 @@ const useDragAndDrop = (name: string) => {
 
 		const reorderedList: ImageFormikValue[] = reorder(field.value, result.source.index, result.destination.index);
 
-		helpers.setValue(reorderedList, true);
+		helpers.setValue(reorderedList, false);
 	};
 
 	return { onDragEnd };

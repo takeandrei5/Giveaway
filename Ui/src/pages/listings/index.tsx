@@ -1,9 +1,9 @@
 import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
 
+import fetchListings from '../../api/listings/fetchListings';
 import { ListingsModule } from '../../modules';
 import { queryClient } from '../../utils/queryClient';
-import { fetchListings } from './apis';
 import { dropdownOptions } from './constants';
 import { ListingsPageProps } from './types';
 
@@ -13,8 +13,10 @@ const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProp
 
 export async function getServerSideProps(): Promise<{ props: ListingsPageProps } | { redirect: Redirect }> {
 	try {
-		await queryClient.fetchQuery('fetchListings', () => fetchListings());
+		await queryClient.fetchQuery('fetchListings', () => fetchListings('Title ASC'));
 	} catch (err) {
+		console.error('Fetch listings failed', err);
+
 		return {
 			redirect: {
 				permanent: false,

@@ -1,7 +1,7 @@
 import { handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import axiosInstance from '../../../utils/axios';
+import createUser from '../../../api/users/createUser';
 
 const afterCallback = async (
 	req: NextApiRequest,
@@ -10,15 +10,7 @@ const afterCallback = async (
 	state: { [key: string]: any }
 ) => {
 	try {
-		await axiosInstance.post(
-			'/users',
-			{},
-			{
-				headers: {
-					Authorization: 'Bearer ' + session.accessToken,
-				},
-			}
-		);
+		await createUser(session.accessToken!);
 	} catch (err) {
 		console.error(err);
 	}

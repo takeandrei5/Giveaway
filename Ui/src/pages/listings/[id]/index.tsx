@@ -4,10 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
 
+import fetchListing from '../../../api/listings/fetchListing';
 import { ListingDetailsModule } from '../../../modules';
 import { fetchAccessToken, tryFetchQuery } from '../../../utils/helpers';
 import { queryClient } from '../../../utils/queryClient';
-import { fetchListing } from './apis';
 import { ListingDetailsPageProps } from './types';
 
 const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessToken, id }: ListingDetailsPageProps) => (

@@ -1,10 +1,10 @@
 import { useField } from 'formik';
 import { useMemo } from 'react';
 
-import { Dropdown } from '../../../components/shared';
-import { DropdownOption } from '../../../components/shared/Dropdown/types';
-import { FormControl } from '../../../components/shared/FormControl';
-import { CategoryTypeEnum } from '../../../utils/enums';
+import { Dropdown } from '../../../../components/shared';
+import { DropdownOption } from '../../../../components/shared/Dropdown/types';
+import { FormControl } from '../../../../components/shared/FormControl';
+import { CategoryTypeEnum } from '../../../../utils/enums';
 import { CategoryFormControlProps } from './types';
 
 const CategoryFormControl = ({ name }: CategoryFormControlProps) => {

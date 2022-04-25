@@ -1,8 +1,7 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react';
 import { GrPowerReset } from 'react-icons/gr';
 import { MdRefresh } from 'react-icons/md';
-
-import { ButtonPrimary, Typography } from '../../../components';
+import { ButtonPrimary, Typography } from '../../../../components';
 
 const ButtonContainer = (): JSX.Element => {
 	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
