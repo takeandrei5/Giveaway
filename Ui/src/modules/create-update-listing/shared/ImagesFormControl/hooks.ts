@@ -40,11 +40,9 @@ const useImageUpload = (name: string) => {
 	const updateFormikImageValues = (id: string, url: string): void => {
 		// deep copy
 		const newArray: ImageFormikValue[] = field.value.map((value: ImageFormikValue) => ({ ...value }));
-		console.log(newArray === field.value);
-		const index = newArray.findIndex((image: ImageFormikValue) => image.id === id);
-		newArray[index].url = url;
+		newArray[newArray.findIndex((image: ImageFormikValue) => image.id === id)].url = url;
 
-		helpers.setValue(newArray, false);
+		helpers.setValue(newArray, true);
 		helpers.setTouched(true);
 	};
 

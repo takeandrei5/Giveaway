@@ -8,8 +8,6 @@ const fetchListings = async (
 	orderBy: SortingType,
 	filterByCategory: number | undefined = undefined
 ): Promise<PaginatedResult<ItemData> | undefined> => {
-	console.log(orderBy);
-
 	const response: AxiosResponse = await axiosInstance.get('/listings', {
 		params: {
 			orderBy,

@@ -3,8 +3,6 @@ import { NotFoundError } from '../../utils/errors';
 import { UpdateListingRequest } from './types';
 
 const updateListing = async (accessToken: string, id: string, data: UpdateListingRequest): Promise<void> => {
-	console.log(data);
-	console.log(accessToken);
 	const response = await axiosInstance.put(`/listings/${id}`, data, {
 		headers: {
 			Authorization: 'Bearer ' + accessToken,

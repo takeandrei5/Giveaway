@@ -53,7 +53,6 @@ export async function getServerSideProps(
 			},
 		};
 	} catch (err) {
-		console.log(err);
 		console.error('Fetch listings failed', err);
 		if (err instanceof NotFoundError) {
 			return {

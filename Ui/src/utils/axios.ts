@@ -13,7 +13,6 @@ const axiosCdnInstance: AxiosInstance = axios.create({
 	headers: {
 		Authorization: `Bearer ${process.env.NEXT_PUBLIC_CDN_ACCESS_TOKEN}`,
 	},
-	validateStatus: () => true,
 });
 
 export { axiosCdnInstance };

@@ -36,6 +36,7 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 							<Stack direction='column' alignItems='center' justifyContent='center'>
 								<Image
 									draggable={false}
+									backgroundColor='primary.dark'
 									borderRadius='full'
 									boxSize='6.25rem'
 									objectFit='cover'

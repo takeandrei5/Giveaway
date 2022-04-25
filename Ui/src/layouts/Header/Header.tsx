@@ -2,7 +2,6 @@ import { UserContext, useUser } from '@auth0/nextjs-auth0';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
 	Avatar,
-	Box,
 	Button,
 	Center,
 	Flex,
@@ -19,10 +18,8 @@ import {
 	useColorModeValue,
 } from '@chakra-ui/react';
 import { NextRouter, useRouter } from 'next/router';
-import React from 'react';
-import { useMemo } from 'react';
-import { FaPlusCircle } from 'react-icons/fa';
-import { IoLogInOutline } from 'react-icons/io5';
+import React, { useMemo } from 'react';
+import { GrAdd, GrLogin } from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
 
 import { Typography } from '../../components/shared';
@@ -48,10 +45,7 @@ const Header = (): JSX.Element => {
 					<Typography variant='input'>to have access to all features 🧙‍♂️</Typography>
 				</Stack>
 				<Center pt={4}>
-					<ButtonPrimary
-						color={lightishOrDarkishColor}
-						leftIcon={<IoLogInOutline fontSize='larger' />}
-						onClick={handleSignIn}>
+					<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<GrLogin fontSize='larger' />} onClick={handleSignIn}>
 						<Typography variant='button'>Sign in here</Typography>
 					</ButtonPrimary>
 				</Center>
@@ -130,7 +124,7 @@ const Header = (): JSX.Element => {
 				<Stack alignItems='center' direction='row' spacing={7}>
 					<ButtonPrimary
 						color={lightishOrDarkishColor}
-						leftIcon={<FaPlusCircle fontSize='larger' />}
+						leftIcon={<GrAdd fontSize='larger' />}
 						onClick={() => (user ? router.push('/create-listing') : handleSignInWithReturnTo('/create-listing'))}>
 						<Typography variant='button'>Create listing</Typography>
 					</ButtonPrimary>
