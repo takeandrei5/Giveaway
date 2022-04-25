@@ -18,7 +18,7 @@ const tryFetchQuery = async (
 	queryFn: QueryFunction<any, any[]>
 ): Promise<{ redirect: Redirect } | undefined> => {
 	try {
-		return await queryClient.fetchQuery(queryKey, queryFn);
+		await queryClient.fetchQuery(queryKey, queryFn);
 	} catch (err) {
 		if (err instanceof NotFoundError) {
 			return {

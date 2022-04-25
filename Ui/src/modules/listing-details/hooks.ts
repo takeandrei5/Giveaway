@@ -3,9 +3,8 @@ import { useMutation, useQuery } from 'react-query';
 
 import deleteListing from '../../api/listings/deleteListing';
 import fetchListing from '../../api/listings/fetchListing';
+import { ListingInformation, OwnerInformation } from '../../api/listings/types';
 import { NotFoundError } from '../../utils/errors';
-import { ListingInformationProps } from './ListingInformation/types';
-import { OwnerInformationProps } from './OwnerInformation/types';
 
 const useFetchListingDetails = (id: string, accessToken: string | undefined) => {
 	const router: NextRouter = useRouter();
@@ -24,8 +23,7 @@ const useFetchListingDetails = (id: string, accessToken: string | undefined) => 
 		},
 	});
 
-	const { listingInfo, ownerInfo }: { listingInfo: ListingInformationProps } & { ownerInfo: OwnerInformationProps } =
-		data!;
+	const { listingInfo, ownerInfo }: { listingInfo: ListingInformation } & { ownerInfo: OwnerInformation } = data!;
 
 	return { listingInfo, ownerInfo, deleteListingMutate };
 };
