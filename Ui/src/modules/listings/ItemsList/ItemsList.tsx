@@ -2,9 +2,10 @@ import { Box, Grid, GridItem, Image } from '@chakra-ui/react';
 import dateFormat from 'dateformat';
 import { NextRouter, useRouter } from 'next/router';
 import { useMemo } from 'react';
+import { ItemData } from '../../../api/listings/types';
 
 import { Typography } from '../../../components';
-import { ItemData, ItemsProps } from './types';
+import { ItemsProps } from './types';
 
 const ItemsList = ({ items }: ItemsProps): JSX.Element => {
 	const router: NextRouter = useRouter();
