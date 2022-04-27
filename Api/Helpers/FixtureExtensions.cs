@@ -45,7 +45,7 @@ public static class FixtureExtensions
                 OwnerId = ownerId,
                 Title = fixture.CreateTextWithMaxLength(50),
                 Description = fixture.CreateTextWithMaxLength(250),
-                CategoryId = categoryId,
+                CategoryId = categoryId
             });
         }
 
@@ -64,7 +64,7 @@ public static class FixtureExtensions
                 Id = fixture.Create<Guid>(),
                 ListingId = listingId,
                 Url = fixture.CreateUrl(),
-                Index = i + 1
+                Index = i + 1,
             });
         }
 

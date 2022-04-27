@@ -31,13 +31,16 @@ public sealed class ReadListingByIdAsync_1 : Base
             .Returns(user.Information.Email.Value);
 
         var listingEntity = listingEntities[0];
-        var listingsResult = new ListingDtoModel
+        var listingResult = new ListingDtoModel
         {
             Id = listingEntity.Id,
             Title = listingEntity.Title,
             Description = listingEntity.Description,
             Category = listingEntity.CategoryId,
-            Images = imageEntities.Select(image => image.Url)
+            Images = imageEntities.Select(image => image.Url),
+            OwnerEmail = user.Information.Email.Value,
+            OwnerName = user.Information.Name.Value,
+            OwnerImage = user.Information.Image.Value,
         };
 
         await SetupDatabase(imageEntities, listingEntities, userEntities);
@@ -47,6 +50,6 @@ public sealed class ReadListingByIdAsync_1 : Base
 
         // Assert
         result.Should()
-            .BeEquivalentTo(listingsResult);
+            .BeEquivalentTo(listingResult, opt => opt.Excluding(field => field.CreatedAt));
     }
 }
