@@ -28,7 +28,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddHttpClient("Auth0", httpClient =>
 {
-    httpClient.BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]);
+    httpClient.BaseAddress = new Uri(configuration["AUTH0_DOMAIN"]);
 
     httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
 });
@@ -36,8 +36,8 @@ builder.Services.AddHttpClient("Auth0", httpClient =>
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
-            options.Authority = configuration["Authentication:Auth0:Domain"];
-            options.Audience = configuration["Authentication:Auth0:Audience"];
+            options.Authority = configuration["AUTH0_DOMAIN"];
+            options.Audience = configuration["AUTH0_AUDIENCE"];
 
             options.SaveToken = true;
 
@@ -54,7 +54,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
                     var httpClient = new HttpClient
                     {
-                        BaseAddress = new Uri(configuration["Authentication:Auth0:Domain"]),
+                        BaseAddress = new Uri(configuration["AUTH0_DOMAIN"]),
                     };
 
                     httpClient.DefaultRequestHeaders.Add(HeaderNames.Authorization, $"Bearer {accessToken.RawData}");
@@ -81,7 +81,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 
 if (builder.Environment.IsDevelopment())
-    builder.Services.AddSwagger(configuration["Authentication:Auth0:Domain"], configuration["Authentication:Auth0:Audience"]);
+    builder.Services.AddSwagger(configuration["AUTH0_DOMAIN"], configuration["AUTH0_AUDIENCE"]);
 
 builder.Services.AddControllers(options =>
             options.Filters.Add<GenericExceptionFilter>());
@@ -96,7 +96,7 @@ if (app.Environment.IsDevelopment())
     {
         swaggerUiOptions.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Giveaway APIs v1");
         swaggerUiOptions.RoutePrefix = "api/swagger";
-        swaggerUiOptions.OAuthClientId(configuration["Authentication:Auth0:ClientId"]);
+        swaggerUiOptions.OAuthClientId(configuration["AUTH0_CLIENT_ID"]);
     });
 }
 
