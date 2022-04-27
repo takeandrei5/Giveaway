@@ -90,7 +90,7 @@ const useDragAndDrop = (name: string) => {
 
 		const reorderedList: ImageFormikValue[] = reorder(field.value, result.source.index, result.destination.index);
 
-		helpers.setValue(reorderedList, false);
+		helpers.setValue(reorderedList, true);
 	};
 
 	return { onDragEnd };
