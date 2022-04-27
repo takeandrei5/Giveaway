@@ -10,5 +10,5 @@ public sealed record ImageEntity
 
     public string Url { get; set; } = null!;
 
-    public bool IsMainImage { get; set; }
+    public int Index { get; set; }
 }

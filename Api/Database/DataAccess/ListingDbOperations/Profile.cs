@@ -14,10 +14,13 @@ public sealed class Profile : AutoMapper.Profile
             .ForMember(dest => dest.Result, opt => opt.MapFrom(src => src.Result));
 
         CreateMap<ListingEntity, ReadAllListingsModel>()
-            .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Images.Where(image => image.IsMainImage).First().Url));
+            .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Images.Where(image => image.Index == 1).First().Url));
 
         CreateMap<ListingEntity, ReadListingByIdModel>()
-            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(image => image.Url)))
+            .ForMember(dest => dest.Images, opt =>
+                opt.MapFrom(src =>
+                    src.Images.OrderBy(image => image.Index)
+                        .Select(image => image.Url)))
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryId))
             .ForMember(dest => dest.OwnerEmail, opt => opt.MapFrom(src => src.Owner.Email))
             .ForMember(dest => dest.OwnerName, opt => opt.MapFrom(src => src.Owner.Name))

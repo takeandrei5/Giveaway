@@ -31,7 +31,7 @@ public sealed class Repository : IListingRepository
             Id = Guid.NewGuid(),
             ListingId = listing.Id.Value,
             Url = image.Value,
-            IsMainImage = index == 0
+            Index = index + 1
         }), cancellationToken);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
@@ -90,7 +90,7 @@ public sealed class Repository : IListingRepository
             Id = Guid.NewGuid(),
             ListingId = listing.Id.Value,
             Url = image.Value,
-            IsMainImage = index == 0
+            Index = index + 1
         }));
 
         await _dbContext.SaveChangesAsync(cancellationToken);

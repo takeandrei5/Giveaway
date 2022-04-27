@@ -57,13 +57,14 @@ public static class FixtureExtensions
     {
         var images = new List<ImageEntity>();
 
-        foreach (var _ in ..(count - 1))
+        foreach (var i in ..(count - 1))
         {
             images.Add(new ImageEntity
             {
                 Id = fixture.Create<Guid>(),
                 ListingId = listingId,
                 Url = fixture.CreateUrl(),
+                Index = i + 1
             });
         }
 

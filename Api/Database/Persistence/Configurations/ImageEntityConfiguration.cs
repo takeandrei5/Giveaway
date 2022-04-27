@@ -15,7 +15,9 @@ public sealed class ImageEntityConfiguration : IEntityTypeConfiguration<ImageEnt
         builder.Property(b => b.Url)
             .IsRequired();
 
-        builder.Property(b => b.IsMainImage)
+        builder.Property(b => b.Index)
             .IsRequired();
+
+        builder.HasIndex(b => new { b.ListingId, b.Index });
     }
 }

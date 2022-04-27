@@ -36,12 +36,12 @@ public sealed class Map_1 : Base
             {
                 new()
                 {
-                    IsMainImage = true,
+                    Index = 1,
                     Url = listingImageUrl
                 },
                 new()
                 {
-                    IsMainImage = false,
+                    Index = 2,
                     Url = listingImageUrl2
                 }
             },

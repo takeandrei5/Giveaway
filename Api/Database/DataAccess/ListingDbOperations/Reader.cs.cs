@@ -36,7 +36,7 @@ public sealed class Reader : IListingReader
 
         var listingEntities = await _dbContext.Listings
             .IgnoreQueryFilters()
-            .Include(listing => listing.Images)
+            .Include(listing => listing.Images.Where(image => image.Index == 1))
             .ToPaginatedListAsync(listPagedQuery, ApplyOrdering, cancellationToken);
 
         return _mapper.Map<PaginatedResult<ReadAllListingsModel>>(listingEntities);
