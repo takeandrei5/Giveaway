@@ -43,7 +43,6 @@ const useImageUpload = (name: string) => {
 		newArray[newArray.findIndex((image: ImageFormikValue) => image.id === id)].url = url;
 
 		helpers.setValue(newArray, true);
-		helpers.setTouched(true);
 	};
 
 	const onImageUploaded = async (id: string, file: File | undefined): Promise<void> => {
@@ -61,6 +60,7 @@ const useImageUpload = (name: string) => {
 	const uploadImage = async (id: string, formData: FormData): Promise<void> => {
 		const result = await axiosCdnInstance.post<{ result: UploadImageResponse }>('', formData);
 		updateFormikImageValues(id, result.data.result.variants[0]);
+		helpers.setTouched(true);
 	};
 
 	const onImageDeleted = (id: string): void => updateFormikImageValues(id, '');

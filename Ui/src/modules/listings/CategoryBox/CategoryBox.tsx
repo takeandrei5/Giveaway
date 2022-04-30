@@ -1,5 +1,5 @@
-import { Box, Center, Grid, GridItem, Image, Stack } from '@chakra-ui/react';
-import { Typography } from 'components';
+import { Box, Center, Grid, GridItem, Stack } from '@chakra-ui/react';
+import { Image, Typography } from 'components';
 import { useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { changeCategory } from 'redux/slices/changeCategorySlice';
@@ -38,7 +38,8 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 									draggable={false}
 									backgroundColor='primary.dark'
 									borderRadius='full'
-									boxSize='6.25rem'
+									height='6.25rem'
+									width='6.25rem'
 									objectFit='cover'
 									src={category.image}
 									alt={category.name}

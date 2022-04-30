@@ -1,4 +1,7 @@
 const nextConfig = {
+	images: {
+		domains: ['imagedelivery.net'],
+	},
 	webpackDevMiddleware: (config) => {
 		config.watchOptions = {
 			poll: 800,

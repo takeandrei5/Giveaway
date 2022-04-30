@@ -1,6 +1,6 @@
-import { Box, Grid, GridItem, Image } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { ItemData } from 'api/listings/types';
-import { Typography } from 'components';
+import { Image, Typography } from 'components';
 import dateFormat from 'dateformat';
 import { NextRouter, useRouter } from 'next/router';
 import { useMemo } from 'react';
@@ -29,14 +29,7 @@ const ItemsList = ({ items }: ItemsProps): JSX.Element => {
 							flexDir='row'
 							padding='0.625rem'
 							onClick={() => router.push(`/listings/${item.id}`)}>
-							<Image
-								draggable={false}
-								height='auto'
-								objectFit='cover'
-								width='13.5rem'
-								src={item.image}
-								alt={item.title}
-							/>
+							<Image objectFit='cover' height='auto' width='13.5rem' src={item.image} alt={item.title} />
 							<Box display='flex' flexDir='column' marginLeft='0.625rem'>
 								<Typography variant='h5'>{item.title}</Typography>
 								<Box marginTop='auto'>

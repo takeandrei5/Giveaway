@@ -1,19 +1,20 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import { Center, Image } from '@chakra-ui/react';
+import { Center } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { GrNext, GrPrevious } from 'react-icons/gr';
 import Slider, { CustomArrowProps } from 'react-slick';
 
 import { ImageSliderProps } from './types';
+import { Image } from 'components';
 
 const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 	const renderImages = useMemo(
 		(): JSX.Element[] =>
 			images.map(
 				(image: string): JSX.Element => (
-					<Image key={image} draggable={false} boxSize='25.625rem' objectFit='contain' src={image} alt='image' />
+					<Image key={image} height='25.625rem' width='100%' objectFit='contain' src={image} alt='image' />
 				)
 			),
 		[images]

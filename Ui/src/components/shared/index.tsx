@@ -6,6 +6,8 @@ export { FormControl } from './FormControl';
 
 export { Input } from './Input';
 
+export { Image } from './Image';
+
 export { Logo } from './Logo';
 
 export { Skeleton } from './Skeleton';

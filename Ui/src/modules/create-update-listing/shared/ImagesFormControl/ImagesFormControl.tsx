@@ -1,5 +1,5 @@
-import { Box, Button, Center, Flex, Icon, Image, Input, Spinner } from '@chakra-ui/react';
-import { FormControl } from 'components';
+import { Box, Button, Center, Flex, Icon, Input, Spinner } from '@chakra-ui/react';
+import { FormControl, Image } from 'components';
 import { useField } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import {
@@ -19,12 +19,10 @@ import { useDragAndDrop, useImageUpload } from './hooks';
 import { ImagesFormControlProps } from './types';
 
 const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
-	const [field, meta, helpers] = useField<ImageFormikValue[]>({ name });
+	const [field] = useField<ImageFormikValue[]>({ name });
 
 	const { onImageUploaded, onImageDeleted, isUploading } = useImageUpload(name);
 	const { onDragEnd } = useDragAndDrop(name);
-
-	const router: NextRouter = useRouter();
 
 	const renderDeleteImageButton = (value: ImageFormikValue): JSX.Element =>
 		value.url ? (
@@ -34,7 +32,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 				height='100%'
 				width='100%'
 				position='absolute'
-				zIndex='100'
+				zIndex='200'
 				visibility='hidden'
 				transition='visibility 0s linear 0s, opacity 300ms'>
 				<Button
@@ -61,6 +59,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 					{(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
 						<Box
 							ref={provided.innerRef}
+							id='test'
 							cursor='default'
 							marginRight='0.5rem'
 							width='100%'
@@ -87,8 +86,11 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 									e.target.value = '';
 								}}
 								style={{ textIndent: '-999px' }}
+								zIndex='101'
 							/>
-							{index === 0 && <Icon as={BsFillBookmarkStarFill} position='absolute' top='0.125rem' right='0.5rem' />}
+							{index === 0 && (
+								<Icon as={BsFillBookmarkStarFill} position='absolute' top='0.125rem' right='0.5rem' zIndex='100' />
+							)}
 							<Image
 								draggable={false}
 								height='100%'
