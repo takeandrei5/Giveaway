@@ -59,7 +59,10 @@ const useImageUpload = (name: string) => {
 
 	const uploadImage = async (id: string, formData: FormData): Promise<void> => {
 		const result = await axiosCdnInstance.post<{ result: UploadImageResponse }>('', formData);
-		updateFormikImageValues(id, result.data.result.variants[0]);
+		updateFormikImageValues(
+			id,
+			result.data.result.variants.filter((variant: string) => variant.includes('/public'))[0]
+		);
 		helpers.setTouched(true);
 	};
 

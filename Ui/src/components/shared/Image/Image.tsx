@@ -11,7 +11,16 @@ const Image = ({
 	draggable = false,
 	...props
 }: ImageProps) => {
-	const Loader: ImageLoader = ({ src, width, quality, config }: ImageLoaderProps) => `${src}?q=${quality || 75}`;
+	const Loader: ImageLoader = ({ src, width, quality, config }: ImageLoaderProps) => {
+		// todo -> research more
+		const params = [`width=${width}`];
+		if (quality) {
+			params.push(`quality=${quality}`);
+		}
+		const paramsString = params.join(',');
+
+		return `${src}/cdn-cgi/image/${paramsString}`;
+	};
 
 	return (
 		<Box
@@ -21,7 +30,7 @@ const Image = ({
 			width={width}
 			overflow='hidden'
 			__css={{ '& > span': { height: '100% !important' } }}>
-			<NextImage {...props} draggable={draggable} layout='responsive' height='100%' width='100%' loader={Loader} />
+			<NextImage {...props} draggable={draggable} layout='responsive' height='100%' width='100%' />
 		</Box>
 	);
 };
