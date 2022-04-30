@@ -2,17 +2,16 @@ import { Button, CSSObject, useStyleConfig } from '@chakra-ui/react';
 
 import { ButtonPrimaryProps } from './types';
 
-const ButtonPrimary = (props: ButtonPrimaryProps): JSX.Element => {
-	const {
-		children,
-		disabled = false,
-		height = '100%',
-		leftIcon,
-		rightIcon,
-		onClick = () => {},
-		type = 'button',
-		...rest
-	} = props;
+const ButtonPrimary = ({
+	children,
+	disabled = false,
+	height = '100%',
+	leftIcon,
+	rightIcon,
+	onClick = () => {},
+	type = 'button',
+	...rest
+}: ButtonPrimaryProps): JSX.Element => {
 	const styles: CSSObject = useStyleConfig('ButtonPrimary');
 
 	return (

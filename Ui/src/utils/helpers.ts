@@ -3,14 +3,16 @@ import { GetServerSidePropsContext, Redirect } from 'next';
 import { QueryFunction } from 'react-query';
 
 import { NotFoundError } from './errors';
-import { queryClient } from './queryClient';
+import queryClient from './queryClient';
 
 const fetchAccessToken = async (context: GetServerSidePropsContext): Promise<string | undefined> => {
 	try {
 		const { accessToken } = await getAccessToken(context.req, context.res);
 
 		return accessToken;
-	} catch (err) {}
+	} catch (err) {
+		console.error(err);
+	}
 };
 
 const tryFetchQuery = async (

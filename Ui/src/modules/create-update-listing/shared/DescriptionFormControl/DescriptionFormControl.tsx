@@ -1,6 +1,6 @@
+import { FormControl, Input } from 'components';
 import { useField } from 'formik';
 
-import { FormControl, Input } from '../../../../components';
 import { DescriptionFormControlProps } from './types';
 
 const DescriptionFormControl = ({ name }: DescriptionFormControlProps) => {

@@ -1,6 +1,7 @@
-import { Skeleton } from '../../components';
-import { categories } from '../../utils/constants';
-import { SortingType } from '../../utils/types';
+import { Skeleton } from 'components';
+import { categories } from 'utils/constants';
+import { SortingType } from 'utils/types';
+
 import { CategoryBox } from './CategoryBox';
 import useFetchListings from './hooks';
 import Items from './ItemsList/ItemsList';

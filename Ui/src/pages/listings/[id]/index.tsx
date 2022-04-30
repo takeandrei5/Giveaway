@@ -1,13 +1,13 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import fetchListing from 'api/listings/fetchListing';
+import { ListingDetailsModule } from 'modules';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
+import { fetchAccessToken, tryFetchQuery } from 'utils/helpers';
+import queryClient from 'utils/queryClient';
 
-import fetchListing from '../../../api/listings/fetchListing';
-import { ListingDetailsModule } from '../../../modules';
-import { fetchAccessToken, tryFetchQuery } from '../../../utils/helpers';
-import { queryClient } from '../../../utils/queryClient';
 import { ListingDetailsPageProps } from './types';
 
 const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ accessToken, id }: ListingDetailsPageProps) => (

@@ -17,14 +17,12 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
+import { ButtonPrimary, Logo, Typography } from 'components';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { GrAdd, GrLogin } from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
 
-import { Typography } from '../../components/shared';
-import ButtonPrimary from '../../components/shared/Buttons/ButtonPrimary';
-import Logo from '../../components/shared/Logo/Logo';
 import useLogin from './hooks';
 
 const Header = (): JSX.Element => {
@@ -51,10 +49,10 @@ const Header = (): JSX.Element => {
 				</Center>
 			</MenuList>
 		),
-		[]
+		[lightishOrDarkishColor, handleSignIn]
 	);
 
-	const loginMenuMemo: JSX.Element = useMemo((): JSX.Element => {
+	const renderLoginMenu = (): JSX.Element => {
 		if (user) {
 			return (
 				<>
@@ -115,8 +113,7 @@ const Header = (): JSX.Element => {
 				{menuListMemo}
 			</>
 		);
-	}, [isLoading, lightishOrDarkishColor, darkishOrWhiteColor]);
-
+	};
 	return (
 		<Skeleton isLoaded={!isLoading}>
 			<Flex bg='secondary.main' px={4} h='20' alignItems='center' justifyContent='space-between'>
@@ -143,7 +140,7 @@ const Header = (): JSX.Element => {
 							width='1.5rem'
 						/>
 					</Button>
-					<Menu autoSelect={false}>{loginMenuMemo}</Menu>
+					<Menu autoSelect={false}>{renderLoginMenu()}</Menu>
 				</Stack>
 			</Flex>
 		</Skeleton>

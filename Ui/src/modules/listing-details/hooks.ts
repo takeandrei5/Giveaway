@@ -1,9 +1,8 @@
+import { deleteListing, fetchListing } from 'api/listings';
+import { ListingInformation, OwnerInformation } from 'api/listings/types';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation, useQuery } from 'react-query';
 
-import deleteListing from '../../api/listings/deleteListing';
-import fetchListing from '../../api/listings/fetchListing';
-import { ListingInformation, OwnerInformation } from '../../api/listings/types';
 import { NotFoundError } from '../../utils/errors';
 
 const useFetchListingDetails = (id: string, accessToken: string | undefined) => {

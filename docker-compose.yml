@@ -72,8 +72,8 @@ services:
       - /app/.next
 
   mssql:
-    image: mcr.microsoft.com/mssql/server:latest # if working on Windows
-    #image: mcr.microsoft.com/azure-sql-edge:latest # if working on MAC arm64
+    #image: mcr.microsoft.com/mssql/server:latest # if working on Windows
+    image: mcr.microsoft.com/azure-sql-edge:latest # if working on MAC arm64
     user: root
     environment:
       - 'SA_PASSWORD=sa_password_123'

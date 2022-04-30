@@ -1,7 +1,7 @@
+import { CreateListingModule } from 'modules';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next';
+import { fetchAccessToken } from 'utils/helpers';
 
-import { CreateListingModule } from '../../modules';
-import { fetchAccessToken } from '../../utils/helpers';
 import { CreateListingPageProps } from './types';
 
 const CreateListingPage: NextPage<CreateListingPageProps> = ({ accessToken }: CreateListingPageProps) => (

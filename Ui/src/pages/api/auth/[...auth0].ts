@@ -1,7 +1,6 @@
 import { handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
+import createUser from 'api/users/createUser';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-import createUser from '../../../api/users/createUser';
 
 const afterCallback = async (
 	req: NextApiRequest,

@@ -1,12 +1,12 @@
 import { getSession } from '@auth0/nextjs-auth0';
+import fetchListing from 'api/listings/fetchListing';
+import { FetchListingDetailsResponse } from 'api/listings/types';
+import { UpdateListingModule } from 'modules';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next';
 import { dehydrate, useQuery } from 'react-query';
+import { NotFoundError } from 'utils/errors';
+import queryClient from 'utils/queryClient';
 
-import fetchListing from '../../../api/listings/fetchListing';
-import { FetchListingDetailsResponse } from '../../../api/listings/types';
-import UpdateListingModule from '../../../modules/create-update-listing/update-listing';
-import { NotFoundError } from '../../../utils/errors';
-import { queryClient } from '../../../utils/queryClient';
 import { UpdateListingPageProps } from './types';
 
 const UpdateListingPage: NextPage<UpdateListingPageProps> = ({ accessToken, id }: UpdateListingPageProps) => {

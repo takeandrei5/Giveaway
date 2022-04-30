@@ -1,10 +1,10 @@
+import fetchListings from 'api/listings/fetchListings';
+import { ListingsModule } from 'modules';
 import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
+import { tryFetchQuery } from 'utils/helpers';
+import queryClient from 'utils/queryClient';
 
-import fetchListings from '../../api/listings/fetchListings';
-import { ListingsModule } from '../../modules';
-import { tryFetchQuery } from '../../utils/helpers';
-import { queryClient } from '../../utils/queryClient';
 import { dropdownOptions } from './constants';
 import { ListingsPageProps } from './types';
 

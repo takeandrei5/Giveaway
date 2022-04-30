@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import { Center, Image } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { GrNext, GrPrevious } from 'react-icons/gr';
-import Slider from 'react-slick';
+import Slider, { CustomArrowProps } from 'react-slick';
 
 import { ImageSliderProps } from './types';
 
@@ -19,6 +19,14 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 		[images]
 	);
 
+	const PreviousArrow = ({ currentSlide, slideCount, ...props }: CustomArrowProps): JSX.Element => (
+		<GrPrevious className='slick-prev slick-arrow' {...props} />
+	);
+
+	const NextArrow = ({ currentSlide, slideCount, ...props }: CustomArrowProps): JSX.Element => (
+		<GrNext className='slick-next slick-arrow' {...props} />
+	);
+
 	return (
 		<Center
 			borderRadius='2xl'
@@ -27,7 +35,13 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 			height='31.25rem'
 			marginTop='1rem'
 			__css={{ '& > div.slick-slider.slick-initialized': { width: '100%', height: '90%' } }}>
-			<Slider adaptiveHeight infinite dots lazyLoad='progressive' prevArrow={<GrPrevious />} nextArrow={<GrNext />}>
+			<Slider
+				adaptiveHeight
+				infinite
+				dots
+				lazyLoad='progressive'
+				prevArrow={<PreviousArrow />}
+				nextArrow={<NextArrow />}>
 				{renderImages}
 			</Slider>
 		</Center>

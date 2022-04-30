@@ -1,10 +1,10 @@
 import { Box, Center, Grid, GridItem, Image, Stack } from '@chakra-ui/react';
+import { Typography } from 'components';
 import { useMemo } from 'react';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { changeCategory } from 'redux/slices/changeCategorySlice';
+import { Category } from 'utils/types';
 
-import { Typography } from '../../../components';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { changeCategory } from '../../../redux/slices/changeCategorySlice';
-import { Category } from '../../../utils/types';
 import { CategoryBoxProps } from './types';
 
 const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
@@ -51,7 +51,7 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 					</GridItem>
 				)
 			),
-		[categories, categoryState]
+		[categories, categoryState, dispatch]
 	);
 
 	return (

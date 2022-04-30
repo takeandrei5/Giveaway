@@ -1,4 +1,5 @@
 import { Box, Button, Center, Flex, Icon, Image, Input, Spinner } from '@chakra-ui/react';
+import { FormControl } from 'components';
 import { useField } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import {
@@ -11,9 +12,8 @@ import {
 } from 'react-beautiful-dnd';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { GrTrash } from 'react-icons/gr';
+import { defaultImageUpload } from 'utils/constants';
 
-import { FormControl } from '../../../../components/shared/FormControl';
-import { defaultImageUpload } from '../../../../utils/constants';
 import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
 import { ImagesFormControlProps } from './types';
@@ -95,6 +95,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								objectFit='cover'
 								width='100%'
 								src={value.url || defaultImageUpload}
+								alt='imageUpload'
 							/>
 						</Box>
 					)}

@@ -1,9 +1,9 @@
+import { createListing } from 'api/listings';
+import { CreateListingRequest } from 'api/listings/types';
 import { FormikProps, useFormik } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 
-import createListing from '../../../api/listings/createListing';
-import { CreateListingRequest } from '../../../api/listings/types';
 import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
 import INITIAL_VALUES from './constants';

@@ -1,7 +1,7 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react';
+import { ButtonPrimary, Typography } from 'components';
 import { GrRefresh, GrSend } from 'react-icons/gr';
 
-import { ButtonPrimary, Typography } from '../../../../components';
 import { ButtonContainerProps } from './types';
 
 const ButtonContainer = ({ resetButtonText, submitButtonText }: ButtonContainerProps): JSX.Element => {

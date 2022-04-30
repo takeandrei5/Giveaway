@@ -1,4 +1,5 @@
-import { DropdownOption } from '../../components/shared/Dropdown/types';
+import { DropdownOption } from 'components/shared/Dropdown/types';
+
 import { CategoryDictionary } from './types';
 
 const categoryDictionary: CategoryDictionary = {

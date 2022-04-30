@@ -8,8 +8,8 @@ import {
 	Textarea,
 	useStyleConfig,
 } from '@chakra-ui/react';
+import { Typography } from 'components';
 
-import { Typography } from '../Typography';
 import { InputProps } from './types';
 
 const Input = ({

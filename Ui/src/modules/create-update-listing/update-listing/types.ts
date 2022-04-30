@@ -1,4 +1,6 @@
-import { UpdateListingInitialValues } from '../../../pages/update-listing/[id]/types';
+import { FormikValues } from '../shared/types';
+
+type UpdateListingInitialValues = Omit<FormikValues, 'images'> & { images: string[] };
 
 export type UpdateListingModuleProps = {
 	accessToken: string;

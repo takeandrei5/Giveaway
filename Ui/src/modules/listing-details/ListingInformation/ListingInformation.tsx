@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
+import { Typography } from 'components';
 import dateFormat from 'dateformat';
 
-import { Typography } from '../../../components';
 import { ListingInformationProps } from './types';
 
 const InformationBox = ({ title, description, createdAt }: ListingInformationProps): JSX.Element => (

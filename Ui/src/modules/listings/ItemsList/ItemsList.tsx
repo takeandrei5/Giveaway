@@ -1,10 +1,10 @@
 import { Box, Grid, GridItem, Image } from '@chakra-ui/react';
+import { ItemData } from 'api/listings/types';
+import { Typography } from 'components';
 import dateFormat from 'dateformat';
 import { NextRouter, useRouter } from 'next/router';
 import { useMemo } from 'react';
-import { ItemData } from '../../../api/listings/types';
 
-import { Typography } from '../../../components';
 import { ItemsProps } from './types';
 
 const ItemsList = ({ items }: ItemsProps): JSX.Element => {
@@ -49,7 +49,7 @@ const ItemsList = ({ items }: ItemsProps): JSX.Element => {
 					</GridItem>
 				)
 			),
-		[items]
+		[items, router]
 	);
 
 	return (

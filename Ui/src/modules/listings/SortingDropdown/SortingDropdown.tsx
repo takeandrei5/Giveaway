@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
+import { Dropdown, Typography } from 'components';
 
-import { Dropdown, Typography } from '../../../components/shared';
 import { SortingDropdownProps } from './types';
 
 const SortingDropdown = ({ id, name, options, onChangeHandler, value }: SortingDropdownProps): JSX.Element => (
