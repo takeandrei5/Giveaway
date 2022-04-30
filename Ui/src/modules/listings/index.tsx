@@ -15,6 +15,8 @@ export { default as SortingDropdown } from './SortingDropdown/SortingDropdown';
 const ListingsModule = ({ options }: ListingsModuleProps): JSX.Element => {
 	const { isLoading, listings, sort, setSort } = useFetchListings();
 
+	console.log(listings);
+
 	return (
 		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
 			<CategoryBox categories={categories} />

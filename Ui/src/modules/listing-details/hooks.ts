@@ -5,12 +5,12 @@ import { useMutation, useQuery } from 'react-query';
 
 import { NotFoundError } from '../../utils/errors';
 
-const useFetchListingDetails = (id: string, accessToken: string | undefined) => {
+const useFetchListingDetails = (id: string) => {
 	const router: NextRouter = useRouter();
 
-	const { data } = useQuery(['fetchListing', id], () => fetchListing(id));
+	const { isLoading, data } = useQuery(['fetchListing', id], () => fetchListing(id));
 
-	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id, accessToken!), {
+	const { mutate: deleteListingMutate } = useMutation((accessToken: string) => deleteListing(id, accessToken), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
 			if (err instanceof NotFoundError) {
@@ -24,7 +24,7 @@ const useFetchListingDetails = (id: string, accessToken: string | undefined) => 
 
 	const { listingInfo, ownerInfo }: { listingInfo: ListingInformation } & { ownerInfo: OwnerInformation } = data!;
 
-	return { listingInfo, ownerInfo, deleteListingMutate };
+	return { isLoading, listingInfo, ownerInfo, deleteListingMutate };
 };
 
 export default useFetchListingDetails;

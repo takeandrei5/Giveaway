@@ -1,6 +1,7 @@
-import { Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, Skeleton } from '@chakra-ui/react';
 import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
+import { useGetAccessToken } from 'utils/hooks';
 
 import { ActionButton } from './ActionButton';
 import useFetchListingDetails from './hooks';
@@ -9,12 +10,13 @@ import { ListingInformation } from './ListingInformation';
 import { OwnerInformation } from './OwnerInformation';
 import { ListingDetailsModuleProps } from './types';
 
-const ListingDetailsModule = ({ id, accessToken }: ListingDetailsModuleProps) => {
+const ListingDetailsModule = ({ id }: ListingDetailsModuleProps) => {
 	const router: NextRouter = useRouter();
-	const { listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id, accessToken);
+	const { isFetched, data } = useGetAccessToken(false);
+	const { isLoading, listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id);
 
 	return (
-		<>
+		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
 			<Flex width='100%' gap={2} justifyContent='end'>
 				<ActionButton
 					bgColor='primary.main'
@@ -28,7 +30,7 @@ const ListingDetailsModule = ({ id, accessToken }: ListingDetailsModuleProps) =>
 					icon={<GrTrash fontSize='mediun' />}
 					label='Delete listing'
 					ownerEmail={ownerInfo.email}
-					onClick={deleteListingMutate}
+					onClick={() => deleteListingMutate(data!)}
 				/>
 			</Flex>
 			<ImageSlider images={listingInfo.images} />
@@ -40,7 +42,7 @@ const ListingDetailsModule = ({ id, accessToken }: ListingDetailsModuleProps) =>
 					<OwnerInformation {...ownerInfo} />
 				</GridItem>
 			</Grid>
-		</>
+		</Skeleton>
 	);
 };
 

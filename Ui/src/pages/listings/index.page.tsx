@@ -12,13 +12,16 @@ const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProp
 	<ListingsModule options={options} />
 );
 
-export async function getServerSideProps(): Promise<{ props: ListingsPageProps } | { redirect: Redirect }> {
+export async function getStaticProps(): Promise<
+	{ props: ListingsPageProps; revalidate: number } | { redirect: Redirect }
+> {
 	return (
 		(await tryFetchQuery(['fetchListings'], () => fetchListings('Title ASC'))) || {
 			props: {
 				dehydratedState: dehydrate(queryClient),
 				options: dropdownOptions,
 			},
+			revalidate: 300,
 		}
 	);
 }

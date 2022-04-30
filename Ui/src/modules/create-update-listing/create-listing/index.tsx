@@ -1,12 +1,17 @@
+import { Skeleton } from 'components';
+import { useGetAccessToken } from 'utils/hooks';
+
 import { FormContainer } from '../shared';
 import { useCreateListing } from './hooks';
-import { CreateListingModuleProps } from './types';
 
-const CreateListingModule = ({ accessToken }: CreateListingModuleProps) => {
-	const { formik } = useCreateListing(accessToken);
+const CreateListingModule = () => {
+	const { isFetched, data } = useGetAccessToken();
+	const { formik } = useCreateListing(data!);
 
 	return (
-		<FormContainer formik={formik} pageTitle='Create a listing!' resetButtonText='Clear' submitButtonText='Submit' />
+		<Skeleton borderRadius='2xl' isLoaded={isFetched}>
+			<FormContainer formik={formik} pageTitle='Create a listing!' resetButtonText='Clear' submitButtonText='Submit' />
+		</Skeleton>
 	);
 };
 

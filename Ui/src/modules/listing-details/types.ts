@@ -1,1 +1,1 @@
-export type ListingDetailsModuleProps = { id: string; accessToken: string | undefined };
+export type ListingDetailsModuleProps = { id: string };

@@ -1,8 +1,6 @@
 import { DehydratedState } from 'utils/types';
 
-export type ListingDetailsPageProps = { id: string } & DehydratedState & {
-		accessToken: string | undefined;
-	};
+export type ListingDetailsPageProps = { id: string } & DehydratedState;
 
 export type ListingInformation = {
 	id: string;

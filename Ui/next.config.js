@@ -17,6 +17,7 @@ const nextConfig = {
 	publicRuntimeConfig: {
 		apiUrl: process.env.NEXT_PUBLIC_BACKEND_URL_CLIENT,
 	},
+	pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 };
 
 module.exports = nextConfig;
