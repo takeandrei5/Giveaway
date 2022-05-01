@@ -74,6 +74,7 @@ const Header = (): JSX.Element => {
 						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
 								size='2xl'
+								__css={{ referrerPolicy: 'no-referrer' }}
 								src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
 							/>
 							<Typography variant='paragraph'>{user?.name || ''}</Typography>

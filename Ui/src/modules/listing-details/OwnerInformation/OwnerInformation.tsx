@@ -17,7 +17,7 @@ const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.El
 			Contact Information
 		</Typography>
 		<Divider />
-		<Avatar size={'2xl'} src={image} />
+		<Avatar __css={{ referrerPolicy: 'no-referrer' }} size={'2xl'} src={image} />
 		<Flex alignItems='center' columnGap='0.625rem' height='fit-content'>
 			<Typography variant='h5'>Owner:</Typography>
 			<Typography variant='paragraph'>{name}</Typography>
