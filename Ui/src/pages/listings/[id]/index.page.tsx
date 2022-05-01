@@ -13,6 +13,7 @@ import queryClient from 'utils/queryClient';
 import { PaginatedResult } from 'utils/types';
 
 import { FetchListingsResponse, ItemData } from '../../../api/listings/types';
+import axiosInstance from '../../../utils/axios';
 import { ListingDetailsPageProps } from './types';
 
 const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ id }: ListingDetailsPageProps) => (
@@ -37,11 +38,7 @@ export async function getStaticProps(
 
 export async function getStaticPaths() {
 	const fetchListings = async (): Promise<PaginatedResult<ItemData>> => {
-		const buildAxios = axios.create({
-			baseURL: 'http://localhost/api',
-		});
-
-		const response: AxiosResponse = await buildAxios.get('/listings', {
+		const response: AxiosResponse = await axiosInstance.get('/listings', {
 			params: {
 				orderBy: 'Title ASC',
 			},
