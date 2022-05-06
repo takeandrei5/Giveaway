@@ -12,7 +12,7 @@ import { FormContainerProps } from './types';
 const FormContainer = ({ formik, pageTitle, resetButtonText, submitButtonText }: FormContainerProps): JSX.Element => (
 	<FormikProvider value={formik}>
 		<Typography variant='h1'>{pageTitle}</Typography>
-		<Form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
+		<Form onSubmit={formik.handleSubmit} onReset={formik.handleReset} noValidate>
 			<Flex
 				direction='column'
 				borderRadius='2xl'

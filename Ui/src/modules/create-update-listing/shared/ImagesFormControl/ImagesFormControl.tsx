@@ -73,7 +73,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								type='file'
 								accept='image/png, image/jpeg'
 								borderRadius='0'
-								title='image upload'
+								title='Upload an image'
 								cursor='pointer'
 								position='absolute'
 								width='100%'
