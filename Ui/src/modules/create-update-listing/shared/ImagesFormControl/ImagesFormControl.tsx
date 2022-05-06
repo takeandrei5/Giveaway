@@ -12,7 +12,7 @@ import {
 } from 'react-beautiful-dnd';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { GrTrash } from 'react-icons/gr';
-import { defaultImageUpload } from 'utils/constants';
+import { DEFAULT_IMAGE_UPLOAD } from 'utils/constants';
 
 import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
@@ -96,7 +96,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								height='100%'
 								objectFit='cover'
 								width='100%'
-								src={value.url || defaultImageUpload}
+								src={value.url || DEFAULT_IMAGE_UPLOAD}
 								alt='imageUpload'
 							/>
 						</Box>

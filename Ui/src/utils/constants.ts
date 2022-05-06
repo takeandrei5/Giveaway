@@ -1,6 +1,6 @@
-import { Category } from './types';
+import { Category, PaginationOptions } from './types';
 
-const categories: Category[] = [
+const DEFAULT_CATEGORIES: Category[] = [
 	{
 		image: 'https://imagedelivery.net/G1lMtwsUs9dEAB6xuB8WcA/4e6fd6f7-c956-4be1-9de0-8ce4ce6b8400/public',
 		category: 'clothes',
@@ -23,9 +23,14 @@ const categories: Category[] = [
 	},
 ];
 
-const defaultImageUpload: string =
+const DEFAULT_IMAGE_UPLOAD: string =
 	'https://imagedelivery.net/G1lMtwsUs9dEAB6xuB8WcA/318e4ec3-9120-4fd1-e9ce-05419eff8500/public';
 
 const MAX_IMAGES: number = 6;
 
-export { categories, defaultImageUpload, MAX_IMAGES };
+const DEFAULT_PAGINATION_OPTIONS: PaginationOptions = {
+	pageNumber: 1,
+	pageSize: 10,
+};
+
+export { DEFAULT_CATEGORIES, DEFAULT_IMAGE_UPLOAD, DEFAULT_PAGINATION_OPTIONS, MAX_IMAGES };

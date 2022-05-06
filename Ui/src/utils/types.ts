@@ -20,4 +20,9 @@ export type Category = {
 	name: string;
 };
 
+export type PaginationOptions = {
+	pageNumber: number;
+	pageSize: number;
+};
+
 export type DehydratedState = { dehydratedState: ReactQueryDehydratedState };

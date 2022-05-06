@@ -1,25 +1,20 @@
 import { Skeleton } from 'components';
-import { categories } from 'utils/constants';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { DEFAULT_CATEGORIES } from 'utils/constants';
 import { SortingType } from 'utils/types';
 
 import { CategoryBox } from './CategoryBox';
-import useFetchListings from './hooks';
+import useInfiniteFetchListings from './hooks';
 import Items from './ItemsList/ItemsList';
 import SortingDropdown from './SortingDropdown/SortingDropdown';
 import { ListingsModuleProps } from './types';
 
-export { default as CategoryBox } from './CategoryBox/CategoryBox';
-export { default as Items } from './ItemsList/ItemsList';
-export { default as SortingDropdown } from './SortingDropdown/SortingDropdown';
-
 const ListingsModule = ({ options }: ListingsModuleProps): JSX.Element => {
-	const { isLoading, listings, sort, setSort } = useFetchListings();
-
-	console.log(listings);
+	const { isLoading, totalData, nextData, sort, setSort, refetchListings } = useInfiniteFetchListings();
 
 	return (
 		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
-			<CategoryBox categories={categories} />
+			<CategoryBox categories={DEFAULT_CATEGORIES} />
 			<SortingDropdown
 				id='sort-dropdown'
 				name='sort-dropdown'
@@ -27,7 +22,14 @@ const ListingsModule = ({ options }: ListingsModuleProps): JSX.Element => {
 				onChangeHandler={(value: string) => setSort(value as SortingType)}
 				value={sort}
 			/>
-			<Items items={listings?.result || []} />
+			<InfiniteScroll
+				dataLength={totalData.length}
+				next={refetchListings}
+				loader={<></>}
+				pullDownToRefreshThreshold={50}
+				hasMore={nextData ? nextData.hasNextPage : false}>
+				<Items items={totalData} />
+			</InfiniteScroll>
 		</Skeleton>
 	);
 };
