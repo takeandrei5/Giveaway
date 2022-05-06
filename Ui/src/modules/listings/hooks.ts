@@ -34,9 +34,8 @@ const useInfiniteFetchListings = () => {
 			onSuccess: (data: PaginatedResult<ItemData> | undefined) => {
 				if (data) {
 					setTotalData((oldListings: ItemData[]) => [...oldListings, ...data.result]);
+					paginationOptionsRef.current.pageNumber++;
 				}
-
-				paginationOptionsRef.current.pageNumber++;
 			},
 		}
 	);
