@@ -68,8 +68,12 @@ services:
       - webapi
     volumes:
       - ./Ui:/app
-      - node_modules:/app/node_modules
-      - /app/.next
+      - type: bind
+        source: ./Ui/.next
+        target: /app/.next
+      - type: bind
+        source: ./Ui/node_modules
+        target: /app/node_modules
 
   mssql:
     #image: mcr.microsoft.com/mssql/server:latest # if working on Windows
@@ -89,10 +93,3 @@ services:
 volumes:
   dbdata:
     name: giveaway-mssql
-  node_modules:
-    name: nextjs-node-modules
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   o: bind
-    #   device: /Users/andreitache/Projects/Giveaway/Ui/node_modules
