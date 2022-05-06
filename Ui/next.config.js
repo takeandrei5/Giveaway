@@ -9,7 +9,7 @@ const nextConfig = {
 		};
 		return config;
 	},
-	reactStrictMode: true,
+	reactStrictMode: false,
 	optimizeFonts: true,
 	serverRuntimeConfig: {
 		apiUrl: process.env.NEXT_BACKEND_URL_SERVER,
