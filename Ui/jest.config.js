@@ -11,16 +11,19 @@ const customJestConfig = {
 	// Add more setup options before each test is run
 	// setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 	// if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
-	moduleDirectories: ['node_modules', '<rootDir>/'],
+	moduleDirectories: ['node_modules', '<rootDir>/src'],
 	testEnvironment: 'jsdom',
 	clearMocks: true,
 	moduleNameMapper: {
-		'^@api/(.*)$': '<rootDir>/api/$1',
-		'^@components/(.*)$': '<rootDir>/components/$1',
-		'^@layouts/(.*)$': '<rootDir>/layouts/$1',
-		'^@modules/(.*)$': '<rootDir>/modules/$1',
-		'^@redux/(.*)$': '<rootDir>/redux/$1',
-		'^@utils/(.*)$': '<rootDir>/utils/$1',
+		'^@api/(.*)$': '<rootDir>/src/api/$1',
+		'^@components$': '<rootDir>/src/components',
+		'^@components/(.*)$': '<rootDir>/src/components/$1',
+		'^@layouts$': '<rootDir>/src/layouts',
+		'^@modules$': '<rootDir>/src/modules',
+		'^@modules/(.*)$': '<rootDir>/src/modules/$1',
+		'^@redux/(.*)$': '<rootDir>/src/redux/$1',
+		'^@pages/(.*)$': '<rootDir>/src/pages/$1',
+		'^@utils/(.*)$': '<rootDir>/src/utils/$1',
 	},
 };
 
