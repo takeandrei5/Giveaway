@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skeleton component should match snapshot 1`] = `
+exports[`Dropdown component should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -34,14 +34,62 @@ Object {
     </div>
     <div>
       <div
-        class="chakra-skeleton css-1twknw3"
-      />
+        class="chakra-select__wrapper css-ts3co9"
+      >
+        <select
+          class="chakra-select css-31afkg"
+          data-testid="dropdown"
+          id="dropdown"
+          name="dropdown-test-name"
+        />
+        <div
+          class="chakra-select__icon-wrapper css-162mkon"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-select__icon"
+            focusable="false"
+            role="presentation"
+            style="width: 1em; height: 1em; color: currentColor;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="chakra-skeleton css-1twknw3"
-    />
+      class="chakra-select__wrapper css-ts3co9"
+    >
+      <select
+        class="chakra-select css-31afkg"
+        data-testid="dropdown"
+        id="dropdown"
+        name="dropdown-test-name"
+      />
+      <div
+        class="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden="true"
+          class="chakra-select__icon"
+          focusable="false"
+          role="presentation"
+          style="width: 1em; height: 1em; color: currentColor;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
