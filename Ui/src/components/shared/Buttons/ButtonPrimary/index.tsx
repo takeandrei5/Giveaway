@@ -17,6 +17,7 @@ const ButtonPrimary = ({
 	return (
 		<Button
 			__css={styles}
+			data-testid='button-primary'
 			disabled={disabled}
 			height={height}
 			leftIcon={leftIcon}

@@ -7,7 +7,7 @@ import { GrNext, GrPrevious } from 'react-icons/gr';
 import Slider, { CustomArrowProps } from 'react-slick';
 
 import { ImageSliderProps } from './types';
-import { Image } from 'components';
+import { Image } from '@components';
 
 const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 	const renderImages = useMemo(

@@ -5,6 +5,7 @@ import { LogoProps } from './types';
 
 const Logo = ({ onClick }: LogoProps): JSX.Element => (
 	<Icon
+		data-testid='logo-icon'
 		color={'white'}
 		height='2rem'
 		width='auto'

@@ -1,5 +1,5 @@
 import { Select } from '@chakra-ui/react';
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 
 import { DropdownOption, DropdownProps } from './types';
 
@@ -16,15 +16,21 @@ const Dropdown = ({ id, options, onChangeHandler, name, value, isInvalid = false
 		[options]
 	);
 
+	const onChangeHandlerCallback = useCallback(
+		(event: React.ChangeEvent<HTMLSelectElement>) => onChangeHandler(event.target.value),
+		[onChangeHandler]
+	);
+
 	return (
 		<Select
+			data-testid='dropdown'
 			bgColor='white'
 			_focus={{ borderColor: 'primary.main' }}
 			borderRadius='2xl'
 			id={id}
 			isInvalid={isInvalid}
 			name={name}
-			onChange={(e) => onChangeHandler(e.target.value)}
+			onChange={onChangeHandlerCallback}
 			value={value}
 			width='fit-content'>
 			{renderOptions}

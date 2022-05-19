@@ -1,9 +1,6 @@
 import { Skeleton as SkeletonChakra, SkeletonProps, useColorModeValue } from '@chakra-ui/react';
 
-const Skeleton = (props: SkeletonProps): JSX.Element => {
-	const color = useColorModeValue('blackAlpha.300', 'blackAlpha.300');
-
-	return <SkeletonChakra startColor={color} endColor={color} {...props} />;
-};
-
+const Skeleton = (props: SkeletonProps): JSX.Element => (
+	<SkeletonChakra startColor={'blackAlpha.300'} endColor={'blackAlpha.300'} {...props} />
+);
 export default Skeleton;

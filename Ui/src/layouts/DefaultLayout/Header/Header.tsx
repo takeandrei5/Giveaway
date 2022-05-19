@@ -17,7 +17,7 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import { ButtonPrimary, Logo, Typography } from 'components';
+import { ButtonPrimary, Logo, Typography } from '@components';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { GrAdd, GrLogin } from 'react-icons/gr';

@@ -1,11 +1,10 @@
-import fetchListings from 'api/listings/fetchListings';
-import { ListingsModule } from 'modules';
+import { fetchListings } from '@api/listings';
+import { ListingsModule } from '@modules';
+import { DEFAULT_PAGINATION_OPTIONS } from '@utils/constants';
+import { tryFetchQuery } from '@utils/helpers';
+import queryClient from '@utils/queryClient';
 import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
-import { DEFAULT_PAGINATION_OPTIONS } from 'utils/constants';
-import { tryFetchQuery } from 'utils/helpers';
-import queryClient from 'utils/queryClient';
-import { PaginationOptions } from 'utils/types';
 
 import { dropdownOptions } from './constants';
 import { ListingsPageProps } from './types';

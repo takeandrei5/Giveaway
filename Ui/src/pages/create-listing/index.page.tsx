@@ -1,4 +1,4 @@
-import { CreateListingModule } from 'modules';
+import { CreateListingModule } from '@modules';
 import { NextPage } from 'next';
 
 const CreateListingPage: NextPage = () => <CreateListingModule />;

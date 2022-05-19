@@ -1,5 +1,5 @@
 import { Box, Container, Link, SimpleGrid, Stack } from '@chakra-ui/react';
-import { Logo, Typography } from 'components';
+import { Logo, Typography } from '@components';
 import React from 'react';
 
 import { stackItems } from './constants';

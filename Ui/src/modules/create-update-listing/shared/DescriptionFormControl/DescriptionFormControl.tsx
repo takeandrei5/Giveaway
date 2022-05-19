@@ -1,4 +1,4 @@
-import { FormControl, Input } from 'components';
+import { FormControl, Input } from '@components';
 import { useField } from 'formik';
 
 import { DescriptionFormControlProps } from './types';

@@ -1,7 +1,7 @@
 import { Flex, Grid, GridItem, Skeleton } from '@chakra-ui/react';
+import { useGetAccessToken } from '@utils/hooks';
 import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
-import { useGetAccessToken } from 'utils/hooks';
 
 import { ActionButton } from './ActionButton';
 import useFetchListingDetails from './hooks';

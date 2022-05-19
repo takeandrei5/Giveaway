@@ -2,7 +2,7 @@ import { useField } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { DropResult, ResponderProvided } from 'react-beautiful-dnd';
 import { useMutation } from 'react-query';
-import { axiosCdnInstance } from 'utils/axios';
+import { axiosCdnInstance } from '@utils/axios';
 
 import { ImageFormikValue } from '../types';
 import { UploadImageRequest, UploadImageResponse } from './types';

@@ -1,5 +1,5 @@
-import { FormikValues } from 'modules/create-update-listing/shared/types';
-import { DehydratedState } from 'utils/types';
+import { FormikValues } from '@modules/create-update-listing/shared/types';
+import { DehydratedState } from '@utils/types';
 
 export type UpdateListingInitialValues = Omit<FormikValues, 'images'> & { images: string[] };
 

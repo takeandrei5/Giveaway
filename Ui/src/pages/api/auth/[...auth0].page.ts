@@ -1,13 +1,8 @@
 import { handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
-import createUser from 'api/users/createUser';
+import { createUser } from '@api/users';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const afterCallback = async (
-	req: NextApiRequest,
-	res: NextApiResponse,
-	session: Session,
-	state: { [key: string]: any }
-) => {
+const afterCallback = async (req: NextApiRequest, res: NextApiResponse, session: Session) => {
 	try {
 		await createUser(session.accessToken!);
 	} catch (err) {

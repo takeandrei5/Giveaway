@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CategoryType } from 'utils/types';
+import { CategoryType } from '@utils/types';
 
 import { IDLE, SUCCESS } from './constants';
 

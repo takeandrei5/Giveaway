@@ -1,5 +1,5 @@
 import { Divider, Flex } from '@chakra-ui/react';
-import { Typography } from 'components';
+import { Typography } from '@components';
 import { Form, FormikProvider } from 'formik';
 
 import { ButtonContainer } from './ButtonContainer';

@@ -1,5 +1,5 @@
-import { createListing } from 'api/listings';
-import { CreateListingRequest } from 'api/listings/types';
+import { createListing } from '@api/listings';
+import { CreateListingRequest } from '@api/listings/types';
 import { FormikProps, useFormik } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation } from 'react-query';

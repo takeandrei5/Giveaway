@@ -1,6 +1,6 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import { useColorModeValue } from '@chakra-ui/react';
-import { ButtonPrimary, Skeleton, Typography } from 'components';
+import { ButtonPrimary, Skeleton, Typography } from '@components';
 
 import { ActionButtonProps } from './types';
 

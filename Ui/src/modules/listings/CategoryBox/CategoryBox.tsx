@@ -1,9 +1,9 @@
 import { Box, Center, Grid, GridItem, Stack } from '@chakra-ui/react';
-import { Image, Typography } from 'components';
+import { Image, Typography } from '@components';
 import { useMemo } from 'react';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { changeCategory } from 'redux/slices/changeCategorySlice';
-import { Category } from 'utils/types';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { changeCategory } from '@redux/slices/changeCategorySlice';
+import { Category } from '@utils/types';
 
 import { CategoryBoxProps } from './types';
 

@@ -11,7 +11,7 @@ const Image = ({
 	draggable = false,
 	...props
 }: ImageProps) => {
-	const Loader: ImageLoader = ({ src, width, quality, config }: ImageLoaderProps) => {
+	const Loader: ImageLoader = ({ src, width, quality, ...rest }: ImageLoaderProps) => {
 		// todo -> research more
 		const params = [`width=${width}`];
 		if (quality) {

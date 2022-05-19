@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { Typography } from 'components';
+import { Typography } from '@components';
 import dateFormat from 'dateformat';
 
 import { ListingInformationProps } from './types';

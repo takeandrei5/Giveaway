@@ -11,7 +11,7 @@ const Typography = ({
 	suffix = '',
 	multiline = false,
 }: TypographyProps): JSX.Element => {
-	const renderTypographyProps = (variant: TypographyVariant): TypographyText => {
+	const renderTypographyVariant = (variant: TypographyVariant): TypographyText => {
 		let textProps: TypographyText = {} as TypographyText;
 
 		switch (variant) {
@@ -96,7 +96,7 @@ const Typography = ({
 			color={color}
 			textAlign={center ? 'center' : 'initial'}
 			whiteSpace={multiline ? 'pre-line' : 'pre'}
-			{...renderTypographyProps(variant)}>
+			{...renderTypographyVariant(variant)}>
 			{prefix}
 			{children}
 			{suffix}

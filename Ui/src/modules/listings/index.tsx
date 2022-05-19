@@ -1,7 +1,7 @@
-import { Skeleton } from 'components';
+import { Skeleton } from '@components';
+import { DEFAULT_CATEGORIES } from '@utils/constants';
+import { SortingType } from '@utils/types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { DEFAULT_CATEGORIES } from 'utils/constants';
-import { SortingType } from 'utils/types';
 
 import { CategoryBox } from './CategoryBox';
 import useInfiniteFetchListings from './hooks';

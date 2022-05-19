@@ -1,13 +1,13 @@
-import { fetchListings } from 'api/listings';
-import { ItemData } from 'api/listings/types';
+import { fetchListings } from '@api/listings';
+import { ItemData } from '@api/listings/types';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useAppSelector } from 'redux/hooks';
-import { CategoryState } from 'redux/slices/changeCategorySlice';
-import { DEFAULT_PAGINATION_OPTIONS } from 'utils/constants';
-import { PaginatedResult, PaginationOptions, SortingType } from 'utils/types';
+import { useAppSelector } from '@redux/hooks';
+import { CategoryState } from '@redux/slices/changeCategorySlice';
+import { DEFAULT_PAGINATION_OPTIONS } from '@utils/constants';
+import { PaginatedResult, PaginationOptions, SortingType } from '@utils/types';
 
-import { categoryDictionary } from '../../pages/listings/constants';
+import { categoryDictionary } from '@pages/listings/constants';
 
 const useInfiniteFetchListings = () => {
 	const paginationOptionsRef: MutableRefObject<PaginationOptions> = useRef<PaginationOptions>({

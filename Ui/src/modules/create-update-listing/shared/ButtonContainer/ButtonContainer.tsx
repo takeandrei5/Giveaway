@@ -1,5 +1,5 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react';
-import { ButtonPrimary, Typography } from 'components';
+import { ButtonPrimary, Typography } from '@components';
 import { GrRefresh, GrSend } from 'react-icons/gr';
 
 import { ButtonContainerProps } from './types';

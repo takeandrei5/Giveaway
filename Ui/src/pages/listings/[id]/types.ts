@@ -1,4 +1,4 @@
-import { DehydratedState } from 'utils/types';
+import { DehydratedState } from '@utils/types';
 
 export type ListingDetailsPageProps = { id: string } & DehydratedState;
 

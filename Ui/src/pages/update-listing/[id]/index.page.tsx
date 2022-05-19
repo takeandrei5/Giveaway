@@ -1,11 +1,11 @@
+import { fetchListing } from '@api/listings';
+import { FetchListingDetailsResponse } from '@api/listings/types';
 import { getSession } from '@auth0/nextjs-auth0';
-import fetchListing from 'api/listings/fetchListing';
-import { FetchListingDetailsResponse } from 'api/listings/types';
-import { UpdateListingModule } from 'modules';
+import { UpdateListingModule } from '@modules';
+import { NotFoundError } from '@utils/errors';
+import queryClient from '@utils/queryClient';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next';
 import { dehydrate, useQuery } from 'react-query';
-import { NotFoundError } from 'utils/errors';
-import queryClient from 'utils/queryClient';
 
 import { UpdateListingPageProps } from './types';
 

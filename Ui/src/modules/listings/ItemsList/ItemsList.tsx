@@ -1,6 +1,6 @@
+import { ItemData } from '@api/listings/types';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import { ItemData } from 'api/listings/types';
-import { Image, Typography } from 'components';
+import { Image, Typography } from '@components';
 import dateFormat from 'dateformat';
 import { NextRouter, useRouter } from 'next/router';
 import { useMemo } from 'react';

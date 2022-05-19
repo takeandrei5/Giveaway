@@ -1,7 +1,8 @@
 import { Box, Button, Center, Flex, Icon, Input, Spinner } from '@chakra-ui/react';
-import { FormControl, Image } from 'components';
+import { FormControl, Image } from '@components';
+import { DEFAULT_IMAGE_UPLOAD } from '@utils/constants';
 import { useField } from 'formik';
-import { NextRouter, useRouter } from 'next/router';
+import { ChangeEventHandler } from 'react';
 import {
 	DragDropContext,
 	Draggable,
@@ -12,7 +13,6 @@ import {
 } from 'react-beautiful-dnd';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { GrTrash } from 'react-icons/gr';
-import { DEFAULT_IMAGE_UPLOAD } from 'utils/constants';
 
 import { ImageFormikValue } from '../types';
 import { useDragAndDrop, useImageUpload } from './hooks';
@@ -81,7 +81,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								opacity='0'
 								required={false}
 								pointerEvents={isUploading ? 'none' : 'auto'}
-								onChange={(e) => {
+								onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 									onImageUploaded(value.id, e.target.files?.[0]);
 									e.target.value = '';
 								}}

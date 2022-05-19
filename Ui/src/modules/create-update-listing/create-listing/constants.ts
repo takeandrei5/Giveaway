@@ -1,4 +1,4 @@
-import { MAX_IMAGES } from 'utils/constants';
+import { MAX_IMAGES } from '@utils/constants';
 import { v4 as uuidv4 } from 'uuid';
 
 import { FormikValues, ImageFormikValue } from '../shared/types';

@@ -8,7 +8,7 @@ import {
 	Textarea,
 	useStyleConfig,
 } from '@chakra-ui/react';
-import { Typography } from 'components';
+import { Typography } from '@components';
 
 import { InputProps } from './types';
 

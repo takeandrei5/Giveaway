@@ -14,14 +14,20 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": "./src",
+		"baseUrl": ".",
 		"paths": {
-			"@api/*": ["/src/api/*"],
-			"@components/*": ["/src/components/*"],
-			"@layouts/*": ["/src/layouts/*"],
-			"@modules/*": ["/src/modules/*"],
-			"@redux/*": ["/src/redux/*"],
-			"@utils/*": ["/src/utils/*"]
+			"@api/listings": ["src/api/listings/index.ts"],
+			"@api/listings/types": ["src/api/listings/types.ts"],
+			"@api/users": ["src/api/users/index.ts"],
+			"@api/users/types": ["src/api/users/types.ts"],
+			"@components": ["src/components/index.tsx"],
+			"@components/*": ["src/components/*"],
+			"@layouts": ["src/layouts/index.tsx"],
+			"@modules": ["src/modules/index.tsx"],
+			"@modules/*": ["src/modules/*"],
+			"@pages/*": ["src/pages/*"],
+			"@redux/*": ["src/redux/*"],
+			"@utils/*": ["src/utils/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

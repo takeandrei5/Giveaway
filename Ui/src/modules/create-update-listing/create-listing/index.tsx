@@ -1,5 +1,5 @@
-import { Skeleton } from 'components';
-import { useGetAccessToken } from 'utils/hooks';
+import { Skeleton } from '@components';
+import { useGetAccessToken } from '@utils/hooks';
 
 import { FormContainer } from '../shared';
 import { useCreateListing } from './hooks';

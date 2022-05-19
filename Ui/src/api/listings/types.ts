@@ -1,4 +1,4 @@
-import { PaginatedResult } from 'utils/types';
+import { PaginatedResult } from '@utils/types';
 
 export type ItemData = { id: string; image: string; title: string; createdAt: Date };
 

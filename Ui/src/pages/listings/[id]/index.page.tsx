@@ -1,19 +1,18 @@
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import { fetchListings } from 'api/listings';
-import fetchListing from 'api/listings/fetchListing';
-import axios, { AxiosResponse } from 'axios';
-import { ListingDetailsModule } from 'modules';
+import { fetchListing } from '@api/listings';
+import { FetchListingsResponse, ItemData } from '@api/listings/types';
+import { ListingDetailsModule } from '@modules';
+import axiosInstance from '@utils/axios';
+import { tryFetchQuery } from '@utils/helpers';
+import queryClient from '@utils/queryClient';
+import { PaginatedResult } from '@utils/types';
+import { AxiosResponse } from 'axios';
 import { GetStaticPropsContext } from 'next';
 import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
-import { tryFetchQuery } from 'utils/helpers';
-import queryClient from 'utils/queryClient';
-import { PaginatedResult } from 'utils/types';
 
-import { FetchListingsResponse, ItemData } from '../../../api/listings/types';
-import axiosInstance from '../../../utils/axios';
 import { ListingDetailsPageProps } from './types';
 
 const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ id }: ListingDetailsPageProps) => (

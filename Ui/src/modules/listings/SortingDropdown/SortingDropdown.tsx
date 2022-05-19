@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import { Dropdown, Typography } from 'components';
+import { Dropdown, Typography } from '@components';
 
 import { SortingDropdownProps } from './types';
 
