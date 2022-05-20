@@ -5,7 +5,7 @@ import React from 'react';
 import { useCheckFormIsInvalid } from './hooks';
 import { FormControlProps } from './types';
 
-const FormControl = ({ children, label, id, name }: FormControlProps): JSX.Element => {
+const FormControl = ({ children, id, label, name }: FormControlProps): JSX.Element => {
 	const [_, meta] = useField<unknown>(name);
 	const { isInvalid } = useCheckFormIsInvalid(meta);
 

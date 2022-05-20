@@ -4,23 +4,24 @@ import NextImage, { ImageLoader, ImageLoaderProps } from 'next/image';
 import { ImageProps } from './types';
 
 const Image = ({
-	height,
-	width,
+	height = 'auto',
+	width = 'auto',
 	backgroundColor = 'transparent',
 	borderRadius = 'none',
 	draggable = false,
 	...props
 }: ImageProps) => {
-	const Loader: ImageLoader = ({ src, width, quality, ...rest }: ImageLoaderProps) => {
-		// todo -> research more
-		const params = [`width=${width}`];
-		if (quality) {
-			params.push(`quality=${quality}`);
-		}
-		const paramsString = params.join(',');
+	// todo -> research more
 
-		return `${src}/cdn-cgi/image/${paramsString}`;
-	};
+	// const Loader: ImageLoader = ({ src, width, quality, ...rest }: ImageLoaderProps) => {
+	// 	const params = [`width=${width}`];
+	// 	if (quality) {
+	// 		params.push(`quality=${quality}`);
+	// 	}
+	// 	const paramsString = params.join(',');
+
+	// 	return `${src}/cdn-cgi/image/${paramsString}`;
+	// };
 
 	return (
 		<Box

@@ -23,7 +23,7 @@ const Input = ({
 	multiline = false,
 	isInvalid = false,
 	height = 'auto',
-	label,
+	label = '',
 	leftIcon,
 	rightIcon,
 	width = '100%',
@@ -32,19 +32,26 @@ const Input = ({
 
 	return (
 		<>
-			{label && (
-				<FormLabel htmlFor={id}>
-					<Typography variant='paragraph'>Label</Typography>
+			{!!label && (
+				<FormLabel data-testid='label' htmlFor={id}>
+					<Typography variant='paragraph'>{label}</Typography>
 				</FormLabel>
 			)}
 			{!multiline ? (
 				<InputGroup height='100%' width='auto'>
 					{leftIcon && (
-						<InputLeftElement color='gray' fontSize='1.5rem' height='100%' paddingStart='4' pointerEvents='none'>
+						<InputLeftElement
+							data-testId='left-icon'
+							color='gray'
+							fontSize='1.5rem'
+							height='100%'
+							paddingStart='4'
+							pointerEvents='none'>
 							{leftIcon}
 						</InputLeftElement>
 					)}
 					<CuiInput
+						data-testid='input'
 						__css={styles}
 						id={id}
 						height={height}
@@ -58,13 +65,14 @@ const Input = ({
 						width={width}
 					/>
 					{rightIcon && (
-						<InputRightElement pointerEvents={'auto'} height='100%'>
+						<InputRightElement data-testId='right-icon' pointerEvents={'auto'} height='100%'>
 							{rightIcon}
 						</InputRightElement>
 					)}
 				</InputGroup>
 			) : (
 				<Textarea
+					data-testid='textarea'
 					__css={styles}
 					id={id}
 					disabled={disabled}

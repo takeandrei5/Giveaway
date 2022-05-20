@@ -92,6 +92,7 @@ const Typography = ({
 
 	return (
 		<Text
+			data-testid='typography'
 			as='span'
 			color={color}
 			textAlign={center ? 'center' : 'initial'}

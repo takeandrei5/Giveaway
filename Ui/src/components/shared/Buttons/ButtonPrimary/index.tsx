@@ -8,7 +8,7 @@ const ButtonPrimary = ({
 	height = '100%',
 	leftIcon,
 	rightIcon,
-	onClick = () => {},
+	onClick,
 	type = 'button',
 	...rest
 }: ButtonPrimaryProps): JSX.Element => {
