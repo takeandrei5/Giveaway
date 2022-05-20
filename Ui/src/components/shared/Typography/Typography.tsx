@@ -1,6 +1,7 @@
 import { Text } from '@chakra-ui/react';
 
-import { TypographyProps, TypographyText, TypographyVariant } from './types';
+import { BUTTON, CAPTION, DEFAULT, H1, H2, H3, H5, INPUT, PARAGRAPH, SMALL } from './constants';
+import { TypographyProps, TypographyTextStyle, TypographyVariant } from './types';
 
 const Typography = ({
 	children,
@@ -11,83 +12,29 @@ const Typography = ({
 	suffix = '',
 	multiline = false,
 }: TypographyProps): JSX.Element => {
-	const renderTypographyVariant = (variant: TypographyVariant): TypographyText => {
-		let textProps: TypographyText = {} as TypographyText;
-
+	const renderTypographyVariant = (variant: TypographyVariant): TypographyTextStyle => {
 		switch (variant) {
 			case 'h1':
-				textProps = {
-					fontSize: '2.25rem',
-					fontWeight: '900',
-					lineHeight: '2.7rem',
-				};
-				break;
+				return H1;
 			case 'h2':
-				textProps = {
-					fontSize: '1.75rem',
-					fontWeight: '700',
-					lineHeight: '2.7rem',
-				};
-				break;
+				return H2;
 			case 'h3':
-				textProps = {
-					fontSize: '1.5rem',
-					fontWeight: '700',
-					lineHeight: '1.8rem',
-				};
-				break;
+				return H3;
 			case 'h5':
-				textProps = {
-					fontSize: '1.125rem',
-					fontWeight: '700',
-					lineHeight: '1.3125rem',
-				};
-				break;
+				return H5;
 			case 'button':
-				textProps = {
-					fontSize: '1rem',
-					fontWeight: '500',
-					lineHeight: '1.2rem',
-				};
-				break;
+				return BUTTON;
 			case 'input':
-				textProps = {
-					fontSize: '1rem',
-					fontWeight: '700',
-					lineHeight: '1.1719rem',
-				};
-				break;
+				return INPUT;
 			case 'paragraph':
-				textProps = {
-					fontSize: '1rem',
-					fontWeight: '500',
-					lineHeight: '1.05rem',
-				};
-				break;
+				return PARAGRAPH;
 			case 'caption':
-				textProps = {
-					fontSize: '0.875rem',
-					fontWeight: '500',
-					lineHeight: '1.05rem',
-				};
-				break;
+				return CAPTION;
 			case 'small':
-				textProps = {
-					fontSize: '0.625rem',
-					fontWeight: '300',
-					lineHeight: '0.75rem',
-				};
-				break;
+				return SMALL;
 			default:
-				textProps = {
-					fontSize: '1rem',
-					fontWeight: '700',
-					lineHeight: '1.2rem',
-				};
-				break;
+				return DEFAULT;
 		}
-
-		return textProps;
 	};
 
 	return (

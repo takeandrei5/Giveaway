@@ -20,7 +20,7 @@ export type TypographyVariant =
 	| 'caption'
 	| 'small';
 
-export type TypographyText = {
+export type TypographyTextStyle = {
 	fontSize: string;
 	fontWeight: string;
 	lineHeight: string;
