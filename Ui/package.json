@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test": "jest --watchAll",
-		"test:coverage": "jest --coverage --silent --watchAll=false --collectCoverageFrom=src/**/*.{ts,tsx} --collectCoverageFrom=!src/**/{styles,types}.ts --coverageDirectory=./coverage && open ./coverage/lcov-report/index.html",
+		"test:coverage": "jest --coverage --silent --watchAll=false --coverageDirectory=./coverage && open ./coverage/lcov-report/index.html",
 		"test:ci": "jest --ci"
 	},
 	"dependencies": {
