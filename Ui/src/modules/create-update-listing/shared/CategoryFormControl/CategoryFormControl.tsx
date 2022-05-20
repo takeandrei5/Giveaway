@@ -1,5 +1,5 @@
 import { Dropdown, FormControl } from '@components';
-import { DropdownOption } from '@components/shared/Dropdown/types';
+import { DropdownOption } from '@components/Dropdown/types';
 import { CategoryTypeEnum } from '@utils/enums';
 import { useField } from 'formik';
 import { useMemo } from 'react';

@@ -1,4 +1,4 @@
-import { DropdownOption } from '@components/shared/Dropdown/types';
+import { DropdownOption } from '@components/Dropdown/types';
 import { CategoryType, DehydratedState } from '@utils/types';
 
 export type ListingsPageProps = DehydratedState & { options: DropdownOption[] };

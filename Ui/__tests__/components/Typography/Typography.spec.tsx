@@ -1,19 +1,7 @@
 import { Typography } from '@components';
-import {
-	BUTTON,
-	CAPTION,
-	DEFAULT,
-	H1,
-	H2,
-	H3,
-	H5,
-	INPUT,
-	PARAGRAPH,
-	SMALL,
-} from '@components/shared/Typography/constants';
+import { BUTTON, CAPTION, DEFAULT, H1, H2, H3, H5, INPUT, PARAGRAPH, SMALL } from '@components/Typography/constants';
+import { TypographyProps } from '@components/Typography/types';
 import { render } from '@testing-library/react';
-
-import { TypographyProps } from '../../../src/components/shared/Typography/types';
 
 describe('Typography', () => {
 	it('should match snapshot', () => {

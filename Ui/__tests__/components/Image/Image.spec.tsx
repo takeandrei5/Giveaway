@@ -1,5 +1,5 @@
 import { Image } from '@components';
-import { ImageProps } from '@components/shared/Image/types';
+import { ImageProps } from '@components/Image/types';
 import { render } from '@testing-library/react';
 
 describe('Image', () => {

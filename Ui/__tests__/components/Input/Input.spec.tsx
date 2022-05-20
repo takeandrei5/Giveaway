@@ -1,5 +1,5 @@
 import { Input } from '@components';
-import { InputProps } from '@components/shared/Input/types';
+import { InputProps } from '@components/Input/types';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 

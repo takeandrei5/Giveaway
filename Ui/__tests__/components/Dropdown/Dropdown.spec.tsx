@@ -1,5 +1,5 @@
 import { Dropdown } from '@components';
-import { DropdownProps } from '@components/shared/Dropdown/types';
+import { DropdownProps } from '@components/Dropdown/types';
 import { dropdownOptions } from '@pages/listings/constants';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

@@ -1,5 +1,5 @@
 import { Logo } from '@components';
-import { LogoProps } from '@components/shared/Logo/types';
+import { LogoProps } from '@components/Logo/types';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
