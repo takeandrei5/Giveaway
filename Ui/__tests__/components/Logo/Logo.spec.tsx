@@ -4,17 +4,6 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Logo', () => {
-	it('should render successfully with default props', () => {
-		// Arrange
-		const props: LogoProps = { onClick: () => {} };
-
-		// Act
-		const { baseElement } = render(<Logo {...props} />);
-
-		// Assert
-		expect(baseElement).toBeTruthy();
-	});
-
 	it('should match snapshot', () => {
 		// Arrange
 		const props: LogoProps = { onClick: () => {} };

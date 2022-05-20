@@ -2,14 +2,6 @@ import { ButtonPrimary } from '@components';
 import { render } from '@testing-library/react';
 
 describe('ButtonPrimary', () => {
-	it('should render successfully with default props', () => {
-		// Act
-		const { baseElement } = render(<ButtonPrimary />);
-
-		// Assert
-		expect(baseElement).toBeTruthy();
-	});
-
 	it('should match snapshot', () => {
 		// Act
 		const component = render(<ButtonPrimary />);
@@ -17,7 +9,7 @@ describe('ButtonPrimary', () => {
 		expect(component).toMatchSnapshot();
 	});
 
-	it('should execute onClick when clicked correctly', () => {
+	it('should execute onClick correctly when button is clicked', () => {
 		// Arrange
 		const onClick = jest.fn(() => {});
 
