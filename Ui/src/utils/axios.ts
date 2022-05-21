@@ -1,11 +1,11 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 import getConfig from 'next/config';
 
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 const axiosInstance: AxiosInstance = axios.create({
 	baseURL: serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl,
-	validateStatus: () => true,
+	validateStatus: (status: number) => status < 500,
 });
 
 const axiosCdnInstance: AxiosInstance = axios.create({

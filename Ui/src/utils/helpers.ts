@@ -2,7 +2,7 @@ import { getAccessToken } from '@auth0/nextjs-auth0';
 import { GetServerSidePropsContext, Redirect } from 'next';
 import { QueryFunction } from 'react-query';
 
-import { NotFoundError } from './errors';
+import { ForbiddenError, NotFoundError } from './errors';
 import queryClient from './queryClient';
 
 const fetchAccessToken = async (context: GetServerSidePropsContext): Promise<string | undefined> => {
@@ -12,6 +12,7 @@ const fetchAccessToken = async (context: GetServerSidePropsContext): Promise<str
 		return accessToken;
 	} catch (err) {
 		console.error(err);
+		throw new Error(err);
 	}
 };
 
@@ -27,6 +28,15 @@ const tryFetchQuery = async (
 				redirect: {
 					permanent: true,
 					destination: '/404',
+				},
+			};
+		}
+
+		if (err instanceof ForbiddenError) {
+			return {
+				redirect: {
+					permanent: true,
+					destination: '/403',
 				},
 			};
 		}
