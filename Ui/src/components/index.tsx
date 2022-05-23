@@ -2,7 +2,11 @@ export { ButtonPrimary } from './Buttons';
 
 export { Dropdown } from './Dropdown';
 
+export { Footer } from './Footer';
+
 export { FormControl } from './FormControl';
+
+export { Header } from './Header';
 
 export { Input } from './Input';
 
