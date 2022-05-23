@@ -11,11 +11,11 @@ import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
 import { NotFoundError } from '../../../utils/errors';
 
-const useUpdateListing = (accessToken: string, id: string, initialValues: UpdateListingInitialValues) => {
+const useUpdateListing = (id: string, accessToken: string, initialValues: UpdateListingInitialValues) => {
 	const router: NextRouter = useRouter();
 
 	const { mutate: updateListingMutate } = useMutation(
-		(data: UpdateListingRequest) => updateListing(accessToken, id, data),
+		(data: UpdateListingRequest) => updateListing(id, accessToken, data),
 		{
 			onSuccess: () => router.replace('/listings'),
 			onError: (err) => {
