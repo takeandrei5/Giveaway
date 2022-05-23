@@ -52,6 +52,7 @@
 		"@types/react-infinite-scroll-component": "^5.0.0",
 		"@types/react-slick": "^0.23.8",
 		"@types/uuid": "^8.3.4",
+		"axios-mock-adapter": "^1.20.0",
 		"eslint": "8.14.0",
 		"eslint-config-next": "12.1.6",
 		"jest": "^28.1.0",
