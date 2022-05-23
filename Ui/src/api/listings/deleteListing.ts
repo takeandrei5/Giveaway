@@ -9,7 +9,7 @@ const deleteListing = async (id: string, accessToken: string): Promise<void> => 
 	});
 
 	if (response.status === 400 || response.status === 404) {
-		throw new NotFoundError('Listing not found');
+		throw new NotFoundError(`Listing ${id} not found.`);
 	}
 };
 
