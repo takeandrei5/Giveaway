@@ -1,8 +1,7 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Footer, Header } from '@components';
 import React from 'react';
 
-import { Footer } from './Footer';
-import { Header } from './Header';
 import { DefaultLayoutProps } from './types';
 
 const DefaultLayout = ({ children }: DefaultLayoutProps): JSX.Element => (

@@ -9,11 +9,11 @@ const Footer = (): JSX.Element => {
 	const renderStackItems = (stackItems: StackItem[]): JSX.Element[] =>
 		stackItems.map(
 			(stackItem: StackItem): JSX.Element => (
-				<Stack key={`footer-stack-${stackItem.stackColumnName}`} align={'flex-start'}>
+				<Stack id='footer-stack-item' key={`footer-stack-${stackItem.stackColumnName}`} align='flex-start'>
 					<Typography variant='h5'>{stackItem.stackColumnName}</Typography>
 					{stackItem.stackColumnItems.map(
 						(stackColumnItem: string): JSX.Element => (
-							<Link key={`${stackColumnItem}-child`} href={'#'}>
+							<Link key={`${stackColumnItem}-child`} href='#'>
 								{stackColumnItem}
 							</Link>
 						)
@@ -23,10 +23,10 @@ const Footer = (): JSX.Element => {
 		);
 
 	return (
-		<Box bg={'secondary.main'} color={'white'}>
-			<Container as={Stack} maxW={'6xl'} py={10}>
+		<Box data-testid='footer' bg='secondary.main' color='white'>
+			<Container as={Stack} maxW='6xl' py={10}>
 				<SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }} spacing={8}>
-					<Stack display={'flex'} alignItems={'start'} spacing={6}>
+					<Stack display='flex' alignItems='start' spacing={6}>
 						<Logo onClick={() => {}} />
 						<Typography variant='paragraph'>© 2020 Chakra Templates. All rights reserved</Typography>
 					</Stack>
