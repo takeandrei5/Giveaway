@@ -12,7 +12,7 @@ const fetchAccessToken = async (context: GetServerSidePropsContext): Promise<str
 		return accessToken;
 	} catch (err) {
 		console.error(err);
-		throw new Error(err);
+		throw new Error((err as Error).message);
 	}
 };
 
@@ -49,5 +49,11 @@ const tryFetchQuery = async (
 		};
 	}
 };
+
+function isIsoDateString(value: any): boolean {
+	const isoDateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d*)?$/;
+
+	return value && typeof value === 'string' && isoDateFormat.test(value);
+}
 
 export { fetchAccessToken, tryFetchQuery };
