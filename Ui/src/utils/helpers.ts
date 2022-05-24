@@ -50,10 +50,4 @@ const tryFetchQuery = async (
 	}
 };
 
-function isIsoDateString(value: any): boolean {
-	const isoDateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d*)?$/;
-
-	return value && typeof value === 'string' && isoDateFormat.test(value);
-}
-
 export { fetchAccessToken, tryFetchQuery };

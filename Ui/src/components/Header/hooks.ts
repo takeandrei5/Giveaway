@@ -17,4 +17,4 @@ const useLogin = () => {
 	return { handleSignIn, handleSignInWithReturnTo, handleSignOut };
 };
 
-export default useLogin;
+export { useLogin };

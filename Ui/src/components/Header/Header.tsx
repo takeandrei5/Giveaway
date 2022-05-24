@@ -23,7 +23,8 @@ import React, { useMemo } from 'react';
 import { GrAdd, GrLogin } from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
 
-import useLogin from './hooks';
+import { DEFAULT_AVATAR } from './constants';
+import { useLogin } from './hooks';
 
 const Header = (): JSX.Element => {
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -57,27 +58,32 @@ const Header = (): JSX.Element => {
 			return (
 				<>
 					<MenuButton
+						data-testid='menu-button-logged-in'
 						_focus={{ boxShadow: 'none' }}
 						as={Button}
 						rounded='full'
 						variant='link'
 						cursor='pointer'
-						display={!user ? 'none' : 'inherit'}
+						display='inherit'
 						minW={0}>
 						<Avatar
+							data-testid='avatar'
+							id={user.picture ? 'provided-picture' : 'default-picture'}
 							h='2.5rem'
 							w='2.5rem'
-							src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
+							src={user.picture || DEFAULT_AVATAR}
 						/>
 					</MenuButton>
 					<MenuList alignItems='center' borderRadius='2xl' p={6}>
 						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
+								data-testid='menu-list-avatar'
+								id={user.picture ? 'menu-list-provided-picture' : 'menu-list-default-picture'}
 								size='2xl'
 								__css={{ referrerPolicy: 'no-referrer' }}
-								src={user && user.picture ? user.picture : 'https://avatars.dicebear.com/api/male/username.svg'}
+								src={user.picture || DEFAULT_AVATAR}
 							/>
-							<Typography variant='paragraph'>{user?.name || ''}</Typography>
+							<Typography variant='paragraph'>{user.name!}</Typography>
 						</Center>
 						<MenuDivider />
 						<MenuItem
@@ -100,6 +106,7 @@ const Header = (): JSX.Element => {
 		return (
 			<>
 				<MenuButton
+					data-testid='menu-button-logged-out'
 					_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
 					_focus={{ boxShadow: 'none', border: 'none' }}
 					_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
@@ -121,6 +128,7 @@ const Header = (): JSX.Element => {
 				<Logo onClick={() => router.push('/listings')} />
 				<Stack alignItems='center' direction='row' spacing={7}>
 					<ButtonPrimary
+						data-testid='create-listing-button'
 						color={lightishOrDarkishColor}
 						leftIcon={<GrAdd fontSize='larger' />}
 						onClick={() => (user ? router.push('/create-listing') : handleSignInWithReturnTo('/create-listing'))}>
@@ -135,7 +143,9 @@ const Header = (): JSX.Element => {
 						rounded={'full'}
 						onClick={toggleColorMode}>
 						<Icon
+							data-testid='toggle-color-mode-button'
 							as={colorMode === 'light' ? MoonIcon : SunIcon}
+							name={colorMode === 'light' ? MoonIcon.displayName : SunIcon.displayName}
 							color={darkishOrWhiteColor}
 							height='1.5rem'
 							width='1.5rem'
