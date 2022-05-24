@@ -1,3 +1,5 @@
+**/__tests__
+**/coverage
 **/.classpath
 **/.dockerignore
 **/.env

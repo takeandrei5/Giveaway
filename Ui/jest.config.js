@@ -30,7 +30,12 @@ const customJestConfig = {
 		'<rootDir>/src/pages/', // Ignore pages folder for now
 		'<rootDir>/src/utils/{axios,constants,enums,errors,mainTheme,queryClient,types}.ts',
 	],
-	collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/{styles,types,constants}.ts', '!src/**/index.tsx'],
+	collectCoverageFrom: [
+		'src/**/*.{ts,tsx}',
+		'!src/**/{styles,types,constants}.ts',
+		'!src/**/index.tsx',
+		'!src/utils/{axios,constants,enums,errors,mainTheme,queryClient,types}.ts',
+	],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
