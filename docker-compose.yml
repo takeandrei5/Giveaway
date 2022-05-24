@@ -69,12 +69,6 @@ services:
     volumes:
       - ./Ui:/app
       - node_modules:/app/node_modules
-      - type: bind
-        source: ./Ui/.next
-        target: /app/.next
-        # - type: bind
-        # source: ./Ui/.next
-        # target: /app/.next
 
   mssql:
     #image: mcr.microsoft.com/mssql/server:latest # if working on Windows

@@ -1,5 +1,7 @@
-**/__tests__
-**/coverage
+Ui/__tests__/**
+Ui/coverage/**
+**/jest.config.js
+**/jest.setup.js
 **/.classpath
 **/.dockerignore
 **/.env
