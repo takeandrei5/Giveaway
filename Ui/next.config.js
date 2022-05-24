@@ -2,6 +2,23 @@ const nextConfig = {
 	images: {
 		domains: ['imagedelivery.net'],
 	},
+	webpack: (config, { dev }) => {
+		config.module.rules.push({
+			test: /\.spec.tsx$/,
+			loader: 'ignore-loader',
+		});
+
+		config.module.rules.push({
+			test: /.coverage./,
+			loader: 'ignore-loader',
+		});
+
+		config.module.rules.push({
+			test: /.jest./,
+			loader: 'ignore-loader',
+		});
+		return config;
+	},
 	webpackDevMiddleware: (config) => {
 		config.watchOptions = {
 			poll: 800,
