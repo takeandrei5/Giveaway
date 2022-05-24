@@ -1,1 +1,1 @@
-export type ListingDetailsModuleProps = { id: string };
+export type ListingDetailsProps = { id: string };
