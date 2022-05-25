@@ -2,13 +2,12 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
 import { Center } from '@chakra-ui/react';
-import { useMemo } from 'react';
-import { GrNext, GrPrevious } from 'react-icons/gr';
-import Slider, { CustomArrowProps } from 'react-slick';
-
-import { ImageSliderProps } from './types';
 import { Image } from '@components';
+import { useMemo } from 'react';
+import Slider from 'react-slick';
+
 import { Arrow } from './Arrow';
+import { ImageSliderProps } from './types';
 
 const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 	const renderImages = useMemo(
