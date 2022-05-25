@@ -1,13 +1,12 @@
 import { fetchListings } from '@api/listings';
 import { ItemData } from '@api/listings/types';
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
+import { categoryDictionary } from '@pages/listings/constants';
 import { useAppSelector } from '@redux/hooks';
 import { CategoryState } from '@redux/slices/changeCategorySlice';
 import { DEFAULT_PAGINATION_OPTIONS } from '@utils/constants';
 import { PaginatedResult, PaginationOptions, SortingType } from '@utils/types';
-
-import { categoryDictionary } from '@pages/listings/constants';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 
 const useInfiniteFetchListings = () => {
 	const paginationOptionsRef: MutableRefObject<PaginationOptions> = useRef<PaginationOptions>({
@@ -16,6 +15,11 @@ const useInfiniteFetchListings = () => {
 	const [sort, setSort] = useState<SortingType>('Title ASC');
 	const [totalData, setTotalData] = useState<ItemData[]>([]);
 	const categoryState: CategoryState = useAppSelector((state) => state.changeCategory);
+
+	const reset = (): void => {
+		paginationOptionsRef.current.pageNumber = DEFAULT_PAGINATION_OPTIONS.pageNumber;
+		setTotalData([]);
+	};
 
 	const {
 		isLoading,
@@ -31,14 +35,16 @@ const useInfiniteFetchListings = () => {
 				categoryDictionary[categoryState.category!]
 			),
 		{
-			onSuccess: (data: PaginatedResult<ItemData> | undefined) => {
-				if (data) {
-					setTotalData((oldListings: ItemData[]) => [...oldListings, ...data.result]);
-					paginationOptionsRef.current.pageNumber++;
-				}
+			onSuccess: (data: PaginatedResult<ItemData>) => {
+				setTotalData((oldListings: ItemData[]) => [...oldListings, ...data.result]);
+				paginationOptionsRef.current.pageNumber++;
 			},
 		}
 	);
+
+	useEffect(() => {
+		reset();
+	}, [categoryState]);
 
 	useEffect(() => {
 		refetchListings();
