@@ -11,12 +11,14 @@ const CategoryFormControl = ({ name }: CategoryFormControlProps) => {
 
 	const categories: DropdownOption[] = useMemo(
 		(): DropdownOption[] =>
-			Object.keys(CategoryTypeEnum).map((value, index): DropdownOption => {
-				return {
-					value: index + 1,
-					displayValue: value,
-				};
-			}),
+			Object.keys(CategoryTypeEnum)
+				.filter((enumValue: string) => isNaN(+enumValue))
+				.map(
+					(value: string, index: number): DropdownOption => ({
+						value: index + 1,
+						displayValue: value,
+					})
+				),
 		[]
 	);
 
