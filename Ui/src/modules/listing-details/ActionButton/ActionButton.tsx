@@ -5,7 +5,7 @@ import { ButtonPrimary, Skeleton, Typography } from '@components';
 import { ActionButtonProps } from './types';
 
 const ActionButton = ({ bgColor, icon, label, ownerEmail, onClick }: ActionButtonProps) => {
-	const { user, error, isLoading } = useUser();
+	const { user, isLoading } = useUser();
 
 	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
 
