@@ -1,5 +1,5 @@
 import { ItemData } from '@api/listings/types';
 
-export type ItemsProps = {
+export type ItemsListProps = {
 	items: ItemData[];
 };
