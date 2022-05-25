@@ -1,58 +1,16 @@
-import { Box, Center, Grid, GridItem, Stack } from '@chakra-ui/react';
-import { Image, Typography } from '@components';
-import { useMemo } from 'react';
-import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { changeCategory } from '@redux/slices/changeCategorySlice';
+import { Box, Center, Grid, Stack } from '@chakra-ui/react';
+import { Typography } from '@components';
 import { Category } from '@utils/types';
+import { useMemo } from 'react';
 
+import { Category as CategoryComponent } from './Category';
 import { CategoryBoxProps } from './types';
 
 const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
-	const dispatch = useAppDispatch();
-	const categoryState = useAppSelector((state) => state.changeCategory);
-
 	const renderCategories = useMemo(
 		(): JSX.Element[] =>
-			categories.map(
-				(category: Category): JSX.Element => (
-					<GridItem key={category.name} w='100%'>
-						<Box
-							_hover={{
-								cursor: 'pointer',
-								filter: categoryState.category == category.category ? 'brightness(60%)' : 'brightness(90%)',
-								'& span': { filter: categoryState.category == category.category ? 'opacity(0.6)' : 'opacity(0.9)' },
-							}}
-							_active={{ filter: 'brightness(80%)', '& span': { filter: 'opacity(0.8)' } }}
-							bgColor='transparent'
-							onClick={() => dispatch(changeCategory(category.category))}
-							padding='0.5rem'
-							maxWidth='7.5rem'
-							filter={categoryState.category == category.category ? 'brightness(70%)' : 'auto'}
-							__css={{
-								'& span': {
-									filter: categoryState.category == category.category ? 'opacity(0.7)' : 'auto',
-								},
-							}}>
-							<Stack direction='column' alignItems='center' justifyContent='center'>
-								<Image
-									draggable={false}
-									backgroundColor='primary.dark'
-									borderRadius='full'
-									height='6.25rem'
-									width='6.25rem'
-									objectFit='cover'
-									src={category.image}
-									alt={category.name}
-								/>
-								<Typography center color={'darkish'} variant='h5'>
-									{category.name}
-								</Typography>
-							</Stack>
-						</Box>
-					</GridItem>
-				)
-			),
-		[categories, categoryState, dispatch]
+			categories.map((category: Category): JSX.Element => <CategoryComponent key={category.category} {...category} />),
+		[categories]
 	);
 
 	return (
