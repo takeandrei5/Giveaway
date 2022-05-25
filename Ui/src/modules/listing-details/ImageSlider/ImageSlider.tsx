@@ -8,6 +8,7 @@ import Slider, { CustomArrowProps } from 'react-slick';
 
 import { ImageSliderProps } from './types';
 import { Image } from '@components';
+import { Arrow } from './Arrow';
 
 const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 	const renderImages = useMemo(
@@ -18,14 +19,6 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 				)
 			),
 		[images]
-	);
-
-	const PreviousArrow = ({ currentSlide, slideCount, ...props }: CustomArrowProps): JSX.Element => (
-		<GrPrevious className='slick-prev slick-arrow' {...props} />
-	);
-
-	const NextArrow = ({ currentSlide, slideCount, ...props }: CustomArrowProps): JSX.Element => (
-		<GrNext className='slick-next slick-arrow' {...props} />
 	);
 
 	return (
@@ -41,8 +34,8 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 				infinite
 				dots
 				lazyLoad='progressive'
-				prevArrow={<PreviousArrow />}
-				nextArrow={<NextArrow />}>
+				prevArrow={<Arrow />}
+				nextArrow={<Arrow isNextArrow />}>
 				{renderImages}
 			</Slider>
 		</Center>
