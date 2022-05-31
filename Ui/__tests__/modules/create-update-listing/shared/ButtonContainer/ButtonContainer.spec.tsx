@@ -11,9 +11,9 @@ describe('ButtonContainer', () => {
 		};
 
 		// Act
-		const component = render(<ButtonContainer {...props} />);
+		const { container } = render(<ButtonContainer {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

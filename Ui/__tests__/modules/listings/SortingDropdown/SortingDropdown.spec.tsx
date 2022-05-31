@@ -13,7 +13,10 @@ describe('SortingDropdown', () => {
 			value: 'sorting-dropdown-test-value',
 		};
 
-		const component = render(<SortingDropdown {...props} />);
-		expect(component).toMatchSnapshot();
+		// Act
+		const { container } = render(<SortingDropdown {...props} />);
+
+		// Assert
+		expect(container).toMatchSnapshot();
 	});
 });

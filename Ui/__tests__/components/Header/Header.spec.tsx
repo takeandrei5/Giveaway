@@ -37,10 +37,10 @@ describe('Header', () => {
 		}));
 
 		// Act
-		const component = render(renderHeader());
+		const { container } = render(renderHeader());
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should navigate user to `/listings` page when the logo is clicked', async () => {

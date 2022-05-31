@@ -16,10 +16,10 @@ describe('Dropdown', () => {
 		};
 
 		// Act
-		const component = render(<Dropdown {...props} />);
+		const { container } = render(<Dropdown {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should render options correctly', () => {

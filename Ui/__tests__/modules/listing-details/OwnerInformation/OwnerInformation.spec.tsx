@@ -12,9 +12,9 @@ describe('OwnerInformation', () => {
 		};
 
 		// Act
-		const component = render(<OwnerInformation {...props} />);
+		const { container } = render(<OwnerInformation {...props} />);
 
 		// Assert
-		expect(component).toBeTruthy();
+		expect(container).toBeTruthy();
 	});
 });

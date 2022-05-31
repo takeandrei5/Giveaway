@@ -33,9 +33,9 @@ describe('DescriptionFormControl', () => {
 		}));
 
 		// Act
-		const component = render(<DescriptionFormControl {...props} />);
+		const { container } = render(<DescriptionFormControl {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

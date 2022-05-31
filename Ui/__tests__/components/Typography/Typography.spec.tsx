@@ -12,10 +12,10 @@ describe('Typography', () => {
 		};
 
 		// Act
-		const component = render(<Typography {...props} />);
+		const { container } = render(<Typography {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	describe('variant prop', () => {

@@ -20,10 +20,10 @@ describe('Item', () => {
 
 	it('should match snapshot', () => {
 		// Act
-		const component = render(<Item {...props} />);
+		const { container } = render(<Item {...props} />);
 
 		// Assert
-		expect(component).toBeTruthy;
+		expect(container).toMatchSnapshot();
 	});
 
 	describe('onClick', () => {

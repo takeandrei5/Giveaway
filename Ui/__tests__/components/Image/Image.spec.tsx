@@ -10,9 +10,9 @@ describe('Image', () => {
 		};
 
 		// Act
-		const component = render(<Image {...props} />);
+		const { container } = render(<Image {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

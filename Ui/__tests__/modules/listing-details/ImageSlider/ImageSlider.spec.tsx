@@ -10,9 +10,9 @@ describe('ImageSlider', () => {
 		};
 
 		// Act
-		const component = render(<ImageSlider {...props} />);
+		const { container } = render(<ImageSlider {...props} />);
 
 		// Assert
-		expect(component).toBeTruthy();
+		expect(container).toMatchSnapshot();
 	});
 });

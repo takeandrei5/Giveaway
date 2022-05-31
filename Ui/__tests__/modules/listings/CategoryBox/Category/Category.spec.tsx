@@ -21,10 +21,10 @@ describe('Category', () => {
 		};
 
 		// Act
-		const component = render(<Category {...props} />);
+		const { container } = render(<Category {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should trigger useCallback everytime the category box is clicked', async () => {
@@ -34,8 +34,6 @@ describe('Category', () => {
 			name: 'test',
 			image: 'https://via.placeholder.com/150',
 		};
-
-		// const useCallbackSpy = jest.spyOn(React, 'useCallback');
 
 		(useAppSelector as unknown as jest.Mock).mockImplementation((state) => ({ category: 'books' }));
 

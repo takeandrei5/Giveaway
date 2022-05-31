@@ -41,10 +41,10 @@ describe('FormControl', () => {
 		]);
 
 		// Act
-		const component = render(<FormControl {...props} />);
+		const { container } = render(<FormControl {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should render error message if invalid', () => {

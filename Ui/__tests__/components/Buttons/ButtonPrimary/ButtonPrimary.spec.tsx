@@ -5,9 +5,9 @@ import userEvent from '@testing-library/user-event';
 describe('ButtonPrimary', () => {
 	it('should match snapshot', () => {
 		// Act
-		const component = render(<ButtonPrimary />);
+		const { container } = render(<ButtonPrimary />);
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should execute onClick correctly when button is clicked', async () => {

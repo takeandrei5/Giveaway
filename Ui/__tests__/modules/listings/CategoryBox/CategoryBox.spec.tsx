@@ -4,6 +4,8 @@ import store from '@redux/store';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
+const wrapper = ({ children }: { children: JSX.Element }) => <Provider store={store}>{children}</Provider>;
+
 describe('CategoryBox', () => {
 	it('should match snapshot', () => {
 		// Arrange
@@ -18,11 +20,9 @@ describe('CategoryBox', () => {
 		};
 
 		// Act
-		const { container } = render(
-			<Provider store={store}>
-				<CategoryBox {...props} />
-			</Provider>
-		);
+		const { container } = render(<CategoryBox {...props} />, {
+			wrapper,
+		});
 
 		// Assert
 		expect(container).toMatchSnapshot();

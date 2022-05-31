@@ -15,9 +15,9 @@ describe('ListingInformation', () => {
 		};
 
 		// Act
-		const component = render(<ListingInformation {...props} />);
+		const { container } = render(<ListingInformation {...props} />);
 
 		// Assert
-		expect(component).toBeTruthy();
+		expect(container).toMatchSnapshot();
 	});
 });

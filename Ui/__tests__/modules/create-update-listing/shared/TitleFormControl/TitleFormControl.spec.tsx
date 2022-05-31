@@ -33,9 +33,9 @@ describe('TitleFormControl', () => {
 		}));
 
 		// Act
-		const component = render(<TitleFormControl {...props} />);
+		const { container } = render(<TitleFormControl {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

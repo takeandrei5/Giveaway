@@ -3,8 +3,10 @@ import { render } from '@testing-library/react';
 
 describe('Skeleton', () => {
 	it('should match snapshot', () => {
-		const component = render(<Skeleton />);
+		// Act
+		const { container } = render(<Skeleton />);
 
-		expect(component).toMatchSnapshot();
+		// Assert
+		expect(container).toMatchSnapshot();
 	});
 });

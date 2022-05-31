@@ -30,9 +30,9 @@ describe('ItemsList', () => {
 
 	it('should match snapshot', () => {
 		// Act
-		const component = render(<ItemsList {...props} />);
+		const { container } = render(<ItemsList {...props} />);
 
 		// Assert
-		expect(component).toBeTruthy;
+		expect(container).toMatchSnapshot();
 	});
 });

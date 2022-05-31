@@ -5,10 +5,10 @@ import { render } from '@testing-library/react';
 describe('Footer', () => {
 	it('should match snapshot', () => {
 		// Act
-		const component = render(<Footer />);
+		const { container } = render(<Footer />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should render a stack of items', () => {

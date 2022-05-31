@@ -10,9 +10,9 @@ describe('DefaultLayout', () => {
 		(useUser as unknown as jest.Mock).mockImplementation(() => ({ user: undefined }));
 
 		// Act
-		const component = render(<DefaultLayout children={<></>} />);
+		const { container } = render(<DefaultLayout children={<></>} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 });

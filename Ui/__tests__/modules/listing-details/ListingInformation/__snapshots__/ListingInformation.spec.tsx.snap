@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingInformation should match snapshot 1`] = `
+<div>
+  <div
+    class="css-h8v6tg"
+  >
+    <span
+      class="chakra-text css-1ysmetk"
+      data-testid="typography"
+    >
+      Added on: 
+    </span>
+    <span
+      class="chakra-text css-q6c2va"
+      data-testid="typography"
+    >
+      test-title
+    </span>
+    <span
+      class="chakra-text css-iprtrc"
+      data-testid="typography"
+    >
+      test-description
+    </span>
+  </div>
+</div>
+`;

@@ -9,10 +9,10 @@ describe('Logo', () => {
 		const props: LogoProps = { onClick: () => {} };
 
 		// Act
-		const component = render(<Logo {...props} />);
+		const { container } = render(<Logo {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	it('should trigger onClick when the logo image is clicked successfully', async () => {

@@ -15,10 +15,10 @@ describe('Input', () => {
 		};
 
 		// Act
-		const component = render(<Input {...props} />);
+		const { container } = render(<Input {...props} />);
 
 		// Assert
-		expect(component).toMatchSnapshot();
+		expect(container).toMatchSnapshot();
 	});
 
 	describe('multiline prop', () => {
