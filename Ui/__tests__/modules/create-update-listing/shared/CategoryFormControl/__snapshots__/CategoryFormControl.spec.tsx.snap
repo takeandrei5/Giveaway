@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryFormControl should match snapshot 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-8atqhb"
+    role="group"
+  >
+    <label
+      class="chakra-form__label css-exo973"
+      for="category-dropdown"
+      id="field-1-label"
+    >
+      Category:
+      <span
+        aria-hidden="true"
+        class="chakra-form__required-indicator css-0"
+        role="presentation"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="chakra-select__wrapper css-ts3co9"
+    >
+      <select
+        aria-required="true"
+        class="chakra-select css-31afkg"
+        data-testid="dropdown"
+        id="category-dropdown"
+        name="test-name"
+        required=""
+      >
+        <option
+          value="1"
+        >
+          Clothes
+        </option>
+        <option
+          value="2"
+        >
+          Toys
+        </option>
+        <option
+          value="3"
+        >
+          Books
+        </option>
+        <option
+          value="4"
+        >
+          Electronics
+        </option>
+      </select>
+      <div
+        class="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden="true"
+          class="chakra-select__icon"
+          focusable="false"
+          role="presentation"
+          style="width: 1em; height: 1em; color: currentColor;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

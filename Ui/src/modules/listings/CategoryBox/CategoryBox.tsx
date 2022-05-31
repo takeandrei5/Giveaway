@@ -17,7 +17,7 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 		<Center>
 			<Box bgColor='#FFFFFF' borderRadius='2xl' display='flex' justifyContent='center' padding='1.5rem' width='87.5rem'>
 				<Stack direction='column'>
-					<Typography center variant='h2' color={'grayish'}>
+					<Typography center variant='h2' color='grayish'>
 						Select from these main categories
 					</Typography>
 					<Grid justifyItems='center' marginTop='1rem !important' templateColumns='repeat(4, 1fr)' gap={10}>

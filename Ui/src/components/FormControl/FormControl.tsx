@@ -15,7 +15,11 @@ const FormControl = ({ children, id, label, name }: FormControlProps): JSX.Eleme
 				{label}
 			</FormLabel>
 			{React.cloneElement(children, { isInvalid })}
-			{isInvalid && <FormErrorMessage marginTop='0.125rem'>{meta.error}</FormErrorMessage>}
+			{isInvalid && (
+				<FormErrorMessage data-testid='form-control-error-message' marginTop='0.125rem'>
+					{meta.error}
+				</FormErrorMessage>
+			)}
 		</FormControlChakra>
 	);
 };

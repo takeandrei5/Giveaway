@@ -4,24 +4,28 @@ import { NextRouter, useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 
-const useGetAccessToken = (redirectToMainPage: boolean = true) => {
+const useGetAccessToken = (redirectTo: string = '') => {
 	const router: NextRouter = useRouter();
 	const { getAccessTokenSilently } = useAuth0();
 	const { user, isLoading }: UserContext = useUser();
 
 	const { isFetched, data } = useQuery(['accessToken'], () => getAccessTokenSilently(), {
-		onError: () => {
-			if (redirectToMainPage) {
-				router.replace('/listings');
-			}
-		},
+		onError: () => redirect(redirectTo),
+
 		enabled: !isLoading && !!user,
 	});
 
-	useEffect(() => {
-		if (!user && !isLoading && redirectToMainPage) {
+	const redirect = (redirectTo: string) => {
+		if (!redirectTo) {
 			router.replace('/listings');
 			return;
+		}
+		router.replace(redirectTo);
+	};
+
+	useEffect(() => {
+		if (!user && !isLoading) {
+			redirect(redirectTo);
 		}
 	}, [user, isLoading]);
 

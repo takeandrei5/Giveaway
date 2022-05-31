@@ -15,6 +15,7 @@ const Category = ({ name, image, category }: CategoryProps) => {
 	return (
 		<GridItem key={name} w='100%'>
 			<Box
+				data-testid='category-box'
 				_hover={{
 					cursor: 'pointer',
 					filter: categoryState.category == category ? 'brightness(60%)' : 'brightness(90%)',

@@ -34,6 +34,7 @@ const customJestConfig = {
 		'src/**/*.{ts,tsx}',
 		'!src/**/{styles,types,constants}.ts',
 		'!src/**/index.tsx',
+		'!src/redux/**',
 		'!src/utils/{axios,constants,enums,errors,mainTheme,queryClient,types}.ts',
 	],
 };
