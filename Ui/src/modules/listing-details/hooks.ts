@@ -1,19 +1,32 @@
 import { deleteListing, fetchListing } from '@api/listings';
-import { ListingInformation, OwnerInformation } from '@api/listings/types';
+import { FetchListingDetailsResponse, ListingInformation, OwnerInformation } from '@api/listings/types';
 import { NotFoundError } from '@utils/errors';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation, useQuery } from 'react-query';
 
-const useFetchListingDetails = (id: string) => {
+const useFetchListingDetails = (id: string, isAccessTokenLoaded: boolean) => {
 	const router: NextRouter = useRouter();
 
-	const { isLoading, data } = useQuery(['fetchListing', id], () => fetchListing(id));
+	const { isLoading, data } = useQuery(['fetchListing', id], () => fetchListing(id), {
+		onSuccess: (data: FetchListingDetailsResponse | undefined) => {
+			if (!data) {
+				router.replace('/404');
+			}
+		},
+		onError: (err) => {
+			console.error(err);
+			router.replace('/404');
+		},
+		enabled: !!isAccessTokenLoaded,
+	});
 
 	const { mutate: deleteListingMutate } = useMutation((accessToken: string) => deleteListing(id, accessToken), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
 			if (err instanceof NotFoundError) {
-				console.error('Delete listing failed ', err);
+				console.error(err);
+				router.replace('/404');
+
 				return;
 			}
 
@@ -21,9 +34,7 @@ const useFetchListingDetails = (id: string) => {
 		},
 	});
 
-	const { listingInfo, ownerInfo }: { listingInfo: ListingInformation } & { ownerInfo: OwnerInformation } = data!;
-
-	return { isLoading, listingInfo, ownerInfo, deleteListingMutate };
+	return { isLoading, ...data!, deleteListingMutate };
 };
 
-export default useFetchListingDetails;
+export { useFetchListingDetails };
