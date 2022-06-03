@@ -11,7 +11,7 @@ jest.mock('formik', () => ({
 }));
 
 jest.mock('@components/FormControl/hooks', () => ({
-	useCheckFormIsInvalid: jest.fn((meta: FieldMetaProps<unknown>) => ({})),
+	useCheckFormIsInvalid: jest.fn(),
 }));
 
 describe('FormControl', () => {
@@ -23,6 +23,10 @@ describe('FormControl', () => {
 			name: 'test-name',
 			children: <></>,
 		};
+
+		(useCheckFormIsInvalid as unknown as jest.Mock).mockImplementation(() => ({
+			isInvalid: false,
+		}));
 
 		(useField as unknown as jest.Mock).mockImplementation(() => [
 			{

@@ -43,8 +43,8 @@ describe('CategoryFormControl', () => {
 			name: 'test-name',
 		};
 
-		const setValueMock = jest.fn<{ value: boolean; shouldValidate?: boolean }, any>();
-		const setTouchedMock = jest.fn<{ value: boolean; shouldValidate?: boolean }, any>();
+		const setValueMock = jest.fn<void, [value: boolean, shouldValidate?: boolean | undefined]>();
+		const setTouchedMock = jest.fn<void, [value: boolean, shouldValidate?: boolean | undefined]>();
 
 		(useField as unknown as jest.Mock).mockImplementation(() => [
 			{
