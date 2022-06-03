@@ -1,30 +1,29 @@
 import { CategoryTypeEnum } from '@utils/enums';
 import * as yup from 'yup';
+import { ImageFormikValue } from './types';
 
 const validationSchema = yup.object({
 	title: yup
 		.string()
-		.max(50, 'Title cannot exceed 50 characters.')
+		.required('Title is required.')
 		.min(5, 'Title cannot be shorter than 5 characters.')
-		.required('Title is required.'),
+		.max(50, 'Title cannot exceed 50 characters.'),
 	description: yup
 		.string()
-		.max(1000, 'Description cannot exceed 1000 characters.')
+		.required('Description is required.')
 		.min(5, 'Description cannot be shorter than 5 characters.')
-		.required('Description is required.'),
+		.max(1000, 'Description cannot exceed 1000 characters.'),
 	category: yup
 		.number()
-		.max(Object.keys(CategoryTypeEnum).length, 'Category out of bounds.')
-		.min(1)
-		.required('Category is required'),
+		.min(1, 'Category out of bounds.')
+		.max(Object.keys(CategoryTypeEnum).length, 'Category out of bounds.'),
 	images: yup
 		.array()
 		.of(yup.object().shape({ id: yup.string(), url: yup.string() }))
-		.min(1)
-		.required('Images are required'),
-	'images[0]': yup.object().test('Thumbnail test', 'Listing must have a thumbnail image.', function () {
-		return this.parent && this.parent.images && this.parent.images[0] && !!this.parent.images[0].url;
-	}),
+		.min(1, 'Listing must contain at least an image.')
+		.test('Thumbnail test', 'Listing must have a thumbnail image.', function (value) {
+			return !!value && !!value[0] && !!value[0].id && !!value[0].url;
+		}),
 });
 
 export { validationSchema };
