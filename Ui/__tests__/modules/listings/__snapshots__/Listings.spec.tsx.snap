@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Listings should match snapshot 1`] = `
+<div>
+  <div
+    class="chakra-skeleton css-r69txw"
+  >
+    <div
+      class="css-gmuwbf"
+    >
+      <div
+        class="css-pqsxsg"
+      >
+        <div
+          class="chakra-stack css-n21gh5"
+        >
+          <span
+            class="chakra-text css-16tlfhj"
+            data-testid="typography"
+          >
+            Select from these main categories
+          </span>
+          <div
+            class="css-1ot69hf"
+          >
+            <div
+              class="css-8atqhb"
+            >
+              <div
+                class="css-1o2zl33"
+                data-testid="category-box"
+              >
+                <div
+                  class="chakra-stack css-1jxjhsf"
+                >
+                  <div
+                    class="css-120a5e1"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    >
+                      <span
+                        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                      />
+                      <img
+                        alt="Clothes"
+                        data-nimg="responsive"
+                        decoding="async"
+                        draggable="false"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                      />
+                      <noscript />
+                    </span>
+                  </div>
+                  <span
+                    class="chakra-text css-1ig778p"
+                    data-testid="typography"
+                  >
+                    Clothes
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="css-8atqhb"
+            >
+              <div
+                class="css-1o2zl33"
+                data-testid="category-box"
+              >
+                <div
+                  class="chakra-stack css-1jxjhsf"
+                >
+                  <div
+                    class="css-120a5e1"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    >
+                      <span
+                        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                      />
+                      <img
+                        alt="Toys"
+                        data-nimg="responsive"
+                        decoding="async"
+                        draggable="false"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                      />
+                      <noscript />
+                    </span>
+                  </div>
+                  <span
+                    class="chakra-text css-1ig778p"
+                    data-testid="typography"
+                  >
+                    Toys
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="css-8atqhb"
+            >
+              <div
+                class="css-1o2zl33"
+                data-testid="category-box"
+              >
+                <div
+                  class="chakra-stack css-1jxjhsf"
+                >
+                  <div
+                    class="css-120a5e1"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    >
+                      <span
+                        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                      />
+                      <img
+                        alt="Books"
+                        data-nimg="responsive"
+                        decoding="async"
+                        draggable="false"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                      />
+                      <noscript />
+                    </span>
+                  </div>
+                  <span
+                    class="chakra-text css-1ig778p"
+                    data-testid="typography"
+                  >
+                    Books
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="css-8atqhb"
+            >
+              <div
+                class="css-1o2zl33"
+                data-testid="category-box"
+              >
+                <div
+                  class="chakra-stack css-1jxjhsf"
+                >
+                  <div
+                    class="css-120a5e1"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    >
+                      <span
+                        style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                      />
+                      <img
+                        alt="Electronics"
+                        data-nimg="responsive"
+                        decoding="async"
+                        draggable="false"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                      />
+                      <noscript />
+                    </span>
+                  </div>
+                  <span
+                    class="chakra-text css-1ig778p"
+                    data-testid="typography"
+                  >
+                    Electronics
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-13dls4l"
+    >
+      <div
+        class="css-13n1q9m"
+      >
+        <span
+          class="chakra-text css-vjlvf3"
+          data-testid="typography"
+        >
+          Sort by: 
+        </span>
+        <div
+          class="chakra-select__wrapper css-ts3co9"
+        >
+          <select
+            class="chakra-select css-31afkg"
+            data-testid="dropdown"
+            id="sort-dropdown"
+            name="sort-dropdown"
+          >
+            <option
+              value="1"
+            >
+              test1
+            </option>
+            <option
+              value="2"
+            >
+              test1
+            </option>
+            <option
+              value="3"
+            >
+              test1
+            </option>
+          </select>
+          <div
+            class="chakra-select__icon-wrapper css-162mkon"
+          >
+            <svg
+              aria-hidden="true"
+              class="chakra-select__icon"
+              focusable="false"
+              role="presentation"
+              style="width: 1em; height: 1em; color: currentColor;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="infinite-scroll-component__outerdiv"
+    >
+      <div
+        class="infinite-scroll-component "
+        style="height: auto; overflow: auto;"
+      >
+        <div
+          class="css-ugh95v"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
