@@ -11,7 +11,7 @@ const customJestConfig = {
 	// Add more setup options before each test is run
 	// if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
 
-	setupFilesAfterEnv: ['./jest.setup.js'],
+	setupFiles: ['./jest.setup.js'],
 	moduleDirectories: ['node_modules', '<rootDir>/src'],
 	testEnvironment: 'jsdom',
 	clearMocks: true,
@@ -25,10 +25,12 @@ const customJestConfig = {
 		'^@redux/(.*)$': '<rootDir>/src/redux/$1',
 		'^@pages/(.*)$': '<rootDir>/src/pages/$1',
 		'^@utils/(.*)$': '<rootDir>/src/utils/$1',
+		'^__tests__/(.*)$': '<rootDir>/__tests__/$1',
 	},
 	modulePathIgnorePatterns: [
 		'<rootDir>/src/pages/', // Ignore pages folder for now
 		'<rootDir>/src/utils/{axios,constants,enums,errors,mainTheme,queryClient,types}.ts',
+		'<rootDir>/__tests__/wrappers.tsx',
 	],
 	collectCoverageFrom: [
 		'src/**/*.{ts,tsx}',

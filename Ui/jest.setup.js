@@ -1,7 +1,7 @@
 global.console = {
-	...console,
-	warn: jest.fn(),
+	...global.console,
 	error: jest.fn(),
+	warn: jest.fn(),
 };
 
 window.matchMedia =
