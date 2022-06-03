@@ -4,7 +4,7 @@ import { SortingType } from '@utils/types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { CategoryBox } from './CategoryBox';
-import useInfiniteFetchListings from './hooks';
+import { useInfiniteFetchListings } from './hooks';
 import Items from './ItemsList/ItemsList';
 import SortingDropdown from './SortingDropdown/SortingDropdown';
 import { ListingsProps } from './types';
@@ -23,6 +23,7 @@ const Listings = ({ options }: ListingsProps): JSX.Element => {
 				value={sort}
 			/>
 			<InfiniteScroll
+				data-testid='infinite-scroll'
 				dataLength={totalData.length}
 				next={refetchListings}
 				loader={<></>}

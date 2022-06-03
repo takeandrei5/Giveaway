@@ -1,15 +1,15 @@
+import { updateListing } from '@api/listings';
+import { UpdateListingRequest } from '@api/listings/types';
+import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
+import { MAX_IMAGES } from '@utils/constants';
+import { NotFoundError } from '@utils/errors';
 import { FormikProps, useFormik } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation } from 'react-query';
 import { v4 as uuidv4 } from 'uuid';
 
-import { UpdateListingRequest } from '../../../api/listings/types';
-import updateListing from '../../../api/listings/updateListing';
-import { UpdateListingInitialValues } from '../../../pages/update-listing/[id]/types';
-import { MAX_IMAGES } from '../../../utils/constants';
 import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
-import { NotFoundError } from '../../../utils/errors';
 
 const useUpdateListing = (id: string, accessToken: string, initialValues: UpdateListingInitialValues) => {
 	const router: NextRouter = useRouter();

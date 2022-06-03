@@ -53,4 +53,4 @@ const useInfiniteFetchListings = () => {
 	return { isLoading, totalData, nextData, sort, setSort, refetchListings };
 };
 
-export default useInfiniteFetchListings;
+export { useInfiniteFetchListings };
