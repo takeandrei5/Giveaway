@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingDetails should match snapshot 1`] = `
+<div>
+  <div
+    class="chakra-skeleton css-r69txw"
+  >
+    <div
+      class="css-1tm3dfo"
+    >
+      <div
+        class="chakra-skeleton css-cdkrf0"
+      >
+        <button
+          class="chakra-button css-1537pyw"
+          data-testid="button-primary"
+          type="button"
+        >
+          <span
+            class="chakra-button__icon css-1wh2kri"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              font-size="mediun"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.7507,16.0022 C3.3517,20.0982 7.3367,23.0002 11.9997,23.0002 C18.0747,23.0002 22.9997,18.0752 22.9997,12.0002 M22.2497,7.9982 C20.6487,3.9012 16.6627,1.0002 11.9997,1.0002 C5.9247,1.0002 0.9997,5.9252 0.9997,12.0002 M8.9997,16.0002 L0.9997,16.0002 L0.9997,24.0002 M22.9997,0.0002 L22.9997,8.0002 L14.9997,8.0002"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <span
+            class="chakra-text css-1ttg4dc"
+            data-testid="typography"
+          >
+            Update listing
+          </span>
+        </button>
+      </div>
+      <div
+        class="chakra-skeleton css-cdkrf0"
+      >
+        <button
+          class="chakra-button css-9tpr75"
+          data-testid="button-primary"
+          type="button"
+        >
+          <span
+            class="chakra-button__icon css-1wh2kri"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              font-size="mediun"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <span
+            class="chakra-text css-1ttg4dc"
+            data-testid="typography"
+          >
+            Delete listing
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="css-2ch16y"
+    >
+      <div
+        class="slick-slider slick-initialized"
+      >
+        <div
+          class="slick-list"
+          style="height: 0px;"
+        >
+          <div
+            class="slick-track"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active slick-current"
+              data-index="0"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <div
+                  class="css-kiasv6"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                    />
+                    <img
+                      alt="image"
+                      data-nimg="responsive"
+                      decoding="async"
+                      draggable="false"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                      style="width: 0px; display: block; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                      tabindex="-1"
+                    />
+                    <noscript />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-h7npbh"
+    >
+      <div
+        class="css-1b27p5s"
+      >
+        <div
+          class="css-h8v6tg"
+        >
+          <span
+            class="chakra-text css-1ysmetk"
+            data-testid="typography"
+          >
+            Added on: 
+          </span>
+          <span
+            class="chakra-text css-q6c2va"
+            data-testid="typography"
+          >
+            listing-title
+          </span>
+          <span
+            class="chakra-text css-iprtrc"
+            data-testid="typography"
+          >
+            listing-description
+          </span>
+        </div>
+      </div>
+      <div
+        class="css-1pip4vl"
+      >
+        <div
+          class="css-13xbhew"
+        >
+          <span
+            class="chakra-text css-fw6ya1"
+            data-testid="typography"
+          >
+            Contact Information
+          </span>
+          <hr
+            aria-orientation="horizontal"
+            class="chakra-divider css-1upb9tn"
+          />
+          <span
+            class="chakra-avatar css-1ruhx4w"
+          >
+            <svg
+              aria-label=" avatar"
+              class="chakra-avatar__svg css-16ite8i"
+              role="img"
+              viewBox="0 0 128 128"
+            >
+              <path
+                d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                fill="currentColor"
+              />
+              <path
+                d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <div
+            class="css-w28dba"
+          >
+            <span
+              class="chakra-text css-inmt5s"
+              data-testid="typography"
+            >
+              Owner:
+            </span>
+            <span
+              class="chakra-text css-btni37"
+              data-testid="typography"
+            />
+          </div>
+          <div
+            class="css-w28dba"
+          >
+            <span
+              class="chakra-text css-inmt5s"
+              data-testid="typography"
+            >
+              Email:
+            </span>
+            <span
+              class="chakra-text css-btni37"
+              data-testid="typography"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
