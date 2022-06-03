@@ -4,7 +4,7 @@ import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
 
 import { ActionButton } from './ActionButton';
-import useFetchListingDetails from './hooks';
+import { useFetchListingDetails } from './hooks';
 import { ImageSlider } from './ImageSlider';
 import { ListingInformation } from './ListingInformation';
 import { OwnerInformation } from './OwnerInformation';
@@ -12,8 +12,8 @@ import { ListingDetailsProps } from './types';
 
 const ListingDetails = ({ id }: ListingDetailsProps) => {
 	const router: NextRouter = useRouter();
-	const { isFetched, data } = useGetAccessToken(false);
-	const { isLoading, listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id);
+	const { isFetched, data } = useGetAccessToken();
+	const { isLoading, listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id, isFetched);
 
 	return (
 		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
