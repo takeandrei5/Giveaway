@@ -17,18 +17,12 @@ const useImageUpload = (name: string) => {
 		{
 			onError: (err) => {
 				console.error('Uploading image to cdn failed ', err);
-				router.push('/500');
+				router.replace('/500');
 			},
 		}
 	);
 
-	const checkFileSize = (file: File): boolean => {
-		if (file.size > 5 * 1000 * 1000) {
-			return false;
-		}
-
-		return true;
-	};
+	const hasCorrectFileSize = (file: File): boolean => !(file.size > 5 * 1000 * 1000);
 
 	const createFormData = (file: File): FormData => {
 		const formData = new FormData();
@@ -50,7 +44,7 @@ const useImageUpload = (name: string) => {
 			return;
 		}
 
-		if (!checkFileSize(file)) {
+		if (!hasCorrectFileSize(file)) {
 			return;
 		}
 
