@@ -1,0 +1,527 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormContainer should match snapshot 1`] = `
+<div>
+  <span
+    class="chakra-text css-756qlt"
+    data-testid="typography"
+  >
+    test-page-title
+  </span>
+  <form
+    action="#"
+    novalidate=""
+  >
+    <div
+      class="css-1rk3b0n"
+    >
+      <span
+        class="chakra-text css-q6c2va"
+        data-testid="typography"
+      >
+        Be as specific as you can!
+      </span>
+      <hr
+        aria-orientation="horizontal"
+        class="chakra-divider css-1upb9tn"
+      />
+      <div
+        class="css-bsy8lq"
+      >
+        <div
+          class="chakra-form-control css-8atqhb"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-exo973"
+            for="title-input"
+            id="field-1-label"
+          >
+            Title:
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="chakra-input__group css-17gmcos"
+          >
+            <input
+              aria-required="true"
+              class="chakra-input css-zt0los"
+              data-testid="input"
+              id="title-input"
+              name="title"
+              placeholder="Ex. Books for children"
+              required=""
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="chakra-form-control css-8atqhb"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-exo973"
+            for="category-dropdown"
+            id="field-2-label"
+          >
+            Category:
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="chakra-select__wrapper css-ts3co9"
+          >
+            <select
+              aria-required="true"
+              class="chakra-select css-31afkg"
+              data-testid="dropdown"
+              id="category-dropdown"
+              name="category"
+              required=""
+            >
+              <option
+                value="1"
+              >
+                Clothes
+              </option>
+              <option
+                value="2"
+              >
+                Toys
+              </option>
+              <option
+                value="3"
+              >
+                Books
+              </option>
+              <option
+                value="4"
+              >
+                Electronics
+              </option>
+            </select>
+            <div
+              class="chakra-select__icon-wrapper css-162mkon"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-select__icon"
+                focusable="false"
+                role="presentation"
+                style="width: 1em; height: 1em; color: currentColor;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-form-control css-8atqhb"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-exo973"
+            for="images-dragdrop"
+            id="field-3-label"
+          >
+            Images:
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <div
+            class="css-11bgua5"
+            data-rbd-droppable-context-id="0"
+            data-rbd-droppable-id="droppable"
+          >
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <svg
+                class="chakra-icon css-1kie07n"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 16 16"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zM8.16 4.1a.178.178 0 0 0-.32 0l-.634 1.285a.178.178 0 0 1-.134.098l-1.42.206a.178.178 0 0 0-.098.303L6.58 6.993c.042.041.061.1.051.158L6.39 8.565a.178.178 0 0 0 .258.187l1.27-.668a.178.178 0 0 1 .165 0l1.27.668a.178.178 0 0 0 .257-.187L9.368 7.15a.178.178 0 0 1 .05-.158l1.028-1.001a.178.178 0 0 0-.098-.303l-1.42-.206a.178.178 0 0 1-.134-.098L8.16 4.1z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+            <div
+              aria-describedby="rbd-hidden-text-0-hidden-text-0"
+              class="css-1de6poj"
+              data-rbd-drag-handle-context-id="0"
+              data-rbd-drag-handle-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              data-rbd-draggable-context-id="0"
+              data-rbd-draggable-id="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+              draggable="false"
+              id="test"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept="image/png, image/jpeg"
+                class="chakra-input css-1jccxn"
+                id="field-3"
+                style="text-indent: -999px;"
+                title="Upload an image"
+                type="file"
+              />
+              <div
+                class="css-ix86pw"
+              >
+                <span
+                  style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+                  />
+                  <img
+                    alt="imageUpload"
+                    data-nimg="responsive"
+                    decoding="async"
+                    draggable="false"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                  />
+                  <noscript />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-form-control css-8atqhb"
+          role="group"
+        >
+          <label
+            class="chakra-form__label css-exo973"
+            for="description-input"
+            id="field-4-label"
+          >
+            Description:
+            <span
+              aria-hidden="true"
+              class="chakra-form__required-indicator css-0"
+              role="presentation"
+            >
+              *
+            </span>
+          </label>
+          <textarea
+            aria-required="true"
+            class="chakra-textarea css-hek20j"
+            data-testid="textarea"
+            id="description-input"
+            name="description"
+            placeholder="Be as detailed as you wish others were!"
+            required=""
+            rows="10"
+          />
+        </div>
+        <div
+          class="css-1hoplt2"
+        >
+          <button
+            class="chakra-button css-1fmmhr1"
+            data-testid="button-primary"
+            type="reset"
+          >
+            <span
+              class="chakra-button__icon css-1wh2kri"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                focusable="false"
+                font-size="larger"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </span>
+            <span
+              class="chakra-text css-1ttg4dc"
+              data-testid="typography"
+            >
+              test-reset-button-text
+            </span>
+          </button>
+          <button
+            class="chakra-button css-12p1jqz"
+            data-testid="button-primary"
+            type="submit"
+          >
+            <span
+              class="chakra-button__icon css-1wh2kri"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                focusable="false"
+                font-size="larger"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22,3 L2,11 L20.5,19 L22,3 Z M10,20.5 L13,16 M15.5,9.5 L9,14 L9.85884537,20.0119176 C9.93680292,20.5576204 10.0751625,20.5490248 10.1651297,20.009222 L11,15 L15.5,9.5 Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </span>
+            <span
+              class="chakra-text css-1ttg4dc"
+              data-testid="typography"
+            >
+              test-submit-button-text
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
