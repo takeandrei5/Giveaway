@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormContainer should match snapshot 1`] = `
+exports[`UpdateListing should match snapshot 1`] = `
 <div>
   <span
     class="chakra-text css-756qlt"
     data-testid="typography"
   >
-    test-page-title
+    Update listing!
   </span>
   <form
     action="#"
@@ -57,7 +57,7 @@ exports[`FormContainer should match snapshot 1`] = `
               name="title"
               placeholder="Ex. Books for children"
               required=""
-              value=""
+              value="initial-title"
             />
           </div>
         </div>
@@ -438,7 +438,9 @@ exports[`FormContainer should match snapshot 1`] = `
             placeholder="Be as detailed as you wish others were!"
             required=""
             rows="10"
-          />
+          >
+            initial-description
+          </textarea>
         </div>
         <div
           class="css-1hoplt2"
@@ -475,7 +477,7 @@ exports[`FormContainer should match snapshot 1`] = `
               class="chakra-text css-1ttg4dc"
               data-testid="typography"
             >
-              test-reset-button-text
+              Reset
             </span>
           </button>
           <button
@@ -510,7 +512,7 @@ exports[`FormContainer should match snapshot 1`] = `
               class="chakra-text css-1ttg4dc"
               data-testid="typography"
             >
-              test-submit-button-text
+              Update
             </span>
           </button>
         </div>
