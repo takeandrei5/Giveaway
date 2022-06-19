@@ -59,7 +59,6 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 					{(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
 						<Box
 							ref={provided.innerRef}
-							id='test'
 							cursor='default'
 							marginRight='0.5rem'
 							width='100%'
@@ -70,6 +69,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 							{...provided.dragHandleProps}>
 							{renderDeleteImageButton(value)}
 							<Input
+								id='file-input'
 								type='file'
 								accept='image/png, image/jpeg'
 								borderRadius='0'

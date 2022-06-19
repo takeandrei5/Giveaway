@@ -14,7 +14,9 @@ const useCreateListing = (accessToken: string) => {
 	const { mutate: createListingMutate } = useMutation(
 		(data: CreateListingRequest) => createListing(accessToken, data),
 		{
-			onSuccess: () => router.replace('/listings'),
+			onSuccess: () => {
+				router.replace('/listings');
+			},
 			onError: (err) => {
 				console.error(err);
 				router.replace('/500');
@@ -27,13 +29,15 @@ const useCreateListing = (accessToken: string) => {
 		validationSchema,
 		validateOnBlur: true,
 		validateOnChange: false,
-		onSubmit: (values: FormikValues) =>
+		onSubmit: (values: FormikValues) => {
+			console.log('hello');
 			createListingMutate({
 				title: values.title,
 				description: values.description,
 				category: values.category,
 				images: values.images.filter(({ url }: ImageFormikValue) => !!url).map(({ url }: ImageFormikValue) => url),
-			}),
+			});
+		},
 	});
 
 	return { formik };
