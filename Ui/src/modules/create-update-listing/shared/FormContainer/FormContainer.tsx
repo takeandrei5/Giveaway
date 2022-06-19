@@ -2,11 +2,11 @@ import { Divider, Flex } from '@chakra-ui/react';
 import { Typography } from '@components';
 import { Form, FormikProvider } from 'formik';
 
-import { ButtonContainer } from './ButtonContainer';
-import { CategoryFormControl } from './CategoryFormControl';
-import { DescriptionFormControl } from './DescriptionFormControl';
-import { ImagesFormControl } from './ImagesFormControl';
-import { TitleFormControl } from './TitleFormControl';
+import { ButtonContainer } from '../ButtonContainer';
+import { CategoryFormControl } from '../CategoryFormControl';
+import { DescriptionFormControl } from '../DescriptionFormControl';
+import { ImagesFormControl } from '../ImagesFormControl';
+import { TitleFormControl } from '../TitleFormControl';
 import { FormContainerProps } from './types';
 
 const FormContainer = ({ formik, pageTitle, resetButtonText, submitButtonText }: FormContainerProps): JSX.Element => (

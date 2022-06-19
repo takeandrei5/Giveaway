@@ -1,6 +1,5 @@
 import { CategoryTypeEnum } from '@utils/enums';
 import * as yup from 'yup';
-import { ImageFormikValue } from './types';
 
 const validationSchema = yup.object({
 	title: yup
