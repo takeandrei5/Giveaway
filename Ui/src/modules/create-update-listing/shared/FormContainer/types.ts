@@ -1,4 +1,5 @@
-import { FormikProps, FormikValues as FormikDefaultValues } from 'formik';
+import { FormikProps } from 'formik';
+
 import { FormikValues } from '../types';
 
 export type FormContainerProps = {
