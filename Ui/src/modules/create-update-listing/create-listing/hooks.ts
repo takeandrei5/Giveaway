@@ -30,7 +30,6 @@ const useCreateListing = (accessToken: string) => {
 		validateOnBlur: true,
 		validateOnChange: false,
 		onSubmit: (values: FormikValues) => {
-			console.log('hello');
 			createListingMutate({
 				title: values.title,
 				description: values.description,
