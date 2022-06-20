@@ -6,6 +6,7 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useGetAccessToken } from '@utils/hooks';
 import { useRouter } from 'next/router';
+import { TEST_IMAGE } from '__tests__/constants';
 import { ListingInformation } from '../../../src/api/listings/types';
 
 jest.mock('dateformat', () => jest.fn());
@@ -32,7 +33,7 @@ describe('ListingDetails', () => {
 		description: 'listing-description',
 		category: 0,
 		createdAt: new Date('2020-01-01'),
-		images: ['https://via.placeholder.com/150'],
+		images: [TEST_IMAGE],
 	};
 
 	const accessTokenFetched: boolean = true;

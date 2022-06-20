@@ -5,6 +5,7 @@ import { CategoryState } from '@redux/slices/changeCategorySlice';
 import { EmptyObject } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { TEST_IMAGE } from '__tests__/constants';
 
 jest.mock('@redux/hooks', () => ({
 	useAppDispatch: jest.fn(),
@@ -17,7 +18,7 @@ describe('Category', () => {
 		const props: CategoryProps = {
 			category: 'books',
 			name: 'test',
-			image: 'https://via.placeholder.com/150',
+			image: TEST_IMAGE,
 		};
 
 		// Act
