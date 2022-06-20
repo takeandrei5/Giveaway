@@ -1,3 +1,3 @@
 export type LogoProps = {
-	onClick: () => void;
+	onClick?: () => void;
 };

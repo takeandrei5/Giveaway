@@ -27,7 +27,7 @@ const Footer = (): JSX.Element => {
 			<Container as={Stack} maxW='6xl' py={10}>
 				<SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }} spacing={8}>
 					<Stack display='flex' alignItems='start' spacing={6}>
-						<Logo onClick={() => {}} />
+						<Logo />
 						<Typography variant='paragraph'>© 2020 Chakra Templates. All rights reserved</Typography>
 					</Stack>
 					{renderStackItems(stackItems)}
