@@ -2,7 +2,6 @@ import { Box, Button, Center, Flex, Icon, Input, Spinner } from '@chakra-ui/reac
 import { FormControl, Image } from '@components';
 import { DEFAULT_IMAGE_UPLOAD } from '@utils/constants';
 import { useField } from 'formik';
-import { ChangeEventHandler } from 'react';
 import {
 	DragDropContext,
 	Draggable,
@@ -36,6 +35,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 				visibility='hidden'
 				transition='visibility 0s linear 0s, opacity 300ms'>
 				<Button
+					id='delete-image-button'
 					bg='gray.200'
 					padding='0'
 					_active={{ bg: 'gray.200', filter: 'brightness(80%)' }}
@@ -108,7 +108,15 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 	return (
 		<FormControl label='Images:' id='images-dragdrop' name={name}>
 			<>
-				{isUploading && <Spinner position='absolute' top='50%' left='calc(50% - 16px)' zIndex='1000' />}
+				{isUploading && (
+					<Spinner
+						data-testid='uploading-image-spinner'
+						position='absolute'
+						top='50%'
+						left='calc(50% - 16px)'
+						zIndex='1000'
+					/>
+				)}
 				<DragDropContext onDragEnd={onDragEnd}>
 					<Droppable droppableId='droppable' direction='horizontal'>
 						{(provided: DroppableProvided) => (

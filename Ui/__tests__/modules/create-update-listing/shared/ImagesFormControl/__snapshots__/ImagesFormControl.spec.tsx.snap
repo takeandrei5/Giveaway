@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagesFormControl should match snapshot 1`] = `
+<div>
+  <div
+    class="chakra-form-control css-8atqhb"
+    role="group"
+  >
+    <label
+      class="chakra-form__label css-exo973"
+      for="images-dragdrop"
+      id="field-1-label"
+    >
+      Images:
+      <span
+        aria-hidden="true"
+        class="chakra-form__required-indicator css-0"
+        role="presentation"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="css-11bgua5"
+      data-rbd-droppable-context-id="0"
+      data-rbd-droppable-id="droppable"
+    >
+      <div
+        aria-describedby="rbd-hidden-text-0-hidden-text-0"
+        class="css-1de6poj"
+        data-rbd-drag-handle-context-id="0"
+        data-rbd-drag-handle-draggable-id="test-id1"
+        data-rbd-draggable-context-id="0"
+        data-rbd-draggable-id="test-id1"
+        draggable="false"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="css-1pkevgk"
+        >
+          <button
+            class="chakra-button css-c1a1y0"
+            id="delete-image-button"
+            type="button"
+          >
+            <svg
+              class="chakra-icon css-jlhyv4"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+        <input
+          accept="image/png, image/jpeg"
+          class="chakra-input css-1jccxn"
+          id="file-input"
+          style="text-indent: -999px;"
+          title="Upload an image"
+          type="file"
+        />
+        <svg
+          class="chakra-icon css-1kie07n"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zM8.16 4.1a.178.178 0 0 0-.32 0l-.634 1.285a.178.178 0 0 1-.134.098l-1.42.206a.178.178 0 0 0-.098.303L6.58 6.993c.042.041.061.1.051.158L6.39 8.565a.178.178 0 0 0 .258.187l1.27-.668a.178.178 0 0 1 .165 0l1.27.668a.178.178 0 0 0 .257-.187L9.368 7.15a.178.178 0 0 1 .05-.158l1.028-1.001a.178.178 0 0 0-.098-.303l-1.42-.206a.178.178 0 0 1-.134-.098L8.16 4.1z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <div
+          class="css-ix86pw"
+        >
+          <span
+            style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+            />
+            <img
+              alt="imageUpload"
+              data-nimg="responsive"
+              decoding="async"
+              draggable="false"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+            <noscript />
+          </span>
+        </div>
+      </div>
+      <div
+        aria-describedby="rbd-hidden-text-0-hidden-text-0"
+        class="css-1de6poj"
+        data-rbd-drag-handle-context-id="0"
+        data-rbd-drag-handle-draggable-id="test-id2"
+        data-rbd-draggable-context-id="0"
+        data-rbd-draggable-id="test-id2"
+        draggable="false"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="css-1pkevgk"
+        >
+          <button
+            class="chakra-button css-c1a1y0"
+            id="delete-image-button"
+            type="button"
+          >
+            <svg
+              class="chakra-icon css-jlhyv4"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+        <input
+          accept="image/png, image/jpeg"
+          class="chakra-input css-1jccxn"
+          id="file-input"
+          style="text-indent: -999px;"
+          title="Upload an image"
+          type="file"
+        />
+        <div
+          class="css-ix86pw"
+        >
+          <span
+            style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+            />
+            <img
+              alt="imageUpload"
+              data-nimg="responsive"
+              decoding="async"
+              draggable="false"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+            <noscript />
+          </span>
+        </div>
+      </div>
+      <div
+        aria-describedby="rbd-hidden-text-0-hidden-text-0"
+        class="css-1de6poj"
+        data-rbd-drag-handle-context-id="0"
+        data-rbd-drag-handle-draggable-id="test-id3"
+        data-rbd-draggable-context-id="0"
+        data-rbd-draggable-id="test-id3"
+        draggable="false"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="css-1pkevgk"
+        >
+          <button
+            class="chakra-button css-c1a1y0"
+            id="delete-image-button"
+            type="button"
+          >
+            <svg
+              class="chakra-icon css-jlhyv4"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+        <input
+          accept="image/png, image/jpeg"
+          class="chakra-input css-1jccxn"
+          id="file-input"
+          style="text-indent: -999px;"
+          title="Upload an image"
+          type="file"
+        />
+        <div
+          class="css-ix86pw"
+        >
+          <span
+            style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 100% 0px 0px 0px;"
+            />
+            <img
+              alt="imageUpload"
+              data-nimg="responsive"
+              decoding="async"
+              draggable="false"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+            <noscript />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
