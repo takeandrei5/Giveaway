@@ -31,6 +31,7 @@ const customJestConfig = {
 		'<rootDir>/src/pages/', // Ignore pages folder for now
 		'<rootDir>/src/utils/{axios,constants,enums,errors,mainTheme,queryClient,types}.ts',
 		'<rootDir>/__tests__/wrappers.tsx',
+		'<rootDir>/__tests__/constants.ts',
 	],
 	collectCoverageFrom: [
 		'src/**/*.{ts,tsx}',
