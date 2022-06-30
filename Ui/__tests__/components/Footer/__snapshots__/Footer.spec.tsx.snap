@@ -3,7 +3,7 @@
 exports[`Footer should match snapshot 1`] = `
 <div>
   <div
-    class="css-lz9lu4"
+    class="css-3au498"
     data-testid="footer"
   >
     <div

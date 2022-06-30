@@ -20,7 +20,7 @@ import {
 import { ButtonPrimary, Logo, Typography } from '@components';
 import { NextRouter, useRouter } from 'next/router';
 import React, { useMemo } from 'react';
-import { GrAdd, GrLogin } from 'react-icons/gr';
+import { GrAdd, GrLogin, GrLogout } from 'react-icons/gr';
 import { MdAccountCircle } from 'react-icons/md';
 
 import { DEFAULT_AVATAR } from './constants';
@@ -38,7 +38,7 @@ const Header = (): JSX.Element => {
 
 	const menuListMemo: JSX.Element = useMemo(
 		(): JSX.Element => (
-			<MenuList alignItems={'center'} border={0} borderRadius='2xl' bgColor={lightOrDarkColor} p={6}>
+			<MenuList alignItems={'center'} border={0} borderRadius='2xl' boxShadow='base' bgColor={lightOrDarkColor} p={6}>
 				<Stack align='center' margin={0}>
 					<Typography variant='h3' color={darkOrLightColor}>
 						Sign in to your account
@@ -74,6 +74,7 @@ const Header = (): JSX.Element => {
 						minW={0}>
 						<Avatar
 							data-testid='avatar'
+							boxShadow='base'
 							id={user.picture ? 'provided-picture' : 'default-picture'}
 							h='2.5rem'
 							w='2.5rem'
@@ -83,6 +84,7 @@ const Header = (): JSX.Element => {
 					<MenuList alignItems='center' border={0} borderRadius='2xl' bgColor={lightOrDarkColor} p={6}>
 						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
+								boxShadow='base'
 								data-testid='menu-list-avatar'
 								id={user.picture ? 'menu-list-provided-picture' : 'menu-list-default-picture'}
 								size='2xl'
@@ -94,19 +96,12 @@ const Header = (): JSX.Element => {
 							</Typography>
 						</Center>
 						<MenuDivider color={`primary.${lightOrDarkColor}`} />
-						<MenuItem
-							_active={{
-								filter: 'brightness(80%) !important',
-							}}
-							_hover={{
-								filter: 'brightness(90%)',
-							}}
-							bgColor={`primary.${lightOrDarkColor}`}
-							borderRadius='lg'
-							onClick={handleSignOut}>
-							<Typography variant='input' color={lightOrDarkColor}>
-								Logout
-							</Typography>
+						<MenuItem>
+							<ButtonPrimary leftIcon={<GrLogout fontSize='larger' />} onClick={handleSignOut} width='100%'>
+								<Typography variant='input' color={lightOrDarkColor}>
+									Logout
+								</Typography>
+							</ButtonPrimary>
 						</MenuItem>
 					</MenuList>
 				</>
@@ -133,8 +128,15 @@ const Header = (): JSX.Element => {
 		);
 	};
 	return (
-		<Skeleton isLoaded={!isLoading}>
-			<Flex bg={`secondary.${lightOrDarkColor}`} px={4} h='20' alignItems='center' justifyContent='space-between'>
+		<Skeleton boxShadow='base' isLoaded={!isLoading}>
+			<Flex
+				boxShadow='base'
+				position='relative'
+				bg={`secondary.${lightOrDarkColor}`}
+				px={4}
+				h='20'
+				alignItems='center'
+				justifyContent='space-between'>
 				<Logo onClick={() => router.push('/listings')} />
 				<Stack alignItems='center' direction='row' spacing={7}>
 					<ButtonPrimary
@@ -155,6 +157,7 @@ const Header = (): JSX.Element => {
 						onClick={toggleColorMode}>
 						<Icon
 							data-testid='toggle-color-mode-button'
+							dropShadow='base'
 							as={colorMode === 'light' ? MoonIcon : SunIcon}
 							name={colorMode === 'light' ? MoonIcon.displayName : SunIcon.displayName}
 							color={lightOrDarkColor}

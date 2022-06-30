@@ -23,7 +23,7 @@ const Category = ({ name, image, category }: CategoryProps) => {
 					cursor: 'pointer',
 					filter: categoryState.category == category ? 'brightness(80%)' : 'brightness(90%)',
 				}}
-				_active={{ filter: 'brightness(70%)' }}
+				_active={{ filter: 'brightness(80%)' }}
 				bgColor='transparent'
 				onClick={onClickHandler}
 				padding='0.5rem'

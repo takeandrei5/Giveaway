@@ -50,7 +50,7 @@ exports[`CreateListing should match snapshot 1`] = `
             >
               <input
                 aria-required="true"
-                class="chakra-input css-1j16of6"
+                class="chakra-input css-t3bif"
                 data-testid="input"
                 id="title-input"
                 name="title"
@@ -83,7 +83,7 @@ exports[`CreateListing should match snapshot 1`] = `
             >
               <select
                 aria-required="true"
-                class="chakra-select css-1iot0zm"
+                class="chakra-select css-1inymzc"
                 data-testid="dropdown"
                 id="category-dropdown"
                 name="category"
@@ -172,7 +172,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <svg
-                  class="chakra-icon css-1w5s3ji"
+                  class="chakra-icon css-7l0q8k"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -188,7 +188,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   />
                 </svg>
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -228,7 +228,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -268,7 +268,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -308,7 +308,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -348,7 +348,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -388,7 +388,7 @@ exports[`CreateListing should match snapshot 1`] = `
                   type="file"
                 />
                 <div
-                  class="css-ix86pw"
+                  class="css-s0voyp"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -430,7 +430,7 @@ exports[`CreateListing should match snapshot 1`] = `
             </label>
             <textarea
               aria-required="true"
-              class="chakra-textarea css-1myjce"
+              class="chakra-textarea css-aky5ro"
               data-testid="textarea"
               id="description-input"
               name="description"
@@ -443,7 +443,7 @@ exports[`CreateListing should match snapshot 1`] = `
             class="css-1hoplt2"
           >
             <button
-              class="chakra-button css-e1l5uc"
+              class="chakra-button css-1k5bbcq"
               data-testid="button-primary"
               type="reset"
             >
@@ -478,7 +478,7 @@ exports[`CreateListing should match snapshot 1`] = `
               </span>
             </button>
             <button
-              class="chakra-button css-e1l5uc"
+              class="chakra-button css-1k5bbcq"
               data-testid="button-primary"
               type="submit"
             >

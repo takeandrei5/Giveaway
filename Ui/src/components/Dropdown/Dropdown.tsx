@@ -26,6 +26,7 @@ const Dropdown = ({ id, options, onChangeHandler, name, value, isInvalid = false
 	return (
 		<Select
 			data-testid='dropdown'
+			boxShadow='base'
 			_focus={{
 				border: 0,
 			}}

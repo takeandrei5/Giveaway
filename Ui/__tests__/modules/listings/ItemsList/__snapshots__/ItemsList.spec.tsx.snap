@@ -10,10 +10,10 @@ exports[`ItemsList should match snapshot 1`] = `
       data-testid="item"
     >
       <div
-        class="css-9wpbwn"
+        class="css-18d73be"
       >
         <div
-          class="css-n580hg"
+          class="css-962578"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -59,10 +59,10 @@ exports[`ItemsList should match snapshot 1`] = `
       data-testid="item"
     >
       <div
-        class="css-9wpbwn"
+        class="css-18d73be"
       >
         <div
-          class="css-n580hg"
+          class="css-962578"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -108,10 +108,10 @@ exports[`ItemsList should match snapshot 1`] = `
       data-testid="item"
     >
       <div
-        class="css-9wpbwn"
+        class="css-18d73be"
       >
         <div
-          class="css-n580hg"
+          class="css-962578"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

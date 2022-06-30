@@ -25,7 +25,7 @@ exports[`CategoryFormControl should match snapshot 1`] = `
     >
       <select
         aria-required="true"
-        class="chakra-select css-1iot0zm"
+        class="chakra-select css-1inymzc"
         data-testid="dropdown"
         id="category-dropdown"
         name="test-name"

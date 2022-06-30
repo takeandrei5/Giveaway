@@ -6,7 +6,7 @@ exports[`Dropdown should match snapshot 1`] = `
     class="chakra-select__wrapper css-yumodq"
   >
     <select
-      class="chakra-select css-1iot0zm"
+      class="chakra-select css-1inymzc"
       data-testid="dropdown"
       id="dropdown"
       name="dropdown-test-name"

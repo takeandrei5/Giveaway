@@ -17,6 +17,7 @@ const styles = {
 				backgroundColor: 'white',
 				borderRadius: '2xl',
 				borderSize: '0',
+				boxShadow: 'base',
 				_hover: {
 					borderSize: '0',
 					borderColor: 'none',
@@ -28,12 +29,14 @@ const styles = {
 			backgroundColor: 'white',
 			borderRadius: '2xl',
 			borderSize: '0',
+			boxShadow: 'base',
 			_hover: {
 				borderSize: '0',
 				borderColor: 'none',
 			},
 			_focus: {
 				borderSize: '0.0625rem',
+				boxShadow: '2xl',
 			},
 		},
 	},

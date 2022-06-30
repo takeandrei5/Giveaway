@@ -37,10 +37,10 @@ exports[`ImagesFormControl should match snapshot 1`] = `
         tabindex="0"
       >
         <div
-          class="css-1uj2lk7"
+          class="css-lkih57"
         >
           <button
-            class="chakra-button css-177mths"
+            class="chakra-button css-arwpy2"
             id="delete-image-button"
             type="button"
           >
@@ -73,7 +73,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
           type="file"
         />
         <svg
-          class="chakra-icon css-1w5s3ji"
+          class="chakra-icon css-7l0q8k"
           fill="currentColor"
           focusable="false"
           height="1em"
@@ -89,7 +89,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="css-ix86pw"
+          class="css-s0voyp"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -121,10 +121,10 @@ exports[`ImagesFormControl should match snapshot 1`] = `
         tabindex="0"
       >
         <div
-          class="css-1uj2lk7"
+          class="css-lkih57"
         >
           <button
-            class="chakra-button css-177mths"
+            class="chakra-button css-arwpy2"
             id="delete-image-button"
             type="button"
           >
@@ -157,7 +157,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
           type="file"
         />
         <div
-          class="css-ix86pw"
+          class="css-s0voyp"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -189,10 +189,10 @@ exports[`ImagesFormControl should match snapshot 1`] = `
         tabindex="0"
       >
         <div
-          class="css-1uj2lk7"
+          class="css-lkih57"
         >
           <button
-            class="chakra-button css-177mths"
+            class="chakra-button css-arwpy2"
             id="delete-image-button"
             type="button"
           >
@@ -225,7 +225,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
           type="file"
         />
         <div
-          class="css-ix86pw"
+          class="css-s0voyp"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

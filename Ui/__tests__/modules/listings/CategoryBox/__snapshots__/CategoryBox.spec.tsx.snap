@@ -6,7 +6,7 @@ exports[`CategoryBox should match snapshot 1`] = `
     class="css-gmuwbf"
   >
     <div
-      class="css-ypy2jw"
+      class="css-190g08t"
     >
       <div
         class="chakra-stack css-n21gh5"
@@ -24,14 +24,14 @@ exports[`CategoryBox should match snapshot 1`] = `
             class="css-8atqhb"
           >
             <div
-              class="css-164vtvb"
+              class="css-1rox7yp"
               data-testid="category-box"
             >
               <div
                 class="chakra-stack css-1jxjhsf"
               >
                 <div
-                  class="css-19k02th"
+                  class="css-1oa8n4a"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

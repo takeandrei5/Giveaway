@@ -25,7 +25,7 @@ exports[`TitleFormControl should match snapshot 1`] = `
     >
       <input
         aria-required="true"
-        class="chakra-input css-1j16of6"
+        class="chakra-input css-t3bif"
         data-testid="input"
         id="title-input"
         name="test-name"

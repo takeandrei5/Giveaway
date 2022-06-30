@@ -22,18 +22,18 @@ const ButtonPrimary = ({
 					stroke: lightOrDarkColor,
 				},
 			}}
-			_active={{
-				filter: 'brightness(80%)',
-			}}
 			_disabled={{
 				backgroundColor: `primary.${lightOrDarkColor}`,
 				cursor: 'default',
 				filter: 'brightness(100%)',
 			}}
-			_focus={{ boxShadow: 'none' }}
 			_hover={{
 				filter: 'brightness(90%)',
 			}}
+			_active={{
+				filter: 'brightness(80%)',
+			}}
+			boxShadow='base'
 			display='flex'
 			flexDirection='row'
 			alignItems='center'

@@ -8,6 +8,7 @@ const Image = ({
 	width = 'auto',
 	backgroundColor = 'transparent',
 	borderRadius = 'none',
+	borderColor = 'inherit',
 	draggable = false,
 	...props
 }: ImageProps) => {
@@ -27,10 +28,18 @@ const Image = ({
 		<Box
 			backgroundColor={backgroundColor}
 			borderRadius={borderRadius}
+			boxShadow='base'
+			position='relative'
 			height={height}
 			width={width}
 			overflow='hidden'
-			__css={{ '& > span': { height: '100% !important' } }}>
+			__css={{
+				'& > span': {
+					height: '100% !important',
+					border: `0.0625rem solid ${borderColor} !important`,
+					borderRadius,
+				},
+			}}>
 			<NextImage {...props} draggable={draggable} layout='responsive' height='100%' width='100%' />
 		</Box>
 	);

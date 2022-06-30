@@ -3,10 +3,10 @@
 exports[`Header should match snapshot 1`] = `
 <div>
   <div
-    class="chakra-skeleton css-cdkrf0"
+    class="chakra-skeleton css-1c4anzb"
   >
     <div
-      class="css-uxmg8a"
+      class="css-j7641h"
     >
       <svg
         class="chakra-icon css-ag64ij"
@@ -28,7 +28,7 @@ exports[`Header should match snapshot 1`] = `
         class="chakra-stack css-15hb7ab"
       >
         <button
-          class="chakra-button css-120exmc"
+          class="chakra-button css-icqz1q"
           data-testid="create-listing-button"
           type="button"
         >
@@ -67,7 +67,7 @@ exports[`Header should match snapshot 1`] = `
           type="button"
         >
           <svg
-            class="chakra-icon chakra-icon css-13snw2u"
+            class="chakra-icon chakra-icon css-1dkgxey"
             data-testid="toggle-color-mode-button"
             focusable="false"
             name="MoonIcon"
@@ -116,7 +116,7 @@ exports[`Header should match snapshot 1`] = `
         >
           <div
             aria-orientation="vertical"
-            class="chakra-menu__menu-list css-13u5crg"
+            class="chakra-menu__menu-list css-bf6ydw"
             id="menu-list-2"
             role="menu"
             style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
@@ -142,7 +142,7 @@ exports[`Header should match snapshot 1`] = `
               class="css-1jpau0d"
             >
               <button
-                class="chakra-button css-120exmc"
+                class="chakra-button css-icqz1q"
                 data-testid="button-primary"
                 type="button"
               >

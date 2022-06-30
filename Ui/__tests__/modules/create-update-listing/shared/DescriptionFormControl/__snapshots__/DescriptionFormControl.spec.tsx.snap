@@ -22,7 +22,7 @@ exports[`DescriptionFormControl should match snapshot 1`] = `
     </label>
     <textarea
       aria-required="true"
-      class="chakra-textarea css-1myjce"
+      class="chakra-textarea css-aky5ro"
       data-testid="textarea"
       id="description-input"
       name="test-name"

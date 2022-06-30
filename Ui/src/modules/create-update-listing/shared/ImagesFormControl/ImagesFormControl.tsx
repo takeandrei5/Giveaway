@@ -29,8 +29,10 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 		value.url ? (
 			<Center
 				__css={{ '& path': { stroke: lightOrDarkColor } }}
+				borderRadius='2xl'
+				borderColor={`primary.${lightOrDarkColor}`}
+				borderWidth='0.0625rem'
 				backgroundColor='gray'
-				opacity='0.98'
 				height='100%'
 				width='100%'
 				position='absolute'
@@ -40,6 +42,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 				<Button
 					id='delete-image-button'
 					bg={`primary.${lightOrDarkColor}`}
+					boxShadow='base'
 					padding='0'
 					_active={{ bg: `primary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 					_focus={{ border: 'none' }}
@@ -95,15 +98,16 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								<Icon
 									as={BsFillBookmarkStarFill}
 									position='absolute'
-									top='0.125rem'
-									right='0'
+									top='0.325rem'
+									right='0.325rem'
 									zIndex='100'
-									height='24px'
-									width='24px'
+									height='1.5rem'
+									width='1.5rem'
 								/>
 							)}
 							<Image
-								draggable={false}
+								borderRadius='2xl'
+								borderColor={`var(--chakra-colors-primary-${lightOrDarkColor})`}
 								height='100%'
 								objectFit='cover'
 								width='100%'

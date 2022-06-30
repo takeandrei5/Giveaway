@@ -10,6 +10,7 @@ const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.El
 	return (
 		<Flex
 			alignItems='center'
+			boxShadow='base'
 			height='100%'
 			flexDirection='column'
 			borderRadius='2xl'
@@ -20,7 +21,7 @@ const OwnerInformation = ({ email, name, image }: OwnerInformationProps): JSX.El
 			<Typography center variant='h3' color={`primary.${lightOrDarkColor}`}>
 				Contact Information
 			</Typography>
-			<Avatar __css={{ referrerPolicy: 'no-referrer' }} size={'2xl'} src={image} />
+			<Avatar __css={{ referrerPolicy: 'no-referrer' }} boxShadow='base' size={'2xl'} src={image} />
 			<Flex alignItems='center' columnGap='0.625rem' height='fit-content'>
 				<Typography variant='h5' color={`primary.${lightOrDarkColor}`}>
 					Owner:

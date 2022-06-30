@@ -22,12 +22,16 @@ const ImageSlider = ({ images }: ImageSliderProps): JSX.Element => {
 
 	return (
 		<Center
+			boxShadow='base'
 			borderRadius='2xl'
 			bgColor='white'
 			padding='1.5rem 6rem'
 			height='31.25rem'
 			marginTop='1rem'
-			__css={{ '& > div.slick-slider.slick-initialized': { width: '100%', height: '90%' } }}>
+			__css={{
+				'& > div.slick-slider.slick-initialized': { width: '100%', height: '90%' },
+				// '& div.slick-slide.slick-active.slick-current div div': { boxShadow: 'none' },
+			}}>
 			<Slider
 				adaptiveHeight
 				infinite

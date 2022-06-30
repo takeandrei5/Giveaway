@@ -21,6 +21,8 @@ const Item = ({ id, title, image, createdAt }: ItemProps): JSX.Element => {
 			<Box
 				h='100%'
 				w='100%'
+				boxShadow='base'
+				position='relative'
 				bgColor={lightOrDarkColor}
 				borderRadius='2xl'
 				display='flex'

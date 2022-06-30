@@ -25,7 +25,12 @@ const Footer = (): JSX.Element => {
 		);
 
 	return (
-		<Box data-testid='footer' bg={`secondary.${lightOrDarkColor}`} color='white'>
+		<Box
+			data-testid='footer'
+			boxShadow='base'
+			position='relative'
+			bgColor={`secondary.${lightOrDarkColor}`}
+			color='white'>
 			<Container as={Stack} maxW='6xl' py={10}>
 				<SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }} spacing={8}>
 					<Stack display='flex' alignItems='start' spacing={6}>

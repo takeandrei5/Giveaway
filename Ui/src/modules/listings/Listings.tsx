@@ -13,7 +13,14 @@ const Listings = ({ options }: ListingsProps): JSX.Element => {
 	const { isLoading, totalData, nextData, sort, setSort, refetchListings } = useInfiniteFetchListings();
 
 	return (
-		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
+		<Skeleton
+			borderRadius='2xl'
+			isLoaded={!isLoading}
+			__css={{
+				'& div.infinite-scroll-component': {
+					overflow: 'initial !important',
+				},
+			}}>
 			<CategoryBox categories={DEFAULT_CATEGORIES} />
 			<SortingDropdown
 				id='sort-dropdown'

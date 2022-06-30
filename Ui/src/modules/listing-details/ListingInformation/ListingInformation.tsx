@@ -10,6 +10,7 @@ const InformationBox = ({ title, description, createdAt }: ListingInformationPro
 
 	return (
 		<Flex
+			boxShadow='base'
 			direction='column'
 			borderRadius='2xl'
 			bgColor='white'

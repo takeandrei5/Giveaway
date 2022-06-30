@@ -19,6 +19,7 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 	return (
 		<Center>
 			<Box
+				boxShadow='base'
 				bgColor={lightOrDarkColor}
 				borderRadius='2xl'
 				display='flex'

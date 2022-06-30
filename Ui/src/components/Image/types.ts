@@ -5,5 +5,6 @@ export type ImageProps = NextImageProps & {
 	width?: string;
 	backgroundColor?: string;
 	borderRadius?: string;
+	borderColor?: string;
 	draggable?: boolean;
 };

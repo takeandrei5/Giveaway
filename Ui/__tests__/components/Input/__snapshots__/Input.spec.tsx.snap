@@ -6,7 +6,7 @@ exports[`Input should match snapshot 1`] = `
     class="chakra-input__group css-17gmcos"
   >
     <input
-      class="chakra-input css-15f3i37"
+      class="chakra-input css-1mo3pqq"
       data-testid="input"
       id="input-id"
       name="input-name"

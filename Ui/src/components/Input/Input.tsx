@@ -57,8 +57,10 @@ const Input = ({
 					<CuiInput
 						data-testid='input'
 						__css={styles}
+						_focus={{
+							borderColor: `primary.${lightOrDarkColor}`,
+						}}
 						borderColor={`primary.${lightOrDarkColor}`}
-						boxShadow={`inset 0 0 0 0.0125rem var(--chakra-colors-primary-${lightOrDarkColor})`}
 						color={darkOrLightColor}
 						id={id}
 						height={height}
@@ -81,8 +83,10 @@ const Input = ({
 				<Textarea
 					data-testid='textarea'
 					__css={styles}
+					_focus={{
+						borderColor: `primary.${lightOrDarkColor}`,
+					}}
 					borderColor={`primary.${lightOrDarkColor}`}
-					boxShadow={`inset 0 0 0 0.0125rem var(--chakra-colors-primary-${lightOrDarkColor})`}
 					color={darkOrLightColor}
 					id={id}
 					disabled={disabled}

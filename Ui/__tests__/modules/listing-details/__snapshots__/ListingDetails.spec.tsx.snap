@@ -12,7 +12,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="chakra-skeleton css-cdkrf0"
       >
         <button
-          class="chakra-button css-10zm4hd"
+          class="chakra-button css-fuyaaa"
           data-testid="button-primary"
           type="button"
         >
@@ -51,7 +51,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="chakra-skeleton css-cdkrf0"
       >
         <button
-          class="chakra-button css-10zm4hd"
+          class="chakra-button css-fuyaaa"
           data-testid="button-primary"
           type="button"
         >
@@ -88,7 +88,7 @@ exports[`ListingDetails should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-17vrnyc"
+      class="css-19hwa6l"
     >
       <div
         class="slick-slider slick-initialized"
@@ -110,7 +110,7 @@ exports[`ListingDetails should match snapshot 1`] = `
             >
               <div>
                 <div
-                  class="css-kiasv6"
+                  class="css-n8wih0"
                 >
                   <span
                     style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -143,7 +143,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="css-1b27p5s"
       >
         <div
-          class="css-rkijc3"
+          class="css-1jkzbrs"
         >
           <span
             class="chakra-text css-wfx7tx"
@@ -173,7 +173,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="css-1pip4vl"
       >
         <div
-          class="css-13xbhew"
+          class="css-rqk74a"
         >
           <span
             class="chakra-text css-qc5sxz"
@@ -182,7 +182,7 @@ exports[`ListingDetails should match snapshot 1`] = `
             Contact Information
           </span>
           <span
-            class="chakra-avatar css-1ruhx4w"
+            class="chakra-avatar css-2u22ig"
           >
             <svg
               aria-label=" avatar"

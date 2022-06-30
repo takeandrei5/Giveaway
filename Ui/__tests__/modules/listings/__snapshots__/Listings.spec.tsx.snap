@@ -3,13 +3,13 @@
 exports[`Listings should match snapshot 1`] = `
 <div>
   <div
-    class="chakra-skeleton css-r69txw"
+    class="chakra-skeleton css-odi8hu"
   >
     <div
       class="css-gmuwbf"
     >
       <div
-        class="css-ypy2jw"
+        class="css-190g08t"
       >
         <div
           class="chakra-stack css-n21gh5"
@@ -27,14 +27,14 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-164vtvb"
+                class="css-1rox7yp"
                 data-testid="category-box"
               >
                 <div
                   class="chakra-stack css-1jxjhsf"
                 >
                   <div
-                    class="css-19k02th"
+                    class="css-1oa8n4a"
                   >
                     <span
                       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -66,14 +66,14 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-164vtvb"
+                class="css-1rox7yp"
                 data-testid="category-box"
               >
                 <div
                   class="chakra-stack css-1jxjhsf"
                 >
                   <div
-                    class="css-19k02th"
+                    class="css-1oa8n4a"
                   >
                     <span
                       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -105,14 +105,14 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-164vtvb"
+                class="css-1rox7yp"
                 data-testid="category-box"
               >
                 <div
                   class="chakra-stack css-1jxjhsf"
                 >
                   <div
-                    class="css-19k02th"
+                    class="css-1oa8n4a"
                   >
                     <span
                       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -144,14 +144,14 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-164vtvb"
+                class="css-1rox7yp"
                 data-testid="category-box"
               >
                 <div
                   class="chakra-stack css-1jxjhsf"
                 >
                   <div
-                    class="css-19k02th"
+                    class="css-1oa8n4a"
                   >
                     <span
                       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -199,7 +199,7 @@ exports[`Listings should match snapshot 1`] = `
           class="chakra-select__wrapper css-yumodq"
         >
           <select
-            class="chakra-select css-1iot0zm"
+            class="chakra-select css-1inymzc"
             data-testid="dropdown"
             id="sort-dropdown"
             name="sort-dropdown"
