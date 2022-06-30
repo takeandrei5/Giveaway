@@ -3,26 +3,30 @@
 exports[`ListingInformation should match snapshot 1`] = `
 <div>
   <div
-    class="css-h8v6tg"
+    class="css-rkijc3"
   >
     <span
-      class="chakra-text css-1ysmetk"
-      data-testid="typography"
-    >
-      Added on: 
-    </span>
-    <span
-      class="chakra-text css-q6c2va"
+      class="chakra-text css-wfx7tx"
       data-testid="typography"
     >
       test-title
     </span>
     <span
-      class="chakra-text css-iprtrc"
+      class="chakra-text css-1jv3994"
       data-testid="typography"
     >
       test-description
     </span>
+    <div
+      class="css-8xl60i"
+    >
+      <span
+        class="chakra-text css-jp1ymq"
+        data-testid="typography"
+      >
+        Added on: 
+      </span>
+    </div>
   </div>
 </div>
 `;

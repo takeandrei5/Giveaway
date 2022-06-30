@@ -19,8 +19,11 @@ const useUpdateListing = (id: string, accessToken: string, initialValues: Update
 		{
 			onSuccess: () => router.replace('/listings'),
 			onError: (err) => {
+				console.error(err);
+
 				if (err instanceof NotFoundError) {
 					router.replace('/404');
+
 					return;
 				}
 				router.replace('/500');

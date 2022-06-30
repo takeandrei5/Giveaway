@@ -4,7 +4,7 @@ import { NextRouter, useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 
-const useGetAccessToken = (redirectTo: string = '') => {
+const useGetAccessToken = (redirectTo: string = '', enableRedirect = false) => {
 	const router: NextRouter = useRouter();
 	const { getAccessTokenSilently } = useAuth0();
 	const { user, isLoading }: UserContext = useUser();
@@ -24,7 +24,7 @@ const useGetAccessToken = (redirectTo: string = '') => {
 	};
 
 	useEffect(() => {
-		if (!user && !isLoading) {
+		if (!user && !isLoading && enableRedirect) {
 			redirect(redirectTo);
 		}
 	}, [user, isLoading]);

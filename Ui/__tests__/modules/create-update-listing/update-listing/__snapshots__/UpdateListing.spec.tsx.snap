@@ -3,7 +3,7 @@
 exports[`UpdateListing should match snapshot 1`] = `
 <div>
   <span
-    class="chakra-text css-756qlt"
+    class="chakra-text css-1jrdyfb"
     data-testid="typography"
   >
     Update listing!
@@ -16,15 +16,11 @@ exports[`UpdateListing should match snapshot 1`] = `
       class="css-1rk3b0n"
     >
       <span
-        class="chakra-text css-q6c2va"
+        class="chakra-text css-wfx7tx"
         data-testid="typography"
       >
         Be as specific as you can!
       </span>
-      <hr
-        aria-orientation="horizontal"
-        class="chakra-divider css-1upb9tn"
-      />
       <div
         class="css-bsy8lq"
       >
@@ -33,7 +29,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           role="group"
         >
           <label
-            class="chakra-form__label css-exo973"
+            class="chakra-form__label css-xgxc5v"
             for="title-input"
             id="field-1-label"
           >
@@ -51,7 +47,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           >
             <input
               aria-required="true"
-              class="chakra-input css-zt0los"
+              class="chakra-input css-1j16of6"
               data-testid="input"
               id="title-input"
               name="title"
@@ -66,7 +62,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           role="group"
         >
           <label
-            class="chakra-form__label css-exo973"
+            class="chakra-form__label css-xgxc5v"
             for="category-dropdown"
             id="field-2-label"
           >
@@ -80,11 +76,11 @@ exports[`UpdateListing should match snapshot 1`] = `
             </span>
           </label>
           <div
-            class="chakra-select__wrapper css-ts3co9"
+            class="chakra-select__wrapper css-yumodq"
           >
             <select
               aria-required="true"
-              class="chakra-select css-31afkg"
+              class="chakra-select css-1iot0zm"
               data-testid="dropdown"
               id="category-dropdown"
               name="category"
@@ -112,7 +108,7 @@ exports[`UpdateListing should match snapshot 1`] = `
               </option>
             </select>
             <div
-              class="chakra-select__icon-wrapper css-162mkon"
+              class="chakra-select__icon-wrapper css-6fsspc"
             >
               <svg
                 aria-hidden="true"
@@ -135,7 +131,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           role="group"
         >
           <label
-            class="chakra-form__label css-exo973"
+            class="chakra-form__label css-xgxc5v"
             for="images-dragdrop"
             id="field-3-label"
           >
@@ -173,7 +169,7 @@ exports[`UpdateListing should match snapshot 1`] = `
                 type="file"
               />
               <svg
-                class="chakra-icon css-1kie07n"
+                class="chakra-icon css-1w5s3ji"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -416,7 +412,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           role="group"
         >
           <label
-            class="chakra-form__label css-exo973"
+            class="chakra-form__label css-xgxc5v"
             for="description-input"
             id="field-4-label"
           >
@@ -431,7 +427,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           </label>
           <textarea
             aria-required="true"
-            class="chakra-textarea css-hek20j"
+            class="chakra-textarea css-1myjce"
             data-testid="textarea"
             id="description-input"
             name="description"
@@ -446,7 +442,7 @@ exports[`UpdateListing should match snapshot 1`] = `
           class="css-1hoplt2"
         >
           <button
-            class="chakra-button css-1fmmhr1"
+            class="chakra-button css-e1l5uc"
             data-testid="button-primary"
             type="reset"
           >
@@ -474,14 +470,14 @@ exports[`UpdateListing should match snapshot 1`] = `
               </svg>
             </span>
             <span
-              class="chakra-text css-1ttg4dc"
+              class="chakra-text css-1gflqot"
               data-testid="typography"
             >
               Reset
             </span>
           </button>
           <button
-            class="chakra-button css-12p1jqz"
+            class="chakra-button css-e1l5uc"
             data-testid="button-primary"
             type="submit"
           >
@@ -509,7 +505,7 @@ exports[`UpdateListing should match snapshot 1`] = `
               </svg>
             </span>
             <span
-              class="chakra-text css-1ttg4dc"
+              class="chakra-text css-1gflqot"
               data-testid="typography"
             >
               Update

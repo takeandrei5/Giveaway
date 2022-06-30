@@ -35,11 +35,6 @@ describe('useImageUpload', () => {
 
 		let fieldValue: ImageFormikValue[] = [] as ImageFormikValue[];
 
-		const setTouchedMock: jest.Mock<void, [value: boolean, shouldValidate?: boolean | undefined]> = jest.fn<
-			void,
-			[value: boolean, shouldValidate?: boolean | undefined]
-		>();
-
 		const setValueMock: jest.Mock<void, [value: ImageFormikValue[], shouldValidate?: boolean | undefined]> = jest.fn(
 			(value: ImageFormikValue[], shouldValidate?: boolean) => {
 				fieldValue = value;
@@ -76,7 +71,6 @@ describe('useImageUpload', () => {
 				},
 				{
 					setValue: setValueMock,
-					setTouched: setTouchedMock,
 				},
 			]);
 		});
@@ -171,8 +165,6 @@ describe('useImageUpload', () => {
 						url: 'test-url3',
 					},
 				]);
-				expect(setTouchedMock).toHaveBeenCalledWith(true);
-				expect(setTouchedMock).toHaveBeenCalledTimes(1);
 			});
 		});
 	});

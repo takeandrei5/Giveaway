@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Icon, Input, Spinner } from '@chakra-ui/react';
+import { Box, Button, Center, Flex, Icon, Input, Spinner, useColorModeValue } from '@chakra-ui/react';
 import { FormControl, Image } from '@components';
 import { DEFAULT_IMAGE_UPLOAD } from '@utils/constants';
 import { useField } from 'formik';
@@ -23,10 +23,13 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 	const { onImageUploaded, onImageDeleted, isUploading } = useImageUpload(name);
 	const { onDragEnd } = useDragAndDrop(name);
 
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+
 	const renderDeleteImageButton = (value: ImageFormikValue): JSX.Element =>
 		value.url ? (
 			<Center
-				backgroundColor='dark'
+				__css={{ '& path': { stroke: lightOrDarkColor } }}
+				backgroundColor='gray'
 				opacity='0.98'
 				height='100%'
 				width='100%'
@@ -36,16 +39,16 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 				transition='visibility 0s linear 0s, opacity 300ms'>
 				<Button
 					id='delete-image-button'
-					bg='gray.200'
+					bg={`primary.${lightOrDarkColor}`}
 					padding='0'
-					_active={{ bg: 'gray.200', filter: 'brightness(80%)' }}
+					_active={{ bg: `primary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 					_focus={{ border: 'none' }}
-					_hover={{ bg: 'gray.200', filter: 'brightness(90%)' }}
+					_hover={{ bg: `primary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
 					rounded='full'
 					onClick={() => {
 						onImageDeleted(value.id);
 					}}>
-					<Icon as={GrTrash} color={'darkish'} height='1rem' width='1rem' />
+					<Icon as={GrTrash} color={lightOrDarkColor} height='1rem' width='1rem' />
 				</Button>
 			</Center>
 		) : (
@@ -89,7 +92,15 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 								zIndex='101'
 							/>
 							{index === 0 && (
-								<Icon as={BsFillBookmarkStarFill} position='absolute' top='0.125rem' right='0.5rem' zIndex='100' />
+								<Icon
+									as={BsFillBookmarkStarFill}
+									position='absolute'
+									top='0.125rem'
+									right='0'
+									zIndex='100'
+									height='24px'
+									width='24px'
+								/>
 							)}
 							<Image
 								draggable={false}
@@ -111,6 +122,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 				{isUploading && (
 					<Spinner
 						data-testid='uploading-image-spinner'
+						color={`primary.${lightOrDarkColor}`}
 						position='absolute'
 						top='50%'
 						left='calc(50% - 16px)'

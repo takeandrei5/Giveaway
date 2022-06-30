@@ -1,4 +1,4 @@
-import { Box, GridItem, Stack } from '@chakra-ui/react';
+import { Box, GridItem, Stack, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { Image, Typography } from '@components';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { changeCategory } from '@redux/slices/changeCategorySlice';
@@ -10,6 +10,9 @@ const Category = ({ name, image, category }: CategoryProps) => {
 	const dispatch = useAppDispatch();
 	const categoryState = useAppSelector((state) => state.changeCategory);
 
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+	const darkOrLightColor: 'dark' | 'light' = useColorModeValue('dark', 'light');
+
 	const onClickHandler = useCallback(() => dispatch(changeCategory(category)), [category]);
 
 	return (
@@ -18,24 +21,23 @@ const Category = ({ name, image, category }: CategoryProps) => {
 				data-testid='category-box'
 				_hover={{
 					cursor: 'pointer',
-					filter: categoryState.category == category ? 'brightness(60%)' : 'brightness(90%)',
-					'& span': { filter: categoryState.category == category ? 'opacity(0.6)' : 'opacity(0.9)' },
+					filter: categoryState.category == category ? 'brightness(80%)' : 'brightness(90%)',
 				}}
-				_active={{ filter: 'brightness(80%)', '& span': { filter: 'opacity(0.8)' } }}
+				_active={{ filter: 'brightness(70%)' }}
 				bgColor='transparent'
 				onClick={onClickHandler}
 				padding='0.5rem'
 				maxWidth='7.5rem'
-				filter={categoryState.category == category ? 'brightness(70%)' : 'auto'}
+				filter={categoryState.category == category ? 'brightness(90%)' : 'auto'}
 				__css={{
 					'& span': {
-						filter: categoryState.category == category ? 'opacity(0.7)' : 'auto',
+						color: categoryState.category == category ? `primary.${lightOrDarkColor}` : darkOrLightColor,
 					},
 				}}>
 				<Stack direction='column' alignItems='center' justifyContent='center'>
 					<Image
 						draggable={false}
-						backgroundColor='primary.dark'
+						backgroundColor={`primary.${lightOrDarkColor}`}
 						borderRadius='full'
 						height='6.25rem'
 						width='6.25rem'
@@ -43,7 +45,7 @@ const Category = ({ name, image, category }: CategoryProps) => {
 						src={image}
 						alt={name}
 					/>
-					<Typography center color={'darkish'} variant='h5'>
+					<Typography center color='dark' variant='h5'>
 						{name}
 					</Typography>
 				</Stack>

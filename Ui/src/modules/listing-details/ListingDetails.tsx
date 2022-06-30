@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, Skeleton } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, Skeleton, useColorModeValue } from '@chakra-ui/react';
 import { useGetAccessToken } from '@utils/hooks';
 import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
@@ -15,19 +15,21 @@ const ListingDetails = ({ id }: ListingDetailsProps) => {
 	const { isFetched, data } = useGetAccessToken();
 	const { isLoading, listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id, isFetched);
 
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+
 	return (
 		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
 			<Flex width='100%' gap={2} justifyContent='end'>
 				<ActionButton
-					bgColor='primary.main'
-					icon={<GrUpdate fontSize='mediun' />}
+					bgColor={`primary.${lightOrDarkColor}`}
+					icon={<GrUpdate fontSize='medium' />}
 					label='Update listing'
 					ownerEmail={ownerInfo.email}
 					onClick={() => router.push(`/update-listing/${id}`)}
 				/>
 				<ActionButton
-					bgColor='#F31A2A'
-					icon={<GrTrash fontSize='mediun' />}
+					bgColor={`primary.${lightOrDarkColor}`}
+					icon={<GrTrash fontSize='medium' />}
 					label='Delete listing'
 					ownerEmail={ownerInfo.email}
 					onClick={() => deleteListingMutate(data!)}

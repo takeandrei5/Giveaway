@@ -7,7 +7,7 @@ exports[`DescriptionFormControl should match snapshot 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label css-exo973"
+      class="chakra-form__label css-xgxc5v"
       for="description-input"
       id="field-1-label"
     >
@@ -22,7 +22,7 @@ exports[`DescriptionFormControl should match snapshot 1`] = `
     </label>
     <textarea
       aria-required="true"
-      class="chakra-textarea css-hek20j"
+      class="chakra-textarea css-1myjce"
       data-testid="textarea"
       id="description-input"
       name="test-name"

@@ -1,8 +1,10 @@
+import { useGetAccessToken } from '@utils/hooks';
 import { FormContainer } from '../shared';
 import { useUpdateListing } from './hooks';
 import { UpdateListingProps } from './types';
 
 const UpdateListing = ({ accessToken, id, initialValues }: UpdateListingProps) => {
+	useGetAccessToken('', true);
 	const { formik } = useUpdateListing(id, accessToken, initialValues);
 
 	return (

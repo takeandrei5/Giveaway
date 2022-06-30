@@ -11,6 +11,7 @@ const tryFetchQuery = async (
 	try {
 		await queryClient.fetchQuery(queryKey, queryFn);
 	} catch (err) {
+		console.error(err);
 		if (err instanceof NotFoundError) {
 			return {
 				redirect: {

@@ -6,6 +6,7 @@ import {
 	InputLeftElement,
 	InputRightElement,
 	Textarea,
+	useColorModeValue,
 	useStyleConfig,
 } from '@chakra-ui/react';
 import { Typography } from '@components';
@@ -30,6 +31,9 @@ const Input = ({
 }: InputProps): JSX.Element => {
 	const styles: CSSObject = useStyleConfig('Input');
 
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+	const darkOrLightColor: 'dark' | 'light' = useColorModeValue('dark', 'light');
+
 	return (
 		<>
 			{!!label && (
@@ -53,6 +57,9 @@ const Input = ({
 					<CuiInput
 						data-testid='input'
 						__css={styles}
+						borderColor={`primary.${lightOrDarkColor}`}
+						boxShadow={`inset 0 0 0 0.0125rem var(--chakra-colors-primary-${lightOrDarkColor})`}
+						color={darkOrLightColor}
 						id={id}
 						height={height}
 						isInvalid={isInvalid}
@@ -74,6 +81,9 @@ const Input = ({
 				<Textarea
 					data-testid='textarea'
 					__css={styles}
+					borderColor={`primary.${lightOrDarkColor}`}
+					boxShadow={`inset 0 0 0 0.0125rem var(--chakra-colors-primary-${lightOrDarkColor})`}
+					color={darkOrLightColor}
 					id={id}
 					disabled={disabled}
 					name={name}

@@ -23,8 +23,6 @@ const styles = {
 				},
 				_focus: {
 					borderSize: '0.0625rem',
-					borderColor: 'primary.main',
-					boxShadow: 'inset 0 0 0 0.0125rem var(--chakra-colors-primary-main)',
 				},
 			},
 			backgroundColor: 'white',
@@ -36,8 +34,6 @@ const styles = {
 			},
 			_focus: {
 				borderSize: '0.0625rem',
-				borderColor: 'primary.main',
-				boxShadow: 'inset 0 0 0 0.0125rem var(--chakra-colors-primary-main)',
 			},
 		},
 	},

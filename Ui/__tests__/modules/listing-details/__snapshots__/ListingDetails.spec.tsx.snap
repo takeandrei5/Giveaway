@@ -12,7 +12,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="chakra-skeleton css-cdkrf0"
       >
         <button
-          class="chakra-button css-1537pyw"
+          class="chakra-button css-10zm4hd"
           data-testid="button-primary"
           type="button"
         >
@@ -23,7 +23,7 @@ exports[`ListingDetails should match snapshot 1`] = `
               aria-hidden="true"
               fill="currentColor"
               focusable="false"
-              font-size="mediun"
+              font-size="medium"
               height="1em"
               stroke="currentColor"
               stroke-width="0"
@@ -40,7 +40,7 @@ exports[`ListingDetails should match snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="chakra-text css-1ttg4dc"
+            class="chakra-text css-1gflqot"
             data-testid="typography"
           >
             Update listing
@@ -51,7 +51,7 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="chakra-skeleton css-cdkrf0"
       >
         <button
-          class="chakra-button css-9tpr75"
+          class="chakra-button css-10zm4hd"
           data-testid="button-primary"
           type="button"
         >
@@ -62,7 +62,7 @@ exports[`ListingDetails should match snapshot 1`] = `
               aria-hidden="true"
               fill="currentColor"
               focusable="false"
-              font-size="mediun"
+              font-size="medium"
               height="1em"
               stroke="currentColor"
               stroke-width="0"
@@ -79,7 +79,7 @@ exports[`ListingDetails should match snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="chakra-text css-1ttg4dc"
+            class="chakra-text css-1gflqot"
             data-testid="typography"
           >
             Delete listing
@@ -88,7 +88,7 @@ exports[`ListingDetails should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-2ch16y"
+      class="css-17vrnyc"
     >
       <div
         class="slick-slider slick-initialized"
@@ -143,26 +143,30 @@ exports[`ListingDetails should match snapshot 1`] = `
         class="css-1b27p5s"
       >
         <div
-          class="css-h8v6tg"
+          class="css-rkijc3"
         >
           <span
-            class="chakra-text css-1ysmetk"
-            data-testid="typography"
-          >
-            Added on: 
-          </span>
-          <span
-            class="chakra-text css-q6c2va"
+            class="chakra-text css-wfx7tx"
             data-testid="typography"
           >
             listing-title
           </span>
           <span
-            class="chakra-text css-iprtrc"
+            class="chakra-text css-1jv3994"
             data-testid="typography"
           >
             listing-description
           </span>
+          <div
+            class="css-8xl60i"
+          >
+            <span
+              class="chakra-text css-jp1ymq"
+              data-testid="typography"
+            >
+              Added on: 
+            </span>
+          </div>
         </div>
       </div>
       <div
@@ -172,15 +176,11 @@ exports[`ListingDetails should match snapshot 1`] = `
           class="css-13xbhew"
         >
           <span
-            class="chakra-text css-fw6ya1"
+            class="chakra-text css-qc5sxz"
             data-testid="typography"
           >
             Contact Information
           </span>
-          <hr
-            aria-orientation="horizontal"
-            class="chakra-divider css-1upb9tn"
-          />
           <span
             class="chakra-avatar css-1ruhx4w"
           >
@@ -204,13 +204,13 @@ exports[`ListingDetails should match snapshot 1`] = `
             class="css-w28dba"
           >
             <span
-              class="chakra-text css-inmt5s"
+              class="chakra-text css-1yg8ro5"
               data-testid="typography"
             >
               Owner:
             </span>
             <span
-              class="chakra-text css-btni37"
+              class="chakra-text css-q4il9g"
               data-testid="typography"
             />
           </div>
@@ -218,13 +218,13 @@ exports[`ListingDetails should match snapshot 1`] = `
             class="css-w28dba"
           >
             <span
-              class="chakra-text css-inmt5s"
+              class="chakra-text css-1yg8ro5"
               data-testid="typography"
             >
               Email:
             </span>
             <span
-              class="chakra-text css-btni37"
+              class="chakra-text css-q4il9g"
               data-testid="typography"
             />
           </div>

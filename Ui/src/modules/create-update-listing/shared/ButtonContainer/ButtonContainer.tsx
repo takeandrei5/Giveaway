@@ -5,20 +5,20 @@ import { GrRefresh, GrSend } from 'react-icons/gr';
 import { ButtonContainerProps } from './types';
 
 const ButtonContainer = ({ resetButtonText, submitButtonText }: ButtonContainerProps): JSX.Element => {
-	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
 
 	return (
 		<Flex justifyContent='end' gap={2}>
-			<ButtonPrimary
-				color={lightishOrDarkishColor}
-				backgroundColor='#F31A2A'
-				leftIcon={<GrRefresh fontSize='larger' />}
-				type='reset'>
-				<Typography variant='button'>{resetButtonText}</Typography>
+			<ButtonPrimary leftIcon={<GrRefresh fontSize='larger' />} type='reset'>
+				<Typography variant='button' color={lightOrDarkColor}>
+					{resetButtonText}
+				</Typography>
 			</ButtonPrimary>
 
-			<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<GrSend fontSize='larger' />} type='submit'>
-				<Typography variant='button'>{submitButtonText}</Typography>
+			<ButtonPrimary leftIcon={<GrSend fontSize='larger' />} type='submit'>
+				<Typography variant='button' color={lightOrDarkColor}>
+					{submitButtonText}
+				</Typography>
 			</ButtonPrimary>
 		</Flex>
 	);

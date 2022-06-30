@@ -6,7 +6,7 @@ exports[`Header should match snapshot 1`] = `
     class="chakra-skeleton css-cdkrf0"
   >
     <div
-      class="css-1i019hs"
+      class="css-uxmg8a"
     >
       <svg
         class="chakra-icon css-ag64ij"
@@ -28,7 +28,7 @@ exports[`Header should match snapshot 1`] = `
         class="chakra-stack css-15hb7ab"
       >
         <button
-          class="chakra-button css-12p1jqz"
+          class="chakra-button css-120exmc"
           data-testid="create-listing-button"
           type="button"
         >
@@ -56,18 +56,18 @@ exports[`Header should match snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="chakra-text css-1ttg4dc"
+            class="chakra-text css-1gflqot"
             data-testid="typography"
           >
             Create listing
           </span>
         </button>
         <button
-          class="chakra-button css-zpcguy"
+          class="chakra-button css-18yy46g"
           type="button"
         >
           <svg
-            class="chakra-icon chakra-icon css-1idxwrc"
+            class="chakra-icon chakra-icon css-13snw2u"
             data-testid="toggle-color-mode-button"
             focusable="false"
             name="MoonIcon"
@@ -84,14 +84,14 @@ exports[`Header should match snapshot 1`] = `
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label="login"
-          class="chakra-button chakra-menu__menu-button css-9qh8gf"
+          class="chakra-button chakra-menu__menu-button css-1rmt4g9"
           data-testid="menu-button-logged-out"
           id="menu-button-2"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="chakra-icon css-12px79g"
+            class="chakra-icon css-qib1bz"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -116,7 +116,7 @@ exports[`Header should match snapshot 1`] = `
         >
           <div
             aria-orientation="vertical"
-            class="chakra-menu__menu-list css-cwxurv"
+            class="chakra-menu__menu-list css-13u5crg"
             id="menu-list-2"
             role="menu"
             style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
@@ -126,13 +126,13 @@ exports[`Header should match snapshot 1`] = `
               class="chakra-stack css-rf92ti"
             >
               <span
-                class="chakra-text css-q6c2va"
+                class="chakra-text css-1c0j6zz"
                 data-testid="typography"
               >
                 Sign in to your account
               </span>
               <span
-                class="chakra-text css-vjlvf3"
+                class="chakra-text css-q4il9g"
                 data-testid="typography"
               >
                 to have access to all features 🧙‍♂️
@@ -142,7 +142,7 @@ exports[`Header should match snapshot 1`] = `
               class="css-1jpau0d"
             >
               <button
-                class="chakra-button css-12p1jqz"
+                class="chakra-button css-120exmc"
                 data-testid="button-primary"
                 type="button"
               >
@@ -170,7 +170,7 @@ exports[`Header should match snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="chakra-text css-1ttg4dc"
+                  class="chakra-text css-1gflqot"
                   data-testid="typography"
                 >
                   Sign in here

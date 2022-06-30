@@ -3,16 +3,16 @@
 exports[`Dropdown should match snapshot 1`] = `
 <div>
   <div
-    class="chakra-select__wrapper css-ts3co9"
+    class="chakra-select__wrapper css-yumodq"
   >
     <select
-      class="chakra-select css-31afkg"
+      class="chakra-select css-1iot0zm"
       data-testid="dropdown"
       id="dropdown"
       name="dropdown-test-name"
     />
     <div
-      class="chakra-select__icon-wrapper css-162mkon"
+      class="chakra-select__icon-wrapper css-6fsspc"
     >
       <svg
         aria-hidden="true"

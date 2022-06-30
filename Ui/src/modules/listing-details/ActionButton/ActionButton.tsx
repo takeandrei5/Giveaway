@@ -7,18 +7,15 @@ import { ActionButtonProps } from './types';
 const ActionButton = ({ bgColor, icon, label, ownerEmail, onClick }: ActionButtonProps) => {
 	const { user, isLoading } = useUser();
 
-	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
 
 	return (
 		<Skeleton isLoaded={!isLoading}>
 			{user && user.email === ownerEmail && (
-				<ButtonPrimary
-					color={lightishOrDarkishColor}
-					backgroundColor={bgColor}
-					marginLeft='auto'
-					leftIcon={icon}
-					onClick={onClick}>
-					<Typography variant='button'>{label}</Typography>
+				<ButtonPrimary backgroundColor={bgColor} marginLeft='auto' leftIcon={icon} onClick={onClick}>
+					<Typography variant='button' color={lightOrDarkColor}>
+						{label}
+					</Typography>
 				</ButtonPrimary>
 			)}
 		</Skeleton>

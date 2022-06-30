@@ -1,4 +1,4 @@
-import { Box, Container, Link, SimpleGrid, Stack } from '@chakra-ui/react';
+import { Box, Container, Link, SimpleGrid, Stack, useColorModeValue } from '@chakra-ui/react';
 import { Logo, Typography } from '@components';
 import React from 'react';
 
@@ -6,6 +6,8 @@ import { stackItems } from './constants';
 import { StackItem } from './types';
 
 const Footer = (): JSX.Element => {
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+
 	const renderStackItems = (stackItems: StackItem[]): JSX.Element[] =>
 		stackItems.map(
 			(stackItem: StackItem): JSX.Element => (
@@ -23,7 +25,7 @@ const Footer = (): JSX.Element => {
 		);
 
 	return (
-		<Box data-testid='footer' bg='secondary.main' color='white'>
+		<Box data-testid='footer' bg={`secondary.${lightOrDarkColor}`} color='white'>
 			<Container as={Stack} maxW='6xl' py={10}>
 				<SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }} spacing={8}>
 					<Stack display='flex' alignItems='start' spacing={6}>

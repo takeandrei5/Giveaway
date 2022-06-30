@@ -38,21 +38,23 @@ describe('useGetAccessToken', () => {
 		(useUser as unknown as jest.Mock).mockImplementation(() => ({ user: undefined, isLoading: false }));
 		(useQuery as unknown as jest.Mock).mockImplementation(([query, options], f) => f());
 
-		it('should redirect user to `/listings` if there is no user and isLoading is falsy', () => {
+		it('should not redirect user if `enableRedirect` is false', () => {
+			// Arrange
+			const redirectTo: string = '/test';
+
 			// Act
-			renderHook(() => useGetAccessToken());
+			renderHook(() => useGetAccessToken(redirectTo, false));
 
 			// Assert
-			expect(route).toBe('/listings');
+			expect(route).toBe('');
 		});
 
 		it('should redirect user to `redirectTo` argument if there is no user and isLoading is falsy', () => {
 			// Arrange
-
 			const redirectTo: string = '/test';
 
 			// Act
-			renderHook(() => useGetAccessToken(redirectTo));
+			renderHook(() => useGetAccessToken(redirectTo, true));
 
 			// Assert
 			expect(route).toBe(redirectTo);

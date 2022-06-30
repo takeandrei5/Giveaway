@@ -16,8 +16,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps): JSX.Element => (
 			marginLeft='auto'
 			marginRight='auto'
 			paddingY='5rem'
-			paddingX='25rem'
-			backgroundColor={useColorModeValue('lightish', 'darkish')}>
+			paddingX='18rem'
+			backgroundColor='gray'>
 			{children}
 		</Box>
 		<Footer />

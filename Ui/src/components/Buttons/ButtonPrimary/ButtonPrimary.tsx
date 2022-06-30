@@ -1,4 +1,5 @@
-import { Button, CSSObject, useStyleConfig } from '@chakra-ui/react';
+import { Button, CSSObject, useColorModeValue, useStyleConfig } from '@chakra-ui/react';
+import React from 'react';
 
 import { ButtonPrimaryProps } from './types';
 
@@ -12,11 +13,34 @@ const ButtonPrimary = ({
 	type = 'button',
 	...rest
 }: ButtonPrimaryProps): JSX.Element => {
-	const styles: CSSObject = useStyleConfig('ButtonPrimary');
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
 
 	return (
 		<Button
-			__css={styles}
+			__css={{
+				'& path': {
+					stroke: lightOrDarkColor,
+				},
+			}}
+			_active={{
+				filter: 'brightness(80%)',
+			}}
+			_disabled={{
+				backgroundColor: `primary.${lightOrDarkColor}`,
+				cursor: 'default',
+				filter: 'brightness(100%)',
+			}}
+			_focus={{ boxShadow: 'none' }}
+			_hover={{
+				filter: 'brightness(90%)',
+			}}
+			display='flex'
+			flexDirection='row'
+			alignItems='center'
+			borderRadius='2xl'
+			backgroundColor={`primary.${lightOrDarkColor}`}
+			border={0}
+			padding='0.75rem 1.5rem'
 			data-testid='button-primary'
 			disabled={disabled}
 			height={height}

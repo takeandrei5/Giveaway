@@ -33,24 +33,30 @@ const Header = (): JSX.Element => {
 
 	const { handleSignIn, handleSignInWithReturnTo, handleSignOut } = useLogin();
 
-	const lightishOrDarkishColor: 'lightish' | 'darkish' = useColorModeValue('lightish', 'darkish');
-	const darkishOrWhiteColor: 'darkish' | 'white' = useColorModeValue('darkish', 'white');
+	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
+	const darkOrLightColor: 'dark' | 'light' = useColorModeValue('dark', 'light');
 
 	const menuListMemo: JSX.Element = useMemo(
 		(): JSX.Element => (
-			<MenuList alignItems={'center'} borderRadius='2xl' p={6}>
+			<MenuList alignItems={'center'} border={0} borderRadius='2xl' bgColor={lightOrDarkColor} p={6}>
 				<Stack align='center' margin={0}>
-					<Typography variant='h3'>Sign in to your account</Typography>
-					<Typography variant='input'>to have access to all features 🧙‍♂️</Typography>
+					<Typography variant='h3' color={darkOrLightColor}>
+						Sign in to your account
+					</Typography>
+					<Typography variant='input' color={darkOrLightColor}>
+						to have access to all features 🧙‍♂️
+					</Typography>
 				</Stack>
 				<Center pt={4}>
-					<ButtonPrimary color={lightishOrDarkishColor} leftIcon={<GrLogin fontSize='larger' />} onClick={handleSignIn}>
-						<Typography variant='button'>Sign in here</Typography>
+					<ButtonPrimary leftIcon={<GrLogin fontSize='larger' />} onClick={handleSignIn}>
+						<Typography variant='button' color={lightOrDarkColor}>
+							Sign in here
+						</Typography>
 					</ButtonPrimary>
 				</Center>
 			</MenuList>
 		),
-		[lightishOrDarkishColor, handleSignIn]
+		[lightOrDarkColor, handleSignIn]
 	);
 
 	const renderLoginMenu = (): JSX.Element => {
@@ -74,7 +80,7 @@ const Header = (): JSX.Element => {
 							src={user.picture || DEFAULT_AVATAR}
 						/>
 					</MenuButton>
-					<MenuList alignItems='center' borderRadius='2xl' p={6}>
+					<MenuList alignItems='center' border={0} borderRadius='2xl' bgColor={lightOrDarkColor} p={6}>
 						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
 								data-testid='menu-list-avatar'
@@ -83,20 +89,24 @@ const Header = (): JSX.Element => {
 								__css={{ referrerPolicy: 'no-referrer' }}
 								src={user.picture || DEFAULT_AVATAR}
 							/>
-							<Typography variant='paragraph'>{user.name!}</Typography>
+							<Typography variant='input' color={darkOrLightColor}>
+								{user.name!}
+							</Typography>
 						</Center>
-						<MenuDivider />
+						<MenuDivider color={`primary.${lightOrDarkColor}`} />
 						<MenuItem
 							_active={{
 								filter: 'brightness(80%) !important',
 							}}
 							_hover={{
-								backgroundColor: lightishOrDarkishColor,
 								filter: 'brightness(90%)',
 							}}
+							bgColor={`primary.${lightOrDarkColor}`}
 							borderRadius='lg'
 							onClick={handleSignOut}>
-							<Typography variant='paragraph'>Logout</Typography>
+							<Typography variant='input' color={lightOrDarkColor}>
+								Logout
+							</Typography>
 						</MenuItem>
 					</MenuList>
 				</>
@@ -107,16 +117,16 @@ const Header = (): JSX.Element => {
 			<>
 				<MenuButton
 					data-testid='menu-button-logged-out'
-					_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
+					_active={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 					_focus={{ boxShadow: 'none', border: 'none' }}
-					_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
+					_hover={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
 					as={IconButton}
 					rounded='full'
 					aria-label='login'
 					variant='outline'
 					cursor='pointer'
 					border='0'
-					icon={<Icon as={MdAccountCircle} color={darkishOrWhiteColor} h='1.8rem' width='1.8rem' />}
+					icon={<Icon as={MdAccountCircle} color={lightOrDarkColor} h='1.8rem' width='1.8rem' />}
 				/>
 				{menuListMemo}
 			</>
@@ -124,29 +134,30 @@ const Header = (): JSX.Element => {
 	};
 	return (
 		<Skeleton isLoaded={!isLoading}>
-			<Flex bg='secondary.main' px={4} h='20' alignItems='center' justifyContent='space-between'>
+			<Flex bg={`secondary.${lightOrDarkColor}`} px={4} h='20' alignItems='center' justifyContent='space-between'>
 				<Logo onClick={() => router.push('/listings')} />
 				<Stack alignItems='center' direction='row' spacing={7}>
 					<ButtonPrimary
 						data-testid='create-listing-button'
-						color={lightishOrDarkishColor}
 						leftIcon={<GrAdd fontSize='larger' />}
 						onClick={() => (user ? router.push('/create-listing') : handleSignInWithReturnTo('/create-listing'))}>
-						<Typography variant='button'>Create listing</Typography>
+						<Typography variant='button' color={lightOrDarkColor}>
+							Create listing
+						</Typography>
 					</ButtonPrimary>
 					<Button
-						bg='secondary.main'
+						bg={`secondary.${lightOrDarkColor}`}
 						padding='0'
-						_active={{ bg: 'secondary.main', filter: 'brightness(80%)' }}
+						_active={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 						_focus={{ border: 'none' }}
-						_hover={{ bg: 'secondary.main', filter: 'brightness(90%)' }}
+						_hover={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
 						rounded={'full'}
 						onClick={toggleColorMode}>
 						<Icon
 							data-testid='toggle-color-mode-button'
 							as={colorMode === 'light' ? MoonIcon : SunIcon}
 							name={colorMode === 'light' ? MoonIcon.displayName : SunIcon.displayName}
-							color={darkishOrWhiteColor}
+							color={lightOrDarkColor}
 							height='1.5rem'
 							width='1.5rem'
 						/>

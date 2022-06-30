@@ -6,7 +6,7 @@ exports[`ButtonContainer should match snapshot 1`] = `
     class="css-1hoplt2"
   >
     <button
-      class="chakra-button css-1fmmhr1"
+      class="chakra-button css-e1l5uc"
       data-testid="button-primary"
       type="reset"
     >
@@ -34,14 +34,14 @@ exports[`ButtonContainer should match snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="chakra-text css-1ttg4dc"
+        class="chakra-text css-1gflqot"
         data-testid="typography"
       >
         reset
       </span>
     </button>
     <button
-      class="chakra-button css-12p1jqz"
+      class="chakra-button css-e1l5uc"
       data-testid="button-primary"
       type="submit"
     >
@@ -69,7 +69,7 @@ exports[`ButtonContainer should match snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="chakra-text css-1ttg4dc"
+        class="chakra-text css-1gflqot"
         data-testid="typography"
       >
         submit

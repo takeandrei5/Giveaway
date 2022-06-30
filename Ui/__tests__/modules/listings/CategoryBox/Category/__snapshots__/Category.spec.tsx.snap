@@ -6,14 +6,14 @@ exports[`Category should match snapshot 1`] = `
     class="css-8atqhb"
   >
     <div
-      class="css-1o2zl33"
+      class="css-164vtvb"
       data-testid="category-box"
     >
       <div
         class="chakra-stack css-1jxjhsf"
       >
         <div
-          class="css-120a5e1"
+          class="css-19k02th"
         >
           <span
             style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
@@ -33,7 +33,7 @@ exports[`Category should match snapshot 1`] = `
           </span>
         </div>
         <span
-          class="chakra-text css-1ig778p"
+          class="chakra-text css-1ai3emk"
           data-testid="typography"
         >
           test

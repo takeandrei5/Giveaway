@@ -5,7 +5,7 @@ import { FormContainer } from '../shared';
 import { useCreateListing } from './hooks';
 
 const CreateListing = (): JSX.Element => {
-	const { isFetched, data } = useGetAccessToken();
+	const { isFetched, data } = useGetAccessToken('', true);
 	const { formik } = useCreateListing(data!);
 
 	return (

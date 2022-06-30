@@ -6,11 +6,11 @@ exports[`ItemsList should match snapshot 1`] = `
     class="css-ugh95v"
   >
     <div
-      class="css-16nnvdh"
+      class="css-jdvka7"
       data-testid="item"
     >
       <div
-        class="css-qu5wq6"
+        class="css-9wpbwn"
       >
         <div
           class="css-n580hg"
@@ -36,7 +36,7 @@ exports[`ItemsList should match snapshot 1`] = `
           class="css-c5zn1r"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-7smbts"
             data-testid="typography"
           >
             Item 1
@@ -45,7 +45,7 @@ exports[`ItemsList should match snapshot 1`] = `
             class="css-8xl60i"
           >
             <span
-              class="chakra-text css-1ysmetk"
+              class="chakra-text css-jp1ymq"
               data-testid="typography"
             >
               Added on: 
@@ -55,11 +55,11 @@ exports[`ItemsList should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-16nnvdh"
+      class="css-jdvka7"
       data-testid="item"
     >
       <div
-        class="css-qu5wq6"
+        class="css-9wpbwn"
       >
         <div
           class="css-n580hg"
@@ -85,7 +85,7 @@ exports[`ItemsList should match snapshot 1`] = `
           class="css-c5zn1r"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-7smbts"
             data-testid="typography"
           >
             Item 2
@@ -94,7 +94,7 @@ exports[`ItemsList should match snapshot 1`] = `
             class="css-8xl60i"
           >
             <span
-              class="chakra-text css-1ysmetk"
+              class="chakra-text css-jp1ymq"
               data-testid="typography"
             >
               Added on: 
@@ -104,11 +104,11 @@ exports[`ItemsList should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-16nnvdh"
+      class="css-jdvka7"
       data-testid="item"
     >
       <div
-        class="css-qu5wq6"
+        class="css-9wpbwn"
       >
         <div
           class="css-n580hg"
@@ -134,7 +134,7 @@ exports[`ItemsList should match snapshot 1`] = `
           class="css-c5zn1r"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-7smbts"
             data-testid="typography"
           >
             Item 3
@@ -143,7 +143,7 @@ exports[`ItemsList should match snapshot 1`] = `
             class="css-8xl60i"
           >
             <span
-              class="chakra-text css-1ysmetk"
+              class="chakra-text css-jp1ymq"
               data-testid="typography"
             >
               Added on: 

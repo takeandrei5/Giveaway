@@ -7,7 +7,7 @@ exports[`TitleFormControl should match snapshot 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label css-exo973"
+      class="chakra-form__label css-xgxc5v"
       for="title-input"
       id="field-1-label"
     >
@@ -25,7 +25,7 @@ exports[`TitleFormControl should match snapshot 1`] = `
     >
       <input
         aria-required="true"
-        class="chakra-input css-zt0los"
+        class="chakra-input css-1j16of6"
         data-testid="input"
         id="title-input"
         name="test-name"

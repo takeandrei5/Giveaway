@@ -23,8 +23,9 @@ const useFetchListingDetails = (id: string, isAccessTokenLoaded: boolean) => {
 	const { mutate: deleteListingMutate } = useMutation((accessToken: string) => deleteListing(id, accessToken), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
+			console.error(err);
+
 			if (err instanceof NotFoundError) {
-				console.error(err);
 				router.replace('/404');
 
 				return;

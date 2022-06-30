@@ -35,19 +35,16 @@ const DEFAULT_PAGINATION_OPTIONS: PaginationOptions = {
 
 const THEME_COLOURS = {
 	primary: {
-		main: '#7B61FF',
-		light: '#F7EBFF',
-		dark: '#B8A8DE',
+		light: '#FE6461',
+		dark: '#FE6461',
 	},
 	secondary: {
-		main: '#302CC0',
-		light: '#008CFF',
-		dark: '#000083',
+		light: '#7BA520',
+		dark: '#7BA520',
 	},
-	dark: '#1D1927',
-	darkish: '#262d3b',
-	grayish: '#2D3748',
-	lightish: '#DDE3EB',
+	danger: '#980018',
+	dark: '#1A202C',
+	gray: '#E8E9EB',
 	light: '#FCF7FF',
 };
 

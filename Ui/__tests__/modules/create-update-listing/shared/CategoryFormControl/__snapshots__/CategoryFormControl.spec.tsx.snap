@@ -7,7 +7,7 @@ exports[`CategoryFormControl should match snapshot 1`] = `
     role="group"
   >
     <label
-      class="chakra-form__label css-exo973"
+      class="chakra-form__label css-xgxc5v"
       for="category-dropdown"
       id="field-1-label"
     >
@@ -21,11 +21,11 @@ exports[`CategoryFormControl should match snapshot 1`] = `
       </span>
     </label>
     <div
-      class="chakra-select__wrapper css-ts3co9"
+      class="chakra-select__wrapper css-yumodq"
     >
       <select
         aria-required="true"
-        class="chakra-select css-31afkg"
+        class="chakra-select css-1iot0zm"
         data-testid="dropdown"
         id="category-dropdown"
         name="test-name"
@@ -53,7 +53,7 @@ exports[`CategoryFormControl should match snapshot 1`] = `
         </option>
       </select>
       <div
-        class="chakra-select__icon-wrapper css-162mkon"
+        class="chakra-select__icon-wrapper css-6fsspc"
       >
         <svg
           aria-hidden="true"
