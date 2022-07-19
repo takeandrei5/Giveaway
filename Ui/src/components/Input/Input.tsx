@@ -17,16 +17,20 @@ const Input = ({
 	id,
 	placeholder,
 	name,
-	value,
-	onChange,
-	onBlur,
+	value = undefined,
+	onBlur = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {},
+	onChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {},
+	onKeyDown = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
+	onKeyPress = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
+	onKeyUp = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
 	disabled = false,
 	multiline = false,
 	isInvalid = false,
 	height = 'auto',
 	label = '',
-	leftIcon,
-	rightIcon,
+	leftIcon = undefined,
+	rightIcon = undefined,
+	rows = 10,
 	width = '100%',
 }: InputProps): JSX.Element => {
 	const styles: CSSObject = useStyleConfig('Input');
@@ -42,13 +46,13 @@ const Input = ({
 				</FormLabel>
 			)}
 			{!multiline ? (
-				<InputGroup height='100%' width='auto'>
+				<InputGroup height={height} width='auto'>
 					{leftIcon && (
 						<InputLeftElement
 							data-testId='left-icon'
 							color='gray'
 							fontSize='1.5rem'
-							height='100%'
+							height={height}
 							paddingStart='4'
 							pointerEvents='none'>
 							{leftIcon}
@@ -56,7 +60,6 @@ const Input = ({
 					)}
 					<CuiInput
 						data-testid='input'
-						__css={styles}
 						_focus={{
 							borderColor: `primary.${lightOrDarkColor}`,
 						}}
@@ -68,8 +71,12 @@ const Input = ({
 						disabled={disabled}
 						name={name}
 						placeholder={placeholder}
-						onChange={onChange}
 						onBlur={onBlur}
+						onChange={onChange}
+						onKeyDown={onKeyDown}
+						onKeyPress={onKeyPress}
+						onKeyUp={onKeyUp}
+						spellCheck
 						value={value}
 						width={width}
 					/>
@@ -90,13 +97,18 @@ const Input = ({
 					color={darkOrLightColor}
 					id={id}
 					disabled={disabled}
+					height={height}
 					name={name}
 					isInvalid={isInvalid}
 					placeholder={placeholder}
-					onChange={onChange}
 					onBlur={onBlur}
-					rows={10}
-					height={height}
+					onChange={onChange}
+					onKeyDown={onKeyDown}
+					onKeyPress={onKeyPress}
+					onKeyUp={onKeyUp}
+					resize='none'
+					rows={rows}
+					spellCheck
 					value={value}
 					width={width}
 				/>

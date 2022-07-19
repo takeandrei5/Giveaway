@@ -1,7 +1,7 @@
 import { UserContext, useUser } from '@auth0/nextjs-auth0';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
 	Avatar,
+	Box,
 	Button,
 	Center,
 	Flex,
@@ -14,20 +14,18 @@ import {
 	MenuList,
 	Skeleton,
 	Stack,
-	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
 import { ButtonPrimary, Logo, Typography } from '@components';
+import { DEFAULT_AVATAR } from '@utils/constants';
 import { NextRouter, useRouter } from 'next/router';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { GrAdd, GrLogin, GrLogout } from 'react-icons/gr';
-import { MdAccountCircle } from 'react-icons/md';
+import { MdAccountCircle, MdChatBubble } from 'react-icons/md';
 
-import { DEFAULT_AVATAR } from './constants';
 import { useLogin } from './hooks';
 
 const Header = (): JSX.Element => {
-	const { colorMode, toggleColorMode } = useColorMode();
 	const { user, error, isLoading }: UserContext = useUser();
 	const router: NextRouter = useRouter();
 
@@ -38,7 +36,7 @@ const Header = (): JSX.Element => {
 
 	const menuListMemo: JSX.Element = useMemo(
 		(): JSX.Element => (
-			<MenuList alignItems={'center'} border={0} borderRadius='2xl' boxShadow='base' bgColor={lightOrDarkColor} p={6}>
+			<MenuList alignItems={'center'} border={0} borderRadius='2xl' boxShadow='base' bgColor='white' p={6}>
 				<Stack align='center' margin={0}>
 					<Typography variant='h3' color={darkOrLightColor}>
 						Sign in to your account
@@ -66,16 +64,19 @@ const Header = (): JSX.Element => {
 					<MenuButton
 						data-testid='menu-button-logged-in'
 						_focus={{ boxShadow: 'none' }}
-						as={Button}
+						as={Box}
 						rounded='full'
 						variant='link'
 						cursor='pointer'
+						userSelect='none'
 						display='inherit'
 						minW={0}>
 						<Avatar
+							__css={{ referrerPolicy: 'no-referrer' }}
 							data-testid='avatar'
 							boxShadow='base'
 							id={user.picture ? 'provided-picture' : 'default-picture'}
+							bgColor={`primary.${lightOrDarkColor}`}
 							h='2.5rem'
 							w='2.5rem'
 							src={user.picture || DEFAULT_AVATAR}
@@ -84,11 +85,11 @@ const Header = (): JSX.Element => {
 					<MenuList alignItems='center' border={0} borderRadius='2xl' bgColor={lightOrDarkColor} p={6}>
 						<Center flexDirection='column' rowGap='0.5rem'>
 							<Avatar
+								__css={{ referrerPolicy: 'no-referrer' }}
 								boxShadow='base'
 								data-testid='menu-list-avatar'
 								id={user.picture ? 'menu-list-provided-picture' : 'menu-list-default-picture'}
 								size='2xl'
-								__css={{ referrerPolicy: 'no-referrer' }}
 								src={user.picture || DEFAULT_AVATAR}
 							/>
 							<Typography variant='input' color={darkOrLightColor}>
@@ -121,14 +122,24 @@ const Header = (): JSX.Element => {
 					variant='outline'
 					cursor='pointer'
 					border='0'
+					marginLeft={0}
 					icon={<Icon as={MdAccountCircle} color={lightOrDarkColor} h='1.8rem' width='1.8rem' />}
 				/>
 				{menuListMemo}
 			</>
 		);
 	};
+
+	const onMessageIconClicked = useCallback(() => {
+		if (user) {
+			return router.push('/messages');
+		}
+
+		return handleSignInWithReturnTo('/messages');
+	}, [user]);
+
 	return (
-		<Skeleton boxShadow='base' isLoaded={!isLoading}>
+		<Skeleton boxShadow='base' id='header' isLoaded={!isLoading}>
 			<Flex
 				boxShadow='base'
 				position='relative'
@@ -138,7 +149,7 @@ const Header = (): JSX.Element => {
 				alignItems='center'
 				justifyContent='space-between'>
 				<Logo onClick={() => router.push('/listings')} />
-				<Stack alignItems='center' direction='row' spacing={7}>
+				<Stack alignItems='center' direction='row' spacing={4}>
 					<ButtonPrimary
 						data-testid='create-listing-button'
 						leftIcon={<GrAdd fontSize='larger' />}
@@ -148,12 +159,28 @@ const Header = (): JSX.Element => {
 						</Typography>
 					</ButtonPrimary>
 					<Button
-						bg={`secondary.${lightOrDarkColor}`}
-						padding='0'
+						_active={{ bgColor: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
+						_focus={{ border: 'none' }}
+						_hover={{ bgColor: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
+						padding={0}
+						rounded='full'
+						onClick={onMessageIconClicked}>
+						<Icon
+							data-testid='header-messages-button'
+							as={MdChatBubble}
+							dropShadow='base'
+							color={`primary.${lightOrDarkColor}`}
+							height='1.5rem'
+							width='1.5rem'
+						/>
+					</Button>
+					{/* remove for now */}
+					{/* <Button
 						_active={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 						_focus={{ border: 'none' }}
 						_hover={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
-						rounded={'full'}
+						padding={0}
+						rounded='full'
 						onClick={toggleColorMode}>
 						<Icon
 							data-testid='toggle-color-mode-button'
@@ -164,7 +191,7 @@ const Header = (): JSX.Element => {
 							height='1.5rem'
 							width='1.5rem'
 						/>
-					</Button>
+					</Button> */}
 					<Menu autoSelect={false}>{renderLoginMenu()}</Menu>
 				</Stack>
 			</Flex>

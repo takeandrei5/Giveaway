@@ -3,7 +3,7 @@
 exports[`Input should match snapshot 1`] = `
 <div>
   <div
-    class="chakra-input__group css-17gmcos"
+    class="chakra-input__group css-qo1jfw"
   >
     <input
       class="chakra-input css-1mo3pqq"

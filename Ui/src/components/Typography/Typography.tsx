@@ -43,7 +43,7 @@ const Typography = ({
 			as='span'
 			color={color}
 			textAlign={center ? 'center' : 'initial'}
-			whiteSpace={multiline ? 'pre-line' : 'pre'}
+			whiteSpace={'pre-line'}
 			{...renderTypographyVariant(variant)}>
 			{prefix}
 			{children}

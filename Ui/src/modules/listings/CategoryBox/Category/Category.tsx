@@ -21,14 +21,13 @@ const Category = ({ name, image, category }: CategoryProps) => {
 				data-testid='category-box'
 				_hover={{
 					cursor: 'pointer',
-					filter: categoryState.category == category ? 'brightness(80%)' : 'brightness(90%)',
+					filter: 'brightness(90%)',
 				}}
 				_active={{ filter: 'brightness(80%)' }}
 				bgColor='transparent'
 				onClick={onClickHandler}
 				padding='0.5rem'
 				maxWidth='7.5rem'
-				filter={categoryState.category == category ? 'brightness(90%)' : 'auto'}
 				__css={{
 					'& span': {
 						color: categoryState.category == category ? `primary.${lightOrDarkColor}` : darkOrLightColor,

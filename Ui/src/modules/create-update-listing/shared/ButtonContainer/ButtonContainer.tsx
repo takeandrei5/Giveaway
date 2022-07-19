@@ -8,7 +8,7 @@ const ButtonContainer = ({ resetButtonText, submitButtonText }: ButtonContainerP
 	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
 
 	return (
-		<Flex justifyContent='end' gap={2}>
+		<Flex justifyContent='end' gap={2} marginTop='auto'>
 			<ButtonPrimary leftIcon={<GrRefresh fontSize='larger' />} type='reset'>
 				<Typography variant='button' color={lightOrDarkColor}>
 					{resetButtonText}

@@ -1,4 +1,4 @@
-import { Box, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Footer, Header } from '@components';
 import React from 'react';
 
@@ -7,19 +7,17 @@ import { DefaultLayoutProps } from './types';
 const DefaultLayout = ({ children }: DefaultLayoutProps): JSX.Element => (
 	<>
 		<Header />
-		<Box
+		<Flex
 			as='main'
-			minHeight='100%'
-			width='100%'
-			display='flex'
+			backgroundColor='gray'
 			flexDirection='column'
-			marginLeft='auto'
-			marginRight='auto'
-			paddingY='5rem'
+			minHeight='100%'
+			marginX='auto'
 			paddingX='18rem'
-			backgroundColor='gray'>
+			paddingY='5rem'
+			width='100%'>
 			{children}
-		</Box>
+		</Flex>
 		<Footer />
 	</>
 );

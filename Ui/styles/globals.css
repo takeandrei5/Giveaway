@@ -4,6 +4,7 @@ div[id='__next'] {
 	padding: 0;
 	margin: 0;
 	height: 100%;
+	scroll-behavior: smooth;
 }
 
 a {
@@ -16,6 +17,6 @@ a {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-ms-box-sizing: border-box;
-	font-family: -apple-system, Lato, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-		Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: -apple-system, Lato, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+		Droid Sans, Helvetica Neue, sans-serif;
 }

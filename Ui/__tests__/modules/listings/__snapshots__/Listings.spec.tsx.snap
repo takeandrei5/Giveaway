@@ -9,13 +9,13 @@ exports[`Listings should match snapshot 1`] = `
       class="css-gmuwbf"
     >
       <div
-        class="css-190g08t"
+        class="css-c42jct"
       >
         <div
           class="chakra-stack css-n21gh5"
         >
           <span
-            class="chakra-text css-3gvfzl"
+            class="chakra-text css-15i1f3z"
             data-testid="typography"
           >
             Select from these main categories
@@ -27,7 +27,7 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-1rox7yp"
+                class="css-1gihwm6"
                 data-testid="category-box"
               >
                 <div
@@ -54,7 +54,7 @@ exports[`Listings should match snapshot 1`] = `
                     </span>
                   </div>
                   <span
-                    class="chakra-text css-1ai3emk"
+                    class="chakra-text css-muf1uf"
                     data-testid="typography"
                   >
                     Clothes
@@ -66,7 +66,7 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-1rox7yp"
+                class="css-1gihwm6"
                 data-testid="category-box"
               >
                 <div
@@ -93,7 +93,7 @@ exports[`Listings should match snapshot 1`] = `
                     </span>
                   </div>
                   <span
-                    class="chakra-text css-1ai3emk"
+                    class="chakra-text css-muf1uf"
                     data-testid="typography"
                   >
                     Toys
@@ -105,7 +105,7 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-1rox7yp"
+                class="css-1gihwm6"
                 data-testid="category-box"
               >
                 <div
@@ -132,7 +132,7 @@ exports[`Listings should match snapshot 1`] = `
                     </span>
                   </div>
                   <span
-                    class="chakra-text css-1ai3emk"
+                    class="chakra-text css-muf1uf"
                     data-testid="typography"
                   >
                     Books
@@ -144,7 +144,7 @@ exports[`Listings should match snapshot 1`] = `
               class="css-8atqhb"
             >
               <div
-                class="css-1rox7yp"
+                class="css-1gihwm6"
                 data-testid="category-box"
               >
                 <div
@@ -171,7 +171,7 @@ exports[`Listings should match snapshot 1`] = `
                     </span>
                   </div>
                   <span
-                    class="chakra-text css-1ai3emk"
+                    class="chakra-text css-muf1uf"
                     data-testid="typography"
                   >
                     Electronics
@@ -190,7 +190,7 @@ exports[`Listings should match snapshot 1`] = `
         class="css-13n1q9m"
       >
         <span
-          class="chakra-text css-q4il9g"
+          class="chakra-text css-lk79i8"
           data-testid="typography"
         >
           Sort by:
@@ -199,7 +199,7 @@ exports[`Listings should match snapshot 1`] = `
           class="chakra-select__wrapper css-yumodq"
         >
           <select
-            class="chakra-select css-1inymzc"
+            class="chakra-select css-7qjvuv"
             data-testid="dropdown"
             id="sort-dropdown"
             name="sort-dropdown"

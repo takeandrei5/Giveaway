@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { UserContext, useUser } from '@auth0/nextjs-auth0';
 import { NextRouter, useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useQuery } from 'react-query';
 
 const useGetAccessToken = (redirectTo: string = '', enableRedirect = false) => {
@@ -16,6 +16,8 @@ const useGetAccessToken = (redirectTo: string = '', enableRedirect = false) => {
 	});
 
 	const redirect = (redirectTo: string) => {
+		console.log('hi');
+
 		if (!redirectTo) {
 			router.replace('/listings');
 			return;

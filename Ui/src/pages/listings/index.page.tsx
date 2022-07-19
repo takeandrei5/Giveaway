@@ -4,14 +4,19 @@ import { DEFAULT_PAGINATION_OPTIONS } from '@utils/constants';
 import { tryFetchQuery } from '@utils/helpers';
 import queryClient from '@utils/queryClient';
 import { NextPage, Redirect } from 'next/types';
+import { useLayoutEffect } from 'react';
 import { dehydrate } from 'react-query';
 
 import { dropdownOptions } from './constants';
 import { ListingsPageProps } from './types';
 
-const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProps) => (
-	<ListingsModule options={options} />
-);
+const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProps) => {
+	useLayoutEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
+	return <ListingsModule options={options} />;
+};
 
 export async function getStaticProps(): Promise<
 	{ props: ListingsPageProps; revalidate: number } | { redirect: Redirect }

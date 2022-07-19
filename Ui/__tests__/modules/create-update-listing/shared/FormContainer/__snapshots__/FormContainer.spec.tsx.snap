@@ -13,7 +13,7 @@ exports[`FormContainer should match snapshot 1`] = `
     novalidate=""
   >
     <div
-      class="css-1rk3b0n"
+      class="css-wxx995"
     >
       <span
         class="chakra-text css-wfx7tx"
@@ -43,7 +43,7 @@ exports[`FormContainer should match snapshot 1`] = `
             </span>
           </label>
           <div
-            class="chakra-input__group css-17gmcos"
+            class="chakra-input__group css-1pp672a"
           >
             <input
               aria-required="true"
@@ -80,7 +80,7 @@ exports[`FormContainer should match snapshot 1`] = `
           >
             <select
               aria-required="true"
-              class="chakra-select css-1inymzc"
+              class="chakra-select css-7qjvuv"
               data-testid="dropdown"
               id="category-dropdown"
               name="category"

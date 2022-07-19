@@ -66,7 +66,7 @@ const ImagesFormControl = ({ name }: ImagesFormControlProps) => {
 						<Box
 							ref={provided.innerRef}
 							cursor='default'
-							marginRight='0.5rem'
+							marginRight={4}
 							width='100%'
 							position='relative'
 							userSelect='none'

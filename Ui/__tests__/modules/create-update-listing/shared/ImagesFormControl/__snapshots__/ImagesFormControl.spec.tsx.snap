@@ -27,7 +27,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
     >
       <div
         aria-describedby="rbd-hidden-text-0-hidden-text-0"
-        class="css-1de6poj"
+        class="css-1iy0o4a"
         data-rbd-drag-handle-context-id="0"
         data-rbd-drag-handle-draggable-id="test-id1"
         data-rbd-draggable-context-id="0"
@@ -111,7 +111,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
       </div>
       <div
         aria-describedby="rbd-hidden-text-0-hidden-text-0"
-        class="css-1de6poj"
+        class="css-1iy0o4a"
         data-rbd-drag-handle-context-id="0"
         data-rbd-drag-handle-draggable-id="test-id2"
         data-rbd-draggable-context-id="0"
@@ -179,7 +179,7 @@ exports[`ImagesFormControl should match snapshot 1`] = `
       </div>
       <div
         aria-describedby="rbd-hidden-text-0-hidden-text-0"
-        class="css-1de6poj"
+        class="css-1iy0o4a"
         data-rbd-drag-handle-context-id="0"
         data-rbd-drag-handle-draggable-id="test-id3"
         data-rbd-draggable-context-id="0"

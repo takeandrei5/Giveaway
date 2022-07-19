@@ -23,6 +23,8 @@ const DEFAULT_CATEGORIES: Category[] = [
 	},
 ];
 
+const DEFAULT_AVATAR: string = 'https://avatars.dicebear.com/api/male/username.svg';
+
 const DEFAULT_IMAGE_UPLOAD: string =
 	'https://imagedelivery.net/G1lMtwsUs9dEAB6xuB8WcA/318e4ec3-9120-4fd1-e9ce-05419eff8500/public';
 
@@ -39,13 +41,21 @@ const THEME_COLOURS = {
 		dark: '#FE6461',
 	},
 	secondary: {
-		light: '#7BA520',
-		dark: '#7BA520',
+		light: '#00C9B7',
+		// light: '#7BA520',
+		dark: '#00C9B7',
 	},
 	danger: '#980018',
 	dark: '#1A202C',
-	gray: '#E8E9EB',
+	gray: '#DDDDDD',
 	light: '#FCF7FF',
 };
 
-export { DEFAULT_CATEGORIES, DEFAULT_IMAGE_UPLOAD, DEFAULT_PAGINATION_OPTIONS, MAX_IMAGES, THEME_COLOURS };
+export {
+	DEFAULT_AVATAR,
+	DEFAULT_CATEGORIES,
+	DEFAULT_IMAGE_UPLOAD,
+	DEFAULT_PAGINATION_OPTIONS,
+	MAX_IMAGES,
+	THEME_COLOURS,
+};

@@ -18,7 +18,7 @@ exports[`SortingDropdown should match snapshot 1`] = `
         class="chakra-select__wrapper css-yumodq"
       >
         <select
-          class="chakra-select css-1inymzc"
+          class="chakra-select css-7qjvuv"
           data-testid="dropdown"
           id="sorting-dropdown"
           name="sorting-dropdown-test-name"

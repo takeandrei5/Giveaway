@@ -1,7 +1,9 @@
 import { Flex, Grid, GridItem, Skeleton, useColorModeValue } from '@chakra-ui/react';
+import { ButtonPrimary, Typography } from '@components';
 import { useGetAccessToken } from '@utils/hooks';
 import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
+import { MdArrowBackIosNew } from 'react-icons/md';
 
 import { ActionButton } from './ActionButton';
 import { useFetchListingDetails } from './hooks';
@@ -19,21 +21,36 @@ const ListingDetails = ({ id }: ListingDetailsProps) => {
 
 	return (
 		<Skeleton borderRadius='2xl' isLoaded={!isLoading}>
-			<Flex width='100%' gap={2} justifyContent='end'>
-				<ActionButton
-					bgColor={`primary.${lightOrDarkColor}`}
-					icon={<GrUpdate fontSize='medium' />}
-					label='Update listing'
-					ownerEmail={ownerInfo.email}
-					onClick={() => router.push(`/update-listing/${id}`)}
-				/>
-				<ActionButton
-					bgColor={`primary.${lightOrDarkColor}`}
-					icon={<GrTrash fontSize='medium' />}
-					label='Delete listing'
-					ownerEmail={ownerInfo.email}
-					onClick={() => deleteListingMutate(data!)}
-				/>
+			<Flex flexDirection='column' gap={2}>
+				<Typography variant='h1' color={`primary.${lightOrDarkColor}`}>
+					Details
+				</Typography>
+				<Flex>
+					<ButtonPrimary
+						backgroundColor={`primary.${lightOrDarkColor}`}
+						leftIcon={<MdArrowBackIosNew color='white' size='1rem' />}
+						onClick={() => router.push('/listings')}>
+						<Typography variant='button' color={lightOrDarkColor}>
+							Back
+						</Typography>
+					</ButtonPrimary>
+					<Flex gap={2} marginLeft='auto'>
+						<ActionButton
+							bgColor={`primary.${lightOrDarkColor}`}
+							icon={<GrUpdate fontSize='medium' />}
+							label='Update listing'
+							ownerEmail={ownerInfo.email}
+							onClick={() => router.push(`/update-listing/${id}`)}
+						/>
+						<ActionButton
+							bgColor={`primary.${lightOrDarkColor}`}
+							icon={<GrTrash fontSize='medium' />}
+							label='Delete listing'
+							ownerEmail={ownerInfo.email}
+							onClick={() => deleteListingMutate(data!)}
+						/>
+					</Flex>
+				</Flex>
 			</Flex>
 			<ImageSlider images={listingInfo.images} />
 			<Grid templateColumns='repeat(12, 1fr)' gap={5} marginTop='1rem'>

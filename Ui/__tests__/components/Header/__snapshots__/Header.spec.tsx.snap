@@ -4,6 +4,7 @@ exports[`Header should match snapshot 1`] = `
 <div>
   <div
     class="chakra-skeleton css-1c4anzb"
+    id="header"
   >
     <div
       class="css-j7641h"
@@ -25,10 +26,10 @@ exports[`Header should match snapshot 1`] = `
         />
       </svg>
       <div
-        class="chakra-stack css-15hb7ab"
+        class="chakra-stack css-a9v878"
       >
         <button
-          class="chakra-button css-icqz1q"
+          class="chakra-button css-1xi7nq7"
           data-testid="create-listing-button"
           type="button"
         >
@@ -56,26 +57,34 @@ exports[`Header should match snapshot 1`] = `
             </svg>
           </span>
           <span
-            class="chakra-text css-1gflqot"
+            class="chakra-text css-7fixei"
             data-testid="typography"
           >
             Create listing
           </span>
         </button>
         <button
-          class="chakra-button css-18yy46g"
+          class="chakra-button css-alpc9n"
           type="button"
         >
           <svg
-            class="chakra-icon chakra-icon css-1dkgxey"
-            data-testid="toggle-color-mode-button"
+            class="chakra-icon css-jalq4j"
+            data-testid="header-messages-button"
+            fill="currentColor"
             focusable="false"
-            name="MoonIcon"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
             viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M21.4,13.7C20.6,13.9,19.8,14,19,14c-5,0-9-4-9-9c0-0.8,0.1-1.6,0.3-2.4c0.1-0.3,0-0.7-0.3-1 c-0.3-0.3-0.6-0.4-1-0.3C4.3,2.7,1,7.1,1,12c0,6.1,4.9,11,11,11c4.9,0,9.3-3.3,10.6-8.1c0.1-0.3,0-0.7-0.3-1 C22.1,13.7,21.7,13.6,21.4,13.7z"
-              fill="currentColor"
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
             />
           </svg>
         </button>
@@ -84,7 +93,7 @@ exports[`Header should match snapshot 1`] = `
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label="login"
-          class="chakra-button chakra-menu__menu-button css-1rmt4g9"
+          class="chakra-button chakra-menu__menu-button css-1nbqtcs"
           data-testid="menu-button-logged-out"
           id="menu-button-2"
           type="button"
@@ -116,7 +125,7 @@ exports[`Header should match snapshot 1`] = `
         >
           <div
             aria-orientation="vertical"
-            class="chakra-menu__menu-list css-bf6ydw"
+            class="chakra-menu__menu-list css-ytr4xs"
             id="menu-list-2"
             role="menu"
             style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
@@ -126,13 +135,13 @@ exports[`Header should match snapshot 1`] = `
               class="chakra-stack css-rf92ti"
             >
               <span
-                class="chakra-text css-1c0j6zz"
+                class="chakra-text css-20loom"
                 data-testid="typography"
               >
                 Sign in to your account
               </span>
               <span
-                class="chakra-text css-q4il9g"
+                class="chakra-text css-lk79i8"
                 data-testid="typography"
               >
                 to have access to all features 🧙‍♂️
@@ -142,7 +151,7 @@ exports[`Header should match snapshot 1`] = `
               class="css-1jpau0d"
             >
               <button
-                class="chakra-button css-icqz1q"
+                class="chakra-button css-1xi7nq7"
                 data-testid="button-primary"
                 type="button"
               >
@@ -170,7 +179,7 @@ exports[`Header should match snapshot 1`] = `
                   </svg>
                 </span>
                 <span
-                  class="chakra-text css-1gflqot"
+                  class="chakra-text css-7fixei"
                   data-testid="typography"
                 >
                   Sign in here

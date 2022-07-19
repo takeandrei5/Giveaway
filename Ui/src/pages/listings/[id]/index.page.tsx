@@ -14,10 +14,15 @@ import { NextPage, Redirect } from 'next/types';
 import { dehydrate } from 'react-query';
 
 import { ListingDetailsPageProps } from './types';
+import { useLayoutEffect } from 'react';
 
-const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ id }: ListingDetailsPageProps) => (
-	<ListingDetailsModule id={id} />
-);
+const ListingDetailsPage: NextPage<ListingDetailsPageProps> = ({ id }: ListingDetailsPageProps) => {
+	useLayoutEffect(() => {
+		window.scrollTo(0, document.getElementById('header')!.getBoundingClientRect().height);
+	}, []);
+
+	return <ListingDetailsModule id={id} />;
+};
 
 export async function getStaticProps(
 	context: GetStaticPropsContext

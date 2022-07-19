@@ -9,7 +9,7 @@ const CreateListing = (): JSX.Element => {
 	const { formik } = useCreateListing(data!);
 
 	return (
-		<Skeleton borderRadius='2xl' isLoaded={isFetched}>
+		<Skeleton borderRadius='2xl' display='flex' flex={1} isLoaded={isFetched}>
 			<FormContainer formik={formik} pageTitle='Create a listing!' resetButtonText='Clear' submitButtonText='Submit' />
 		</Skeleton>
 	);

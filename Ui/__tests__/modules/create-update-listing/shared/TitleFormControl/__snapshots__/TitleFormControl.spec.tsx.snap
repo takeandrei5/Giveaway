@@ -21,7 +21,7 @@ exports[`TitleFormControl should match snapshot 1`] = `
       </span>
     </label>
     <div
-      class="chakra-input__group css-17gmcos"
+      class="chakra-input__group css-1pp672a"
     >
       <input
         aria-required="true"

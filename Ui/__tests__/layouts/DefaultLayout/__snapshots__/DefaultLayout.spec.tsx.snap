@@ -4,6 +4,7 @@ exports[`DefaultLayout should match snapshot 1`] = `
 <div>
   <div
     class="chakra-skeleton css-n6c5ig"
+    id="header"
   >
     <div
       class="css-qkksr5"
@@ -25,7 +26,7 @@ exports[`DefaultLayout should match snapshot 1`] = `
         />
       </svg>
       <div
-        class="chakra-stack css-wk3edw"
+        class="chakra-stack css-1qwdsol"
       >
         <button
           class="chakra-button css-1k5bbcq"
@@ -63,53 +64,28 @@ exports[`DefaultLayout should match snapshot 1`] = `
           </span>
         </button>
         <button
-          class="chakra-button css-udvakj"
+          class="chakra-button css-1smc93u"
           type="button"
         >
           <svg
-            class="chakra-icon chakra-icon css-1dkgxey"
-            data-testid="toggle-color-mode-button"
+            class="chakra-icon css-vmuzy3"
+            data-testid="header-messages-button"
+            fill="currentColor"
             focusable="false"
-            name="SunIcon"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
             viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <g
+            <path
+              d="M0 0h24v24H0z"
               fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <circle
-                cx="12"
-                cy="12"
-                r="5"
-              />
-              <path
-                d="M12 1v2"
-              />
-              <path
-                d="M12 21v2"
-              />
-              <path
-                d="M4.22 4.22l1.42 1.42"
-              />
-              <path
-                d="M18.36 18.36l1.42 1.42"
-              />
-              <path
-                d="M1 12h2"
-              />
-              <path
-                d="M21 12h2"
-              />
-              <path
-                d="M4.22 19.78l1.42-1.42"
-              />
-              <path
-                d="M18.36 5.64l1.42-1.42"
-              />
-            </g>
+            />
+            <path
+              d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+            />
           </svg>
         </button>
         <button
@@ -117,7 +93,7 @@ exports[`DefaultLayout should match snapshot 1`] = `
           aria-expanded="false"
           aria-haspopup="menu"
           aria-label="login"
-          class="chakra-button chakra-menu__menu-button css-nkuabf"
+          class="chakra-button chakra-menu__menu-button css-131314y"
           data-testid="menu-button-logged-out"
           id="menu-button-2"
           type="button"

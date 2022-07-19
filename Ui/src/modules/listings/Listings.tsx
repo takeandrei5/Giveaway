@@ -1,6 +1,7 @@
 import { Skeleton } from '@components';
 import { DEFAULT_CATEGORIES } from '@utils/constants';
 import { SortingType } from '@utils/types';
+import { useLayoutEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { CategoryBox } from './CategoryBox';

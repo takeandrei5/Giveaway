@@ -38,6 +38,10 @@ const styles = {
 				borderSize: '0.0625rem',
 				boxShadow: '2xl',
 			},
+			paddingTop: 2,
+			paddingBottom: 2,
+			paddingInlineStart: 4,
+			paddingInlineEnd: 4,
 		},
 	},
 };

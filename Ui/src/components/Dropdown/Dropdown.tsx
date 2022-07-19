@@ -30,6 +30,10 @@ const Dropdown = ({ id, options, onChangeHandler, name, value, isInvalid = false
 			_focus={{
 				border: 0,
 			}}
+			_hover={{
+				filter: 'brightness(90%)',
+			}}
+			_active={{ filter: 'brightness(80%)' }}
 			bgColor={`primary.${lightOrDarkColor}`}
 			color={lightOrDarkColor}
 			border={0}

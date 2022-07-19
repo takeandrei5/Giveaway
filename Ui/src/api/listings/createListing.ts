@@ -1,4 +1,4 @@
-import axiosInstance from '../../utils/axios';
+import axiosInstance from '@utils/axios';
 import { CreateListingRequest } from './types';
 
 const createListing = async (accessToken: string, data: CreateListingRequest): Promise<void> => {

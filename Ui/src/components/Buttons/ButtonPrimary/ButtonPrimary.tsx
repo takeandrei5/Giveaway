@@ -18,7 +18,7 @@ const ButtonPrimary = ({
 	return (
 		<Button
 			__css={{
-				'& path': {
+				'& path, polyline': {
 					stroke: lightOrDarkColor,
 				},
 			}}

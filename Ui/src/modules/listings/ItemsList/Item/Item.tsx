@@ -17,13 +17,27 @@ const Item = ({ id, title, image, createdAt }: ItemProps): JSX.Element => {
 	const formatDate = useCallback((): string => dateFormat(createdAt, 'mmmm dS, yyyy "at" h:MM TT'), [createdAt]);
 
 	return (
-		<GridItem cursor='pointer' data-testid={'item'} key={id} w='100%' height='11.375rem' onClick={onClickHandler}>
+		<GridItem
+			_hover={{
+				cursor: 'pointer',
+				filter: 'brightness(90%)',
+			}}
+			_active={{
+				filter: 'brightness(80%)',
+			}}
+			cursor='pointer'
+			data-testid='item'
+			key={id}
+			w='100%'
+			height='11.375rem'
+			onClick={onClickHandler}
+			userSelect='none'>
 			<Box
 				h='100%'
 				w='100%'
 				boxShadow='base'
 				position='relative'
-				bgColor={lightOrDarkColor}
+				bgColor='white'
 				borderRadius='2xl'
 				display='flex'
 				flexDir='row'

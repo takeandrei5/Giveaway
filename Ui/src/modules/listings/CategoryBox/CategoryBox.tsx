@@ -20,12 +20,12 @@ const CategoryBox = ({ categories }: CategoryBoxProps): JSX.Element => {
 		<Center>
 			<Box
 				boxShadow='base'
-				bgColor={lightOrDarkColor}
+				bgColor='white'
 				borderRadius='2xl'
 				display='flex'
 				justifyContent='center'
-				padding='1.5rem'
-				width='87.5rem'>
+				padding={6}
+				width='62.5rem'>
 				<Stack direction='column'>
 					<Typography center variant='h2' color={darkOrLightColor}>
 						Select from these main categories

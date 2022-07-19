@@ -5,12 +5,17 @@ import { UpdateListingModule } from '@modules';
 import { NotFoundError } from '@utils/errors';
 import queryClient from '@utils/queryClient';
 import { GetServerSidePropsContext, NextPage, Redirect } from 'next';
+import { useLayoutEffect } from 'react';
 import { dehydrate, useQuery } from 'react-query';
 
 import { UpdateListingPageProps } from './types';
 
 const UpdateListingPage: NextPage<UpdateListingPageProps> = ({ accessToken, id }: UpdateListingPageProps) => {
 	const { data } = useQuery(['fetchListing', id], () => fetchListing(id));
+
+	useLayoutEffect(() => {
+		window.scrollTo(0, document.getElementById('header')!.getBoundingClientRect().height);
+	}, []);
 
 	return <UpdateListingModule accessToken={accessToken} id={id} initialValues={{ ...data!.listingInfo }} />;
 };

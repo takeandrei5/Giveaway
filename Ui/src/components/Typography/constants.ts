@@ -49,14 +49,14 @@ const CAPTION: TypographyTextStyle = {
 };
 
 const SMALL: TypographyTextStyle = {
-	fontSize: '0.625rem',
+	fontSize: '0.75rem',
 	fontWeight: '300',
 	lineHeight: '0.75rem',
 };
 
 const DEFAULT: TypographyTextStyle = {
 	fontSize: '1rem',
-	fontWeight: '700',
+	fontWeight: '500',
 	lineHeight: '1.2rem',
 };
 

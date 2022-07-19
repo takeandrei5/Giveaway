@@ -12,7 +12,6 @@ const DescriptionFormControl = ({ name }: DescriptionFormControlProps) => {
 				id='description-input'
 				multiline
 				height='10rem'
-				width='100%'
 				name={name}
 				placeholder='Be as detailed as you wish others were!'
 				onBlur={field.onBlur}
