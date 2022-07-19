@@ -3,7 +3,7 @@
 exports[`ButtonPrimary should match snapshot 1`] = `
 <div>
   <button
-    class="chakra-button css-1k5bbcq"
+    class="chakra-button css-g5yezb"
     data-testid="button-primary"
     type="button"
   />

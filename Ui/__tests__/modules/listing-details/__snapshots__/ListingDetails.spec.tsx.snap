@@ -6,13 +6,19 @@ exports[`ListingDetails should match snapshot 1`] = `
     class="chakra-skeleton css-r69txw"
   >
     <div
-      class="css-1tm3dfo"
+      class="css-3a3hw0"
     >
+      <span
+        class="chakra-text css-f3be6h"
+        data-testid="typography"
+      >
+        Details
+      </span>
       <div
-        class="chakra-skeleton css-cdkrf0"
+        class="css-k008qs"
       >
         <button
-          class="chakra-button css-fuyaaa"
+          class="chakra-button css-g5yezb"
           data-testid="button-primary"
           type="button"
         >
@@ -21,70 +27,115 @@ exports[`ListingDetails should match snapshot 1`] = `
           >
             <svg
               aria-hidden="true"
+              color="white"
               fill="currentColor"
               focusable="false"
-              font-size="medium"
-              height="1em"
+              height="1rem"
               stroke="currentColor"
               stroke-width="0"
+              style="color: white;"
               viewBox="0 0 24 24"
-              width="1em"
+              width="1rem"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.7507,16.0022 C3.3517,20.0982 7.3367,23.0002 11.9997,23.0002 C18.0747,23.0002 22.9997,18.0752 22.9997,12.0002 M22.2497,7.9982 C20.6487,3.9012 16.6627,1.0002 11.9997,1.0002 C5.9247,1.0002 0.9997,5.9252 0.9997,12.0002 M8.9997,16.0002 L0.9997,16.0002 L0.9997,24.0002 M22.9997,0.0002 L22.9997,8.0002 L14.9997,8.0002"
+                d="M0 0h24v24H0z"
                 fill="none"
-                stroke="#000"
-                stroke-width="2"
+              />
+              <path
+                d="M17.77 3.77L16 2 6 12l10 10 1.77-1.77L9.54 12z"
               />
             </svg>
           </span>
           <span
-            class="chakra-text css-1gflqot"
+            class="chakra-text css-7fixei"
             data-testid="typography"
           >
-            Update listing
+            Back
           </span>
         </button>
-      </div>
-      <div
-        class="chakra-skeleton css-cdkrf0"
-      >
-        <button
-          class="chakra-button css-fuyaaa"
-          data-testid="button-primary"
-          type="button"
+        <div
+          class="css-glbj5v"
         >
-          <span
-            class="chakra-button__icon css-1wh2kri"
+          <div
+            class="chakra-skeleton css-cdkrf0"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              focusable="false"
-              font-size="medium"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              class="chakra-button css-37dqwd"
+              data-testid="button-primary"
+              type="button"
             >
-              <path
-                d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
-                fill="none"
-                stroke="#000"
-                stroke-width="2"
-              />
-            </svg>
-          </span>
-          <span
-            class="chakra-text css-1gflqot"
-            data-testid="typography"
+              <span
+                class="chakra-button__icon css-1wh2kri"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  focusable="false"
+                  font-size="medium"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.7507,16.0022 C3.3517,20.0982 7.3367,23.0002 11.9997,23.0002 C18.0747,23.0002 22.9997,18.0752 22.9997,12.0002 M22.2497,7.9982 C20.6487,3.9012 16.6627,1.0002 11.9997,1.0002 C5.9247,1.0002 0.9997,5.9252 0.9997,12.0002 M8.9997,16.0002 L0.9997,16.0002 L0.9997,24.0002 M22.9997,0.0002 L22.9997,8.0002 L14.9997,8.0002"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+              <span
+                class="chakra-text css-7fixei"
+                data-testid="typography"
+              >
+                Update listing
+              </span>
+            </button>
+          </div>
+          <div
+            class="chakra-skeleton css-cdkrf0"
           >
-            Delete listing
-          </span>
-        </button>
+            <button
+              class="chakra-button css-37dqwd"
+              data-testid="button-primary"
+              type="button"
+            >
+              <span
+                class="chakra-button__icon css-1wh2kri"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  focusable="false"
+                  font-size="medium"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4,5 L20,5 L20,23 L4,23 L4,5 Z M1,5 L23,5 M9,1 L15,1 L15,5 L9,5 L9,1 Z M9,1 L15,1 L15,5 L9,5 L9,1 Z M15,9 L15,19 M9,9 L9,19"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+              <span
+                class="chakra-text css-7fixei"
+                data-testid="typography"
+              >
+                Delete listing
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -146,7 +197,7 @@ exports[`ListingDetails should match snapshot 1`] = `
           class="css-1jkzbrs"
         >
           <span
-            class="chakra-text css-wfx7tx"
+            class="chakra-text css-wwpj52"
             data-testid="typography"
           >
             listing-title
@@ -161,7 +212,7 @@ exports[`ListingDetails should match snapshot 1`] = `
             class="css-8xl60i"
           >
             <span
-              class="chakra-text css-jp1ymq"
+              class="chakra-text css-1m60o1a"
               data-testid="typography"
             >
               Added on: 
@@ -176,7 +227,7 @@ exports[`ListingDetails should match snapshot 1`] = `
           class="css-rqk74a"
         >
           <span
-            class="chakra-text css-qc5sxz"
+            class="chakra-text css-84comp"
             data-testid="typography"
           >
             Contact Information
@@ -204,13 +255,13 @@ exports[`ListingDetails should match snapshot 1`] = `
             class="css-w28dba"
           >
             <span
-              class="chakra-text css-1yg8ro5"
+              class="chakra-text css-1dioq7p"
               data-testid="typography"
             >
               Owner:
             </span>
             <span
-              class="chakra-text css-q4il9g"
+              class="chakra-text css-lk79i8"
               data-testid="typography"
             />
           </div>
@@ -218,13 +269,13 @@ exports[`ListingDetails should match snapshot 1`] = `
             class="css-w28dba"
           >
             <span
-              class="chakra-text css-1yg8ro5"
+              class="chakra-text css-1dioq7p"
               data-testid="typography"
             >
               Email:
             </span>
             <span
-              class="chakra-text css-q4il9g"
+              class="chakra-text css-lk79i8"
               data-testid="typography"
             />
           </div>

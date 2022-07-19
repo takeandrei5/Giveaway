@@ -3,7 +3,7 @@
 exports[`Typography should match snapshot 1`] = `
 <div>
   <span
-    class="chakra-text css-vjlvf3"
+    class="chakra-text css-y4pm85"
     data-testid="typography"
   >
     Test-Text

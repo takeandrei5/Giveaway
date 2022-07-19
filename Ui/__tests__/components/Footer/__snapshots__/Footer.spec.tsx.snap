@@ -32,7 +32,7 @@ exports[`Footer should match snapshot 1`] = `
             />
           </svg>
           <span
-            class="chakra-text css-btni37"
+            class="chakra-text css-iprtrc"
             data-testid="typography"
           >
             © 2020 Chakra Templates. All rights reserved
@@ -43,7 +43,7 @@ exports[`Footer should match snapshot 1`] = `
           id="footer-stack-item"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-17k4pcm"
             data-testid="typography"
           >
             Product
@@ -84,7 +84,7 @@ exports[`Footer should match snapshot 1`] = `
           id="footer-stack-item"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-17k4pcm"
             data-testid="typography"
           >
             Company
@@ -125,7 +125,7 @@ exports[`Footer should match snapshot 1`] = `
           id="footer-stack-item"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-17k4pcm"
             data-testid="typography"
           >
             Support
@@ -166,7 +166,7 @@ exports[`Footer should match snapshot 1`] = `
           id="footer-stack-item"
         >
           <span
-            class="chakra-text css-inmt5s"
+            class="chakra-text css-17k4pcm"
             data-testid="typography"
           >
             Follow us

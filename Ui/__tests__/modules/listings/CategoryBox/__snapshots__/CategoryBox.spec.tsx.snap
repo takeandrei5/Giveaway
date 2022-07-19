@@ -6,13 +6,13 @@ exports[`CategoryBox should match snapshot 1`] = `
     class="css-gmuwbf"
   >
     <div
-      class="css-190g08t"
+      class="css-c42jct"
     >
       <div
         class="chakra-stack css-n21gh5"
       >
         <span
-          class="chakra-text css-3gvfzl"
+          class="chakra-text css-15i1f3z"
           data-testid="typography"
         >
           Select from these main categories
@@ -51,7 +51,7 @@ exports[`CategoryBox should match snapshot 1`] = `
                   </span>
                 </div>
                 <span
-                  class="chakra-text css-1ai3emk"
+                  class="chakra-text css-muf1uf"
                   data-testid="typography"
                 >
                   test

@@ -33,7 +33,7 @@ exports[`Category should match snapshot 1`] = `
           </span>
         </div>
         <span
-          class="chakra-text css-1ai3emk"
+          class="chakra-text css-muf1uf"
           data-testid="typography"
         >
           test

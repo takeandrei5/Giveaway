@@ -7,7 +7,7 @@ exports[`Item should match snapshot 1`] = `
     data-testid="item"
   >
     <div
-      class="css-18d73be"
+      class="css-79w33r"
     >
       <div
         class="css-962578"
@@ -33,7 +33,7 @@ exports[`Item should match snapshot 1`] = `
         class="css-c5zn1r"
       >
         <span
-          class="chakra-text css-7smbts"
+          class="chakra-text css-1ro8k30"
           data-testid="typography"
         >
           Item 1
@@ -42,7 +42,7 @@ exports[`Item should match snapshot 1`] = `
           class="css-8xl60i"
         >
           <span
-            class="chakra-text css-jp1ymq"
+            class="chakra-text css-1m60o1a"
             data-testid="typography"
           >
             Added on: 

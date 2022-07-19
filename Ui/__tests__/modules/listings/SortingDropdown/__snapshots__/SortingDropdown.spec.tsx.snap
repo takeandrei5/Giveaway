@@ -9,7 +9,7 @@ exports[`SortingDropdown should match snapshot 1`] = `
       class="css-13n1q9m"
     >
       <span
-        class="chakra-text css-q4il9g"
+        class="chakra-text css-lk79i8"
         data-testid="typography"
       >
         Sort by:

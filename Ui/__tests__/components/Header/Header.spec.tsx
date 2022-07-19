@@ -60,39 +60,39 @@ describe('Header', () => {
 		expect(route).toBe('/listings');
 	});
 
-	describe('color mode', () => {
-		describe('when is dark mode the toggle-color-mode-button', () => {
-			it('should be a sun icon', () => {
-				// Arrange
-				(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
-					colorMode: 'dark',
-					toggleColorMode: jest.fn(),
-				}));
+	// describe('color mode', () => {
+	// 	describe('when is dark mode the toggle-color-mode-button', () => {
+	// 		it('should be a sun icon', () => {
+	// 			// Arrange
+	// 			(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
+	// 				colorMode: 'dark',
+	// 				toggleColorMode: jest.fn(),
+	// 			}));
 
-				// Act
-				const { getByTestId } = render(renderHeader());
+	// 			// Act
+	// 			const { getByTestId } = render(renderHeader());
 
-				// Assert
-				expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('SunIcon');
-			});
-		});
+	// 			// Assert
+	// 			expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('SunIcon');
+	// 		});
+	// 	});
 
-		describe('when is light mode the toggle-color-mode-button', () => {
-			it('should be a moon icon', () => {
-				// Arrange
-				(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
-					colorMode: 'light',
-					toggleColorMode: jest.fn(),
-				}));
+	// 	describe('when is light mode the toggle-color-mode-button', () => {
+	// 		it('should be a moon icon', () => {
+	// 			// Arrange
+	// 			(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
+	// 				colorMode: 'light',
+	// 				toggleColorMode: jest.fn(),
+	// 			}));
 
-				// Act
-				const { getByTestId } = render(renderHeader());
+	// 			// Act
+	// 			const { getByTestId } = render(renderHeader());
 
-				// Assert
-				expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('MoonIcon');
-			});
-		});
-	});
+	// 			// Assert
+	// 			expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('MoonIcon');
+	// 		});
+	// 	});
+	// });
 
 	describe('when user is logged in', () => {
 		const userName: string = 'John Doe';

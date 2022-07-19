@@ -276,7 +276,7 @@ describe('Typography', () => {
 			expect(styles).toHaveProperty('whiteSpace', 'pre-line');
 		});
 
-		it('should render whiteSpace `pre` if multiline prop is set to false', () => {
+		it('should render whiteSpace `pre-line` if multiline prop is set to false', () => {
 			// Arrange
 			const props: TypographyProps = {
 				children: 'Test-Text',
@@ -290,7 +290,7 @@ describe('Typography', () => {
 
 			// Assert
 			const styles: CSSStyleDeclaration = getComputedStyle(getByTestId('typography'));
-			expect(styles).toHaveProperty('whiteSpace', 'pre');
+			expect(styles).toHaveProperty('whiteSpace', 'pre-line');
 		});
 	});
 });

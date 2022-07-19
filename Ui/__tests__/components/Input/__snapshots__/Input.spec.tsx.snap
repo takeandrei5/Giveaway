@@ -11,6 +11,7 @@ exports[`Input should match snapshot 1`] = `
       id="input-id"
       name="input-name"
       placeholder="input-placeholder"
+      spellcheck="true"
       value="input-value"
     />
   </div>
