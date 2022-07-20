@@ -2,7 +2,7 @@ import { UserProvider, useUser } from '@auth0/nextjs-auth0';
 import { ChakraProvider, useColorMode } from '@chakra-ui/react';
 import { Header } from '@components';
 import { useLogin } from '@components/Header/hooks';
-import { render } from '@testing-library/react';
+import { queryByTestId, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useRouter } from 'next/router';
 
@@ -43,56 +43,31 @@ describe('Header', () => {
 		expect(container).toMatchSnapshot();
 	});
 
-	it('should navigate user to `/listings` page when the logo is clicked', async () => {
-		// Arrange
+	describe('when the user clicks buttons which cause navigation', () => {
 		let route = '';
 
-		(useRouter as unknown as jest.Mock).mockImplementation(() => ({
-			route,
-			push: jest.fn((value: string) => (route = value)),
-		}));
+		beforeAll(() => {
+			(useRouter as unknown as jest.Mock).mockImplementation(() => ({
+				route,
+				push: jest.fn((value: string) => (route = value)),
+			}));
+		});
 
-		// Act
-		const { getByTestId } = render(renderHeader());
-		await userEvent.click(getByTestId('logo-icon'));
+		beforeEach(() => {
+			route = '';
+		});
 
-		// Assert
-		expect(route).toBe('/listings');
+		it('should navigate user to `/listings` page when the logo is clicked', async () => {
+			// Arrange
+			const { getByTestId } = render(renderHeader());
+
+			// Act
+			await userEvent.click(getByTestId('logo-icon'));
+
+			// Assert
+			expect(route).toBe('/listings');
+		});
 	});
-
-	// describe('color mode', () => {
-	// 	describe('when is dark mode the toggle-color-mode-button', () => {
-	// 		it('should be a sun icon', () => {
-	// 			// Arrange
-	// 			(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
-	// 				colorMode: 'dark',
-	// 				toggleColorMode: jest.fn(),
-	// 			}));
-
-	// 			// Act
-	// 			const { getByTestId } = render(renderHeader());
-
-	// 			// Assert
-	// 			expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('SunIcon');
-	// 		});
-	// 	});
-
-	// 	describe('when is light mode the toggle-color-mode-button', () => {
-	// 		it('should be a moon icon', () => {
-	// 			// Arrange
-	// 			(useColorMode as unknown as jest.Mock).mockImplementation(() => ({
-	// 				colorMode: 'light',
-	// 				toggleColorMode: jest.fn(),
-	// 			}));
-
-	// 			// Act
-	// 			const { getByTestId } = render(renderHeader());
-
-	// 			// Assert
-	// 			expect(getByTestId('toggle-color-mode-button').getAttribute('name')).toBe('MoonIcon');
-	// 		});
-	// 	});
-	// });
 
 	describe('when user is logged in', () => {
 		const userName: string = 'John Doe';
@@ -100,26 +75,47 @@ describe('Header', () => {
 
 		it('should render the user details in the user profile menu', () => {
 			// Act
-			const { getByTestId } = render(renderHeader());
+			const { queryByTestId } = render(renderHeader());
 
 			// Assert
-			expect(getByTestId('menu-button-logged-in')).toBeTruthy();
+			expect(queryByTestId('menu-button-logged-in')).toBeTruthy();
 		});
 
-		it('should navigate user to `/create-listing` page when the `Create Listing` button is clicked', async () => {
-			// Arrange
+		describe('when the user clicks elements which causes navigation', () => {
 			let route = '';
 
-			(useRouter as unknown as jest.Mock).mockImplementation(() => ({
-				route,
-				push: jest.fn((value: string) => (route = value)),
-			}));
-			// Act
-			const { getByTestId } = render(renderHeader());
-			await userEvent.click(getByTestId('create-listing-button'));
+			beforeAll(() => {
+				(useRouter as unknown as jest.Mock).mockImplementation(() => ({
+					route,
+					push: jest.fn((value: string) => (route = value)),
+				}));
+			});
 
-			// Assert
-			expect(route).toBe('/create-listing');
+			beforeEach(() => {
+				route = '';
+			});
+
+			it('should navigate user to `/create-listing` page when the `Create Listing` button is clicked', async () => {
+				// Arrange
+				const { getByTestId } = render(renderHeader());
+
+				// Act
+				await userEvent.click(getByTestId('create-listing-button'));
+
+				// Assert
+				expect(route).toBe('/create-listing');
+			});
+
+			it('should navigate user to `/messages` page when the messages icon is clicked', async () => {
+				// Arrange
+				const { getByTestId } = render(renderHeader());
+
+				// Act
+				await userEvent.click(getByTestId('messages-button'));
+
+				// Assert
+				expect(route).toBe('/messages');
+			});
 		});
 
 		describe('user avatar', () => {
@@ -184,19 +180,40 @@ describe('Header', () => {
 			expect(getByTestId('menu-button-logged-out')).toBeTruthy();
 		});
 
-		it('should trigger handleLogin function when `Create Listing` button is clicked', async () => {
-			// Arrange
+		describe('when the user clicks elements which require authentication', () => {
 			const handleSignInWithReturnTo = jest.fn(() => {});
-			(useLogin as unknown as jest.Mock).mockImplementation(() => ({
-				handleSignInWithReturnTo,
-			}));
 
-			// Act
-			const { getByTestId } = render(renderHeader());
-			await userEvent.click(getByTestId('create-listing-button'));
+			beforeAll(() => {
+				(useLogin as unknown as jest.Mock).mockImplementation(() => ({
+					handleSignInWithReturnTo,
+				}));
+			});
 
-			// Assert
-			expect(handleSignInWithReturnTo).toBeCalledTimes(1);
+			beforeEach(() => {
+				handleSignInWithReturnTo.mockReset();
+			});
+
+			it('should trigger handleLogin function when `Create Listing` button is clicked', async () => {
+				// Arrange
+				const { getByTestId } = render(renderHeader());
+
+				// Act
+				await userEvent.click(getByTestId('create-listing-button'));
+
+				// Assert
+				expect(handleSignInWithReturnTo).toBeCalledTimes(1);
+			});
+
+			it('should trigger handleLogin function when messages icon button is clicked', async () => {
+				// Arrange
+				const { getByTestId } = render(renderHeader());
+
+				// Act
+				await userEvent.click(getByTestId('messages-button'));
+
+				// Assert
+				expect(handleSignInWithReturnTo).toBeCalledTimes(1);
+			});
 		});
 	});
 });

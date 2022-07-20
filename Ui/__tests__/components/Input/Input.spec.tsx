@@ -1,6 +1,6 @@
 import { Input } from '@components';
-import { InputProps } from '@components/Input/types';
-import { render } from '@testing-library/react';
+import { HTMLCustomInputElement, InputProps } from '@components/Input/types';
+import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Input', () => {
@@ -10,8 +10,6 @@ describe('Input', () => {
 			id: 'input-id',
 			name: 'input-name',
 			placeholder: 'input-placeholder',
-			value: 'input-value',
-			onChange: (e?: React.ChangeEvent<unknown>) => {},
 		};
 
 		// Act
@@ -29,7 +27,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 			};
 
@@ -48,7 +45,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: true,
 			};
 
@@ -69,7 +65,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				label: '',
 			};
@@ -88,7 +83,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				label: undefined,
 			};
@@ -107,7 +101,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				label: 'test-label',
 			};
@@ -126,7 +119,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				label: 'test-label',
 			};
@@ -147,7 +139,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				leftIcon: undefined,
 			};
@@ -166,7 +157,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				leftIcon: <></>,
 			};
@@ -187,7 +177,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				rightIcon: undefined,
 			};
@@ -206,7 +195,6 @@ describe('Input', () => {
 				name: 'input-name',
 				placeholder: 'input-placeholder',
 				value: 'input-value',
-				onChange: (e?: React.ChangeEvent<unknown>) => {},
 				multiline: false,
 				rightIcon: <></>,
 			};
@@ -219,43 +207,146 @@ describe('Input', () => {
 		});
 	});
 
-	describe('onChangeHandler prop', () => {
-		it('should trigger onChangeHandler prop correctly when user types in input', async () => {
-			const text: string = 'This is a test';
+	describe('when the user triggers events', () => {
+		const text: string = 'This is a test';
 
-			const props: InputProps = {
-				id: 'input-id',
-				name: 'input-name',
-				placeholder: 'input-placeholder',
-				value: 'input-value',
-				onChange: jest.fn((e?: React.ChangeEvent<unknown>) => {}),
-			};
+		const onBlurMock: jest.Mock<void, [e: React.ChangeEvent<HTMLCustomInputElement>]> = jest.fn(
+			(e: React.ChangeEvent<HTMLCustomInputElement>) => {}
+		);
 
-			// Act
-			const component = render(<Input {...props} />);
-			await userEvent.type(component.getByTestId('input'), text);
+		const onChangeMock: jest.Mock<void, [e: React.ChangeEvent<HTMLCustomInputElement>]> = jest.fn(
+			(e: React.ChangeEvent<HTMLCustomInputElement>) => {}
+		);
 
-			// Assert
-			expect(props.onChange).toBeCalledTimes(text.length);
+		const onKeyDownMock: jest.Mock<void, [e: React.KeyboardEvent<HTMLCustomInputElement>]> = jest.fn(
+			(e: React.KeyboardEvent<HTMLCustomInputElement>) => {}
+		);
+
+		const onKeyPressMock: jest.Mock<void, [e: React.KeyboardEvent<HTMLCustomInputElement>]> = jest.fn(
+			(e: React.KeyboardEvent<HTMLCustomInputElement>) => {}
+		);
+
+		const onKeyUpMock: jest.Mock<void, [e: React.KeyboardEvent<HTMLCustomInputElement>]> = jest.fn(
+			(e: React.KeyboardEvent<HTMLCustomInputElement>) => {}
+		);
+
+		const props: InputProps = {
+			id: 'input-id',
+			name: 'input-name',
+			placeholder: 'input-placeholder',
+			value: 'input-value',
+			onBlur: onBlurMock,
+			onChange: onChangeMock,
+			onKeyDown: onKeyDownMock,
+			onKeyPress: onKeyPressMock,
+			onKeyUp: onKeyUpMock,
+		};
+
+		beforeEach(() => {
+			onBlurMock.mockClear();
+			onChangeMock.mockClear();
+			onKeyDownMock.mockClear();
+			onKeyPressMock.mockClear();
+			onKeyUpMock.mockClear();
 		});
 
-		it('should trigger onChangeHandler correctly when user types in textarea', async () => {
-			const text: string = 'This is a test';
+		describe('onBlurChanger prop', () => {
+			it('should trigger onBlurHandler prop correctly when user types in input', () => {
+				// Arrange
+				const component = render(<Input {...props} />);
 
-			const props: InputProps = {
-				id: 'input-id',
-				name: 'input-name',
-				placeholder: 'input-placeholder',
-				value: 'input-value',
-				onChange: jest.fn((e?: React.ChangeEvent<unknown>) => {}),
-			};
+				// Act
+				fireEvent.focusIn(component.getByTestId('input'));
+				fireEvent.focusOut(component.getByTestId('input'));
 
-			// Act
-			const component = render(<Input {...props} />);
-			await userEvent.type(component.getByTestId('input'), text);
+				// Assert
+				expect(props.onBlur).toBeCalledTimes(1);
+			});
+		});
 
-			// Assert
-			expect(props.onChange).toBeCalledTimes(text.length);
+		describe('onChangeHandler prop', () => {
+			it('should trigger onChangeHandler prop correctly when user types in input', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onChange).toBeCalledTimes(text.length);
+			});
+		});
+
+		describe('onKeyDown prop', () => {
+			it('should trigger onKeyDownHandler prop correctly when user types in input', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onChange).toBeCalledTimes(text.length);
+			});
+
+			it('should trigger onKeyDownHandler correctly when user types in textarea', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onKeyDown).toBeCalledTimes(text.length);
+			});
+		});
+
+		describe('onKeyPressHandler prop', () => {
+			it('should trigger onKeyPressHandler prop correctly when user types in input', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onKeyPress).toBeCalledTimes(text.length);
+			});
+
+			it('should trigger onKeyPressHandler correctly when user types in textarea', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onKeyPress).toBeCalledTimes(text.length);
+			});
+		});
+
+		describe('onKeyUpHandler prop', () => {
+			it('should trigger onKeyUpHandler prop correctly when user types in input', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onKeyUp).toBeCalledTimes(text.length);
+			});
+
+			it('should trigger onKeyUpHandler correctly when user types in textarea', async () => {
+				// Arrange
+				const component = render(<Input {...props} />);
+
+				// Act
+				await userEvent.type(component.getByTestId('input'), text);
+
+				// Assert
+				expect(props.onKeyUp).toBeCalledTimes(text.length);
+			});
 		});
 	});
 });

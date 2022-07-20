@@ -3,11 +3,11 @@ export type InputProps = {
 	name: string;
 	placeholder: string;
 	value?: string;
-	onBlur?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
-	onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => void;
-	onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => void;
-	onKeyUp?: (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => void;
+	onBlur?: (e: React.ChangeEvent<HTMLCustomInputElement>) => void;
+	onChange?: (e: React.ChangeEvent<HTMLCustomInputElement>) => void;
+	onKeyDown?: (e: React.KeyboardEvent<HTMLCustomInputElement>) => void;
+	onKeyPress?: (e: React.KeyboardEvent<HTMLCustomInputElement>) => void;
+	onKeyUp?: (e: React.KeyboardEvent<HTMLCustomInputElement>) => void;
 	disabled?: boolean;
 	multiline?: boolean;
 	isInvalid?: boolean;
@@ -18,3 +18,5 @@ export type InputProps = {
 	rows?: number;
 	width?: string | number;
 };
+
+export type HTMLCustomInputElement = HTMLInputElement | HTMLTextAreaElement;

@@ -68,17 +68,35 @@ describe('ListingDetails', () => {
 	});
 
 	describe('when the buttons are clicked', () => {
-		it('should redirect user to `/update-listing/${id}` page if the update listing button is clicked', async () => {
-			// Act
-			let route = '';
+		let route = '';
 
+		beforeAll(() => {
 			(useRouter as unknown as jest.Mock).mockImplementation(() => ({
 				route,
 				push: jest.fn((value: string) => (route = value)),
 			}));
+		});
 
+		beforeEach(() => {
+			route = '';
+		});
+
+		it('should redirect user to `/listing` page if the back button is clicked', async () => {
+			// Arrange
 			const { getByText } = render(<ListingDetails {...props} />);
 
+			// Act
+			await userEvent.click(getByText('Back'));
+
+			// Assert
+			expect(route).toBe('/listings');
+		});
+
+		it('should redirect user to `/update-listing/${id}` page if the update listing button is clicked', async () => {
+			// Arrange
+			const { getByText } = render(<ListingDetails {...props} />);
+
+			// Act
 			await userEvent.click(getByText('Update listing'));
 
 			// Assert
@@ -86,9 +104,10 @@ describe('ListingDetails', () => {
 		});
 
 		it('should execute `deleteListingMutate` if the delete listing button is clicked', async () => {
-			// Act
+			// Arrange
 			const { getByText } = render(<ListingDetails {...props} />);
 
+			// Act
 			await userEvent.click(getByText('Delete listing'));
 
 			// Assert

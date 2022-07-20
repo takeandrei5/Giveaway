@@ -15,9 +15,7 @@ const useGetAccessToken = (redirectTo: string = '', enableRedirect = false) => {
 		enabled: !isLoading && !!user,
 	});
 
-	const redirect = (redirectTo: string) => {
-		console.log('hi');
-
+	const redirect = (redirectTo: string): void => {
 		if (!redirectTo) {
 			router.replace('/listings');
 			return;

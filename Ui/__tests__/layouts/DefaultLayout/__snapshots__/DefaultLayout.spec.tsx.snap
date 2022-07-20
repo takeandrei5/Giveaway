@@ -65,6 +65,7 @@ exports[`DefaultLayout should match snapshot 1`] = `
         </button>
         <button
           class="chakra-button css-1smc93u"
+          data-testid="messages-button"
           type="button"
         >
           <svg

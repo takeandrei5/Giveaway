@@ -65,6 +65,7 @@ exports[`Header should match snapshot 1`] = `
         </button>
         <button
           class="chakra-button css-alpc9n"
+          data-testid="messages-button"
           type="button"
         >
           <svg

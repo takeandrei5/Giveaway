@@ -130,7 +130,7 @@ const Header = (): JSX.Element => {
 		);
 	};
 
-	const onMessageIconClicked = useCallback(() => {
+	const onMessageIconClicked = useCallback((): Promise<boolean> => {
 		if (user) {
 			return router.push('/messages');
 		}
@@ -162,6 +162,7 @@ const Header = (): JSX.Element => {
 						_active={{ bgColor: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
 						_focus={{ border: 'none' }}
 						_hover={{ bgColor: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
+						data-testid='messages-button'
 						padding={0}
 						rounded='full'
 						onClick={onMessageIconClicked}>
@@ -174,24 +175,6 @@ const Header = (): JSX.Element => {
 							width='1.5rem'
 						/>
 					</Button>
-					{/* remove for now */}
-					{/* <Button
-						_active={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(80%)' }}
-						_focus={{ border: 'none' }}
-						_hover={{ bg: `secondary.${lightOrDarkColor}`, filter: 'brightness(90%)' }}
-						padding={0}
-						rounded='full'
-						onClick={toggleColorMode}>
-						<Icon
-							data-testid='toggle-color-mode-button'
-							dropShadow='base'
-							as={colorMode === 'light' ? MoonIcon : SunIcon}
-							name={colorMode === 'light' ? MoonIcon.displayName : SunIcon.displayName}
-							color={lightOrDarkColor}
-							height='1.5rem'
-							width='1.5rem'
-						/>
-					</Button> */}
 					<Menu autoSelect={false}>{renderLoginMenu()}</Menu>
 				</Stack>
 			</Flex>

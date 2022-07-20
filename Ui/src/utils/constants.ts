@@ -51,7 +51,10 @@ const THEME_COLOURS = {
 	light: '#FCF7FF',
 };
 
+const noop: () => void = () => {};
+
 export {
+	noop,
 	DEFAULT_AVATAR,
 	DEFAULT_CATEGORIES,
 	DEFAULT_IMAGE_UPLOAD,

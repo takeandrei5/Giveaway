@@ -10,19 +10,20 @@ import {
 	useStyleConfig,
 } from '@chakra-ui/react';
 import { Typography } from '@components';
+import { noop } from '@utils/constants';
 
-import { InputProps } from './types';
+import { HTMLCustomInputElement, InputProps } from './types';
 
 const Input = ({
 	id,
 	placeholder,
 	name,
 	value = undefined,
-	onBlur = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {},
-	onChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {},
-	onKeyDown = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
-	onKeyPress = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
-	onKeyUp = (e: React.KeyboardEvent<HTMLInputElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {},
+	onBlur = noop,
+	onChange = noop,
+	onKeyDown = noop,
+	onKeyPress = noop,
+	onKeyUp = noop,
 	disabled = false,
 	multiline = false,
 	isInvalid = false,
