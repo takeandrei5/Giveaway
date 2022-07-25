@@ -1,11 +1,20 @@
+<<<<<<< HEAD
 # Default ignored files
+=======
+﻿# Default ignored files
+>>>>>>> 1b360d2 (feat: work on chat api)
 /shelf/
 /workspace.xml
 # Rider ignored files
 /modules.xml
 /.idea.Giveaway.iml
+<<<<<<< HEAD
 /contentModel.xml
 /projectSettingsUpdater.xml
+=======
+/projectSettingsUpdater.xml
+/contentModel.xml
+>>>>>>> 1b360d2 (feat: work on chat api)
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
