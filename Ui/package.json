@@ -19,6 +19,7 @@
 		"@chakra-ui/react": "^1.8.8",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
+		"@microsoft/signalr": "^6.0.4",
 		"@reduxjs/toolkit": "^1.8.1",
 		"axios": "^0.27.2",
 		"babel-plugin-superjson-next": "^0.4.3",

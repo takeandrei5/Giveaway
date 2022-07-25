@@ -22,8 +22,8 @@ services:
   webapi:
     image: giveaway-webapi
     build:
-      context: ./Api
-      dockerfile: WebApi/Dockerfile
+      context: ./Server
+      dockerfile: Web/WebApi/Dockerfile
     container_name: giveaway-webapi
     restart: on-failure
     environment:

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="787f68f7-7b83-4025-be5c-baf7ecffd04d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Extensions/Extensions/ClaimsPrincipalExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Extensions/ServicesExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Filters/GenericExceptionFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Interfaces/ILoggedUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/InternalVisibileTo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Models/AuthOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Models/UserInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Extensions/Services/HttpContextLoggedUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Messages/ReadAll.Profile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Messages/ReadAll.Response.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Messages/ReadAll.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Extensions/ServicesExtensions.MessagesUseCases.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Extensions/ServicesExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.Giveaway/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.Giveaway/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application.UnitTests/UseCases/Listings/CreateListingTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application.UnitTests/UseCases/Listings/CreateListingTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application.UnitTests/UseCases/Users/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application.UnitTests/UseCases/Users/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Users/CreateUser/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Users/CreateUser/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/Helpers/DatabaseExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/Helpers/DatabaseExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Extensions/Commons.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Extensions/Commons.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi.UnitTests/Services/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi.UnitTests/Services/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Endpoints/Listings/ReadAll.Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Endpoints/Listings/ReadAll.Profile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Endpoints/Listings/ReadOne.Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Endpoints/Listings/ReadOne.Profile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extensions/ServicesExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Extensions/ServicesExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IMessageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IMessageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/UseCases/ReadConversation/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/UseCases/Messages/ReadAllMessages/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/UseCases/ReadConversation/CommandFeed.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/UseCases/ReadConversation/Models/ConversationDtoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/UseCases/Messages/ReadAllMessages/Models/ConversationDtoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/ChatApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/ChatApi/ChatApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Conversation/ReadAll.Request.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Messages/ReadAll.Request.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Conversation/ReadAll.Response.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Endpoints/Conversation/ReadAll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Hubs/PrivateChat/PrivateChatHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Hubs/PrivateChat/PrivateChatHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Database/DataAccess/MessageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Database/DataAccess/MessageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/CommonsApi.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Extensions/ClaimsPrincipalExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Extensions/ServicesExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Filters/GenericExceptionFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Interfaces/ILoggedUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/InternalVisibileTo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Models/AuthOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Models/UserInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CommonsApi/Services/HttpContextLoggedUser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Giveaway.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../../Giveaway.sln" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2CWlN1PwVUval1DyGGrRFvZuM5n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1658926177538</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658926177538</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
