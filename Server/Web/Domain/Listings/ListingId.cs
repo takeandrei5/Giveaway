@@ -2,7 +2,7 @@
 
 public sealed record ListingId
 {
-    internal ListingId(Guid value)
+    public ListingId(Guid value)
     {
         if (value == Guid.Empty)
             throw new ArgumentException("Listing id cannot be an empty Guid.");

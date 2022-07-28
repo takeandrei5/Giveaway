@@ -2,7 +2,7 @@
 
 public sealed record ListingDescription
 {
-    internal ListingDescription(string value)
+    public ListingDescription(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Listing description cannot be an empty description.");

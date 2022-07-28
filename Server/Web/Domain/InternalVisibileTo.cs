@@ -6,4 +6,3 @@
 [assembly: InternalsVisibleTo("Giveaway.Web.Database")]
 [assembly: InternalsVisibleTo("Giveaway.Web.Database.IntegrationTests")]
 [assembly: InternalsVisibleTo("Giveaway.Web.Database.UnitTests")]
-[assembly: InternalsVisibleTo("Giveaway.Web.WebApi")]

@@ -2,7 +2,7 @@
 
 public sealed record ListingTitle
 {
-    internal ListingTitle(string value)
+    public ListingTitle(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Listing title cannot be an empty title.");
