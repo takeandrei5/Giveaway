@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
-using Giveaway.Domain.Interfaces;
 using Giveaway.Web.Application.UseCases.Listings.DeleteListing;
+using Giveaway.Web.Domain.Interfaces;
 using Helpers;
 using Moq;
 

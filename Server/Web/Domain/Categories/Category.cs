@@ -1,8 +1,8 @@
-﻿using EnumsNET;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
+using EnumsNET;
 
-namespace Giveaway.Domain.Categories;
+namespace Giveaway.Web.Domain.Categories;
 
 public sealed class Category
 {

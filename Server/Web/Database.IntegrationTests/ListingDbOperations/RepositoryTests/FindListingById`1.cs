@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using AutoFixture;
 using FluentAssertions;
 using Giveaway.Commons.Errors;
-using Giveaway.Domain.Listings;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Listings;
+using Giveaway.Web.Domain.Users;
 using Helpers;
 using Xunit;
 

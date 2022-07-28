@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
-using Giveaway.Domain.Interfaces;
 using Giveaway.Web.Application.Interfaces;
 using Giveaway.Web.Application.UseCases.Listings.ReadListingById;
+using Giveaway.Web.Domain.Interfaces;
 using Moq;
 
 namespace Giveaway.Web.Application.UnitTests.UseCases.Listings.ReadListingByIdTests;

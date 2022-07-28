@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Giveaway.Commons.Errors;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Users;
 using Moq;
 using SoftwareCraft.Functional;
 using Xunit;

@@ -1,8 +1,8 @@
-﻿namespace Giveaway.Domain.Listings;
+﻿namespace Giveaway.Web.Domain.Listings;
 
 public sealed record ListingId
 {
-    public ListingId(Guid value)
+    internal ListingId(Guid value)
     {
         if (value == Guid.Empty)
             throw new ArgumentException("Listing id cannot be an empty Guid.");
@@ -10,5 +10,5 @@ public sealed record ListingId
         Value = value;
     }
 
-    public Guid Value { get; init; }
+    public Guid Value { get; }
 }

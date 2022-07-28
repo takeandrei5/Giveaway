@@ -1,7 +1,7 @@
 ﻿using Ardalis.ApiEndpoints;
-using Giveaway.Domain.Categories;
-using Giveaway.Domain.Listings;
 using Giveaway.Web.Application.UseCases.Listings.UpdateListing;
+using Giveaway.Web.Domain.Categories;
+using Giveaway.Web.Domain.Listings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Web.WebApi.Endpoints.Listings;

@@ -1,6 +1,6 @@
-﻿using Giveaway.Domain.Interfaces;
-using Giveaway.Web.Application.Interfaces;
+﻿using Giveaway.Web.Application.Interfaces;
 using Giveaway.Web.Database.DataAccess.ListingDbOperations;
+using Giveaway.Web.Domain.Interfaces;
 using Microsoft.OpenApi.Models;
 
 namespace Giveaway.Web.WebApi.Extensions;

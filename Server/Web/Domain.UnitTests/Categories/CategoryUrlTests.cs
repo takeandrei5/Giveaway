@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentAssertions;
-using Giveaway.Domain.Categories;
+using Giveaway.Web.Domain.Categories;
 using Xunit;
 
 namespace Giveaway.Web.Domain.UnitTests.Categories;

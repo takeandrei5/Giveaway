@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1c8a7371-101e-49a6-9a14-fda2e0b73023" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Chat/Application.UnitTests/FixtureExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Application.UnitTests/UseCases/Messages/ReadAllMesagesTests/Base.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Application.UnitTests/UseCases/Messages/ReadAllMesagesTests/ExecuteAsync`1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Domain.UnitTests/Users/UserEmailTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Domain.UnitTests/Users/UserImageTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Domain.UnitTests/Users/UserNameTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Domain.UnitTests/Usings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Chat/Domain/InternalVisibileTo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Giveaway.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Giveaway.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Application/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/ChatApi/Extensions/ServicesExtensions.MessagesUseCases.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/ChatApi/Extensions/ServicesExtensions.MessagesUseCases.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Database/DataAccess/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Database/DataAccess/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Domain/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Domain/Users/UserEmail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Domain/Users/UserImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Domain/Users/UserImage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Domain/Users/UserInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Domain/Users/UserInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Chat/Domain/Users/UserName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chat/Domain/Users/UserName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FixtureExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FixtureExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/ExecuteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/ExecuteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/ExecuteAsync`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/CreateListingTests/ExecuteAsync`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/ExecuteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/ExecuteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/ExecuteAsync`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/DeleteListingsTests/ExecuteAsync`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/ExecuteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/ExecuteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/ExecuteAsync`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/ReadListingByIdTests/ExecuteAsync`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/ExecuteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/ExecuteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/ExecuteAsync`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Listings/UpdateListingsTests/ExecuteAsync`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Users/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Users/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Users/ExecuteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Users/ExecuteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/Users/ExecuteAsync`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/Users/ExecuteAsync`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/Interfaces/IListingReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/Interfaces/IListingReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/CommandFeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/CreateListing/CommandFeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/DeleteListing/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/DeleteListing/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/ReadListingById/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/ReadListingById/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/UpdateListing/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/UpdateListing/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Listings/UpdateListing/CommandFeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Listings/UpdateListing/CommandFeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Application/UseCases/Users/CreateUser/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/UseCases/Users/CreateUser/Command.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/Helpers/DatabaseExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/Helpers/DatabaseExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/ReadAllListingsAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/ReadAllListingsAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/ReadListingByIdAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/ReaderTests/ReadListingByIdAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/CreateAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/CreateAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/DeleteAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/DeleteAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/FindListingById`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/FindListingById`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/FindListingById`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/FindListingById`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/UpdateAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/ListingDbOperations/RepositoryTests/UpdateAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/CreateAsync`1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/CreateAsync`1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/FindUserByEmail`2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database.IntegrationTests/UserDbOperations/RepositoryTests/FindUserByEmail`2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/DataAccess/ListingDbOperations/Reader.cs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/DataAccess/ListingDbOperations/Reader.cs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/DataAccess/ListingDbOperations/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/DataAccess/ListingDbOperations/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/DataAccess/UserDbOperations/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/DataAccess/UserDbOperations/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Categories/CategoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Categories/CategoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Categories/CategoryUrlTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Categories/CategoryUrlTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingDescriptionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingDescriptionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingIdTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingIdTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingImageTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingImageTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingTitleTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Listings/ListingTitleTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserEmailTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserEmailTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserIdTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserIdTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserImageTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserImageTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserNameTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain.UnitTests/Users/UserNameTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Categories/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Categories/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Categories/CategoryUrl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Categories/CategoryUrl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Filters/GenericExceptionFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Interfaces/IListingRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Interfaces/IListingRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Interfaces/IUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/InternalVisibileTo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/InternalVisibileTo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Listings/Listing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Listings/Listing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Listings/ListingDescription.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Listings/ListingDescription.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Listings/ListingId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Listings/ListingId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Listings/ListingImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Listings/ListingImage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Listings/ListingTitle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Listings/ListingTitle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/UserEmail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/UserEmail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/UserId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/UserId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/UserImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/UserImage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/UserInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/UserInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Domain/Users/UserName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Domain/Users/UserName.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Helpers/AutoMapperFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Helpers/AutoMapperFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi.UnitTests/Endpoints/Listings/ReadAll/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi.UnitTests/Endpoints/Listings/ReadAll/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Endpoints/Listings/Create.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Endpoints/Listings/Create.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Endpoints/Listings/Update.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Endpoints/Listings/Update.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebApi/Extensions/ServicesExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApi/Extensions/ServicesExtensions.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2CZnJtdehLaJA2RSE9d2qTrqe62" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1659018905997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659018905997</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

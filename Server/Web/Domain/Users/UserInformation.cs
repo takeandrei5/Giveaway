@@ -1,17 +1,17 @@
-﻿namespace Giveaway.Domain.Users;
+﻿namespace Giveaway.Web.Domain.Users;
 
 public sealed record UserInformation
 {
-    public UserInformation(UserEmail email, UserName name, UserImage image)
+    internal UserInformation(UserEmail email, UserName name, UserImage image)
     {
         Email = email;
         Name = name;
         Image = image;
     }
 
-    public UserEmail Email { get; init; }
+    public UserEmail Email { get; }
 
-    public UserName Name { get; init; }
+    public UserName Name { get; }
 
-    public UserImage Image { get; init; }
+    public UserImage Image { get; }
 }

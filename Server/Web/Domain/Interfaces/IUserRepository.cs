@@ -1,8 +1,8 @@
 ﻿using Giveaway.Commons.Errors;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Users;
 using SoftwareCraft.Functional;
 
-namespace Giveaway.Domain.Interfaces;
+namespace Giveaway.Web.Domain.Interfaces;
 
 public interface IUserRepository
 {

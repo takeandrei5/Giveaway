@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentAssertions;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Users;
 using Xunit;
 
 namespace Giveaway.Web.Domain.UnitTests.Users;

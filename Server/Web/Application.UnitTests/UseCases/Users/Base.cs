@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
 using Giveaway.Commons.Interfaces;
-using Giveaway.Domain.Interfaces;
 using Giveaway.Web.Application.UseCases.Users.CreateUser;
+using Giveaway.Web.Domain.Interfaces;
 using Helpers;
 using Moq;
 

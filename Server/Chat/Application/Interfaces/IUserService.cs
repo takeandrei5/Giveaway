@@ -6,5 +6,5 @@ namespace Giveaway.Chat.Application.Interfaces;
 
 public interface IUserService
 {
-    Task<Result<User, NotFoundError>> FindUserByEmailAsync(string email, CancellationToken cancellationToken);
+    Task<Result<UserInformation, ForbiddenError>> FindUserByEmailAsync(string email, CancellationToken cancellationToken);
 }

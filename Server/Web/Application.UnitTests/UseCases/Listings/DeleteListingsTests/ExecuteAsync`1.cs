@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using Giveaway.Commons.Errors;
-using Giveaway.Domain.Listings;
+using Giveaway.Web.Domain.Listings;
 using Moq;
 using SoftwareCraft.Functional;
 using Xunit;

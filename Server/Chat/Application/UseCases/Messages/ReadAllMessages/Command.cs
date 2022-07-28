@@ -20,18 +20,18 @@ public sealed class Command
         _userService = userService;
     }
 
-    public async Task<Result<ConversationDtoModel, NotFoundError>> ExecuteAsync(string targetUserEmail,
+    public async Task<Result<ConversationDtoModel, ForbiddenError>> ExecuteAsync(UserEmail targetUserEmail,
         CancellationToken cancellationToken)
     {
-        var userResult = await _userService.FindUserByEmailAsync(targetUserEmail, cancellationToken);
+        var userResult =
+            await _userService.FindUserByEmailAsync(_currentUserEmailProvider.GetEmailFromClaims(), cancellationToken);
 
         return await userResult.SelectManyAsync(async user =>
         {
-            var conversation = await _messageService.ReadConversationByUserEmailAsync(user.Email,
-                new UserEmail(_currentUserEmailProvider.GetEmailFromClaims()),
-                cancellationToken);
+            var conversation = await _messageService.ReadConversationByUserEmailAsync(targetUserEmail,
+                user.Email, cancellationToken);
 
-            return conversation.AsSuccess<ConversationDtoModel, NotFoundError>();
+            return conversation.AsSuccess<ConversationDtoModel, ForbiddenError>();
         });
     }
 }

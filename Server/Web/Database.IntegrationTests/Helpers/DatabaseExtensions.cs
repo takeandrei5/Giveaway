@@ -12,6 +12,7 @@ public static class DatabaseExtensions
     {
         var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
         {
+            // todo
             DataSource = "localhost",
             UserID = "sa",
             Password = "admin",

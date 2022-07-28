@@ -1,8 +1,8 @@
 ﻿using Giveaway.Commons.Errors;
-using Giveaway.Domain.Interfaces;
-using Giveaway.Domain.Listings;
 using Giveaway.Web.Application.Interfaces;
 using Giveaway.Web.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Web.Domain.Interfaces;
+using Giveaway.Web.Domain.Listings;
 using SoftwareCraft.Functional;
 
 namespace Giveaway.Web.Application.UseCases.Listings.ReadListingById;

@@ -1,8 +1,8 @@
-﻿namespace Giveaway.Domain.Users;
+﻿namespace Giveaway.Web.Domain.Users;
 
 public sealed record UserId
 {
-    public UserId(Guid value)
+    internal UserId(Guid value)
     {
         if (value == Guid.Empty)
             throw new ArgumentException("User id cannot be an empty Guid.");
@@ -10,5 +10,5 @@ public sealed record UserId
         Value = value;
     }
 
-    public Guid Value { get; init; }
+    public Guid Value { get; }
 }

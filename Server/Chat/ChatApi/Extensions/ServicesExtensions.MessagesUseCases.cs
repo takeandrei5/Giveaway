@@ -4,6 +4,6 @@ using ReadAllMessagesCommand = Application.UseCases.Messages.ReadAllMessages.Com
 
 public static partial class ServicesExtensions
 {
-    public static void AddReadAllMessagesUseCase(this IServiceCollection services) =>
+    private static void AddReadAllMessagesUseCase(this IServiceCollection services) =>
         services.AddScoped<ReadAllMessagesCommand>();
 }

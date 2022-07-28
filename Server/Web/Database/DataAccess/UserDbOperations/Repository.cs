@@ -1,7 +1,7 @@
 ﻿using Giveaway.Commons.Errors;
-using Giveaway.Domain.Interfaces;
-using Giveaway.Domain.Users;
 using Giveaway.Web.Database.Persistence.Entities;
+using Giveaway.Web.Domain.Interfaces;
+using Giveaway.Web.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using SoftwareCraft.Functional;
 

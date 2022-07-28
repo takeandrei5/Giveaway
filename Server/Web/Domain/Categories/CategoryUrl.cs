@@ -1,4 +1,4 @@
-﻿namespace Giveaway.Domain.Categories;
+﻿namespace Giveaway.Web.Domain.Categories;
 
 public sealed record CategoryUrl
 {

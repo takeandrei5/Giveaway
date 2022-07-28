@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Giveaway.Commons.Extensions;
 using Giveaway.Commons.Extra.Pagination;
-using Giveaway.Domain.Listings;
 using Giveaway.Web.Application.Interfaces;
 using Giveaway.Web.Application.UseCases.Listings.ReadAllListings.Pagination;
 using Giveaway.Web.Database.Persistence.Entities;
+using Giveaway.Web.Domain.Listings;
 using Microsoft.EntityFrameworkCore;
 using ReadAllListingsModel = Giveaway.Web.Application.UseCases.Listings.ReadAllListings.Models.ListingDtoModel;
 using ReadListingByIdModel = Giveaway.Web.Application.UseCases.Listings.ReadListingById.Models.ListingDtoModel;

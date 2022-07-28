@@ -19,8 +19,7 @@ public sealed class Create : EndpointBaseAsync.WithoutRequest.WithActionResult
     {
         var commandResult = await _command.ExecuteAsync(cancellationToken);
 
-        return commandResult.Match<ActionResult>(
-            userId => Created($"/users/{userId}", null),
-            () => NoContent());
+        return commandResult.Match<ActionResult>(userId => Created($"/users/{userId}", null),
+            NoContent);
     }
 }

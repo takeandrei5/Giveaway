@@ -1,5 +1,5 @@
-﻿using Giveaway.Domain.Categories;
-using Giveaway.Domain.Listings;
+﻿using Giveaway.Web.Domain.Categories;
+using Giveaway.Web.Domain.Listings;
 
 namespace Giveaway.Web.Application.UseCases.Listings.CreateListing;
 

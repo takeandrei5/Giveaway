@@ -2,7 +2,7 @@
 
 public sealed record UserName
 {
-    public UserName(string value)
+    internal UserName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("User name cannot be an empty name.");
@@ -10,5 +10,5 @@ public sealed record UserName
         Value = value;
     }
 
-    public string Value { get; init; }
+    public string Value { get; }
 }

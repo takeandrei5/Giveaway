@@ -1,7 +1,7 @@
 ﻿using Giveaway.Commons.Errors;
 using Giveaway.Commons.Interfaces;
-using Giveaway.Domain.Interfaces;
-using Giveaway.Domain.Listings;
+using Giveaway.Web.Domain.Interfaces;
+using Giveaway.Web.Domain.Listings;
 using SoftwareCraft.Functional;
 
 namespace Giveaway.Web.Application.UseCases.Listings.CreateListing;

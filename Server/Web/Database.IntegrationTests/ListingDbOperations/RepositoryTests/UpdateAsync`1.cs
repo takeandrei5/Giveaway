@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Giveaway.Domain.Categories;
-using Giveaway.Domain.Listings;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Categories;
+using Giveaway.Web.Domain.Listings;
+using Giveaway.Web.Domain.Users;
 using Helpers;
 using Moq;
 using Xunit;

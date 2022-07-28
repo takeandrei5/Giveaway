@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +12,17 @@ public class AutoMapperFixture
 {
     protected AutoMapperFixture()
     {
-        var assemblies = AppDomain.CurrentDomain
-            .GetAssemblies()
-            .Where(assembly => !string.IsNullOrEmpty(assembly.FullName) && assembly.FullName.Contains("Giveaway") && !assembly.FullName.Contains("UnitTests"))
-            .ToList();
+        var assemblies = new List<Assembly>
+        {
+            // Chat
+            Assembly.Load("Giveaway.Chat.ChatApi"),
+            
+            // Web
+            Assembly.Load("Giveaway.Web.Application"),
+            Assembly.Load("Giveaway.Web.Domain"),
+            Assembly.Load("Giveaway.Web.WebApi"),
+        };
+        
         Mapper = new MapperConfiguration(cfg => cfg.AddMaps(assemblies)).CreateMapper();
     }
 

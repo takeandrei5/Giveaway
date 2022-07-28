@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Giveaway.Commons.Errors;
-using Giveaway.Domain.Categories;
-using Giveaway.Domain.Listings;
-using Giveaway.Domain.Users;
 using Giveaway.Web.Application.UseCases.Listings.CreateListing;
+using Giveaway.Web.Domain.Categories;
+using Giveaway.Web.Domain.Listings;
+using Giveaway.Web.Domain.Users;
 using Helpers;
 using Moq;
 using SoftwareCraft.Functional;

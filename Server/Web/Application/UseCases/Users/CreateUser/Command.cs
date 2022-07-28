@@ -1,6 +1,6 @@
 ﻿using Giveaway.Commons.Interfaces;
-using Giveaway.Domain.Interfaces;
-using Giveaway.Domain.Users;
+using Giveaway.Web.Domain.Interfaces;
+using Giveaway.Web.Domain.Users;
 using SoftwareCraft.Functional;
 
 namespace Giveaway.Web.Application.UseCases.Users.CreateUser;

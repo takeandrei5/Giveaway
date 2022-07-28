@@ -2,8 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Giveaway.Domain.Users;
 using Giveaway.Web.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Web.Domain.Users;
 using Helpers;
 using Xunit;
 

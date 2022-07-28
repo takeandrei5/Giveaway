@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Giveaway.Domain.Users;
+namespace Giveaway.Web.Domain.Users;
 
 public sealed record UserImage
 {
@@ -8,7 +8,7 @@ public sealed record UserImage
         @"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)",
         RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
 
-    public UserImage(string value)
+    internal UserImage(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("User image cannot be an empty url.");
@@ -19,5 +19,5 @@ public sealed record UserImage
         Value = value;
     }
 
-    public string Value { get; init; }
+    public string Value { get; }
 }

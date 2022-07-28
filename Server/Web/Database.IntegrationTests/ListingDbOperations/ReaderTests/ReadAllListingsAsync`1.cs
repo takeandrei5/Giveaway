@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Giveaway.Domain.Users;
 using Giveaway.Web.Application.UseCases.Listings.ReadAllListings.Models;
 using Giveaway.Web.Application.UseCases.Listings.ReadAllListings.Pagination;
+using Giveaway.Web.Domain.Users;
 using Helpers;
 using Xunit;
 

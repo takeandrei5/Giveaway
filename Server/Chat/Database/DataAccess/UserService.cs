@@ -20,16 +20,17 @@ public sealed class UserService : IUserService
         _usersCollection = mongoDatabase.GetCollection<UserEntity>(chatDatabaseSettings.Value.CollectionName);
     }
 
-    public async Task<Result<User, NotFoundError>> FindUserByEmailAsync(string email,
+    public async Task<Result<UserInformation, ForbiddenError>> FindUserByEmailAsync(string email,
         CancellationToken cancellationToken)
     {
         var user = await _usersCollection.Find(user => user.UserEmail == email)
            .SingleOrDefaultAsync(cancellationToken);
 
         if (user is null)
-            return new NotFoundError("User not found").AsError<User, NotFoundError>();
+            return new ForbiddenError($"User onboarding issue for email {email}").AsError<UserInformation, ForbiddenError>();
 
-        return new User(new UserEmail(user.UserEmail), new UserName(user.UserName), new UserImage(user.UserImage))
-           .AsSuccess<User, NotFoundError>();
+        return new UserInformation
+                (new UserEmail(user.UserEmail), new UserName(user.UserName), new UserImage(user.UserImage))
+           .AsSuccess<UserInformation, ForbiddenError>();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using FluentAssertions;
-using Giveaway.Domain.Listings;
+using Giveaway.Web.Domain.Listings;
 using Xunit;
 
 namespace Giveaway.Web.Domain.UnitTests.Listings;
