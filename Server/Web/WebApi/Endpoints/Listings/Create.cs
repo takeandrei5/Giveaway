@@ -17,17 +17,19 @@ public sealed class Create : EndpointBaseAsync.WithRequest<CreateRequest>.WithAc
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public override async Task<ActionResult> HandleAsync([FromBody] CreateRequest request,
         CancellationToken cancellationToken = default)
     {
         var commandResult = await _command.ExecuteAsync(new CommandFeed
-        {
-            Title = new ListingTitle(request.Title),
-            Description = new ListingDescription(request.Description),
-            Images = request.Images.Select(image => new ListingImage(image)),
-            Category = Category.From(request.Category)
-        }, cancellationToken);
+            {
+                Title = new ListingTitle(request.Title),
+                Description = new ListingDescription(request.Description),
+                Images = request.Images.Select(image => new ListingImage(image)),
+                Category = Category.From(request.Category)
+            },
+            cancellationToken);
 
         return commandResult.Match<ActionResult>(listingId => Created($"/listing/{listingId}", null),
             error => Problem(error.Message, HttpContext.Request.Path, error.Status, error.Title, error.Type));

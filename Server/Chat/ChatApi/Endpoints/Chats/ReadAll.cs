@@ -1,7 +1,5 @@
-﻿using Ardalis.ApiEndpoints;
-using Giveaway.Chat.Database.DataAccess;
+﻿using Giveaway.Chat.Database.DataAccess;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Chats;
 
@@ -14,6 +12,10 @@ public sealed class ReadAll : EndpointBaseAsync.WithoutRequest.WithActionResult<
     public ReadAll(MessageService messageService) => _messageService = messageService;
 
     [HttpGet]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public override async Task<ActionResult<ReadAllResponse>> HandleAsync(CancellationToken cancellationToken = default)
     {
         // await _messageService.CreateAsync(new Database.Persistence.Entities.UserEntity

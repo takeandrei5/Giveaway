@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Giveaway.Commons.Exceptions;
 
 namespace Giveaway.Chat.Domain.Users;
 
@@ -11,10 +12,10 @@ public sealed record UserImage
     internal UserImage(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("User image cannot be an empty url.");
+            throw new DomainRuleException("User image cannot be an empty url.");
 
         if (!_urlRegex.IsMatch(value))
-            throw new ArgumentException("User image cannot be an invalid url.");
+            throw new DomainRuleException("User image cannot be an invalid url.");
 
         Value = value;
     }

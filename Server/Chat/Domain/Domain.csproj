@@ -8,4 +8,8 @@
         <RootNamespace>Giveaway.Chat.Domain</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Commons\Commons.csproj" />
+    </ItemGroup>
+
 </Project>

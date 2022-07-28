@@ -1,4 +1,6 @@
-﻿namespace Giveaway.Chat.Domain.UnitTests.Users;
+﻿using Giveaway.Commons.Exceptions;
+
+namespace Giveaway.Chat.Domain.UnitTests.Users;
 
 public sealed class CategoryUrlTests
 {
@@ -8,7 +10,7 @@ public sealed class CategoryUrlTests
         var act = () => new UserName("");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User name cannot be an empty name.");
     }
 
@@ -18,7 +20,7 @@ public sealed class CategoryUrlTests
         var act = () => new UserName("   \r\t");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User name cannot be an empty name.");
     }
 }

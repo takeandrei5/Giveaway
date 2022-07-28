@@ -1,4 +1,5 @@
-﻿using Giveaway.Web.Domain.Categories;
+﻿using Giveaway.Commons.Exceptions;
+using Giveaway.Web.Domain.Categories;
 using Giveaway.Web.Domain.Users;
 
 namespace Giveaway.Web.Domain.Listings;
@@ -14,7 +15,7 @@ public sealed record Listing
         OwnerId = ownerId;
 
         if (!images.Any())
-            throw new ArgumentException("Images list cannot be an empty list.");
+            throw new DomainRuleException("Images list cannot be an empty list.");
 
         Images = images;
         Category = category;

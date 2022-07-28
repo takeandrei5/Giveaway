@@ -7,11 +7,11 @@ namespace Giveaway.Web.Database.UnitTests.ListingDbOperations.ProfileTests;
 public class Base : AutoMapperFixture
 {
     protected readonly Fixture _fixture;
-    protected readonly Profile _sut;
+    private readonly Profile _sut;
 
-    public Base()
+    protected Base() : base("Giveaway.Web.Database")
     {
-        _fixture = new();
-        _sut = new();
+        _fixture = new Fixture();
+        _sut = new Profile();
     }
 }

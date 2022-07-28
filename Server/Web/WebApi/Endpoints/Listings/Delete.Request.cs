@@ -7,7 +7,5 @@ namespace Giveaway.Web.WebApi.Endpoints.Listings;
 public sealed class DeleteRequest
 {
     [FromRoute(Name = "id")]
-    [Required]
-    [NotEmptyGuid]
     public Guid Id { get; init; }
 }

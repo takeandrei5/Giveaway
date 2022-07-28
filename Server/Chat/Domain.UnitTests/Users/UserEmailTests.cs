@@ -1,4 +1,6 @@
-﻿namespace Giveaway.Chat.Domain.UnitTests.Users;
+﻿using Giveaway.Commons.Exceptions;
+
+namespace Giveaway.Chat.Domain.UnitTests.Users;
 
 public sealed class UserEmailTests
 {
@@ -8,7 +10,7 @@ public sealed class UserEmailTests
         var act = () => new UserEmail("");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User email cannot be an empty email.");
     }
 
@@ -18,7 +20,7 @@ public sealed class UserEmailTests
         var act = () => new UserEmail("   \r\t");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User email cannot be an empty email.");
     }
 
@@ -28,7 +30,7 @@ public sealed class UserEmailTests
         var act = () => new UserEmail("test-test@test");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User email cannot be an invalid email.");
     }
 }

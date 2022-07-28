@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Messages;
 
-[Route("/messages")]
+[Route("/messages")]    
 public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.WithActionResult<ReadAllResponse>
 {
     private readonly Command _command;
@@ -21,7 +21,7 @@ public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.With
     [HttpGet]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public override async Task<ActionResult<ReadAllResponse>>
         HandleAsync([FromQuery] ReadAllRequest request, CancellationToken cancellationToken = default)

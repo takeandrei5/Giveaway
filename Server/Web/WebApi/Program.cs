@@ -1,6 +1,5 @@
 using Giveaway.Commons.Extensions;
 using Giveaway.Commons.Filters;
-using Giveaway.Database;
 using Giveaway.Web.Database;
 using Giveaway.Web.WebApi.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -24,12 +23,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 
-builder.Services.AddHttpClient("Auth0", httpClient =>
-{
-    httpClient.BaseAddress = new Uri(configuration["AUTH0_DOMAIN"]);
+builder.Services.AddHttpClient("Auth0",
+    httpClient =>
+    {
+        httpClient.BaseAddress = new Uri(configuration["AUTH0_DOMAIN"]);
 
-    httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-});
+        httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+    });
 
 builder.Services.AddAuthenticationAndAuthorization(configuration["AUTH0_DOMAIN"], configuration["AUTH0_AUDIENCE"]);
 builder.Services.AddHttpContextAccessor();
@@ -41,7 +41,10 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddSwagger(configuration["AUTH0_DOMAIN"], configuration["AUTH0_AUDIENCE"]);
 
 builder.Services.AddControllers(options =>
-    options.Filters.Add<GenericExceptionFilter>());
+{
+    options.Filters.Add<DomainRuleExceptionFilter>();
+    options.Filters.Add<GenericExceptionFilter>();
+});
 
 var app = builder.Build();
 

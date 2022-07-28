@@ -7,9 +7,9 @@ namespace WebApi.UnitTests.Endpoints.Listings.ReadAll;
 public class Base : AutoMapperFixture
 {
     protected readonly Fixture _fixture;
-    protected readonly Profile _sut;
+    private readonly Profile _sut;
 
-    public Base()
+    protected Base() : base("Giveaway.Web.WebApi")
     {
         _fixture = new Fixture();
         _sut = new Profile();

@@ -15,11 +15,11 @@ internal class GenericExceptionFilter : IExceptionFilter
     {
         if (_hostEnvironment.IsDevelopment()) return;
 
-        context.Result = ServerErrorException();
+        context.Result = HandleServerErrorException();
         context.ExceptionHandled = true;
     }
 
-    private static ObjectResult ServerErrorException() => new(new ProblemDetails
+    private static ObjectResult HandleServerErrorException() => new(new ProblemDetails
     {
         Status = StatusCodes.Status500InternalServerError,
         Title = "An error happened whilst the server was processing your request *beep boop*.",

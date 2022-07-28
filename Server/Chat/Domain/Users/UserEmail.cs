@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Giveaway.Commons.Exceptions;
 
 namespace Giveaway.Chat.Domain.Users;
 
@@ -11,10 +12,10 @@ public sealed record UserEmail
     public UserEmail(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("User email cannot be an empty email.");
+            throw new DomainRuleException("User email cannot be an empty email.");
 
         if (!_emailRegex.IsMatch(value))
-            throw new ArgumentException("User email cannot be an invalid email.");
+            throw new DomainRuleException("User email cannot be an invalid email.");
 
         Value = value;
     }

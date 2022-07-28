@@ -1,4 +1,5 @@
 ﻿using Giveaway.Chat.Application.Interfaces;
+using Giveaway.Chat.Application.UseCases.Chats.ReadAllChats.Models;
 using Giveaway.Chat.Application.UseCases.Messages.ReadAllMessages.Models;
 using Giveaway.Chat.Database.Persistence.Entities;
 using Giveaway.Chat.Domain.Users;
@@ -39,5 +40,47 @@ public sealed class MessageService : IMessageService
                 SendDate = message.SendDate
             })
         };
+    }
+
+    public async Task<ChatsDtoModel> ReadChatsByUserEmailAsync(UserEmail userEmail, CancellationToken cancellationToken)
+    {
+        var messages = await _messagesCollection.Aggregate()
+           .Lookup<MessageEntity, UserEntity, UserChatEntity>(_usersCollection,
+                x => x.FromUser == userEmail.Value
+                    ? x.ToUser
+                    : x.FromUser,
+                y => y.UserEmail,
+                z => z)
+           .SortByDescending(message => message.MessageSendDate)
+           .ToListAsync(cancellationToken);
+           // .Find(message =>
+           //      message.FromUser == userEmail.Value || message.ToUser == userEmail.Value)
+           // .SortByDescending(message => message.SendDate)
+           // .ToListAsync(cancellationToken);
+
+        // var finalResult = messages.GroupBy(message =>
+        //         message.FromUser == userEmail.Value 
+        //             ? message.ToUser 
+        //             : message.FromUser)
+        //    .Select(group => new ChatsDtoModel.Chat
+        //    {
+        //        Email = group.Key,
+        //        Image = group.First().
+        //        LastMessage = group.First().Message,
+        //        LastMessageSendDate = group.Last().SendDate
+        //    })
+        //    .ToList();
+        //
+        // return new ChatsDtoModel()
+        // {
+        //     Messages = result.Select(message => new ConversationDtoModel.ConversationMessage
+        //     {
+        //         IsMine = currentUserEmail.Value == message.FromUser,
+        //         Message = message.Message,
+        //         SendDate = message.SendDate
+        //     })
+        // };
+
+        throw new NotImplementedException();
     }
 }

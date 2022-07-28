@@ -1,4 +1,6 @@
-﻿namespace Giveaway.Chat.Domain.UnitTests.Users;
+﻿using Giveaway.Commons.Exceptions;
+
+namespace Giveaway.Chat.Domain.UnitTests.Users;
 
 public sealed class UserImageTests
 {
@@ -8,7 +10,7 @@ public sealed class UserImageTests
         var act = () => new UserImage("");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User image cannot be an empty url.");
     }
 
@@ -18,7 +20,7 @@ public sealed class UserImageTests
         var act = () => new UserImage("   \r\t");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User image cannot be an empty url.");
     }
 
@@ -28,7 +30,7 @@ public sealed class UserImageTests
         var act = () => new UserImage("www.google.");
 
         act.Should()
-           .ThrowExactly<ArgumentException>()
+           .ThrowExactly<DomainRuleException>()
            .WithMessage("User image cannot be an invalid url.");
     }
 }

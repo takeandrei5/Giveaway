@@ -15,6 +15,7 @@ public sealed class Delete : EndpointBaseAsync.WithRequest<DeleteRequest>.WithAc
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public override async Task<ActionResult> HandleAsync([FromRoute] DeleteRequest request,
         CancellationToken cancellationToken = default)

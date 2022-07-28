@@ -1,11 +1,13 @@
-﻿namespace Giveaway.Web.Domain.Users;
+﻿using Giveaway.Commons.Exceptions;
+
+namespace Giveaway.Web.Domain.Users;
 
 public sealed record UserId
 {
     internal UserId(Guid value)
     {
         if (value == Guid.Empty)
-            throw new ArgumentException("User id cannot be an empty Guid.");
+            throw new DomainRuleException("User id cannot be an empty Guid.");
 
         Value = value;
     }
