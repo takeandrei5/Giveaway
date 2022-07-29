@@ -7,10 +7,10 @@ public sealed class ReadAllProfile : Profile
 {
     public ReadAllProfile()
     {
-        CreateMap<IEnumerable<ConversationDtoModel>, ReadAllResponse>()
-           .ForMember(dest => dest.Conversation,
-                opt => opt.MapFrom(src => src));
-
         CreateMap<ConversationDtoModel.ConversationMessage, ReadAllResponse.ConversationMessage>();
+
+        CreateMap<ConversationDtoModel, ReadAllResponse>()
+           .ForMember(dest => dest.Conversation,
+                opt => opt.MapFrom(src => src.Messages));
     }
 }

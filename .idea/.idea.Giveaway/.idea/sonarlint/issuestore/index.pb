@@ -17,8 +17,6 @@ d
 4Server/Chat/ChatApi/Extensions/ServicesExtensions.cs,9/6/96ba57fb59ad2b6c54d41dd612fdcfa9baf97e05
 e
 5Server/Web/Application.UnitTests/FixtureExtensions.cs,2/c/2c92241121a04a7ea36f267d6ef747ff0b915d2c
-V
-&Server/Chat/Domain.UnitTests/Usings.cs,4/6/46566fd7d1270e640d540476a8746069e1487764
 ‡
 WServer/Web/Application.UnitTests/UseCases/Listings/CreateListingTests/ExecuteAsync`2.cs,9/e/9ed7a1b930b3f8d1581d3779713af5d71b61530e
 [
@@ -61,8 +59,6 @@ a
 1Server/Chat/Database/DataAccess/MessageService.cs,f/b/fbde2b11389eedb0beb2c22c95fa1d72500cfa18
 g
 7Server/Chat/Database/Persistence/Entities/UserEntity.cs,6/f/6f06f0536aa09c102642c00224f4963b661f3f05
-a
-1Server/Chat/ChatApi/Endpoints/Messages/ReadAll.cs,0/a/0addc2db968607c7cade87a2bb8bc526046aedb6
 W
 'Server/Chat/ChatApi/Endpoints/Usings.cs,5/c/5c373193a9dffd3997060f7247f023f3d041a195
 ^
@@ -133,5 +129,3 @@ i
 9Server/Web/Domain.UnitTests/Listings/ListingImageTests.cs,9/b/9b05e650b4e4f3eba88500b2add397bcd24fa332
 f
 6Server/Web/Domain.UnitTests/Listings/ListingIdTests.cs,6/3/63c64cb65361b70dcf6f9055b01f94c57cdf3841
-o
-?Server/Web/WebApi.UnitTests/Endpoints/Listings/ReadAll/Map`1.cs,f/c/fc456229e2bb33966652b94ce8d7bdd0049abb5d
