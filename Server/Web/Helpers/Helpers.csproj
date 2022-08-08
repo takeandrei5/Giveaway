@@ -9,6 +9,8 @@
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.17.0" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Ductus.FluentDocker" Version="2.10.55" />
+    <PackageReference Include="Ductus.FluentDocker.XUnit" Version="2.10.55" />
   </ItemGroup>
 
   <ItemGroup>

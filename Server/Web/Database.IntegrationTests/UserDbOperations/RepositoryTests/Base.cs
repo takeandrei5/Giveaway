@@ -7,10 +7,13 @@ using Giveaway.Database;
 using Giveaway.Web.Database.DataAccess.UserDbOperations;
 using Giveaway.Web.Database.IntegrationTests.Helpers;
 using Giveaway.Web.Database.Persistence.Entities;
+using Helpers;
 using Moq;
+using Xunit;
 
 namespace Giveaway.Web.Database.IntegrationTests.UserDbOperations.RepositoryTests;
 
+[Collection("Database collection")]
 public class Base : IDisposable
 {
     protected readonly AppDbContext _dbContext;
@@ -29,6 +32,8 @@ public class Base : IDisposable
 
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
+        
         _dbContext.Database.EnsureDeleted();
         _dbContext.Dispose();
     }

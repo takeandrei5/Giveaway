@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Giveaway.Web.Application.UseCases.Listings.ReadListingById.Models;
+using Giveaway.Web.Domain.Listings;
 using Giveaway.Web.Domain.Users;
 using Helpers;
 using Xunit;
@@ -15,20 +16,23 @@ public sealed class ReadListingByIdAsync_1 : Base
     public async Task ReadListingByIdAsync_Returns_ListingDtoModel()
     {
         // Arrange
-        var userEntities = _fixture.CreateManyUserEntity(10)
-            .ToList();
+        var userEntities = _fixture.CreateManyUserEntity()
+           .ToList();
 
-        var user = new User(new(userEntities[0].Id), new(new(userEntities[0].Email),
-            new(userEntities[0].Name), new(userEntities[0].Image)));
+        var user = new User(new UserId(userEntities[0].Id),
+            new UserInformation(new UserEmail(userEntities[0].Email),
+                new UserName(userEntities[0].Name),
+                new UserImage(userEntities[0].Image)));
 
         var listingEntities = _fixture.CreateManyListingEntity(user.Id.Value, 1, 1)
-            .ToList();
+           .ToList();
 
-        var imageEntities = listingEntities.SelectMany(listingEntity => _fixture.CreateManyImageEntity(listingEntity.Id, 1))
-            .ToList();
+        var imageEntities = listingEntities
+           .SelectMany(listingEntity => _fixture.CreateManyImageEntity(listingEntity.Id, 1))
+           .ToList();
 
         _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
-            .Returns(user.Information.Email.Value);
+           .Returns(user.Information.Email.Value);
 
         var listingEntity = listingEntities[0];
         var listingResult = new ListingDtoModel
@@ -40,16 +44,16 @@ public sealed class ReadListingByIdAsync_1 : Base
             Images = imageEntities.Select(image => image.Url),
             OwnerEmail = user.Information.Email.Value,
             OwnerName = user.Information.Name.Value,
-            OwnerImage = user.Information.Image.Value,
+            OwnerImage = user.Information.Image.Value
         };
 
         await SetupDatabase(imageEntities, listingEntities, userEntities);
 
         // Act
-        var result = await _sut.ReadListingByIdAsync(new(listingEntity.Id), CancellationToken.None);
+        var result = await _sut.ReadListingByIdAsync(new ListingId(listingEntity.Id), CancellationToken.None);
 
         // Assert
         result.Should()
-            .BeEquivalentTo(listingResult, opt => opt.Excluding(field => field.CreatedAt));
+           .BeEquivalentTo(listingResult, opt => opt.Excluding(field => field.CreatedAt));
     }
 }

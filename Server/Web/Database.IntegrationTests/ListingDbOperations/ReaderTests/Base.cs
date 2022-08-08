@@ -8,9 +8,11 @@ using Giveaway.Web.Database.IntegrationTests.Helpers;
 using Giveaway.Web.Database.Persistence.Entities;
 using Helpers;
 using Moq;
+using Xunit;
 
 namespace Giveaway.Web.Database.IntegrationTests.ListingDbOperations.ReaderTests;
 
+[Collection("Database collection")]
 public class Base : AutoMapperFixture, IDisposable
 {
     private readonly AppDbContext _dbContext;
@@ -22,7 +24,8 @@ public class Base : AutoMapperFixture, IDisposable
     {
         _fixture = new Fixture();
         _loggedUserMock = new Mock<ILoggedUser>();
-        _dbContext = DatabaseExtensions.SetupDatabase(_loggedUserMock.Object);
+        _dbContext =
+            DatabaseExtensions.SetupDatabase(_loggedUserMock.Object);
 
         _sut = new Reader(_dbContext, Mapper);
     }

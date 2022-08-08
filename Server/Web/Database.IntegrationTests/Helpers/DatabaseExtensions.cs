@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 using Giveaway.Commons.Interfaces;
-using Giveaway.Database;
+using Helpers;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,14 +14,14 @@ public static class DatabaseExtensions
     {
         var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
         {
-            // todo
-            DataSource = "localhost",
+            DataSource = $"localhost, {DockerSqlIntegrationFixture.GetHostPort()}",
             UserID = "sa",
-            Password = "admin",
+            Password = "sa_password_123",
             InitialCatalog = "GiveawayDbApp"
                              + Guid.NewGuid()
                                 .ToString("N"),
-            MultipleActiveResultSets = false
+            MultipleActiveResultSets = false,
+            TrustServerCertificate = false,
         };
 
         var dbContextOptionsBuilder =

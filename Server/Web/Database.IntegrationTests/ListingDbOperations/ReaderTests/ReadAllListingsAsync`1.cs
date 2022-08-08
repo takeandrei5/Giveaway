@@ -16,20 +16,23 @@ public sealed class ReadAllListingsAsync_1 : Base
     public async Task ReadAllListingsAsync_Returns_IEnumreable_ListingDtoModel()
     {
         // Arrange
-        var userEntities = _fixture.CreateManyUserEntity(10)
-            .ToList();
+        var userEntities = _fixture.CreateManyUserEntity()
+           .ToList();
 
-        var user = new User(new(userEntities[0].Id), new(new(userEntities[0].Email),
-            new(userEntities[0].Name), new(userEntities[0].Image)));
+        var user = new User(new UserId(userEntities[0].Id),
+            new UserInformation(new UserEmail(userEntities[0].Email),
+                new UserName(userEntities[0].Name),
+                new UserImage(userEntities[0].Image)));
 
         var listingEntities = _fixture.CreateManyListingEntity(user.Id.Value)
-            .ToList();
+           .ToList();
 
-        var imageEntities = listingEntities.SelectMany(listingEntity => _fixture.CreateManyImageEntity(listingEntity.Id, 1))
-            .ToList();
+        var imageEntities = listingEntities
+           .SelectMany(listingEntity => _fixture.CreateManyImageEntity(listingEntity.Id, 1))
+           .ToList();
 
         _loggedUserMock.Setup(loggedUser => loggedUser.GetEmailFromClaims())
-            .Returns(user.Information.Email.Value);
+           .Returns(user.Information.Email.Value);
 
         var listings = listingEntities.Select(listing => new ListingDtoModel
         {
@@ -54,6 +57,6 @@ public sealed class ReadAllListingsAsync_1 : Base
 
         // Assert
         result.Result.Should()
-            .BeEquivalentTo(listings);
+           .BeEquivalentTo(listings);
     }
 }
