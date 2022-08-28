@@ -1,9 +1,15 @@
-﻿namespace Giveaway.Chat.ChatApi.Extensions;
+﻿using Giveaway.Chat.Application.UseCases.Messages.ReadMessagesByTargetEmail;
 
-using ReadAllMessagesCommand = Application.UseCases.Messages.ReadAllMessages.Command;
+namespace Giveaway.Chat.ChatApi.Extensions;
+
+using CreateMessageUseCase = Application.UseCases.Messages.CreateMessage.Command;
+using ReadMessagesByTargetEmail = Command;
 
 public static partial class ServicesExtensions
 {
-    private static void AddReadAllMessagesUseCase(this IServiceCollection services) =>
-        services.AddScoped<ReadAllMessagesCommand>();
+    private static void AddCreateMessageUseCase(this IServiceCollection services) =>
+       services.AddScoped<CreateMessageUseCase>();
+
+    private static void AddReadMessagesByTargetEmailUseCase(this IServiceCollection services) =>
+        services.AddScoped<ReadMessagesByTargetEmail>();
 }

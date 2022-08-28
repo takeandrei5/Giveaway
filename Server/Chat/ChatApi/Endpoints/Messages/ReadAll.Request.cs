@@ -5,8 +5,6 @@ namespace Giveaway.Chat.ChatApi.Endpoints.Messages;
 
 public sealed record ReadAllRequest
 {
-    [FromQuery(Name = "targetEmail")]
-    [Required]
-    [EmailAddress]
-    public string Email { get; init; } = null!;
+    [FromQuery(Name = "toUser")]
+    public string ToUser { get; init; } = null!;
 }

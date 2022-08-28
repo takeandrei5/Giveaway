@@ -3,14 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Chats;
 
-[Route("/chats")]
+[Route("/chatapi/chats")]
 [AllowAnonymous]
 public sealed class ReadAll : EndpointBaseAsync.WithoutRequest.WithActionResult<ReadAllResponse>
 {
-    private readonly MessageService _messageService;
-
-    public ReadAll(MessageService messageService) => _messageService = messageService;
-
     [HttpGet]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status200OK)]

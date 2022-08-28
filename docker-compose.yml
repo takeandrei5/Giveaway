@@ -5,19 +5,21 @@ networks:
     driver: bridge
 
 services:
-  nginx:
-    image: giveaway-nginx
-    build:
-      context: .
-      dockerfile: Nginx/Dockerfile
+
+  webmssql:
+    #image: mcr.microsoft.com/mssql/server:latest # if working on Windows
+    image: mcr.microsoft.com/azure-sql-edge:latest # if working on MAC arm64
+    user: root
+    environment:
+      - SA_PASSWORD=sa_password_123
+      - ACCEPT_EULA=Y
+    container_name: giveaway-web-mssql
     ports:
-      - 80:80
-    container_name: giveaway-nginx
+      - 1435:1433
     networks:
       - giveway-network
-    depends_on:
-      - webapi
-      - webui
+    volumes:
+      - webdbdata:/var/opt/mssql/data
 
   webapi:
     image: giveaway-webapi
@@ -28,8 +30,8 @@ services:
     restart: on-failure
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
-      - ASPNETCORE_URLS=${ASPNETCORE_URLS}
-      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
+      - ASPNETCORE_URLS=${ASPNETCORE_WEBAPI_URLS}
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING_WEBDB}
       - AUTH0_DOMAIN=${AUTH0_DOMAIN}
       - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID}
       - AUTH0_AUDIENCE=${AUTH0_AUDIENCE}
@@ -38,7 +40,7 @@ services:
     networks:
       - giveway-network
     depends_on:
-      - mssql
+      - webmssql
 
   webui:
     image: giveaway-webui
@@ -70,23 +72,57 @@ services:
       - ./Ui:/app
       - node_modules:/app/node_modules
 
-  mssql:
-    #image: mcr.microsoft.com/mssql/server:latest # if working on Windows
-    image: mcr.microsoft.com/azure-sql-edge:latest # if working on MAC arm64
-    user: root
+  chatmongo:
+    image: mongo:latest
     environment:
-      - 'SA_PASSWORD=sa_password_123'
-      - 'ACCEPT_EULA=Y'
-    container_name: giveaway-mssql
+      - MONGO_INITDB_DATABASE=GiveawayChat
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password123
+    container_name: giveaway-chat-mongo
     ports:
-      - 1435:1433
+      - 49155:27017
     networks:
       - giveway-network
     volumes:
-      - dbdata:/var/opt/mssql/data
+      - chatdbdata:/data/db
+      
+  chatapi:
+    image: giveaway-chatapi
+    build:
+      context: ./Server
+      dockerfile: Chat/ChatApi/Dockerfile
+    container_name: giveaway-chatapi
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=${ASPNETCORE_CHATAPI_URLS}
+#      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING_CHATDB}
+    ports:
+      - 85:85
+    depends_on:
+      - chatmongo
+    networks:
+      - giveway-network
+
+  nginx:
+    image: giveaway-nginx
+    build:
+      context: .
+      dockerfile: Nginx/Dockerfile
+    ports:
+      - 80:80
+    container_name: giveaway-nginx
+    networks:
+      - giveway-network
+    depends_on:
+      - webapi
+      - webui
+      - chatapi
 
 volumes:
-  dbdata:
-    name: giveaway-mssql
+  webdbdata:
+    name: giveaway-web-mssql
+  chatdbdata:
+    name: giveaway-web-mssql
   node_modules:
     name: nextjs-node-modules

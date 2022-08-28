@@ -13,7 +13,7 @@ namespace Giveaway.Web.Database.IntegrationTests.ListingDbOperations.ReaderTests
 public sealed class ReadAllListingsAsync_1 : Base
 {
     [Fact(DisplayName = "ReadAllListingsAsync returns PaginatedResult<ListingDtoModel>.")]
-    public async Task ReadAllListingsAsync_Returns_IEnumreable_ListingDtoModel()
+    public async Task ReadAllListingsAsync_Returns_PaginatedResult_ListingDtoModel()
     {
         // Arrange
         var userEntities = _fixture.CreateManyUserEntity()
@@ -38,7 +38,7 @@ public sealed class ReadAllListingsAsync_1 : Base
         {
             Id = listing.Id,
             Title = listing.Title,
-            Image = imageEntities.Where(imageEntity => imageEntity.ListingId == listing.Id).First().Url,
+            Image = imageEntities.First(imageEntity => imageEntity.ListingId == listing.Id).Url,
             CreatedAt = listing.CreatedAt
         });
 
@@ -46,7 +46,7 @@ public sealed class ReadAllListingsAsync_1 : Base
         {
             PageNumber = 1,
             PageSize = 10,
-            OrderBy = "Title",
+            OrderBy = "Title ASC",
             FilterByCategory = null
         };
 

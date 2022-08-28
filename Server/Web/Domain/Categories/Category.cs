@@ -8,6 +8,7 @@ namespace Giveaway.Web.Domain.Categories;
 public sealed class Category
 {
     private Category() { }
+
     public int Id { get; init; }
 
     public string Name { get; init; } = null!;

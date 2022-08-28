@@ -2,13 +2,13 @@
 
 public sealed class PaginatedResult<T>
 {
-    private PaginatedResult(IEnumerable<T> result, int count = 0, int page = 1, int pageSize = 10)
+    private PaginatedResult(IEnumerable<T> result, int totalCount = 0, int page = 1, int pageSize = 10)
     {
         Result = result;
         CurrentPage = page;
         PageSize = pageSize;
-        TotalPages = count > 0 ? (int)Math.Ceiling(count / (double)pageSize) : 1;
-        TotalCount = count;
+        TotalPages = totalCount > 0 ? (int)Math.Ceiling(totalCount / (double)pageSize) : 1;
+        TotalCount = totalCount;
     }
 
     public IEnumerable<T> Result { get; init; }
@@ -25,8 +25,8 @@ public sealed class PaginatedResult<T>
 
     public bool HasNextPage => CurrentPage < TotalPages;
 
-    public static PaginatedResult<T> Success(IEnumerable<T> result, int count, int page, int pageSize) =>
-        new(result, count, page, pageSize);
+    public static PaginatedResult<T> Success(IEnumerable<T> result, int totalCount, int page, int pageSize) =>
+        new(result, totalCount, page, pageSize);
 
     public static PaginatedResult<T> Empty() =>
         new(Enumerable.Empty<T>());

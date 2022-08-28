@@ -13,12 +13,8 @@ public sealed class NotEmptyGuidAttribute : ValidationAttribute
 
     public override bool IsValid(object? value)
     {
-        if (value is null) return true;
+        if (value is not Guid guid) return true;
 
-        return value switch
-        {
-            Guid guid => guid != Guid.Empty,
-            _ => true
-        };
+        return guid != Guid.Empty;
     }
 }

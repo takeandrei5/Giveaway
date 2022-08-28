@@ -1,17 +1,28 @@
 ﻿using Giveaway.Chat.Application.Interfaces;
+using Giveaway.Chat.Database.DataAccess.MessagesDbOperations;
+using Giveaway.Chat.Domain.Interfaces;
 
 namespace Giveaway.Chat.ChatApi.Extensions;
 
-using MessageService = Database.DataAccess.MessageService;
+using MessageReader = Reader;
+using MessageRepository = Repository;
+using UserRepository = Database.DataAccess.UsersDbOperations.Repository;
 
 public static partial class ServicesExtensions
 {
     public static void AddApplicationUseCases(this IServiceCollection services)
     {
         // Messages
-        services.AddReadAllMessagesUseCase();
+        services.AddCreateMessageUseCase();
+        services.AddReadMessagesByTargetEmailUseCase();
     }
 
-    public static void AddServices(this IServiceCollection services) =>
-        services.AddScoped<IMessageService, MessageService>();
+    public static void AddReaders(this IServiceCollection services) =>
+        services.AddScoped<IMessageReader, MessageReader>();
+
+    public static void AddRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IMessageRepository, MessageRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+    }
 }

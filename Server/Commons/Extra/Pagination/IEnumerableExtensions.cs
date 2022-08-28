@@ -3,11 +3,11 @@
 public static class IEnumerableExtensions
 {
     public static PaginatedResult<T> ToPaginatedList<T>(this IEnumerable<T> source,
-        ListPagedQueryBase query, Func<IEnumerable<T>, IEnumerable<T>> ApplyOrdering) where T : class
+        ListPagedQueryBase query, Func<IEnumerable<T>, IEnumerable<T>> applyOrdering) where T : class
     {
         var count = source.Count();
 
-        var items = ApplyOrdering(source)
+        var items = applyOrdering(source)
             .Skip((query.PageNumber - 1) * query.PageSize)
             .Take(query.PageSize)
             .ToList();

@@ -14,22 +14,23 @@ public static class ServicesExtensions
 {
     public static void AddApplicationServices(this IServiceCollection services) =>
         services.AddScoped<ILoggedUser, HttpContextLoggedUser>();
-    
+
     public static void AddAutoMapperProfiles(this IServiceCollection services) =>
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-    
+
     public static void AddAuthenticationAndAuthorization(this IServiceCollection serviceCollection, string domain,
         string audience)
     {
         serviceCollection.AddAuthorization(options =>
         {
-            options.AddPolicy(JwtBearerDefaults.AuthenticationScheme, policy =>
-            {
-                policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
-                policy.RequireClaim(ClaimTypes.NameIdentifier);
-            });
+            options.AddPolicy(JwtBearerDefaults.AuthenticationScheme,
+                policy =>
+                {
+                    policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
+                    policy.RequireClaim(ClaimTypes.NameIdentifier);
+                });
         });
-        
+
         serviceCollection
            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
            .AddJwtBearer(options =>
@@ -41,6 +42,18 @@ public static class ServicesExtensions
 
                 options.Events = new JwtBearerEvents
                 {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
+
+                        // todo - improve this
+                        if (!string.IsNullOrEmpty(accessToken)
+                            && (context.Request.Headers["Sec-WebSocket-Version"] == "13"
+                                || context.Request.Headers["Accept"] == "text/event-stream"))
+                            context.Token = context.Request.Query["access_token"];
+
+                        return Task.CompletedTask;
+                    },
                     OnTokenValidated = async context =>
                     {
                         var currentIdentity = context.Principal!.Identities.First();

@@ -1,5 +1,5 @@
 using AutoMapper;
-using Giveaway.Chat.Application.UseCases.Messages.ReadAllMessages.Models;
+using Giveaway.Chat.Application.UseCases.Messages.ReadMessagesByTargetEmail.Models;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Messages;
 
