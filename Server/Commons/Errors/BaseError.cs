@@ -2,13 +2,13 @@
 
 public abstract class BaseError
 {
-    public int Status { get; init; }
+    public int Status { get; }
 
-    public string Message { get; init; }
+    public string Message { get; }
 
-    public abstract string Title { get; init; }
+    public abstract string Title { get; }
 
-    public abstract string Type { get; init; }
+    public abstract string Type { get; }
 
     protected BaseError(int status, string message)
     {

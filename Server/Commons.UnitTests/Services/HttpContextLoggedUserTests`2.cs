@@ -12,7 +12,7 @@ public sealed class HttpContextLoggedUserTests_2 : Base
     public void GetNameFromClaims_Throws_ArgumentException_If_No_Name_Could_Be_Read_From_Claims_Principals()
     {
         // Arrange
-        _httpContextAccessor.Setup(x => x.HttpContext)
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
            .Returns(() => new DefaultHttpContext
             {
                 User = new ClaimsPrincipal()
@@ -32,7 +32,7 @@ public sealed class HttpContextLoggedUserTests_2 : Base
         // Act
         var name = _fixture.Create<string>();
 
-        _httpContextAccessor.Setup(x => x.HttpContext)
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
            .Returns(() =>
             {
                 ClaimsIdentity claimsIdentity =

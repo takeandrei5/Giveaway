@@ -12,10 +12,10 @@ public sealed class HttpContextLoggedUserTests_1 : Base
     public void GetEmailFromClaims_Throws_ArgumentException_If_No_Email_Could_Be_Read_From_Claims_Principals()
     {
         // Arrange
-        _httpContextAccessor.Setup(x => x.HttpContext)
-            .Returns(() => new DefaultHttpContext
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
+           .Returns(() => new DefaultHttpContext
             {
-                User = new()
+                User = new ClaimsPrincipal()
             });
 
         // Act
@@ -23,7 +23,7 @@ public sealed class HttpContextLoggedUserTests_1 : Base
 
         // Assert
         act.Should()
-            .Throw<ArgumentException>("Could not fetch email from claims.");
+           .Throw<ArgumentException>("Could not fetch email from claims.");
     }
 
     [Fact(DisplayName = "GetEmailFromClaims returns email from the current user identity successfully.")]
@@ -32,8 +32,8 @@ public sealed class HttpContextLoggedUserTests_1 : Base
         // Act
         var email = _fixture.CreateEmail();
 
-        _httpContextAccessor.Setup(x => x.HttpContext)
-            .Returns(() =>
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
+           .Returns(() =>
             {
                 ClaimsIdentity claimsIdentity =
                     new(new[]
@@ -43,7 +43,7 @@ public sealed class HttpContextLoggedUserTests_1 : Base
 
                 return new DefaultHttpContext
                 {
-                    User = new(claimsIdentity)
+                    User = new ClaimsPrincipal(claimsIdentity)
                 };
             });
 
@@ -52,6 +52,6 @@ public sealed class HttpContextLoggedUserTests_1 : Base
 
         // Assert
         result.Should()
-            .Be(email);
+           .Be(email);
     }
 }

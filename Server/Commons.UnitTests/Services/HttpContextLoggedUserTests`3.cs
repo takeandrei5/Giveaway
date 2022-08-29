@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using FluentAssertions;
+using Helpers;
 using Microsoft.AspNetCore.Http;
 using Xunit;
 
@@ -11,14 +12,14 @@ public sealed class HttpContextLoggedUserTests_3 : Base
     public void GetImageFromClaims_Throws_ArgumentException_If_No_Image_Could_Be_Read_From_Claims_Principals()
     {
         // Arrange
-        _httpContextAccessor.Setup(x => x.HttpContext)
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
             .Returns(() => new DefaultHttpContext
             {
-                User = new()
+                User = new ClaimsPrincipal()
             });
 
         // Act
-        var act = () => _sut.GetNameFromClaims();
+        var act = () => _sut.GetImageFromClaims();
 
         // Assert
         act.Should()
@@ -29,10 +30,9 @@ public sealed class HttpContextLoggedUserTests_3 : Base
     public void GetImageFromClaims_Returns_Image_Url_From_The_Current_User_Identity_Successfully()
     {
         // Act
-        // todo
-        var imageUrl = "https://www.google.com";
+        var imageUrl = _fixture.CreateUrl();
 
-        _httpContextAccessor.Setup(x => x.HttpContext)
+        _httpContextAccessor.Setup(httpContextAccessor => httpContextAccessor.HttpContext)
             .Returns(() =>
             {
                 ClaimsIdentity claimsIdentity =
@@ -43,7 +43,7 @@ public sealed class HttpContextLoggedUserTests_3 : Base
 
                 return new DefaultHttpContext
                 {
-                    User = new(claimsIdentity)
+                    User = new ClaimsPrincipal(claimsIdentity)
                 };
             });
 
