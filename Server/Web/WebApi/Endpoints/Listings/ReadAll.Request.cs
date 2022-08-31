@@ -14,8 +14,8 @@ public sealed record ReadAllRequest
     public int PageSize { get; init; } = 10;
 
     [FromQuery]
-    [DefaultValue("Title")]
-    public string OrderBy { get; init; } = "Title";
+    [DefaultValue("Title ASC")]
+    public string OrderBy { get; init; } = "Title ASC";
 
     [FromQuery]
     [DefaultValue(null)]

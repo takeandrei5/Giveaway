@@ -70,7 +70,7 @@ const Persons = () => {
 				height='2.5rem'
 				name='persons-search'
 				placeholder='Search for a person..'
-				onChange={(e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+				onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 					setSearch((e as ChangeEvent<HTMLInputElement>).target.value);
 				}}
 				value={search}

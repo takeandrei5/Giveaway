@@ -21,6 +21,8 @@ const ListingsPage: NextPage<ListingsPageProps> = ({ options }: ListingsPageProp
 export async function getStaticProps(): Promise<
 	{ props: ListingsPageProps; revalidate: number } | { redirect: Redirect }
 > {
+	console.log('hello');
+
 	return (
 		(await tryFetchQuery(['fetchListings'], () =>
 			fetchListings(DEFAULT_PAGINATION_OPTIONS.pageNumber, DEFAULT_PAGINATION_OPTIONS.pageSize, 'Title ASC')

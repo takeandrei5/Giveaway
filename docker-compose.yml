@@ -39,8 +39,6 @@ services:
       - 81:81
     networks:
       - giveway-network
-    depends_on:
-      - webmssql
 
   webui:
     image: giveaway-webui
@@ -71,6 +69,7 @@ services:
     volumes:
       - ./Ui:/app
       - node_modules:/app/node_modules
+      - /app/.next
 
   chatmongo:
     image: mongo:latest
@@ -96,11 +95,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ASPNETCORE_URLS=${ASPNETCORE_CHATAPI_URLS}
-#      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING_CHATDB}
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING_CHATDB}
     ports:
       - 85:85
-    depends_on:
-      - chatmongo
     networks:
       - giveway-network
 

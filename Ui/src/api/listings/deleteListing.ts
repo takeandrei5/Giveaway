@@ -1,5 +1,5 @@
-import axiosInstance from '../../utils/axios';
-import { NotFoundError } from '../../utils/errors';
+import axiosInstance from '@utils/axios';
+import { NotFoundError } from '@utils/errors';
 
 const deleteListing = async (id: string, accessToken: string): Promise<void> => {
 	const response = await axiosInstance.delete(`listings/${id}`, {
