@@ -1,3 +1,3 @@
-import { ItemData } from '@api/listings/types';
+import { ItemData } from '@api/webapi/listings/types';
 
 export type ItemProps = ItemData;

@@ -26,15 +26,19 @@ const nextConfig = {
 		};
 		return config;
 	},
+	swcMinify: true,
+	experimental: {
+		swcPlugins: [['next-superjson-plugin', {}]],
+	},
 	reactStrictMode: false,
 	optimizeFonts: true,
 	serverRuntimeConfig: {
-		apiUrl: process.env.NEXT_BACKEND_URL_SERVER,
+		baseURL: process.env.NEXT_SERVER_URL,
 	},
 	publicRuntimeConfig: {
-		apiUrl: process.env.NEXT_PUBLIC_BACKEND_URL_CLIENT,
+		baseURL: process.env.NEXT_CLIENT_URL,
 	},
-	pageExtensions: ['page.tsx', 'api.ts'],
+	pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 };
 
 module.exports = nextConfig;

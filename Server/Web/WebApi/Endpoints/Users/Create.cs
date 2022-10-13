@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Web.WebApi.Endpoints.Users;
 
-[Route("/api/users")]
+[Route("/api/webapi/users")]
 public sealed class Create : EndpointBaseAsync.WithoutRequest.WithActionResult
 {
     private readonly Command _command;

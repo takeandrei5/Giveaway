@@ -11,35 +11,40 @@ import SortingDropdown from './SortingDropdown/SortingDropdown';
 import { ListingsProps } from './types';
 
 const Listings = ({ options }: ListingsProps): JSX.Element => {
-	const { isLoading, totalData, nextData, sort, setSort, refetchListings } = useInfiniteFetchListings();
+	const { isLoading, totalData, nextData, sort, handleSortingDropdownChange, refetchListings } =
+		useInfiniteFetchListings();
 
 	return (
-		<Skeleton
-			borderRadius='2xl'
-			isLoaded={!isLoading}
-			__css={{
-				'& div.infinite-scroll-component': {
-					overflow: 'initial !important',
-				},
-			}}>
+		<>
 			<CategoryBox categories={DEFAULT_CATEGORIES} />
 			<SortingDropdown
 				id='sort-dropdown'
 				name='sort-dropdown'
 				options={options}
-				onChangeHandler={(value: string) => setSort(value as SortingType)}
+				onChangeHandler={handleSortingDropdownChange}
 				value={sort}
 			/>
-			<InfiniteScroll
-				data-testid='infinite-scroll'
-				dataLength={totalData.length}
-				next={refetchListings}
-				loader={<></>}
-				pullDownToRefreshThreshold={50}
-				hasMore={nextData ? nextData.hasNextPage : false}>
-				<Items items={totalData} />
-			</InfiniteScroll>
-		</Skeleton>
+			<Skeleton
+				__css={{
+					'& div.infinite-scroll-component': {
+						overflow: 'initial !important',
+					},
+				}}
+				borderRadius='2xl'
+				flex={1}
+				isLoaded={!isLoading}
+				marginTop={4}>
+				<InfiniteScroll
+					data-testid='infinite-scroll'
+					dataLength={totalData.length}
+					next={refetchListings}
+					loader={<></>}
+					pullDownToRefreshThreshold={50}
+					hasMore={nextData ? nextData.hasNextPage : false}>
+					<Items items={totalData} />
+				</InfiniteScroll>
+			</Skeleton>
+		</>
 	);
 };
 

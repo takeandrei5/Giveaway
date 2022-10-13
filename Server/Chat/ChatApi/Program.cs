@@ -3,6 +3,7 @@ using Giveaway.Chat.ChatApi.Hubs.PrivateChat;
 using Giveaway.Chat.Database;
 using Giveaway.Commons.Extensions;
 using Giveaway.Commons.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -28,17 +29,6 @@ builder.Services.AddSignalR()
     {
         options.PayloadSerializerOptions.PropertyNamingPolicy = null;
     });
-
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.WithOrigins("http://localhost:3000")
-           .AllowAnyHeader()
-           .AllowAnyMethod()
-           .AllowCredentials();
-    });
-});
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<HttpContextLoggedUser>();

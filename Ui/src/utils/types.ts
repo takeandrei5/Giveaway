@@ -23,4 +23,8 @@ export type PaginationOptions = {
 	pageSize: number;
 };
 
+export type BaseAxiosRequestConfig = {
+	signal: AbortSignal | undefined;
+};
+
 export type DehydratedState = { dehydratedState: ReactQueryDehydratedState };

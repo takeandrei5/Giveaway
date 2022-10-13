@@ -1,14 +1,16 @@
-import { fetchListings } from '@api/listings';
-import { ItemData } from '@api/listings/types';
+import { fetchListings } from '@api/webapi/listings/client-side';
+import { ItemData } from '@api/webapi/listings/types';
 import { categoryDictionary } from '@pages/listings/constants';
 import { useAppSelector } from '@redux/hooks';
 import { CategoryState } from '@redux/slices/changeCategorySlice';
 import { DEFAULT_PAGINATION_OPTIONS } from '@utils/constants';
 import { PaginatedResult, PaginationOptions, SortingType } from '@utils/types';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
+import { QueryFunctionContext, useQuery } from 'react-query';
 
-const useInfiniteFetchListings = () => {
+import { UseInfiniteFetchListingsResult } from './types';
+
+const useInfiniteFetchListings = (): UseInfiniteFetchListingsResult => {
 	const paginationOptionsRef: MutableRefObject<PaginationOptions> = useRef<PaginationOptions>({
 		...DEFAULT_PAGINATION_OPTIONS,
 	});
@@ -16,31 +18,35 @@ const useInfiniteFetchListings = () => {
 	const [totalData, setTotalData] = useState<ItemData[]>([]);
 	const categoryState: CategoryState = useAppSelector((state) => state.changeCategory);
 
-	const reset = (): void => {
-		paginationOptionsRef.current.pageNumber = DEFAULT_PAGINATION_OPTIONS.pageNumber;
-		setTotalData([]);
-	};
-
 	const {
 		isLoading,
 		data: nextData,
 		refetch: refetchListings,
 	} = useQuery(
-		['fetchListings'],
-		() =>
+		[`fetchListings${categoryDictionary[categoryState.category!] || ''}`],
+		({ signal }: QueryFunctionContext<string[], unknown>) =>
 			fetchListings(
 				paginationOptionsRef.current.pageNumber,
 				paginationOptionsRef.current.pageSize,
 				sort,
-				categoryDictionary[categoryState.category!]
+				categoryDictionary[categoryState.category!],
+				signal
 			),
 		{
 			onSuccess: (data: PaginatedResult<ItemData>) => {
 				setTotalData((oldListings: ItemData[]) => [...oldListings, ...data.result]);
 				paginationOptionsRef.current.pageNumber++;
 			},
+			enabled: false,
 		}
 	);
+
+	const reset = (): void => {
+		paginationOptionsRef.current.pageNumber = DEFAULT_PAGINATION_OPTIONS.pageNumber;
+		setTotalData([]);
+	};
+
+	const handleSortingDropdownChange = (value: string): void => setSort(value as SortingType);
 
 	useEffect(() => {
 		reset();
@@ -50,7 +56,7 @@ const useInfiniteFetchListings = () => {
 		refetchListings();
 	}, [sort, categoryState, refetchListings]);
 
-	return { isLoading, totalData, nextData, sort, setSort, refetchListings };
+	return { handleSortingDropdownChange, isLoading, nextData, refetchListings, sort, totalData };
 };
 
 export { useInfiniteFetchListings };

@@ -1,18 +1,11 @@
-import { Skeleton } from '@components';
-import { useGetAccessToken } from '@utils/hooks';
-
 import { FormContainer } from '../shared';
 import { useCreateListing } from './hooks';
+import { UseCreateListingResult } from './types';
 
 const CreateListing = (): JSX.Element => {
-	const { isFetched, data } = useGetAccessToken('', true);
-	const { formik } = useCreateListing(data!);
+	const { formik }: UseCreateListingResult = useCreateListing();
 
-	return (
-		<Skeleton borderRadius='2xl' display='flex' flex={1} isLoaded={isFetched}>
-			<FormContainer formik={formik} pageTitle='Create a listing!' resetButtonText='Clear' submitButtonText='Submit' />
-		</Skeleton>
-	);
+	return <FormContainer formik={formik} pageTitle='Create a listing!' resetButtonText='Clear' submitButtonText='Submit' />;
 };
 
 export default CreateListing;

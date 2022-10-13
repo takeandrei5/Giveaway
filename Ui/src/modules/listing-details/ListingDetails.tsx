@@ -1,7 +1,5 @@
 import { Flex, Grid, GridItem, Skeleton, useColorModeValue } from '@chakra-ui/react';
 import { ButtonPrimary, Typography } from '@components';
-import { useGetAccessToken } from '@utils/hooks';
-import { NextRouter, useRouter } from 'next/router';
 import { GrTrash, GrUpdate } from 'react-icons/gr';
 import { MdArrowBackIosNew } from 'react-icons/md';
 
@@ -12,10 +10,9 @@ import { ListingInformation } from './ListingInformation';
 import { OwnerInformation } from './OwnerInformation';
 import { ListingDetailsProps } from './types';
 
-const ListingDetails = ({ id }: ListingDetailsProps) => {
-	const router: NextRouter = useRouter();
-	const { isFetched, data } = useGetAccessToken();
-	const { isLoading, listingInfo, ownerInfo, deleteListingMutate } = useFetchListingDetails(id, isFetched);
+const ListingDetails = ({ id }: ListingDetailsProps): JSX.Element => {
+	const { isLoading, listingInfo, ownerInfo, handleBackButtonClick, handleDeleteListingButtonClick, handleUpdateListingButtonClick } =
+		useFetchListingDetails(id);
 
 	const lightOrDarkColor: 'light' | 'dark' = useColorModeValue('light', 'dark');
 
@@ -28,8 +25,10 @@ const ListingDetails = ({ id }: ListingDetailsProps) => {
 				<Flex>
 					<ButtonPrimary
 						backgroundColor={`primary.${lightOrDarkColor}`}
-						leftIcon={<MdArrowBackIosNew color='white' size='1rem' />}
-						onClick={() => router.push('/listings')}>
+						leftIcon={<MdArrowBackIosNew color='white' />}
+						onClick={() => {
+							handleBackButtonClick();
+						}}>
 						<Typography variant='button' color={lightOrDarkColor}>
 							Back
 						</Typography>
@@ -40,14 +39,14 @@ const ListingDetails = ({ id }: ListingDetailsProps) => {
 							icon={<GrUpdate fontSize='medium' />}
 							label='Update listing'
 							ownerEmail={ownerInfo.email}
-							onClick={() => router.push(`/update-listing/${id}`)}
+							onClick={handleUpdateListingButtonClick}
 						/>
 						<ActionButton
 							bgColor={`primary.${lightOrDarkColor}`}
 							icon={<GrTrash fontSize='medium' />}
 							label='Delete listing'
 							ownerEmail={ownerInfo.email}
-							onClick={() => deleteListingMutate(data!)}
+							onClick={handleDeleteListingButtonClick}
 						/>
 					</Flex>
 				</Flex>

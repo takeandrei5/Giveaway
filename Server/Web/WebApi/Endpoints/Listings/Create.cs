@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Web.WebApi.Endpoints.Listings;
 
-[Route("/api/listings")]
+[Route("/api/webapi/listings")]
 public sealed class Create : EndpointBaseAsync.WithRequest<CreateRequest>.WithActionResult
 {
     private readonly Command _command;

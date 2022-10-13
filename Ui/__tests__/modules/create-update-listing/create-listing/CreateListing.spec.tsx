@@ -1,12 +1,7 @@
 import { CreateListing } from '@modules/create-update-listing';
 import { render } from '@testing-library/react';
-import { useGetAccessToken } from '@utils/hooks';
 import { QueryClientWrapper } from '__tests__/wrappers';
 import { FieldMetaProps } from 'formik';
-
-jest.mock('@utils/hooks', () => ({
-	useGetAccessToken: jest.fn(),
-}));
 
 jest.mock('@components/FormControl/hooks', () => ({
 	useCheckFormIsInvalid: jest.fn((meta: FieldMetaProps<unknown>) => ({})),
@@ -28,15 +23,7 @@ jest.mock('uuid', () => ({
 
 describe('CreateListing', () => {
 	it('should match snapshot', () => {
-		// Arrange
-		const data: string = 'test-data';
-
-		(useGetAccessToken as unknown as jest.Mock).mockImplementation(() => ({
-			isFetched: true,
-			data,
-		}));
-
-		//Act
+		// Arrange & Act
 		const { container } = render(<CreateListing />, { wrapper: QueryClientWrapper });
 
 		//Assert

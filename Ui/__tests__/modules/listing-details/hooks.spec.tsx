@@ -1,18 +1,18 @@
-import { deleteListing, fetchListing } from '@api/listings';
+import { deleteListing, fetchListing } from '@api/webapi/listings/client-side';
 import { useFetchListingDetails } from '@modules/listing-details/hooks';
 import { renderHook } from '@testing-library/react-hooks';
 import { NotFoundError } from '@utils/errors';
 import { useRouter } from 'next/router';
 import { QueryClientWrapper } from '__tests__/wrappers';
-import { FetchListingDetailsResponse } from '../../../src/api/listings/types';
+import { FetchListingDetailsResponse } from '@api/webapi/listings/types';
 
 jest.mock('next/router', () => ({
 	...jest.requireActual('next/router'),
 	useRouter: jest.fn(),
 }));
 
-jest.mock('@api/listings', () => ({
-	...jest.requireActual('@api/listings'),
+jest.mock('@api/webapi/listings/client-side', () => ({
+	...jest.requireActual('@api/webapi/listings/client-side'),
 	fetchListing: jest.fn(),
 	deleteListing: jest.fn(),
 }));
@@ -28,7 +28,6 @@ jest.mock('next/config', () => () => ({
 
 describe('useFetchListingDetails', () => {
 	const id: string = 'test-id';
-	const isAccessTokenLoaded: boolean = true;
 	const fetchListingDetailsResponse: FetchListingDetailsResponse = {
 		listingInfo: {
 			title: 'test title',
@@ -61,7 +60,7 @@ describe('useFetchListingDetails', () => {
 			(fetchListing as unknown as jest.Mock).mockImplementation((id: string) => ({ ...fetchListingDetailsResponse }));
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
@@ -78,7 +77,7 @@ describe('useFetchListingDetails', () => {
 			(fetchListing as unknown as jest.Mock).mockImplementation((id: string) => undefined);
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
@@ -94,7 +93,7 @@ describe('useFetchListingDetails', () => {
 			(fetchListing as unknown as jest.Mock).mockImplementation((id: string) => Promise.reject());
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
@@ -109,16 +108,15 @@ describe('useFetchListingDetails', () => {
 	describe('useMutation', () => {
 		it('should redirect to `/listings` if mutation is successful', async () => {
 			// Arrange
-			(deleteListing as unknown as jest.Mock).mockImplementation((id: string, accessToken: string) =>
-				Promise.resolve()
-			);
+			(deleteListing as unknown as jest.Mock).mockImplementation((id: string) => Promise.resolve());
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
-			result.current.deleteListingMutate('test-access-token');
+			result.current.handleDeleteListingButtonClick();
+
 			await waitForNextUpdate();
 
 			// Assert
@@ -128,18 +126,19 @@ describe('useFetchListingDetails', () => {
 		it('should redirect to `/404` if mutation is not successful and the error is a NotFound type of error', async () => {
 			// Arrange
 			(deleteListing as unknown as jest.Mock).mockImplementation(
-				(id: string, accessToken: string) =>
+				(id: string) =>
 					new Promise(() => {
 						throw new NotFoundError('test-not-found-error');
 					})
 			);
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
-			result.current.deleteListingMutate('test-access-token');
+			result.current.handleDeleteListingButtonClick();
+
 			await waitForNextUpdate();
 
 			// Assert
@@ -148,14 +147,15 @@ describe('useFetchListingDetails', () => {
 
 		it('should redirect to `/500` if mutation is not successful and the error is not a NotFound type of error', async () => {
 			// Arrange
-			(deleteListing as unknown as jest.Mock).mockImplementation((id: string, accessToken: string) => Promise.reject());
+			(deleteListing as unknown as jest.Mock).mockImplementation((id: string) => Promise.reject());
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id, isAccessTokenLoaded), {
+			const { result, waitForNextUpdate } = renderHook(() => useFetchListingDetails(id), {
 				wrapper: QueryClientWrapper,
 			});
 
-			result.current.deleteListingMutate('test-access-token');
+			result.current.handleDeleteListingButtonClick();
+
 			await waitForNextUpdate();
 
 			// Assert

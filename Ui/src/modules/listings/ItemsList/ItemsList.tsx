@@ -1,4 +1,4 @@
-import { ItemData } from '@api/listings/types';
+import { ItemData } from '@api/webapi/listings/types';
 import { Grid } from '@chakra-ui/react';
 import { useMemo } from 'react';
 

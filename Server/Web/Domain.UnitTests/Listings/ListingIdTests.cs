@@ -8,8 +8,10 @@ public sealed class ListingIdTests
     [Fact(DisplayName = "Listing id cannot be an empty Guid.")]
     public void Listing_Id_Cannot_Be_An_Empty_Guid()
     {
+        // Arrange & Act
         var act = () => new ListingId(Guid.Empty);
 
+        // Assert
         act.Should()
            .ThrowExactly<DomainRuleException>()
            .WithMessage("Listing id cannot be an empty Guid.");

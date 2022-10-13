@@ -1,14 +1,8 @@
+import { UpdateListing } from '@modules/create-update-listing';
+import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
 import { render } from '@testing-library/react';
-import { useGetAccessToken } from '@utils/hooks';
 import { QueryClientWrapper } from '__tests__/wrappers';
 import { FieldMetaProps } from 'formik';
-import { UpdateListing } from '@modules/create-update-listing';
-import INITIAL_VALUES from '@modules/create-update-listing/create-listing/constants';
-import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
-
-jest.mock('@utils/hooks', () => ({
-	useGetAccessToken: jest.fn(),
-}));
 
 jest.mock('@components/FormControl/hooks', () => ({
 	useCheckFormIsInvalid: jest.fn((meta: FieldMetaProps<unknown>) => ({})),
@@ -39,20 +33,12 @@ describe('UpdateListing', () => {
 	};
 
 	it('should match snapshot', () => {
-		// Arrange
-		const data: string = 'test-data';
-
-		(useGetAccessToken as unknown as jest.Mock).mockImplementation(() => ({
-			isFetched: true,
-			data,
-		}));
-
-		//Act
-		const { container } = render(<UpdateListing accessToken={accessToken} id={id} initialValues={initialValues} />, {
+		// Arrange & Act
+		const { container } = render(<UpdateListing id={id} initialValues={initialValues} />, {
 			wrapper: QueryClientWrapper,
 		});
 
-		//Assert
+		// Assert
 		expect(container).toMatchSnapshot();
 	});
 });

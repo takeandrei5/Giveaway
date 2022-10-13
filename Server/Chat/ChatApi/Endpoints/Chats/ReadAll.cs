@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Chats;
 
-[Route("/chatapi/chats")]
+[Route("/api/chatapi/chats")]
 [AllowAnonymous]
 public sealed class ReadAll : EndpointBaseAsync.WithoutRequest.WithActionResult<ReadAllResponse>
 {

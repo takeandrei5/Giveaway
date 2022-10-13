@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 
 import { CategoryProps } from './types';
 
-const Category = ({ name, image, category }: CategoryProps) => {
+const Category = ({ name, image, category }: CategoryProps): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const categoryState = useAppSelector((state) => state.changeCategory);
 

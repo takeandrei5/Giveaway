@@ -1,12 +1,12 @@
 import { Redirect } from 'next';
 import { QueryFunction } from 'react-query';
 
-import { ForbiddenError, NotFoundError } from './errors';
+import { BadRequestError, ForbiddenError, NotFoundError } from './errors';
 import queryClient from './queryClient';
 
 const tryFetchQuery = async (
-	queryKey: unknown[],
-	queryFn: QueryFunction<unknown, unknown[]>
+	queryKey: string[],
+	queryFn: QueryFunction<unknown, string[]>
 ): Promise<{ redirect: Redirect } | undefined> => {
 	try {
 		await queryClient.fetchQuery(queryKey, queryFn);
@@ -40,4 +40,12 @@ const tryFetchQuery = async (
 	}
 };
 
-export { tryFetchQuery };
+const checkArgumentForNullish = <T>(argument: T | undefined, errorMessage: string): T => {
+	if (!argument) {
+		throw new BadRequestError(errorMessage);
+	}
+
+	return argument as T;
+};
+
+export { checkArgumentForNullish, tryFetchQuery };

@@ -16,13 +16,26 @@ const customJestConfig = {
 	testEnvironment: 'jsdom',
 	clearMocks: true,
 	moduleNameMapper: {
-		'^@api/(.*)$': '<rootDir>/src/api/$1',
+		// WebApi Listings
+		'^@api/webapi/listings/server-side': '<rootDir>/src/api/webapi/listings/server-side',
+		'^@api/webapi/listings/client-side': '<rootDir>/src/api/webapi/listings/client-side',
+		'^@api/webapi/listings/(.*)$': '<rootDir>/src/api/webapi/listings/$1',
+		// WebApi Users
+		'^@api/webapi/users/server-side': '<rootDir>/src/api/webapi/users/server-side',
+		'^@api/webapi/users/(.*)$': '<rootDir>/src/api/webapi/users/$1',
+		// ChatApi Users
+		'^@api/chatapi/users/server-side': '<rootDir>/src/api/chatapi/users/server-side',
+		// UI Components, Modules and Routes
 		'^@components$': '<rootDir>/src/components',
 		'^@components/(.*)$': '<rootDir>/src/components/$1',
 		'^@layouts$': '<rootDir>/src/layouts',
 		'^@modules$': '<rootDir>/src/modules',
 		'^@modules/(.*)$': '<rootDir>/src/modules/$1',
 		'^@redux/(.*)$': '<rootDir>/src/redux/$1',
+		'^@routes/nextapi/listings$': '<rootDir>/src/routes/nextapi/listings',
+		'^@routes/nextapi/users$': '<rootDir>/src/routes/nextapi/users',
+		'^@routes/webapi/listings$': '<rootDir>/src/routes/webapi/listings',
+		'^@routes/webapi/users$': '<rootDir>/src/routes/webapi/users',
 		'^@pages/(.*)$': '<rootDir>/src/pages/$1',
 		'^@utils/(.*)$': '<rootDir>/src/utils/$1',
 		'^__tests__/(.*)$': '<rootDir>/__tests__/$1',

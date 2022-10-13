@@ -13,8 +13,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps): JSX.Element => (
 			flexDirection='column'
 			minHeight='100%'
 			marginX='auto'
-			paddingX='18rem'
-			paddingY='5rem'
+			paddingX={64}
+			paddingY={16}
 			width='100%'>
 			{children}
 		</Flex>

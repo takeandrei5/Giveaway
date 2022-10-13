@@ -1,25 +1,24 @@
-import { updateListing } from '@api/listings';
-import { UpdateListingRequest } from '@api/listings/types';
-import { useCreateListing } from '@modules/create-update-listing/create-listing/hooks';
+import { updateListing } from '@api/webapi/listings/client-side';
+import { UpdateListingRequest } from '@api/webapi/listings/types';
 import { FormContainer } from '@modules/create-update-listing/shared';
+import { useUpdateListing } from '@modules/create-update-listing/update-listing/hooks';
+import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
 import { fireEvent, render } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { axiosCdnInstance } from '@utils/axios';
+import { NotFoundError } from '@utils/errors';
 import { QueryClientWrapper } from '__tests__/wrappers';
 import MockAdapter from 'axios-mock-adapter';
 import { useRouter } from 'next/router';
-import { useUpdateListing } from '@modules/create-update-listing/update-listing/hooks';
-import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
-import { NotFoundError } from '@utils/errors';
 
 jest.mock('next/router', () => ({
 	...jest.requireActual('next/router'),
 	useRouter: jest.fn(),
 }));
 
-jest.mock('@api/listings', () => ({
-	...jest.requireActual('@api/listings'),
+jest.mock('@api/webapi/listings/client-side', () => ({
+	...jest.requireActual('@api/webapi/listings/client-side'),
 	updateListing: jest.fn(),
 }));
 
@@ -67,9 +66,7 @@ describe('useUpdateListing', () => {
 	describe('useFormik', () => {
 		it('should redirect to `/listings` when the formik on submit is successful', async () => {
 			// Arrange
-			(updateListing as unknown as jest.Mock).mockImplementation(
-				(id: string, accessToken: string, data: UpdateListingRequest) => Promise.resolve()
-			);
+			(updateListing as unknown as jest.Mock).mockImplementation((id: string, data: UpdateListingRequest) => Promise.resolve());
 
 			axiosCdnInstanceMock.onPost().reply(200, {
 				result: {
@@ -78,17 +75,12 @@ describe('useUpdateListing', () => {
 			});
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, accessToken, initialValues), {
+			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, initialValues), {
 				wrapper: QueryClientWrapper,
 			});
 
 			const { container, getByTestId, getByRole } = render(
-				<FormContainer
-					formik={result.current.formik}
-					pageTitle='page-title'
-					submitButtonText='submit'
-					resetButtonText='reset'
-				/>,
+				<FormContainer formik={result.current.formik} pageTitle='page-title' submitButtonText='submit' resetButtonText='reset' />,
 				{ wrapper: QueryClientWrapper }
 			);
 
@@ -98,8 +90,6 @@ describe('useUpdateListing', () => {
 			fireEvent.change(container.querySelector('#description-input')!, { target: { value: 'Test Description' } });
 
 			await userEvent.click(getByRole('button', { name: /submit/i }));
-
-			await waitForNextUpdate();
 
 			// Assert
 			expect(route).toBe('/listings');
@@ -107,8 +97,8 @@ describe('useUpdateListing', () => {
 
 		it('should redirect to `/500` when the formik on submit is not successful', async () => {
 			// Arrange
-			(updateListing as unknown as jest.Mock).mockImplementation(
-				(id: string, accessToken: string, data: UpdateListingRequest) => Promise.reject()
+			(updateListing as unknown as jest.Mock).mockImplementation((id: string, accessToken: string, data: UpdateListingRequest) =>
+				Promise.reject()
 			);
 
 			axiosCdnInstanceMock.onPost().reply(200, {
@@ -118,17 +108,12 @@ describe('useUpdateListing', () => {
 			});
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, accessToken, initialValues), {
+			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, initialValues), {
 				wrapper: QueryClientWrapper,
 			});
 
 			const { container, getByTestId, getByRole } = render(
-				<FormContainer
-					formik={result.current.formik}
-					pageTitle='page-title'
-					submitButtonText='submit'
-					resetButtonText='reset'
-				/>,
+				<FormContainer formik={result.current.formik} pageTitle='page-title' submitButtonText='submit' resetButtonText='reset' />,
 				{ wrapper: QueryClientWrapper }
 			);
 
@@ -138,8 +123,6 @@ describe('useUpdateListing', () => {
 			fireEvent.change(container.querySelector('#description-input')!, { target: { value: 'Test Description' } });
 
 			await userEvent.click(getByRole('button', { name: /submit/i }));
-
-			await waitForNextUpdate();
 
 			// Assert
 			expect(route).toBe('/500');
@@ -147,11 +130,9 @@ describe('useUpdateListing', () => {
 
 		it('should redirect to `/404` when the formik on submit is not successful and the error is NotFoundError', async () => {
 			// Arrange
-			(updateListing as unknown as jest.Mock).mockImplementation(
-				(id: string, accessToken: string, data: UpdateListingRequest) => {
-					throw new NotFoundError();
-				}
-			);
+			(updateListing as unknown as jest.Mock).mockImplementation((id: string, accessToken: string, data: UpdateListingRequest) => {
+				throw new NotFoundError();
+			});
 
 			axiosCdnInstanceMock.onPost().reply(200, {
 				result: {
@@ -160,17 +141,12 @@ describe('useUpdateListing', () => {
 			});
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, accessToken, initialValues), {
+			const { result, waitForNextUpdate } = renderHook(() => useUpdateListing(id, initialValues), {
 				wrapper: QueryClientWrapper,
 			});
 
 			const { container, getByTestId, getByRole } = render(
-				<FormContainer
-					formik={result.current.formik}
-					pageTitle='page-title'
-					submitButtonText='submit'
-					resetButtonText='reset'
-				/>,
+				<FormContainer formik={result.current.formik} pageTitle='page-title' submitButtonText='submit' resetButtonText='reset' />,
 				{ wrapper: QueryClientWrapper }
 			);
 
@@ -180,8 +156,6 @@ describe('useUpdateListing', () => {
 			fireEvent.change(container.querySelector('#description-input')!, { target: { value: 'Test Description' } });
 
 			await userEvent.click(getByRole('button', { name: /submit/i }));
-
-			await waitForNextUpdate();
 
 			// Assert
 			expect(route).toBe('/404');

@@ -2,7 +2,7 @@ using Giveaway.Chat.Application.UseCases.Users.CreateUser;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Users;
 
-[Route("/chatapi/users")]
+[Route("/api/chatapi/users")]
 public sealed class Create : EndpointBaseAsync.WithoutRequest.WithActionResult
 {
     private readonly Command _command;

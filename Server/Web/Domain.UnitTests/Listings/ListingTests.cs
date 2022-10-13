@@ -11,6 +11,7 @@ public sealed class ListingTests
     [Fact(DisplayName = "Images list cannot be an empty list.")]
     public void Images_list_Cannot_Be_An_Empty_List()
     {
+        // Arrange & Act
         var act = () => new Listing(It.IsAny<ListingId>(),
             It.IsAny<ListingTitle>(),
             It.IsAny<ListingDescription>(),
@@ -18,6 +19,7 @@ public sealed class ListingTests
             Enumerable.Empty<ListingImage>(),
             It.IsAny<Category>());
 
+        // Assert
         act.Should()
            .ThrowExactly<DomainRuleException>()
            .WithMessage("Images list cannot be an empty list.");

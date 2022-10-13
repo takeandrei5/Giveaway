@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Web.WebApi.Endpoints.Listings;
 
-[Route("/api/listings")]
+[Route("/api/webapi/listings")]
 [AllowAnonymous]
 public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.WithActionResult<ReadAllResponse>
 {

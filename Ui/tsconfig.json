@@ -16,10 +16,19 @@
 		"incremental": true,
 		"baseUrl": ".",
 		"paths": {
-			"@api/listings": ["src/api/listings/index.ts"],
-			"@api/listings/types": ["src/api/listings/types.ts"],
-			"@api/users": ["src/api/users/index.ts"],
-			"@api/users/types": ["src/api/users/types.ts"],
+			/* WebApi Listings API */
+			"@api/webapi/listings/server-side": ["src/api/webapi/listings/server-side/index.ts"],
+			"@api/webapi/listings/client-side": ["src/api/webapi/listings/client-side/index.ts"],
+			"@api/webapi/listings/types": ["src/api/webapi/listings/types.ts"],
+
+			/* WebApi Users API */
+			"@api/webapi/users/server-side": ["src/api/webapi/users/server-side/index.ts"],
+			"@api/webapi/users/client-side": ["src/api/webapi/users/client-side/index.ts"],
+			"@api/webapi/users/types": ["src/api/webapi/users/types.ts"],
+
+			/* ChatApi Users API */
+			"@api/chatapi/users/server-side": ["src/api/chatapi/users/server-side/index.ts"],
+
 			"@components": ["src/components/index.tsx"],
 			"@components/*": ["src/components/*"],
 			"@layouts": ["src/layouts/index.tsx"],
@@ -27,6 +36,7 @@
 			"@modules/*": ["src/modules/*"],
 			"@pages/*": ["src/pages/*"],
 			"@redux/*": ["src/redux/*"],
+			"@routes/*": ["src/routes/*"],
 			"@utils/*": ["src/utils/*"]
 		}
 	},

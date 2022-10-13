@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 
 const axiosInstance: AxiosInstance = axios.create({
-	baseURL: serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl,
+	baseURL: serverRuntimeConfig.baseURL || publicRuntimeConfig.baseURL,
 	validateStatus: (status: number) => status < 500,
 });
 
@@ -40,6 +40,4 @@ export function handleDates(body: any): void {
 	}
 }
 
-export { axiosCdnInstance };
-
-export default axiosInstance;
+export { axiosCdnInstance, axiosInstance };

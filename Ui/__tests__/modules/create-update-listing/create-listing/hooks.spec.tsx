@@ -1,5 +1,5 @@
-import { createListing } from '@api/listings';
-import { CreateListingRequest } from '@api/listings/types';
+import { createListing } from '@api/webapi/listings/client-side';
+import { CreateListingRequest } from '@api/webapi/listings/types';
 import { useCreateListing } from '@modules/create-update-listing/create-listing/hooks';
 import { FormContainer } from '@modules/create-update-listing/shared';
 import { fireEvent, render } from '@testing-library/react';
@@ -15,8 +15,8 @@ jest.mock('next/router', () => ({
 	useRouter: jest.fn(),
 }));
 
-jest.mock('@api/listings', () => ({
-	...jest.requireActual('@api/listings'),
+jest.mock('@api/webapi/listings/client-side', () => ({
+	...jest.requireActual('@api/webapi/listings/client-side'),
 	createListing: jest.fn(),
 }));
 
@@ -56,9 +56,7 @@ describe('useCreateListing', () => {
 	describe('useFormik', () => {
 		it('should redirect to `/listings` when the formik on submit is successful', async () => {
 			// Arrange
-			(createListing as unknown as jest.Mock).mockImplementation((accessToken: string, data: CreateListingRequest) =>
-				Promise.resolve()
-			);
+			(createListing as unknown as jest.Mock).mockImplementation((data: CreateListingRequest) => Promise.resolve());
 
 			axiosCdnInstanceMock.onPost().reply(200, {
 				result: {
@@ -67,17 +65,12 @@ describe('useCreateListing', () => {
 			});
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useCreateListing(accessToken), {
+			const { result, waitForNextUpdate } = renderHook(() => useCreateListing(), {
 				wrapper: QueryClientWrapper,
 			});
 
 			const { container, getByTestId, getByRole } = render(
-				<FormContainer
-					formik={result.current.formik}
-					pageTitle='page-title'
-					submitButtonText='submit'
-					resetButtonText='reset'
-				/>,
+				<FormContainer formik={result.current.formik} pageTitle='page-title' submitButtonText='submit' resetButtonText='reset' />,
 				{ wrapper: QueryClientWrapper }
 			);
 
@@ -87,8 +80,6 @@ describe('useCreateListing', () => {
 			fireEvent.change(container.querySelector('#description-input')!, { target: { value: 'Test Description' } });
 
 			await userEvent.click(getByRole('button', { name: /submit/i }));
-
-			await waitForNextUpdate();
 
 			// Assert
 			expect(route).toBe('/listings');
@@ -96,9 +87,7 @@ describe('useCreateListing', () => {
 
 		it('should redirect to `/500` when the formik on submit is not successful', async () => {
 			// Arrange
-			(createListing as unknown as jest.Mock).mockImplementation((accessToken: string, data: CreateListingRequest) =>
-				Promise.reject()
-			);
+			(createListing as unknown as jest.Mock).mockImplementation((data: CreateListingRequest) => Promise.reject());
 
 			axiosCdnInstanceMock.onPost().reply(200, {
 				result: {
@@ -107,17 +96,12 @@ describe('useCreateListing', () => {
 			});
 
 			// Act
-			const { result, waitForNextUpdate } = renderHook(() => useCreateListing(accessToken), {
+			const { result, waitForNextUpdate } = renderHook(() => useCreateListing(), {
 				wrapper: QueryClientWrapper,
 			});
 
 			const { container, getByTestId, getByRole } = render(
-				<FormContainer
-					formik={result.current.formik}
-					pageTitle='page-title'
-					submitButtonText='submit'
-					resetButtonText='reset'
-				/>,
+				<FormContainer formik={result.current.formik} pageTitle='page-title' submitButtonText='submit' resetButtonText='reset' />,
 				{ wrapper: QueryClientWrapper }
 			);
 
@@ -127,8 +111,6 @@ describe('useCreateListing', () => {
 			fireEvent.change(container.querySelector('#description-input')!, { target: { value: 'Test Description' } });
 
 			await userEvent.click(getByRole('button', { name: /submit/i }));
-
-			await waitForNextUpdate();
 
 			// Assert
 			expect(route).toBe('/500');

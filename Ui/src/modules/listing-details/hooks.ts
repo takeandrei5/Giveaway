@@ -1,26 +1,31 @@
-import { deleteListing, fetchListing } from '@api/listings';
-import { FetchListingDetailsResponse, ListingInformation, OwnerInformation } from '@api/listings/types';
+import { deleteListing, fetchListing } from '@api/webapi/listings/client-side';
+import { FetchListingDetailsResponse } from '@api/webapi/listings/types';
 import { NotFoundError } from '@utils/errors';
 import { NextRouter, useRouter } from 'next/router';
-import { useMutation, useQuery } from 'react-query';
+import { QueryFunctionContext, useMutation, useQuery } from 'react-query';
 
-const useFetchListingDetails = (id: string, isAccessTokenLoaded: boolean) => {
+import { UseFetchListingDetailsResult } from './types';
+
+const useFetchListingDetails = (id: string): UseFetchListingDetailsResult => {
 	const router: NextRouter = useRouter();
 
-	const { isLoading, data } = useQuery(['fetchListing', id], () => fetchListing(id), {
-		onSuccess: (data: FetchListingDetailsResponse | undefined) => {
-			if (!data) {
+	const { isLoading, data } = useQuery(
+		['fetchListing', id],
+		async ({ signal }: QueryFunctionContext<string[], unknown>) => await fetchListing(id, signal),
+		{
+			onSuccess: (data: FetchListingDetailsResponse | undefined) => {
+				if (!data) {
+					router.replace('/404');
+				}
+			},
+			onError: (err) => {
+				console.error(err);
 				router.replace('/404');
-			}
-		},
-		onError: (err) => {
-			console.error(err);
-			router.replace('/404');
-		},
-		enabled: !!isAccessTokenLoaded,
-	});
+			},
+		}
+	);
 
-	const { mutate: deleteListingMutate } = useMutation((accessToken: string) => deleteListing(id, accessToken), {
+	const { mutate: deleteListingMutate } = useMutation(() => deleteListing(id), {
 		onSuccess: () => router.replace('/listings'),
 		onError: (err) => {
 			console.error(err);
@@ -35,7 +40,13 @@ const useFetchListingDetails = (id: string, isAccessTokenLoaded: boolean) => {
 		},
 	});
 
-	return { isLoading, ...data!, deleteListingMutate };
+	const handleBackButtonClick = () => router.push('/listings');
+
+	const handleUpdateListingButtonClick = () => router.push(`/update-listing/${id}`);
+
+	const handleDeleteListingButtonClick = (): void => deleteListingMutate();
+
+	return { isLoading, ...data!, handleBackButtonClick, handleDeleteListingButtonClick, handleUpdateListingButtonClick };
 };
 
 export { useFetchListingDetails };

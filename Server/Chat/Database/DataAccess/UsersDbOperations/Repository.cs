@@ -26,14 +26,22 @@ public sealed class Repository : IUserRepository
     public async Task<Result<UserInformation, ForbiddenError>> FindUserByEmailAsync(string email,
         CancellationToken cancellationToken)
     {
-        var user = await _usersCollection.Find(user => user.Email == email)
-           .SingleOrDefaultAsync(cancellationToken);
+        try
+        {
+            var user = await _usersCollection.Find(user => user.Email == email)
+               .SingleOrDefaultAsync(cancellationToken);
 
-        if (user is null)
-            return new ForbiddenError($"User onboarding issue for email {email}")
-               .AsError<UserInformation, ForbiddenError>();
+            if (user is null)
+                return new ForbiddenError($"User onboarding issue for email {email}")
+                   .AsError<UserInformation, ForbiddenError>();
 
-        return _mapper.Map<UserInformation>(user).AsSuccess<UserInformation, ForbiddenError>();
+            return _mapper.Map<UserInformation>(user).AsSuccess<UserInformation, ForbiddenError>();
+        } catch (Exception ex)
+        {
+
+        }
+
+        return null;
     }
 
     public async Task CreateUserAsync(UserInformation user, CancellationToken cancellationToken) =>

@@ -1,5 +1,5 @@
-import { createListing } from '@api/listings';
-import { CreateListingRequest } from '@api/listings/types';
+import { createListing } from '@api/webapi/listings/client-side';
+import { CreateListingRequest } from '@api/webapi/listings/types';
 import { FormikProps, useFormik } from 'formik';
 import { NextRouter, useRouter } from 'next/router';
 import { useMutation } from 'react-query';
@@ -7,22 +7,20 @@ import { useMutation } from 'react-query';
 import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
 import INITIAL_VALUES from './constants';
+import { UseCreateListingResult } from './types';
 
-const useCreateListing = (accessToken: string) => {
+const useCreateListing = (): UseCreateListingResult => {
 	const router: NextRouter = useRouter();
 
-	const { mutate: createListingMutate } = useMutation(
-		(data: CreateListingRequest) => createListing(accessToken, data),
-		{
-			onSuccess: () => {
-				router.replace('/listings');
-			},
-			onError: (err) => {
-				console.error(err);
-				router.replace('/500');
-			},
-		}
-	);
+	const { mutate: createListingMutate } = useMutation((data: CreateListingRequest) => createListing(data), {
+		onSuccess: () => {
+			router.replace('/listings');
+		},
+		onError: (err) => {
+			console.error(err);
+			router.replace('/500');
+		},
+	});
 
 	const formik: FormikProps<FormikValues> = useFormik<FormikValues>({
 		initialValues: INITIAL_VALUES,

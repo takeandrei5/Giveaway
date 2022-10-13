@@ -15,6 +15,9 @@ public static partial class ServicesExtensions
         // Messages
         services.AddCreateMessageUseCase();
         services.AddReadMessagesByTargetEmailUseCase();
+
+        // Users
+        services.AddCreateUserUseCase();
     }
 
     public static void AddReaders(this IServiceCollection services) =>

@@ -7,8 +7,8 @@ const SortingDropdown = ({ id, name, options, onChangeHandler, value }: SortingD
 	const darkOrLightColor: 'dark' | 'light' = useColorModeValue('dark', 'light');
 
 	return (
-		<Flex marginTop='1rem'>
-			<Flex alignItems='center' direction='row' marginLeft='auto' columnGap='0.625rem'>
+		<Flex marginTop={4}>
+			<Flex alignItems='center' direction='row' marginLeft='auto' columnGap={3}>
 				<Typography variant='input' color={darkOrLightColor}>
 					Sort by:
 				</Typography>

@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { MessagesModule } from '@modules/messages';
 import { NextPage } from 'next';
 import { useLayoutEffect } from 'react';
@@ -9,5 +10,7 @@ const MessagesPage: NextPage = () => {
 
 	return <MessagesModule />;
 };
+
+export const useServerSideProps = withPageAuthRequired();
 
 export default MessagesPage;

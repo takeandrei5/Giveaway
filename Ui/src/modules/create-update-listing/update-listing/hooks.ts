@@ -1,5 +1,5 @@
-import { updateListing } from '@api/listings';
-import { UpdateListingRequest } from '@api/listings/types';
+import { updateListing } from '@api/webapi/listings/client-side';
+import { UpdateListingRequest } from '@api/webapi/listings/types';
 import { UpdateListingInitialValues } from '@pages/update-listing/[id]/types';
 import { MAX_IMAGES } from '@utils/constants';
 import { NotFoundError } from '@utils/errors';
@@ -11,25 +11,22 @@ import { v4 as uuidv4 } from 'uuid';
 import { FormikValues, ImageFormikValue } from '../shared/types';
 import { validationSchema } from '../shared/validators';
 
-const useUpdateListing = (id: string, accessToken: string, initialValues: UpdateListingInitialValues) => {
+const useUpdateListing = (id: string, initialValues: UpdateListingInitialValues) => {
 	const router: NextRouter = useRouter();
 
-	const { mutate: updateListingMutate } = useMutation(
-		(data: UpdateListingRequest) => updateListing(id, accessToken, data),
-		{
-			onSuccess: () => router.replace('/listings'),
-			onError: (err) => {
-				console.error(err);
+	const { mutate: updateListingMutate } = useMutation((data: UpdateListingRequest) => updateListing(id, data), {
+		onSuccess: () => router.replace('/listings'),
+		onError: (err) => {
+			console.error(err);
 
-				if (err instanceof NotFoundError) {
-					router.replace('/404');
+			if (err instanceof NotFoundError) {
+				router.replace('/404');
 
-					return;
-				}
-				router.replace('/500');
-			},
-		}
-	);
+				return;
+			}
+			router.replace('/500');
+		},
+	});
 
 	const fillArray = (): string[] => {
 		const newArray = [...initialValues.images];

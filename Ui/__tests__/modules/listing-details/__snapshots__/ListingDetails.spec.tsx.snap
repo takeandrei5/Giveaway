@@ -30,12 +30,12 @@ exports[`ListingDetails should match snapshot 1`] = `
               color="white"
               fill="currentColor"
               focusable="false"
-              height="1rem"
+              height="1em"
               stroke="currentColor"
               stroke-width="0"
               style="color: white;"
               viewBox="0 0 24 24"
-              width="1rem"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Chat.ChatApi.Endpoints.Messages;
 
-[Route("/chatapi/messages")]    
+[Route("/api/chatapi/messages")]    
 public sealed class ReadAll : EndpointBaseAsync.WithRequest<ReadAllRequest>.WithActionResult<ReadAllResponse>
 {
     private readonly Command _command;

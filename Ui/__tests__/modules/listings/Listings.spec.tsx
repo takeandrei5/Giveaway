@@ -54,14 +54,14 @@ describe('Listings', () => {
 
 	it('should execute onChangeHandler correctly', async () => {
 		// Arrange
-		const setSortMock = jest.fn<void, [val: SortingType]>();
+		const handleSortingDropdownChangeMock = jest.fn<void, [val: SortingType]>();
 
 		(useInfiniteFetchListings as unknown as jest.Mock).mockImplementation(() => ({
 			isLoading: false,
 			totalData: [],
 			nextData: {},
 			sort: 'Title ASC',
-			setSort: setSortMock,
+			handleSortingDropdownChange: handleSortingDropdownChangeMock,
 			refetchListings: jest.fn(),
 		}));
 
@@ -71,7 +71,7 @@ describe('Listings', () => {
 		await userEvent.selectOptions(getByTestId('dropdown'), getByTestId('dropdown').querySelector('option')!.value);
 
 		// Assert
-		expect(setSortMock).toHaveBeenCalledTimes(1);
+		expect(handleSortingDropdownChangeMock).toHaveBeenCalledTimes(1);
 	});
 
 	describe('data refetching on scroll', () => {

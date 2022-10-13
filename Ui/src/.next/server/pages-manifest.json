@@ -1,0 +1,8 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/listings": "pages/listings.js",
+  "/api/auth/[...auth0]": "pages/api/auth/[...auth0].js",
+  "/api/nextapi/webapi/listings/fetchListings": "pages/api/nextapi/webapi/listings/fetchListings.js"
+}

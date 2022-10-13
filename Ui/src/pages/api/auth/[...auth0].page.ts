@@ -1,9 +1,10 @@
-import { createUser } from '@api/users';
-import { handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
+import { createUser as createChatApiUser } from '@api/chatapi/users/server-side';
+import { createUser as createWebApiUser } from '@api/webapi/users/server-side';
+import { getSession, handleAuth, handleCallback, Session } from '@auth0/nextjs-auth0';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const afterCallback = async (req: NextApiRequest, res: NextApiResponse, session: Session) => {
-	await createUser(session.accessToken!);
+const afterCallback = async (_: NextApiRequest, __: NextApiResponse, session: Session) => {
+	await createWebApiUser(session.accessToken!);
 
 	return session;
 };

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Giveaway.Web.WebApi.Endpoints.Listings;
 
-[Route("/api/listings/{id}")]
+[Route("/api/webapi/listings/{id}")]
 public sealed class Update : EndpointBaseAsync.WithRequest<UpdateRequest>.WithActionResult
 {
     private readonly Command _command;
